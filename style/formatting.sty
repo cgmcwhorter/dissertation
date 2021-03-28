@@ -1,0 +1,229 @@
+% -------------------
+% Headers/Footers
+% -------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+  % Headers
+     \fancyhead[OL]{}
+     \fancyhead[OC]{}
+     \fancyhead[OR]{\thepage}
+     \fancyhead[EL]{}
+     \fancyhead[EC]{}
+     \fancyhead[ER]{\thepage}
+     \headheight = 15pt
+     \renewcommand{\headrulewidth}{0pt}
+   % Footers
+     \fancyfoot[OL]{}
+     \fancyfoot[OC]{}
+     \fancyfoot[OR]{}
+     \fancyfoot[EL]{}
+     \fancyfoot[EC]{}
+     \fancyfoot[ER]{}
+     \footskip = 15pt
+     \renewcommand{\footrulewidth}{0.0pt}
+
+
+\fancypagestyle{empty}{
+\fancyhf{}
+  % Headers
+     \fancyhead[OL]{}
+     \fancyhead[OC]{}
+     \fancyhead[OR]{}
+     \fancyhead[EL]{}
+     \fancyhead[EC]{}
+     \fancyhead[ER]{}
+     \headheight = 15pt
+     \renewcommand{\headrulewidth}{0pt}
+   % Footers
+     \fancyfoot[OL]{}
+     \fancyfoot[OC]{}
+     \fancyfoot[OR]{}
+     \fancyfoot[EL]{}
+     \fancyfoot[EC]{}
+     \fancyfoot[ER]{}
+     \footskip = 15pt
+     \renewcommand{\footrulewidth}{0.0pt}
+}
+\cfoot{} % Remove start chapter page number.
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+
+% -------------------
+% Abstract
+% -------------------
+\newcommand{\abstractTitle}{%
+\addcontentsline{toc}{chapter}{Abstract}
+     \begin{center} 
+	{\bfseries\huge Abstract} \vspace{\baselineskip}
+     \end{center}%
+}
+
+
+
+% -------------------
+% Title Page
+% -------------------
+%  Needs Author/Date Information Defined
+\usepackage{etoolbox} % Define Boolean
+\newbool{includeSUlogo}
+\newcommand{\titlePage}[4]{%
+\begin{nscenter}
+{\huge\bfseries #1} \par\vspace{1.5cm}
+
+by \par\vspace{0.5cm} \vfill
+
+{\bfseries #2} \par\vspace{2.0cm} \vfill
+
+\ifbool{includeSUlogo}{\includegraphics[width=0.3\textwidth]{frontmatter/title/syracuse_seal.jpg}\par\vspace{1.5cm}}{} \vfill
+
+Dissertation \par
+Submitted in partial fulfillment of the requirements for the degree of \par
+Doctor of Philosophy in Mathematics \par\vspace{2cm} \vfill
+
+Syracuse University \par
+#3 #4 \vfill
+\end{nscenter}%
+}
+
+
+
+% -------------------
+% Acknowledgements
+% -------------------
+\newcommand{\acknowledgements}{%
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\phantom{.} \hfill  {\bfseries\huge Acknowledgements} \hfill \phantom{.} 
+}
+
+
+
+% -------------------
+% Tables
+% -------------------
+
+% Table of Contents
+\newcommand{\mytableofcontents}{%
+   \begingroup
+   \let\cleardoublepage\clearpage
+   \addcontentsline{toc}{chapter}{Table of Contents}
+   \tableofcontents
+   \cleardoublepage
+   \endgroup
+}
+
+% List of Figures
+\newcommand{\mylistoffigures}{%
+   \begingroup
+   \let\cleardoublepage\clearpage
+   \addcontentsline{toc}{chapter}{\listfigurename}
+   \listoffigures
+   \cleardoublepage
+   \endgroup
+}
+
+% List of Tables
+\newcommand{\mylistoftables}{%
+   \begingroup
+   \let\cleardoublepage\clearpage
+   \addcontentsline{toc}{chapter}{\listtablename}
+   \listoftables
+   \cleardoublepage
+   \endgroup
+}
+
+
+
+% -------------------
+% BibTeX
+% -------------------
+\usepackage[
+	hyperref 	= true,      		% links to online documents
+  	backend  	= bibtex,    	% use bibtex instead of biber
+  	sorting  	= nyt,       		% sorts by (name, year, title)
+  	style  	= alphabetic 	% citations look like [Har77]
+]{biblatex}
+\addbibresource{bibliography/bib.bib}
+
+%\usepackage[short-journals,initials,nobysame]{amsrefs}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------
+
+%% -------------------
+%% Content
+%% -------------------
+%
+\usepackage{setspace}
+\doublespacing
+
+\usepackage[document]{ragged2e}
+%
+%With this setup, all parts of the document will be typeset left-justified (or "flush-left") rather than fully-justified. The term "all parts of the document" includes:
+%
+%regular material in the body of the document -- mostly, all paragraphs
+%all footnotes
+%all material in minipage environments
+%all p-type columns in tabular-like and array environments
+%all material in \parboxes
+%all material in \marginpar directives.
+
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+%\setlength{\parskip}{\baselineskip}
+%\setlength{\parskip}{1em}
+
+\usepackage{parskip}
+\parskip=\baselineskip %\advance\parskip by 0pt plus 2pt
+%
+%
+%
+%
+%
+% Footnote Size 9
+\makeatletter
+\renewcommand\footnotesize{%
+   \@setfontsize\footnotesize\@ixpt{11}%
+   \abovedisplayskip 8\p@ \@plus2\p@ \@minus4\p@
+   \abovedisplayshortskip \z@ \@plus\p@
+   \belowdisplayshortskip 4\p@ \@plus2\p@ \@minus2\p@
+   \def\@listi{\leftmargin\leftmargini
+               \topsep 4\p@ \@plus2\p@ \@minus2\p@
+               \parsep 2\p@ \@plus\p@ \@minus\p@
+               \itemsep \parsep}%
+   \belowdisplayskip \abovedisplayskip
+}
+\makeatother
+%
+%
+%
+%
+%
+%\part{}, \chapter{}, \section{}, \subsection{}, \subsubsection{}, \paragraph{}, \subparagraph{}.
+%
+%
+%
+%
+%
+%
+
+
+\newenvironment{nscenter}
+ {\parskip=0pt\par\nopagebreak\centering}
+ {\par\noindent\ignorespacesafterend}

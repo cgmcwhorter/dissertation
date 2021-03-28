@@ -1,0 +1,616 @@
+% !TEX root = ../../thesis.tex
+
+% Kenku -  On the Number of Q-lsomorphism Classes of Elliptic Curves in Each Q-lsogeny Class
+\subsection{Kenku -  On the Number of Q-lsomorphism Classes of Elliptic Curves in Each Q-lsogeny Class}
+
+
+\begin{thm}[Kenku, Thm 1]
+$Y_0(N)(\Q)$ is empty except for $N \leq 10$, and $N= 12, 13, 16, 18, 25$ (all of genus 0) 11, 14, 15, 17, 19, 21, 27, 37, 43, 67, and 163. 
+\end{thm}
+
+\begin{thm}[Kenku, Thm 2]
+There are at most eight $\Q$-isomorphism classes of elliptic curves in each $\Q$-isogeny class. 
+\end{thm}
+
+
+Let $C(E)$ denote the number of $\Q$-isomorphism classes of elliptic curves in the $\Q$-isogeny class of $E$. $C(E)$ is also the number of distinct $\Q$-rational cyclic subgroups of $E$ (including the identity subgroup). For a prime $p$, let $C_p(E)$ be the $p$ component of $C(E)$. We have the product formula $C(E)= \prod_p C_p(E)$. From the definition of $C(E)$ it is independent of the choice of the representative of the class; so also are the $p$-factors. By Manin's theorem $C_p(E)$ is bounded for each $p$ as $E$ varies over all the $\Q$-isogeny classes of elliptic curves. By considering $_pE$ as a $\Gal(\ov{\Q}/\Q)$-module and using Theorem 1, we have the following table for bounds $C_p$, of $C_p(E)$
+	\begin{table}[!ht]
+	\centering
+	\begin{tabular}{ccccccccccccc}
+	$p$ & 2 & 3 & 5 & 7 & 11 & 13 & 17 & 19 & 37 & 43 & 67 & 163 \\ 
+	$C_p$ & 8 & 4 & 3 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2
+	\end{tabular}
+	\end{table}
+and $C_p= 1$ for all other primes. 
+
+
+
+
+% A HEURISTIC FOR BOUNDEDNESS OF RANKS OF ELLIPTIC CURVES JENNIFER PARK, BJORN POONEN, JOHN VOIGHT, AND MELANIE MATCHETT WOOD
+\subsection{A HEURISTIC FOR BOUNDEDNESS OF RANKS OF ELLIPTIC CURVES JENNIFER PARK, BJORN POONEN, JOHN VOIGHT, AND MELANIE MATCHETT WOOD}
+
+
+\begin{thm}[Thm 1]
+For each elliptic curve $E$ over $\Q$, independently choose a random matrix $A_E$ according to the model defined above, and let $\rank_E'$ denote the random variable $\rank(\ker A_E)$. Then the following hold with probability 1:
+	\begin{enumerate}[(a)]
+	\item All but finitely many $E$ satisfy $\rank_E' \leq 21$.
+	\item For $1 \leq r \leq 20$, we have $\#\{ E \colon \height E \leq H \text{ and } \rank_E' \geq r \} = H^{(21-r)/24 + o(1)}$.
+	\item We have $\#\{ E \colon \height E \leq H \text{ and } \rank_E' \geq 21 \} \leq H^{o(1)}$. 
+	\end{enumerate}
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ON THE UBIQUITY OF TRIVIAL TORSION ON ELLIPTIC CURVES ENRIQUE GONZA ́LEZ-JIME ́NEZ AND JOSE ́ M. TORNERO
+\subsection{ ON THE UBIQUITY OF TRIVIAL TORSION ON ELLIPTIC CURVES ENRIQUE GONZALEZ-JIMENEZ AND JOSE M. TORNERO}
+
+
+Write $E_{(A,B)}: Y^2= X^3 + AX + B$ and provided $\Delta \neq 0$, we will denote by $E_{(A,B)}(\Q)[m]$ the group of points $P \in E_{(A,B)}(\Q)$ such that $[m]P= \cO$. Let us write as well
+	\[
+	\begin{aligned}
+	\cC(M)&= \{ (A,B) \in \Z^2 \colon \Delta= -16(4A^3 + 27B^2) \neq 0, |A|, |B| \leq M \} \\
+	\cT_p(M)&= \{ (A,B) \in \cC(M) \colon E_{(A,B)}(\Q)[p] \neq \{ \cO \} \} \\
+	\cT(M)&= \bigcup_{p \text{ prime}} \cT_p(M)
+	\end{aligned}
+	\]
+
+
+\begin{thm}[Thm 1]
+With the notations above,
+	\[
+	\lim_{M \to \infty} \dfrac{|\cT(M)|}{|\cC(M)|}= 0.
+	\]
+\end{thm}
+
+
+First, note that, for a given $A$ with $|A| \leq M$ there are, at most, two possible choices for $B$ such that $\Delta= 0$ (and hence, the corresponding curve $E_{(A,B)}$ is not an elliptic curve). Therefore
+	\[
+	|\cC(M)| \leq (2M + 1)^2 - 2(2M + 1)= 4M^2 - 1.
+	\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% FIELDS OF DEFINITION OF ELLIPTIC CURVES WITH PRESCRIBED TORSION PETER BRUIN AND FILIP NAJMAN
+\subsection{FIELDS OF DEFINITION OF ELLIPTIC CURVES WITH PRESCRIBED TORSION PETER BRUIN AND FILIP NAJMAN}
+
+
+\begin{thm}[1.1]
+Every elliptic curve over a quadratic field with a subgroup isomorphic to $C_{16}$ is a base change of an elliptic curve over $\Q$ with a subgroup isomorphic to $C_8$.
+\end{thm}
+
+
+\begin{thm}[1.2]
+If $E$ is an elliptic curve over a cubic field $K$ with a subgroup isomorphic to $C_2 \times C_{14}$, then $K$ is normal over $\Q$ and $E$ is a base change of an elliptic curve over $\Q$. 
+\end{thm}
+
+
+
+
+
+
+% ON THE COMPOSITUM OF ALL DEGREE d EXTENSIONS OF A NUMBER FIELD ITAMAR GAL AND ROBERT GRIZZARD
+\subsection{ON THE COMPOSITUM OF ALL DEGREE d EXTENSIONS OF A NUMBER FIELD ITAMAR GAL AND ROBERT GRIZZARD}
+
+Let $k$ be a field. Throughout this paper, all extensions of $k$ will be assumed to lie in a fixed algebraic closure $\ov{k}$. We are interested in fields obtained by adjoining to $k$ all roots of irreducible polynomials of a given degree $d$. For any positive integer $d$ we will write
+	\[
+	\begin{aligned}
+	k^{[d]}&= k(\beta \vbar [k(\beta) \colon k]= d), \text{ and} \\
+	k^{(d)}&= k(\beta \vbar [k(\beta) \colon k] \leq d)= k^{[2]} k^{[3]} k^{[4]} \cdots k^{[d]}
+	\end{aligned}
+	\]
+We have $k^{[1]}= k^{(1)}= k$, and when $d>1$ it is clear that $k^{[d]}$ and $k^{(d)}$ are normal extensions of $k$. We are primarily interested in the case where $k$ is a number field, in which case these are infinite Galois extensions. When $d > 2$ it is natural to ask what polynomials of degree less than $d$ split in $k^{[d]}$. If $c < d$ and all irreducible polynomials of degree $c$ split in $k^{[d]}$, then $k^{[c]} \subseteq k^{[d]}$. Notice that this occurs in particular when $c$ divides $d$, since every degree $c$ extension admits a degree $d/c$ extension. If all polynomials of degree less than $d$ split in $k^{[d]}$, then $k^{[d]}= k^{(d)}$. 
+
+
+\begin{thm}[1]
+If $k$ is a number field, then
+	\begin{enumerate}[(a)]
+	\item $k^{[2]} \subseteq k^{[d]}$ for all $d \geq 2$,
+	\item $k^{[3]} \subseteq k^{[4]}$, and 
+	\item for each $d \geq 5$, there exists a prime $p < d$ such that $k^{[p]} \not\subseteq k^{[d]}$. 
+	\end{enumerate}
+\end{thm}
+
+
+The following corollary is immediate
+
+
+\begin{cor}[2]
+If $K$ is a number field, then $k^{[d]}= k^{(d)}$ if and only if $d < 5$. 
+\end{cor}
+
+
+\begin{dfn}
+We say an infinite extension $M$ of $k$ is bounded over $k$ (or that $M/k$ is bounded) if there exists a constant $c$ such that all finite subextensions of $M/k$ can be generated by elements of degree less than or equal to $c$. If there is no such $c$, we say that $M/k$ is unbounded. If all finite Galois subextensions of $M/k$ can be generated by elements of degree less than or equal to $c$, we say $M/k$ is Galois bounded; otherwise we say $M/k$ is Galois unbounded.
+\end{dfn}
+
+
+\begin{thm}[4]
+If $k$ is a number field, then $k^{[d]}$ is bounded over $k$ if and only if $d \leq 2$.
+\end{thm}
+
+
+\begin{thm}[5]
+If $k$ is any field and $p$ is a prime, then $k^{[p]}$ is Galois bounded over $k$. More precisely, all finite subextensions of $k^{[p]}/k$ can be generated by elements of degree at most $p$ over $k$.
+\end{thm}
+
+
+We will also establish the following partial converse to Theorem~5.
+
+\begin{thm}[6]
+If $k$ is a number field or global function field and $d > 2$, then $k^{[d]}/k$ is Galois
+unbounded in the following cases:
+	\begin{enumerate}[(a)]
+	\item $d$ is divisible by a square;
+	\item $d$ is divisible by two primes $p$ and $q$ such that $q \equiv 1 \mod p$.
+	\end{enumerate}
+In particular, this includes the case where $d$ is even and greater than 2.
+\end{thm}
+
+
+In terms of the fields $k^{(d)}$, Theorems 4, 5, and 6 immediately imply the following.
+
+
+\begin{cor}[7]
+Let $k$ be a number field. Then
+	\begin{enumerate}[(a)]
+	\item $k^{(2)}/k$ is bounded,
+	\item $k^{(3)}/k$ is Galois bounded but not bounded, and
+	\item $k^{(d)}/k$ is Galois unbounded for $d \geq 4$.
+	\end{enumerate}
+\end{cor}
+
+
+% On elliptic units and p-adic Galois representations attached to elliptic curves Alvaro Lozano-Robledo
+\subsection{On elliptic units and p-adic Galois representations attached to elliptic curves Alvaro Lozano-Robledo}
+
+The theory of elliptic curves has produced very interesting families of ``large'' Galois representations which codify arithmetic information about the given curve itself, interesting in its own right. Let $A$ be an elliptic curve over $\Q$, let $p$ be a prime, and let
+	\[
+	\ov{\rho}_A: \Gal(\ov{\Q}/\Q) \to \GL_2(\Z_p)
+	\]
+be the natural representation coming from the Tate module of $A$. In his famous paper [21], J.-P. Serre proved that the image of such representations is ``as large as possible'', meaning that, if the curve does not have complex multiplication, the image is an open subgroup of $\GL_2(\Z_p)$ and the representation is in fact surjective for almost all primes $p$.  In the case that the elliptic curve $A$ has complex multiplication by a quadratic imaginary field $K$, the image of $\ov{\rho}_A$ was studied in detail by M. Deuring [4], [5], Serre and J. Tate [22], and others.
+
+
+
+% BOUNDS FOR THE TORSION OF ELLIPTIC CURVES OVER EXTENSIONS WITH BOUNDED RAMIFICATION. ALVARO LOZANO-ROBLEDO BENJAMIN LUNDELL
+\subsection{BOUNDS FOR THE TORSION OF ELLIPTIC CURVES OVER EXTENSIONS WITH BOUNDED RAMIFICATION. ALVARO LOZANO-ROBLEDO BENJAMIN LUNDELL}
+
+
+\begin{thm}[2]
+Let $E/\Q$ be a semi-stable elliptic curve. Let $F/\Q$ be a finite Galois extension of degree $d > 7$. Let $K$ be the maximal unramified extension of $F$. Suppose that $P$ is a point of exact order $\ell^n$ for some prime number $\ell$ defined over $K$, then $\ell \leq d + 1$ and $\ell^n < \left(\frac{3}{2}\right)^4 (d+1)^2 d^4$ if $\ell$ is odd, or $2^n \leq 2^9 d^4$ if $\ell= 2$.
+\end{thm}
+
+
+Notice, in particular, that these bounds are polynomial in the degree $d$ of the
+extension $F/\Q$. Compare this to the celebrated results on the Uniform Boundedness
+Conjecture, proved by Merel in 1996 and improved by Parent in 1999, where the
+assumptions are much more general, but the bounds are exponential in $d$.
+
+
+\begin{thm}[3, Merel [8] Theorem, Parent [9] 1.3]
+Let $K$ be a number field of degree $[K \colon \Q]= d > 1$. Then
+	\begin{enumerate}[(1)]
+	\item (Merel, 1996) Let $E/K$ be an elliptic curve. If $E(K)$ contains a point of exact prime order $\ell$, then $\ell \leq d^{3d^2}$.\footnote{In [8], Merel claims that Oesterl\'e can lower this to $\ell \leq (1 + 3^{d/2})^2$.}
+	\item (Parent, 1999) If $P$ is a point of exact prime power order $\ell^n$, then
+		\begin{enumerate}[(a)]
+		\item $\ell^n \leq 65 (3^d - 1)(2d)^6$, if $\ell \geq 5$
+		\item $\ell^n \leq 65(5^d - 1)(2d)^6$, if $\ell= 3$
+		\item $\ell^n \leq 129(3^d - 1)(3d)^6$, if $\ell= 2$.
+		\end{enumerate}
+	\end{enumerate}
+\end{thm}
+
+
+
+Merel and Parent proved these results by extending methods of Kamienny and
+Mazur using the theory of Jacobian varieties and Hecke Algebras (see [1] for a survey
+of the work of Kamienny and Mazur).
+
+
+The improvement in Theorem 2 is not too surprising given that it applies only
+to semi-stable elliptic curves defined over $\Q$, as opposed to a general elliptic curve
+as in Theorem 3. Still, this difference is important because it quantifies how difficult
+it is for a semi-stable elliptic curve defined over $\Q$ to acquire torsion in an arbitrary
+degree $d$ number field.
+
+% They examine good reduction, bad multiplicative reduction in this paper, comment on that.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% DIVISION FIELDS OF ELLIPTIC CURVES WITH MINIMAL RAMIFICATION ALVARO LOZANO-ROBLEDO 
+\subsection{DIVISION FIELDS OF ELLIPTIC CURVES WITH MINIMAL RAMIFICATION ALVARO LOZANO-ROBLEDO}
+
+% Modular Curves - Weinstein 
+\subsection{Modular Curves - Weinstein}
+
+$\cH$ is the upper half plane, a complex manifold. It will be helpful to interpret $\cH$ in multiple ways.
+
+A lattice $\Lambda \subset \C$ is a free abelian group of rank 2, for which the map $\Lambda \otimes_\Z \R \to \C$ is an isomorphism. In other words, $\Lambda$ is a subgroup of $\C$ of the form $\Z\alpha \oplus \Z\beta$, where $\{\alpha, \beta\}$ is basis for $\C/\R$. Two lattices $\Lambda$ and $\Lambda'$ are homothetic if $\Lambda'= \theta\Lambda$ for some $\theta \in \C^*$. This is an equivalence relation, and the equivalence classes are homothety classes.
+
+
+Let’s consider $\C$ as an oriented real vector space, meaning we have a privileged basis of $\bigwedge^2 \C$ modulo scaling by a positive real number. Then an oriented basis of a lattice $\Lambda$ is a basis $\{a + bi, c + di\}$ with $ad - bc > 0$.
+
+
+Any lattice $\Lambda$ is homothetic to one of the form $\Z \oplus \Z\tau$, where $\tau \in \cH$. The following is very easy:
+
+
+\begin{prop} % 1.1.1
+The map $\tau \mapsto (\Z \oplus \Z\tau, \{1,\tau\})$ is a bijection between $\cH$ and the set of homothety classes of pairs $(\Lambda,\{\alpha,\beta\})$, where $\Lambda \subset \C$ is a lattice and $\{\alpha,\beta\}$ is an oriented basis for $\Lambda$. 
+\end{prop}
+
+
+If a lattice $\Lambda$ has two oriented bases $\{\alpha,\beta\}$ and $\{\gamma,\delta\}$, then the change of basis matrix between them lies in $\SL_2(\Z)$. The action of $\SL_2(\Z)$ on the set of oriented bases of a lattice corresponds to the action of $\SL_2(\Z)$ on $\cH$ by fractional linear transformations: 
+	\[
+	\begin{pmatrix} a & b \\ c & d \end{pmatrix} z= \dfrac{az + b}{cz + d}
+	\]
+In light of this, $\SL_2(\Z) \setminus \cH$ classifies the set of homothety classes of lattices in $\C$.
+
+
+One has to be a little careful with the quotient $\SL_2(\Z) \setminus \cH$ because two of the $\SL_2(\Z)$-orbits in $\cH$ have nontrivial stabilizer in $\PSL_2(\Z)$. These are $i$ and $e^{2\pi i/3}$, whose stabilizers in $\PSL_2(\Z)$ have orders 2 and 3, respectively. With some care, it is possible to give $\SL_2(\Z) \setminus \cH$ the structure of a complex manifold, rather than an orbifold. 
+
+
+\begin{prop} % 1.1.2
+The $j$-function
+	\[
+	j(\tau)= \dfrac{1}{q} + 744 + 196884q + 21493760q^2 + \cdots; q= e^{2\pi i \tau}
+	\]
+gives an isomorphism of complex manifolds $\SL_2(\Z) \setminus \cH \to \C$. 
+\end{prop}
+
+
+Informally, there are (at least) three ways of looking at an elliptic curve:
+	\begin{itemize}
+	\item An elliptic curve is a smooth projective curve of genus 1 over a field $K$,
+together with a rational base point $O \in E(K)$.
+	\item An elliptic curve is a smooth curve in projective space cut out by a
+Weierstrass equation 
+	\item An  elliptic curve is a complex torus of dimension 1, equal to the quotient
+$\C/\Lambda$ for some lattice $\Lambda \subset \C$.
+	\end{itemize}
+
+Of these, the first is the most powerful definition. The first and second are equivalent, and the first and third are equivalent when the base field is $\C$. It might be helpful to (very quickly) review these equivalences.
+
+
+Let $E/K$ be a smooth projective curve of genus 1, and let $O \in E(K)$ be a rational point. Recall that a divisor $D$ on a curve is a formal sub of points with $\Z$-coefficients, and if $D= \sum_P a_p[P]$ is a divisor, then $H(D)$ is the vector space of rational functions $f$ on the curve which satisfy $\ord_P(f) \geq -a_P$ for all $P$. We can use the Riemann-Roch theorem to compute the dimension of $H(n[O])$ for all $n \geq 0$: we have
+	\[
+	\dim H(n[O])= 
+	\begin{cases}
+	1, & n= 0,1 \\
+	n, & n \geq 2
+	\end{cases}
+	\]
+This means that $H(0)= H([O])= K$, $H(2[O])= \langle 1,x \rangle$ for some rational function $x$ with a double pole at $O$, and $H(3[O])= \langle 1,x,y \rangle$ for some other rational function $y$ with a triple pole at $O$. We have $\dim H(6[O])= 6$, and $H(6[O])$ contains $1,x,x^2,x^3,y,xy,y^2$, which must therefore be linearly dependent. The equation of linear dependence among these functions determines a Weierstrass equation for $E$. 
+
+
+Conversely, if $E/K$ is a smooth projective curve cut out by a Weierstrass equation, then $E$ has genus $3(3 - 1)/2= 1$, and the point at infinity is rational. Thus the first and second definitions are equivalent. 
+
+
+Now assume the base field is $\C$. If $E/\C$ is an elliptic curve, then $E(\C)$ is a Riemann surface of genus 1, and therefore the space $H^0(E(\C), \Omega^1)$ is 1-dimensional. Let $\omega$ be a basis vector. On the other hand, $\Lambda:= H_1(E(\Z),\Z)$ is a free $\Z$-module of rank 2. We have a map $\Lambda \to \C$ given by $\gamma \mapsto \int_\gamma \omega$, which induces an isomorphism $\Lambda \otimes_\Z \R \cong \C$. Thus $\Lambda$ is a lattice in $\C$, and we have an isomorphism of complex manifolds
+	\[
+	\begin{aligned}
+	E(C) &\to \C/\Lambda \\
+	P &\mapsto \int_O^P \omega
+	\end{aligned}
+	\]
+
+Conversely, if we are given a lattice $\Lambda \in \C$, we have the Weierstrass function $\wp_{\Lambda}(z)$, a $\Lambda$-periodic meromorphic function with a double pole at every point in $\Lambda$. Then $\wp_\Lambda$ satisfies a differential equation of the form
+	\[
+	[\wp_{\Lambda}(z)']^2= 4 \wp_\Lambda(z)^3 - g_2 \wp_\Lambda(z) - g_3
+	\]
+for constants $g_2$ and $g_3$ depending on $\Lambda$. The discriminant of the cubic polynomial on the right is nonzero, so that the above may be interpreted as a Weierstrass equation defining an elliptic curve $E/\C$. Then $z \mapsto (\wp_\Lambda(z), \wp_\Lambda'(z))$ is an isomorphism of complex manifolds between $C/\Lambda$ and $E(\C)$. 
+
+
+We can now give an interpretation of $\cH$ in terms of elliptic curves. Note that fi $E/\C$ is an elliptic curve, then $H_1(E(\C),\R)$ is an oriented vector space (under the intersection pairing), so that it makes sense to talk about a basis for $H_1(E(\C),\Z)$ being oriented. 
+
+
+\begin{prop} % 1.2.1
+$\cH$ classifies isomorphism classes of pairs $(E,\{\alpha,\beta\})$, where $E/\C$ is an elliptic curve and $\{\alpha,\beta\}$ is an oriented basis for $H_1(E(\C),\Z)$. The quotient $\SL_2(\Z) \setminus \cH$ classifies isomorphism classes of elliptic curves over $\C$. 
+\end{prop}
+
+
+Isomorphism classes of elliptic curves over $\C$ are in bijection with $\C$ itself. Is there an algebraic family of elliptic curves parametrized by the affine $j$-line $\A_j^1$, such that the fiber over $j= j_0$ is the elliptic curve with $j$-invariant $j_0$? This would mean a Weierstrass equation
+	\[
+	y^2= 4x^3 - g_2x - g_3
+	\]
+with $g_2,g_3 \in \C[j]$, which defines an elliptic curve for all $j \in \C$, and whose $j$-invariant is $j$. This means that the discriminant $\Delta$ must have no roots in $\C$, i.e. it is a scalar. The $j$-invariant is $1728g_2^3/\Delta$, which is a cube in $\C[j]$, so that it cannot equal $j$. Furthermore, $j - 1728= 1728 \cdot 27 g_3^2/\Delta$, which means that $j - 1728$ must be a square in $\C[j]$, another contradiction. 
+
+
+The above phenomena are quite related to the fact that the elliptic curves of $j$-invariants $j(e^{2\pi/3})= 0$ and $j(i)= 1728$ have extra automorphisms on top of the usual $\pm1$, by a factor of 3 and 2, respectively.
+
+
+We can resolve this problem by passing to a 6-fold cover of the $j$-line. Consider the Weierstrass equation
+	\[
+	y^2= x(x - 1)(x - \lambda)
+	\]
+which defines an elliptic curve $E_\lambda$ for $\lambda \in \P^1 \setminus \{0,1,\infty\}$ (the $\lambda$-line), together with a basis $\{(0,0), (1,0)\}$ for the 2-torsion of $E_\lambda$. It turns out that any elliptic curve over $\C$ equipped with a basis for its 2-torsion corresponds to a unique value of $\lambda$.
+
+
+The $j$-invariant of $E_\lambda$ is 
+	\[
+	j= 256\, \dfrac{(1 - \lambda + \lambda^2)^3}{\lambda^2(1 - \lambda)^2}
+	\]
+so that the $\lambda$-line is a 6 fold cover of the $j$-line, with ramification at $j= 0$ (with index 3) and $j= 1728$ (with index 2). 
+
+
+%Lecture1ModularCurves.pdf
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ON THE NUMBER OF ISOMORPHISM CLASSES OF CM ELLIPTIC CURVES DEFINED OVER A NUMBER FIELD - HARRIS B. DANIELS AND ALVARO LOZANO-ROBLEDO
+\subsection{ON THE NUMBER OF ISOMORPHISM CLASSES OF CM ELLIPTIC CURVES DEFINED OVER A NUMBER FIELD - HARRIS B. DANIELS AND ALVARO LOZANO-ROBLEDO}
+
+It is well known that there are only 13 isomorphism classes of elliptic curves defined over $\Q$ with complex multiplication ([Sil09], Appendix A, \S3), namely the curves with $j$-invariant in the list:
+	\[
+	\{ 0, 2^4 3^3 5^3, -2^{15} \cdot 3 \cdot 5^3, 2^6 3^3, 2^3 3^3 11^3, -3^3 5^3, 3^3 5^3 17^3, 2^6 5^3, -2^{15}, -2^{15} 3^3, -2^{18} 3^3 5^3, -2^{15} 3^3 5^3 11^3, -2^{18} 3^3 5^3 23^3 29^3 \}.
+	\]
+However, the number of CM $j$-invariants varies wildly depending on the choice of field of definition, even in the case of quadratic number fields (see Table 1). For a number field $L$, we will write $\Sigma(L)$ for the set of all CM $j$-invariants defined over $L$, but not defined over $\Q$, so that the total number of CM $j$-invariants defined over $L$
+is $13 + \#\Sigma(L)$. It is known that $\Sigma(L)$ is a finite set, for any number field $L$. In this article, we show the following simple bound for $\#\Sigma(L)$ when the degree of $L$ is odd.
+
+
+\begin{thm} % 1.1
+Let $L$ be a number field of odd degree. Then, $\#\Sigma(L) \leq 2 \log_3([L \colon \Q])$. In particular, the number of distinct CM $j$-invariants defined over $L$ is bounded by $13 + 2\log_3([L \colon \Q])$. 
+\end{thm}
+
+
+\begin{rem} % 1.2
+The simple bound given in Theorem 1.1 is essentially sharp. The bound is trivially sharp when $L= \Q$. Moreover, let $K= \Q(\sqrt{-3})$, and for any fixed $e \geq 1$, let $\cO_e$ be an order of $\cO_K$ with conductor $\ff= 2 \cdot 3^e$. Let $E_e$ be an elliptic curve with CM by $\cO$, and define $L_e= \Q(j(E_e))$. Then $[L_e \colon \Q]= 3^e$, and if follows from Theorem~1.3 that $\#\Sigma(L)= 2e - 1= 2\log_3([L_e \colon \Q]) - 1$, which is just one unit below the bound of Theorem~1.1. 
+\end{rem}
+
+
+Theorem 1.1 is a consequence of more refined bounds (Theorems 1.3 and 1.4; see Remark 1.5) which we discuss below after we provide some computational data (our calculations have been performed using Sage [S+14]; see also [Wat04] for some of the algorithms that Sage uses). For instance, we will show in Section 2 that, for a fixed
+quadratic number field $L= \Q(\sqrt{d})$, the number of elements in $\Sigma(L)$ is given as in Table~1. 
+
+
+In particular, $\Sigma(L)= \emptyset$ for all imaginary quadratic fields $L$, and in fact $\Sigma(L)= \emptyset$ for all but the 14 distinct real quadratic fields that appear in the table. Given a fixed integer $N \geq 2$, we write $\cO(N)$ for the set of all orders of class number $N$ in some imaginary quadratic field, and $\Sigma(N)$ for the set of CM $j$-invariants $j(E)$ such that $\Q(j(E))/\Q$ is an extension of degree $N$ (notice that $\#\Sigma(N)= N \cdot \#\cO(N)$). Finally, we write $\cL(N)$ for the set of all non-isomorphic fields $L= \Q(j(E))$, where $E$ is an elliptic curve with CM by an order of class number $N$ (thus, $\#\cO(N) \geq \#\cL(N)$ for all $N$), and we write $\fL(N)$ for the set of all number fields of degree $N$. Table~1 shows that $\#\Sigma(2)= 58$ (so $\#\cO(2)= 29$), and $\#\cL(2)= 14$. Notice that if $L/\Q$ is quadratic and contains a CM $j$-invariant $j(E)$ not defined over $\Q$, then $L= \Q(j(E))$, and so $L \in \cL(2)$. For similar reasons, if $N$ is prime, and $L$ is a number field of degree $N$ that contains a $j$-invariant $j(E)$ of class number $N$, then $L \in \cL(N)$, i.e., $L= \Q(j(E))$. 
+
+
+	\begin{table}[!ht]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+	$d$ & 2 & 3 & 5 & 6 & 7 & 13 & 17 & 21 & 29 & 33 & 37 & 41 & 61 & 89 & else \\ \hline
+	$\#\Sigma(\Q(\sqrt{d}))$ & 8 & 4 & 18 & 2 & 2 & 6 & 4 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 0 
+	\end{tabular}
+	\end{table}
+
+
+We record the sizes of $\cO(N), \Sigma(N), \cL(N)$ in Table~2, for $N= 1,\ldots, 11$, as well as the maximum number of elements of $\Sigma(L)$ for $L \in \cL(N)$, and also the maximum of $\Sigma(L)$ over all number fields $L$ of degree $N$ over $\Q$ (and not just those fields of the form $\Q(j(E))$). 
+
+
+	\begin{table}[!ht]
+	\centering
+	\begin{tabular}{c|cccccccccc}
+	$N$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ \hline
+	$\#\cO(N)$ & 29 & 25 & 84 & 29 & 101 & 38 & 208 & 55 & 123 & 46 \\ \hline
+	$\Sigma(N)$ & 58 & 75 & 336 & 145 & 606 & 266 & 1664 & 495 & 1230 & 506 \\ \hline
+	$\cL(N)$ & 14 & 23 & 72 & 25 & 96 & 32 & 202 & 50 & 114 & 42 \\ \hline
+	$\max\{\#\Sigma(\cL(N))\}$ & 18 & 2 & 42 & 2 & 22 & 2 & 84 & 3 & 22 & 2 \\ \hline
+	$\max\{\#\Sigma(\fL(N))\}$ & 18 & 2 & 42 & 2 & 22 & 2 & 84 & 4 & 22 & 2 
+	\end{tabular}
+	\end{table}
+
+% Table is The number of (a) order of class number $N$; (b) CM $j$-invariants $j(E)$ such that $\Q(j(E))$ is of degree $N$; fields $\Q(j(E))$ as in (b), up to isomorphism; (d) maximum $\#\Sigma(L)$ for $L$ as in (c); and maximum $\#\Sigma(L)$ for any $L$ of degree $N$. 
+
+In Table~2 and in the rest of the article, we use two abbreviations:
+	\[
+	\begin{aligned}
+	\max\{\#\Sigma(\cL(N))\}&:= \max\{\#\Sigma(L) \colon L \in \cL(N)\}= \max\{\#\Sigma(L) \colon [L \colon \Q]= N, L= \Q(j(E)) \text{ for some CM } j(E) \}, \\
+	\max\{\#\Sigma(\fL(N))\}&:= \max\{\#\Sigma(L) \colon L \in \fL(N)\}= \max\{\#\Sigma(L) \colon [L \colon \Q]= N \}
+	\end{aligned}
+	\]
+
+
+In this paper we give upper bounds for $\max\{\#\Sigma(\cL(N))\}$ and $\max\{\#\Sigma(\fL(N))\}$ when $N$ is odd. Our bounds are sharp, in the sense that we exhibit examples for arbitrarily large N that attain the bound (see Examples 5.4, 5.5, and 5.9). Our first intermediary result describes the number of CM $j$-invariants found in an extension of the form $L= \Q(j(E))$, where $E$ is itself an elliptic curve with complex multiplication by an order $\cO$ in an imaginary quadratic field $K$ (i.e., $L \in \cL(N)$, where $N$ is the class number of $\cO$).
+
+
+\begin{thm} % 1.3
+Let $j(E)$ be a $j$-invariant with CM by an order $\cO$ in an imaginary quadratic field $K$ of conductor $\ff$, and $j(E) \notin \Q$. Let $L= \Q(j(E))$, and suppose that $[L \colon \Q]= N > 1$ is odd. Let $\sigma_0(\ff)= \sum_{d \mid \ff} d^0$ be the number of positive divisors of $\ff$. Then, the number of $j$-invariants with CM defined over $L$ is
+	\[
+	13 + \sigma_0(\ff) - J(K)
+	\]
+if $\ff$ is even, or if 2 does not split completely in $K$, and $13 + \sigma_0(2\ff) - J(K)$, where $J(K)$ is the number of rational $j$-invariants of curves with CM by an order of $K$, i.e., 
+	\begin{table}[!ht]
+	\centering
+	\begin{tabular}{c|rrrrrrrrrr}
+	$d_K$ & $-3$ & $-4$ & $-7$ & $-8$ & $-11$ & $-19$ & $-43$ & $-67$ & $-163$ & else \\ \hline
+	$J(K)$ & 3 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 1 & 0
+	\end{tabular}
+	\end{table}
+where $d_K$ is the discriminant of $K$. 
+\end{thm}
+
+
+Our second and main result provides a bound for the number of CM $j$-invariants defined over any number field of odd degree $N$, in terms of the factorization of $N$. If we know the list of CM imaginary quadratic fields that intervene in $\Sigma(L)$, and the prime factorization of their class numbers, then we can significantly improve the bound on the number of CM $j$-invariants defined over $L$, but this finer data is not required, and we also obtain a bound that only depends on the factorization of $N$.
+
+
+\begin{thm} % 1.4
+Let $L/\Q$ be a number field of odd degree $N= p_1^{e_1} \cdots p_r^{e_r}$, and let $K_1, \ldots, K_t$ be the list of imaginary quadratic fields such that there is $j(E) \in \Sigma(L)$ where $E$ has CM by an order $K_i$, for some $i= 1,\ldots,t$. Further, let $h_i$ be the class number of $K_i$, and suppose that $h_i > 1$ for $i= 1,\ldots,s$ and $h_i= 1$ for $i= s+1,\ldots,t$. Then, 
+	\[
+	\#\Sigma(L) \leq 2s + 2 \sum_{j=1}^r \left(e_j - \sum_{i=1}^s f_{i,j} \right).
+	\]
+where $h_i= p_1^{f_{i,1}} \cdots p_r^{f_{i,r}}$. In particular, $\#\Sigma(L) \leq 2 \sum_{j=1}^r e_j$. 
+\end{thm}
+
+
+\begin{rem} % 1.5
+Let $L$ be a number field of odd degree $N= p_1^{e_1} \cdots p_r^{e_r}$. Theorem~1.4 shows that $\#\Sigma(L) \leq 2 \sum_{j=1}^r e_j$. Since $p_j \geq 3$, it is clear that the quantity $\sum e_j$ would be maximized if $r= 1$, $p_1= 3$, and $e_1= \log_3(N)$. Thus,
+	\[
+	\#\Sigma(L) \leq 2 \sum_{j=1}^r e_j \leq 2 \log_3(N),
+	\]
+which shows Theorem~1.1. 
+\end{rem}
+
+
+In this section we collect a number of results on orders in imaginary quadratic fields, and their class numbers. Throughout the paper $K$ will be an imaginary quadratic field with ring of integers $\cO_K$, and the class number of $\cO_K$ will be denoted by $h_K$. The discriminant of $\cO_K$ will be denoted by $d_K$. If $\cO$ is an order of $\cO_K$, then we denote its class number by $h(\cO)$. The basic theory of complex multiplication is summarized in the following result.
+
+
+\begin{thm}[[Sil94], Ch.2, Theorems 4.3 and 6.1; [Cox89], Theorem 11.1)] % 2.1
+Let $K$ be an imaginary quadratic field with ring of integers $\cO_K$ and let $E$ be an elliptic curve with CM by an order $\cO$ of $\cO_K$ of conductor $\ff$. Then:
+	\begin{enumerate}[(1)]
+	\item The $j$-invariant of $E$, $j(E)$, is an algebraic integer.
+	\item The field $L= K(j(E))$ is the ring class field of the order $\cO$.
+	\item $[\Q(j(E)) \colon \Q]= [K(j(E)) \colon K]= h(\cO)$, where $h(\cO)$ is the class number of $\cO$.
+	\item Let $\{ E_1, \ldots, E_h \}$ be a complete set of representations of isomorphism classes of elliptic curves with CM by $\cO$. Then $\{ j(E_1), \ldots, j(E_h) \}$ is a complete set of $\Gal(\ov{K}/K)$ conjugates of $j(E)$. 
+	\end{enumerate}
+\end{thm}
+
+
+We shall need a formula for the class number of an arbitrary order in terms of its conductor, and the class number of the maximal order. Such a formula is given in the next theorem.
+
+
+\begin{thm}[([Cox89], Theorem 7.24] % 2.2
+Let $\cO$ be the order of conductor $\ff$ in an imaginary quadratic field $K$. Then, the class number of $\cO$ is an integer multiple of $h_K$, and it satisfies
+	\[
+	h(\cO)= \dfrac{h_K \cdot \ff}{[\cO_K^\times \colon \cO^\times]} \cdot \prod_{p \mid \ff} \left( 1 - \leg{d_K}{p} \cdot \dfrac{1}{p} \right),
+	\]
+where $\tleg{\cdot}{p}$ is the Kronecker symbol. 
+\end{thm}
+
+
+We remind the reader that for an odd prime $p$, the Kronecker symbol is just the Legendre symbol, and if $p= 2$, we have the formula
+	\[
+	\leg{d_K}{2}= 
+	\begin{cases}
+	0, & \text{ if } 2 \mid d_K \\
+	1, & \text{ if } d_K \equiv 1 \mod 8 \\
+	-1, & \text{ if } d_K \equiv 5 \mod 8
+	\end{cases}
+	\]
+
+
+In this note we are specially interested in orders with odd class number. The class number formula of Theorem 2.2 shows that, for our purposes, we only need to consider imaginary quadratic fields whose ring of integers has odd class number (we will show this carefully, and improve the characterization in Theorem 2.8 below). Genus theory will tell us that we should only consider those with prime discriminant. We remind the reader that the genus field of $K$ is the maximal unramified extension of $K$ which is an abelian extension of $\Q$.
+
+
+\begin{thm}[3 ([Cox89], Theorem 6.1)] % 2.3
+
+\end{thm}
+
+
+% https://alozano.clas.uconn.edu/wp-content/uploads/sites/490/2014/01/Daniels_and_Lozano-Robledo_2.pdf

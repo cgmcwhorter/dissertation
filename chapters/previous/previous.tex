@@ -1,0 +1,1468 @@
+% !TEX root = ../../thesis.tex
+\chapter{Currently Known Results\label{ch:known}}
+
+Throughout this chapter, when convenient, we will make use of the following notation:
+
+
+\begin{itemize}
+\item Let $\Phi(d)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$, where $K$ varies over all number fields of degree $d$ and $E$ varies over all elliptic curves defined over $K$. Similarly, let $\Phi_\Q(d)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$, where $K$ varies over all number fields of degree $d$ and $E$ varies over all rational elliptic curves, i.e. elliptic curves $E/\Q$ base extended to $K$.
+
+\item Let $\Phi^{\Gal}(d)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$, where $K$ varies over all Galois number fields of degree $d$ and $E$ varies over all elliptic curves defined over $K$. Similarly, let $\Phi_\Q^{\Gal}(d)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$, where $K$ varies over all Galois number fields of degree $d$ and $E$ varies over all rational elliptic curves, i.e. elliptic curves $E/\Q$ base extended to $K$.
+
+\item Let $\Phi^{G}(d)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$, where $K$ varies over all number fields of degree $d$ with $\Gal(\widehat{K}/\Q) \cong G$, where $\ov{K}$ is the Galois closure of $K$, and $E$ varies over all rational elliptic curves, i.e. elliptic curves $E/\Q$ base extended to $K$. Note that if $K$ is Galois, then $\widehat{K} \cong K$. Similarly, let $\Phi_\Q^{G}(d)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$, where $K$ varies over all number fields of degree $d$ with $\Gal(\widehat{K}/\Q) \cong G$, where $\ov{K}$ is the Galois closure of $K$, and $E$ varies over all rational elliptic curves, i.e. elliptic curves $E/\Q$ base extended to $K$. Note that if $K$ is Galois, then $\widehat{K} \cong K$.
+
+\item Let $\Phi^\infty(d)$ denote the subset of $\Phi(d)$ of isomorphism classes of torsion subgroups which occur for infinitely many non-isomorphic elliptic curves. That is, the set torsion subgroups $T$ such that there are infinitely many elliptic curves, not isomorphic over $\ov{\Q}$, such that there is a field $K$ of degree $d$ with $E(K)_\tors \cong T$. Similarly, let $\Phi_\Q^\infty(d)$ denote the subset of $\Phi_\Q(d)$ of isomorphism classes of torsion subgroups which occur for infinitely many non-isomorphic rational elliptic curves. That is, the set torsion subgroups $T$ such that there are infinitely many rational elliptic curves, not isomorphic over $\ov{\Q}$, such that there is a field $K$ of degree $d$ that, when $E$ is base extended to $K$, $E(K)_\tors \cong T$. 
+
+\item Let $\Phi_{j \in \Q}(d)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$, where $K$ varies over all number fields of degree $d$ and $E$ runs over all elliptic curves with $j_E \in \Q$. Generally, let $\Phi_{j \in \cO_K}(d)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$, where $K$ varies over all number fields of degree $d$ and $E$ runs over all elliptic curves with $j_E \in \cO_K$, where $\cO_K$ is the ring of integers of $K$.
+
+\item If $G \in \Phi(1)$, let $\Phi_\Q(d,G)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$ as $E/\Q$ runs over all rational elliptic curves and $K/\Q$ runs over all number fields of degree $d$. 
+
+\item Let $S(d)$ denote the set of primes such that there exists a number field of degree $\leq d$ and an elliptic curve $E/K$ such that there is a point of order $p$ on $E(K)$. Similarly, let $S_\Q(d)$ denote the set of primes such that there exists a number field of degree $\leq d$ and a rational elliptic curve $E/K$ such that, when $E$ is base extended to $K$, there is a point of order $p$ on $E(K)$.
+
+\item Let $R(d)$ denote the set of primes such that there exists a number field of exact degree $d$ and an elliptic curve $E/K$ such that there is a point of order $p$ on $E(K)$. Similarly, let $R_\Q(d)$ denote the set of primes such that there exists a number field of exact degree $d$ and a rational elliptic curve $E/K$ such that, when $E$ is base extended to $K$, there is a point of order $p$ on $E(K)$.
+\end{itemize}
+
+
+% It is important to notice that, a priori, $\Phi^\infty_\Q(d) \subseteq \Phi^*_\Q(d)= \Phi_\Q(d) \cap \Phi^\infty(d)$ can be distinct sets. The set $\Phi^\infty_\Q(d)$ characterizes those torsion structures that appear infinitely often for elliptic curves defined over $\Q$, base extended to a degree $d$ number field. However, $\Phi^*_\Q(d)$ characterizes torsion structures that occur infinitely often for elliptic curves defined over a degree $d$ number field, and also occur for elliptic curves defined over $\Q$ and base extended to some degree $d$ number field, but \textit{perhaps} only for finitely many $\Q$-rational $j$-invariants. 
+
+Note that $\Phi_\Q(d) \subseteq \Phi(d)$ for all $d$. However, it is worth noting that $\Phi^\infty_\Q(d) \subseteq \Phi_\Q(d) \cap \Phi^\infty(d)$ can be distinct sets. Clearly, we have $\Phi_\Q^\infty(d) \subseteq \Phi^\infty(d)$. However, a torsion subgroup which appears infinitely often for elliptic curves $E/K$ may only occur for finitely many rational $\Q$-rational $j$-invariants; that is, there may only be finitely many rational elliptic curves that when base extended to a number field of degree $d$ have a specified torsion subgroup. Furthermore for all $d$, we have $R(d) \subseteq S(d)$ and $R_\Q(d) \subseteq S_\Q(d)$. If one knows $R(d')$ for all $d' \leq d$, then one can recover $S(d)$ via $S(d)= \cup_{k \leq d} R(k)$. However, knowledge of $S(d')$ for all $d' \leq d$ does not allow one to recover $R(d)$. The same observations are true for $S_\Q(d)$ and $R_\Q(d)$, mutatis mutandis. 
+
+
+Even in the cases where $\Phi(d)$ or $\Phi_\Q(d)$ are unknown, they are known to be finite. Merel proved a uniform boundedness of the sets $\Phi(d)$ (and hence $\Phi_\Q(d)$), now known as the Uniform Boundedness Theorem, see \cite{merel96}. However, this result was not an effective result. Instead, Merel merely proved that there existed a constant $B(d)$, depending only on $d$, such that $|G| \leq B(d)$ for all $G \in \Phi(d)$. Merel's proof was later made effective in proofs by Parent~\cite{parent99}, and Oesterl\'e (unpublished but can be found in \cite{unpub}). Both Merel and Parents work was based on extending Kamienny and Mazur's work in Jacobian varieties and Hecke algebras, see \cite{edixhoven94}. In particular, along with Oesterl\'e's work, they prove:
+
+
+\begin{thm}[{\cite{merel96},\cite{parent99}}] \label{thm:boundedness}
+Let $K$ be a number field of degree $d > 1$. Then
+	\begin{enumerate}[(i)]
+	\item (Merel) Let $E/K$ be an elliptic curve. If $E(K)$ contains a point of exact prime order $p$, then $\ell \leq d^{3d^2}$.
+	\item (Parent) If $P$ is a point of exact prime power order $\ell^n$, then
+		\begin{enumerate}[(a)]
+		\item $\ell^n \leq 65(3^d - 1)(2d)^6$, if $\ell \geq 5$
+		\item $\ell^n \leq 65(5^d - 1)(2d)^6$, if $\ell= 3$
+		\item $\ell^n \leq 129(3^d - 1)(3d)^6$, if $\ell= 2$
+		\end{enumerate}
+	In particular, $\ell^p \leq 129(5^d - 1)(3d)^6$ for all primes $\ell$. 
+	\item (Oesterl\'e) If $p \in S(d)$, then $p \leq (1 + 3^{d/2})^2$. 
+	\end{enumerate}
+\end{thm}
+
+
+The first classification of torsion subgroups of elliptic curves came with Mazur's classification of the possibilities for $E(\Q)_\tors$ in 1977. The next full classification would not come until Kammieny, Kenku, Momose's classification of the possible torsion subgroups for $E(K)$, where $K$ is a quadratic field. There has been an explosion of results since 2000. We now give an overview of the progress in the classifications in various settings. 
+
+
+
+
+
+% The Case of E(\Q)_\tors
+\section{The Case of $E(\Q)_\tors$}
+
+The possible structures for $E(\Q)_\tors$ was originally conjectured by Beppo Levi, see \cite{schoof96}. Later Trygve Nagell and Andrew Ogg independently arrived at Levi's conjecture. Drawing on Ogg's work connecting torsion subgroups of elliptic curves, modular forms, and isogenies of elliptic curves, work of Fricke, Kenku, Klein, Kubert, Ligozat, Mazur, Ogg, et al. classified the possible $\Q$-rational points on $X_0(N)$. Mazur's work on the Eisenstein ideal classified the possible $\Q$-rational points on $X_0(N)$ in the case where $N$ was prime. Hence, Mazur was able to classify the possible torsion subgroups for $E(\Q)_\tors$. 
+
+
+\begin{thm}[{\cite{mazur77,mazur78}}] \label{thm:mazurclassification}
+Let $E/\Q$ be a rational elliptic curve. Then $E(\Q)_\tors$ is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4
+	\end{cases}
+	\]
+Moreover, each possibility occurs for infinitely many distinct elliptic curves. 
+\end{thm}
+
+
+One can prove Mazur's Theorem as follows. The modular curve $Y_1(N)$ classifies the pairs $(E, P)$, where $E/\C$ is an elliptic curve and $P \in E$ is a point of exact order $N$. That is, the set of rational points on $Y_1(N)$, $Y_1(N)(\Q)$, is the set of (isomorphism classes) of pairs $(E,P)$. The proof then reduces to showing that $Y_1(N)(\Q)$ is empty for $N > 7$. One then naturally considers the map of algebraic curves $Y_1(N) \to Y_0(N)$, where $Y_0(N)$ affine curve parametrizing the set of pairs $(E,G)$, where $E/\C$ is an elliptic curve and $G \subseteq E$ is a cyclic subgroup of order $N$. Let $X_0(N)$ denote the compactification of $Y_0(N)$. 
+
+
+One then proves for a rational abelian variety $A$ and a rational map $f: X_0(N) \to A$ that if $A$ has good reduction away from $N$, $f(0) \neq f(\infty)$, and $A(\Q)$ has rank 0, then no rational elliptic curve has a point of order $N$. Furthermore, one must prove the following: let $A/\Q$ be an abelian variety and let $N$ and $p$ be distinct primes, with $N$ odd. If $A$ has good reduction away from $N$, has completely toric reduction at $N$, and the Jordan-H\"older constituents of $A[p](\ov{\Q})$ are 1-dimensional, and either trivial or cyclotomic, then $A(\Q)$ has rank 0. 
+
+
+But of course, one must first find such an abelian variety $A$ of rank 0. Embedding a curve into its Jacobian, one can find the abelian variety $A$ by recognizing it as a quotient of the Jacobian $J_0(N)$ of $X_0(N)$. Studying the Hecke operators $T_p$ on $J_0(N)$, one can identify $A$ using the Hecke algebra. For the details on all of this, see \cite{snowden}. 
+
+
+
+
+
+% Torsion Subgroups for Elliptic Curves over General Number Fields
+\section{Torsion Subgroups of Elliptic Curves over General Number Fields}
+
+% the gonality $\gamma(X)$ of an algebraic curve $X$ is the lowest degree of a nonconstant rational map $X$ to the projective line. We call the points of degree $d$ on the modular curves $Y_1(m,n)$ when $d < \gamma(Y_1(m,n))$ sporadic. Since all the modular curves $Y_1(m,n)$ that correspond to the torsion structures in the list Mazur are of genus 0 and have (infinitely many) rational points (since some of the cusps of $X_1(m,n)$ are rational) and hence are of gonality 1. Similarly, all the modular curves $Y_1(m,n)$ that correspond to the torsion structures in the list Quadratic are of genus at most 2 (and hence have gonality 1 or 2) it follows there are no sporadic points of degree 1 or 2. van Hoeij [40] found sporadic points on $X_1(37)$ (of gonality 18) and of degree 9 on $X_1(29)$ and $X_1(31)$ (of gonality 11 and 12, respectively). Since the modular curve $X_1(21)$ has gonality 4, the unique rational elliptic curve with 21-torsion over a cubic field gives a degree 3 sporadic point, which is the lowest degree possible. Najman rediscovers the example of van Hoeij degree 6 point on $X_1(37)$. SEE SPORADIC PAPER
+
+Of course, one need not restrict to rational elliptic curves. Instead, one could consider elliptic curves over a number field, $E/K$. The first progress in this direction was work begun by Kenku and Momose, later finished by Kamienny.
+
+
+\begin{thm}[{\cite{kenkumomose88,kamienny92a,kamienny92b}}] \label{thm:quadclassification}
+Let $K/\Q$ be a quadratic number field, and let $E/K$ be an elliptic curve. Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1,2, \ldots, 16, 18 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n = 1, 2, 3, 4, 5, 6 \\
+	\Z/3\Z \oplus \Z/3\Z, & n= 1, 2 \\
+	\Z/4\Z \oplus \Z/4\Z
+	\end{cases}
+	\]
+Moreover, there exist infinitely many $\ov{\Q}$-isomorphism classes for each possible torsion subgroup. 
+\end{thm}
+
+
+Rabarison gives many interesting parametrizations for the torsion subgroups in Theorem~\ref{thm:quadclassification} in \cite{rabarison10}. Of course, Theorem~\ref{thm:quadclassification} does not say over which quadratic fields the listed torsion subgroups appear. In fact, Bosman, Bruin, Dujella, and Najman are able to classify the possibilities for $E(K)_\tors$ based on the type of quadratic field. 
+
+
+\begin{thm}[{\cite{bosmanbruindujellanajman14}}] \label{thm:quadclasstype1}
+Let $K/\Q$ be a real quadratic number field $K$, and let $E/K$ be an elliptic curve. Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 16, 18 \\
+	\Z2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4
+	\end{cases}
+	\]
+Moreover, each torsion subgroup occurs for infinitely many $\ov{\Q}$-isomorphism classes.
+\end{thm}
+
+
+\begin{thm}[{\cite{bosmanbruindujellanajman14}}] \label{thm:quadclasstype2}
+Let $K/\Q$ be an imaginary quadratic number field $K$, and let $E/K$ be an elliptic curve. Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 12, 14, 15, 16 \\
+	\Z2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2 \\
+	\Z/4\Z \oplus \Z/4\Z
+	\end{cases}
+	\]
+Moreover, each torsion subgroup occurs for infinitely many $\ov{\Q}$-isomorphism classes.
+\end{thm}
+
+
+Of course, fixing a quadratic field $K/\Q$ and possible torsion subgroup $G \in \Phi(2)$, Theorems~\ref{quadclassification}, \ref{thm:quadclasstype1}, and \ref{thm:quadclasstype2} say nothing about whether there is an elliptic curve $E(K)$ with $E(K)_\tors \cong G$. Najman classified the possibilities if $K$ a quadratic cyclotomic field in \cite{najman11cyclo} and \cite{najman10}. Moreover, Kamienny and Najman describe a method in \cite{kamiennynajman11} to determine all the possible torsion subgroups $E(K)_\tors$ over a fixed quadratic field, and they find examples of the smallest quadratic field (in terms of absolute discriminant) over which that group occurs. They also examine an interplay between rank and torsion for the groups $E(K)$ and give some results concerning the density of torsion subgroups. 
+
+
+The first progress for the case of cubic number fields came with Jeon, Kim, and Schweizer, who determined the possible torsion structures which appear infinitely often over cubic fields.
+
+
+\begin{thm}[{\cite{jeonkimschweizer04}}] \label{thm:infinitecubictorsion}
+Let $K/\Q$ be a cubic number field, and let $E/K$ be an elliptic curve. Then the possibilities for $E(K)_\tors$ occurring for infinitely many $\ov{\Q}$-isomorphism classes are precisely:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 16, 18, 20 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 7
+	\end{cases} 
+	\]
+\end{thm}
+
+
+Furthermore by finding certain trigonal modular curves, Jeon, Kim, and Lee constructed infinite families of elliptic curves realizing each of these torsion structures in \cite{jeonkimlee11}. Jeon constructs other families of examples in the case of cyclic cubic number fields in \cite{jeon16}. Extending Najman's work in \cite{najman11}, Maarten Derickx and Filip Najman classified the torsion subgroups of elliptic fields over Galois cubic fields, complex cubic fields, and totally real cubic fields with Galois group $S_3$. 
+
+
+\begin{thm}[{\cite{derickxnajman19}}]
+Let $K/\Q$ be a cyclic cubic field, and let $E/K$ be an elliptic curve. Then $E(K)_\tors$ is precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 16, 18, 21 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 7
+	\end{cases}
+	\]
+Each such possibility occurs for some elliptic curve $E/K$ over some cyclic cubic field $K$.
+\end{thm}
+
+
+Furthermore, the only elliptic curve with $\Z/16\Z$ torsion over a cyclic cubic field $K$ is $y^2 + a xy + by= x^3 + bx^2$, where
+	\[
+	a= \dfrac{-11\alpha^2 + 2543\alpha + 2240}{2232}, \quad b= \dfrac{481\alpha^2 - 2465\alpha - 376}{155682},
+	\]
+and $\alpha$ is a root of $x^3 - 8x^2 - x + 8/9$ and $K= \Q(\alpha)$, c.f. \cite[Lemma~4.13]{derickxnajman19}. 
+
+
+\begin{thm}[{\cite{derickxnajman19}}]
+Let $K/\Q$ be a complex cubic field, and let $E/K$ be an elliptic curve. Then $E(K)_\tors$ is precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 16, 18, 20 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6
+	\end{cases}
+	\]
+Moreover, there are infinitely many distinct $\ov{\Q}$-isomorphism classes such that $E(K)_\tors$ is isomorphic to one of the groups above for some complex cubic field.
+\end{thm}
+
+
+\begin{thm}[{\cite{derickxnajman19}}]
+Let $K/\Q$ be a totally real cubic field with Galois group $S_3$, and let $E/K$ be an elliptic curve. Then $E(K)_\tors$ is precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 16, 18, 20 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6
+	\end{cases}
+	\]
+Moreover, there are infinitely many distinct $\ov{\Q}$-isomorphism classes such that $E(K)_\tors$ is isomorphic to one of the groups above for some totally real cubic field with $\Gal(K/\Q) \cong S_3$. 
+\end{thm}
+
+
+Their method, in part, relies on a process called Mordell-Weil sieving, which is useful in finding all rational points on a curve $C$ by examining the Mordell-Weil group of its Jacobian. For more on this topic, see \cite{bruinstoll10}. Their work was later extended by Jeon and Schweizer, who determined in \cite{jeonschweizer20} which types of cubic number fields each possible torsion subgroup can occur, and if can occur infinitely often over that type or not. Finally, Bruin and Najman show that all elliptic curves over quadratic fields with $E(K)_\tors \supseteq \Z/16\Z$ and elliptic curves over cubic fields with $E(K)_\tors \supseteq \Z/2\Z \oplus \Z/14\Z$ are base changes of elliptic curves defined over $\Q$, see \cite{bruinnajman17}. In fact, they show, \cite[Thm.~1.2]{bruinnajman17}, if $E(K)_\tors \cong \Z/2\Z \oplus \Z/14\Z$, then $K$ is cyclic.
+
+
+However despite all this work, the list from Theorem~\ref{thm:infinitecubictorsion} cannot be complete. In \cite{najman16}, Najman found that the rational elliptic curve with Cremona label \texttt{162b1} has 21-torsion over a cubic field, namely $E(\Q(\zeta_9)^+) \cong \Z/21\Z$, and is the only such rational elliptic curve. This was the first known example of a sporadic point on a modular curve, i.e. sporadic torsion. Now there are many other known sporadic torsion groups over number fields, c.f. \cite{vanhoeij14} where examples of $\Z/28\Z$ and $\Z/30\Z$ are given in the case of quintic number fields and $\Z/25\Z$ and $\Z/37\Z$ are given in the sextic case. Interestingly until recently, all of the known cases of sporadic torsion corresponded to cyclic groups. However in a recent paper of \gonjim{} and Najman, \cite{gonzalezjimeneznajman20}, they give an example of a sextic number field $K$ such that (using Theorem~\ref{thm:sextictorsioninitial}) $E(K)_\tors \cong \Z/4\Z \oplus \Z/12\Z$ is the first known example of sporadic torsion for a non-cyclic torsion subgroup.
+
+
+The full classification for torsion subgroups of elliptic curves over cubic number fields (though announced much earlier) was only submitted this year in a paper of Derickx, Etropolski, van~Hoeij, Morrow, and Zureick-Brown. The result relies on the work of many mathematicians such as Bruin, Jeon, Kato, Kim, Lee, Momose, Najman, Parent, Schweizer, Wang, among others. The classification relies on a number of techniques: local arguments, Abel-Jacobi maps, quotients of modular curves, modular units, etc. and a vast amount of computation. Of course, there is a lot of other related work in this general area. For instance, see \cite{bourdongillrousewatson20}. The final result is that the only possible torsion subgroups are those from the list of Jeon, Kim, and Schweizer along with Najman's example of $\Z/21\Z$-torsion. 
+
+
+\begin{thm}[{\cite{derickx2020sporadic}}]
+Let $K/\Q$ be a cubic number field, and let $E/K$ be an elliptic curve. Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 16, 18, 20, 21 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 7
+	\end{cases}
+	\]
+Moreover, there exist infinitely many $\ov{\Q}$-isomorphism classes for each torsion subgroup except in the case $E(K) \cong \Z/21\Z$. In this case, the base change of the curve with Cremona label \texttt{162b1} to $\Q(\zeta_9)^+$ is the unique elliptic curve over a cubic field with 21-torsion. 
+\end{thm}
+
+
+For elliptic curves $E/K$, where $K$ is a number field of degree $d$, the case of $d= 3$ is the last case where a complete classification is known. There are partial results in the cases of $d= 4, 5, 6$. In particular, the possible torsion structures occurring for infinitely many non-isomorphic elliptic curves is known.
+
+
+\begin{thm}[{\cite{jeonkimpark16}}] \label{thm:geninfquartic}
+Let $K/\Q$ be a quartic number field, and $E/K$ an elliptic curve. The possible torsion subgroups occurring for infinitely many distinct $\ov{\Q}$-isomorphism classes are precisely:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 18, 20, 21, 22, 24 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, \ldots, 9 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2, 3 \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2 \\
+	\Z/5\Z \oplus \Z/5\Z, \\
+	\Z/6\Z \oplus \Z/6\Z
+	\end{cases}
+	\]
+Moreover, all these torsion structures already occur infinitely often if $K$ varies over all quadratic extensions of all quadratic number fields, i.e. all biquadratic number fields. 
+\end{thm}
+
+
+Jeon, Kim, and Lee construct (infinite) families of elliptic curves with cyclic torsion subgroups over quartic number fields $K$ such that the Galois closure of $K$ is a dihedral quartic number field, see \cite{jeonkimlee15} and \cite{jeonkimlee13}. For other related results, see also \cite{jeonkimlee11quartic} and \cite{najman12}.
+
+
+\begin{thm}[{\cite{derickxsutherland17}}]
+Let $K/\Q$ be a quintic number field, and $E/K$ an elliptic curve. The possible torsion subgroups occurring for infinitely many distinct $\ov{\Q}$-isomorphism classes are precisely:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 22, 24, 25 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 7, 8 
+	\end{cases}
+	\]
+\end{thm}
+
+
+\begin{thm}[{\cite{derickxsutherland17}}]
+Let $K/\Q$ be a sextic number field, and $E/K$ an elliptic curve. The possible torsion subgroups occurring for infinitely many distinct $\ov{\Q}$-isomorphism classes are precisely:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 22, 24, 26, 27, 28, 30 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, \ldots, 10 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2, 3, 4 \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2 \\ 
+	\Z/6\Z \oplus  \Z/6\Z
+	\end{cases}
+	\]
+\end{thm}
+
+
+Of course, there are other related results. For instance, Dey and Roy classified the possible torsion subgroups of Mordell curves, i.e. elliptic curves of the form $E: y^2= x^3 + n$ for $n \in \Q$, over (cubic and) sextic fields, see \cite{deyroy19}.
+
+
+
+
+
+% Torsion Subgroups of CM Elliptic Curves
+\section{Torsion Subgroups of CM Elliptic Curves}
+
+% The set $\Phi^{\text{CM}}(1)$ was determined by Olson [43]; the quadratic and cubic cases by Zimmer et al. [38, 14, 44]; and recently, Clark et al. [5] have computed the sets $\Phi^{\text{CM}}(d)$, for $4 \leq d \leq 13$. SEE QUARTIC LOZANO PAPER
+
+Though amazing results have been achieved in classifying $\Phi(d)$, progress is still rather limited. However in the case where $E/K$ has CM, there is much more progress. This is primarily due to the fact that one has the Theory of Complex Multiplication, especially the Class Field Theory interpretation of torsion points on elliptic curves, allowing many more techniques to be at one's disposal. In particular, one often has powerful tools to bound the size of the torsion subgroup, which gives a finite set of possibilities to the torsion subgroups. For example, here are two well known results allowing one to bound torsion in specific cases, though there are refined bounds in \cite{clarkcookstankewicz13}:
+
+
+\begin{thm}[Silverberg, Prasad-Yogananda]
+Let $E$ be an elliptic curve over a number field $F$ of degree $d$, and suppose that $E$ has CM by the order $\cO$ in the imaginary quadratic field $K$. Let $e$ be the exponent of the torsion subgroup of $E(F)$. Then
+	\begin{enumerate}[(a)]
+	\item $\phi(e) \leq w(\cO)d$
+	\item If $K \subseteq F$, then $\phi(e) \leq w(\cO)d/2$
+	\item If $K \not\subseteq F$, then $\phi(\#E(F)_\tors) \leq w(\cO)d$
+	\end{enumerate}
+\end{thm}
+
+\begin{proof}
+See \cite{silverberg88} and \cite{prasadyogananda01}. 
+\end{proof}
+
+
+\begin{thm}[{\cite{parish89}}]
+Let $E/F$ be an elliptic curve with CM by an imaginary quadratic order $\cO$, and suppose that $h(\cO)= [F \colon \Q]$. Then $E(F)_\tors$ has order 1, 2, 3, 4, or 6.
+\end{thm}
+
+
+Using these ideas, Clark, Cook, Corn, Lane, Rice, Stankewicz, Walters, Winburn, and Wyser give a complete list of possible torsion subgroups of elliptic curves with complex multiplication over number fields of degree $d$, $1 \leq d \leq 13$, see \cite{clarkcornricestankewicz14}. Moreover, they give an algorithm to compute list of all torsion subgroups $E(K)_\tors$ that occur for elliptic curves $E$ with CM over number fields $K$ of degree $d$. They give a list of the possible torsion subgroups $E(K)_\tors$ with examples for number fields of degree $1 \leq d \leq 13$ in \cite[Sec.~4]{clarkcornricestankewicz14}, which are too long to include in full here. However, we will include two relevant results for our purposes here.
+
+
+\begin{thm}[{\cite[Sec.~4.3]{clarkcornricestankewicz14}}]
+Let $K/\Q$ be a cubic extension, and let $E/K$ be an elliptic curve with CM. Then the possible torsion subgroups $E(K)_\tors$ that occur over $K$ are precisely
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, 3, 4, 6, 9, 14 \\
+	\Z/2\Z \oplus \Z/2\Z
+	\end{cases}
+	\]
+\end{thm}
+
+
+\begin{thm}[{\cite[Sec.~4.9]{clarkcornricestankewicz14}}] \label{thm:noniccmbound}
+Let $K/\Q$ be a nonic extension, and let $E/K$ be an elliptic curve with CM. Then the possible torsion subgroups $E(K)_\tors$ that occur over $K$ are precisely
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, 3, 4, 6, 9, 14, 18, 19, 27 \\
+	\Z/2\Z \oplus \Z/2\Z
+	\end{cases}
+	\]
+\end{thm}
+
+
+Further work of Bourdon, Clark, and Stankewicz, \cite{bourdonclarkstankewicz17}, gives a complete classification of torsion subgroups arising from CM elliptic curves over number fields of odd degree. They also study the torsion subgroups of elliptic curves with complex multiplication over number fields admitting at least one real embedding. They also answer a question of Sch\"utt on whether there is an absolute bound on the size of torsion subgroups of all CM elliptic curves defined over all number fields of prime degree in the affirmative. In particular, they prove the following:
+
+
+\begin{thm}[{\cite[Thm.~1.5,Odd Degree Theorem]{bourdonclarkstankewicz17}}] \label{thm:oddcmbound}
+Let $F$ be a number field of odd degree, let $E/F$ be a $K$-CM elliptic curve, and let $T= E(F)_\tors$. Then:
+	\begin{enumerate}[(i)]
+	\item One of the following occurs:
+		\begin{enumerate}[(a)]
+		\item $T$ is isomorphic to the trivial group, $\Z/2\Z$, $\Z/4\Z$, or $\Z/2\Z \oplus \Z/2\Z$;
+		\item $T \cong \Z/\ell^n\Z$ for a prime $\ell \equiv 3 \mod 8$ and $n \in \Z^+$ and $K= \Q(\sqrt{-\ell})$;
+		\item $T \cong \Z/2\ell^n\Z$ for a prime $\ell \equiv 3 \mod 4$ and $n \in \Z^+$ and $K= \Q(\sqrt{-\ell})$.
+		\end{enumerate}
+	\item If $E(F)_\tors \cong \Z/2\Z \oplus \Z/2\Z$, then $\End E$ has discriminant $\Delta= -4$.
+	\item If $E(F)_\tors \cong \Z/4\Z$, then $\End E$ has discriminant $\Delta \in \{-4, -16 \}$. 
+	\item Each of the groups listed in part (i) arises up to isomorphism as the torsion subgroup $E(F)$ of a CM elliptic curve $E$ defined over an odd degree number field $F$.
+	\end{enumerate}
+\end{thm}
+
+
+Of course, Theorem~\ref{thm:oddcmbound} does not identify in which degrees $d$ the subgroups occur. Later, Bourdon and Pollack were able to extend the work in \cite{bourdonclarkstankewicz17}. In particular, letting e $h_{\Q(\sqrt{-\ell})}$ denotes the class number of $\Q(\sqrt{-\ell})$, they prove the following:
+
+
+\begin{thm}[{\cite[Thm.~1.2,Strong Odd Degree Theorem]{bourdonpollack17}}] \label{thm:strongodddegree}
+Let $\ell \equiv 4 \mod 4$ and $n \in \Z^+$. Define $\delta$ as follows:
+	\[
+	\delta= 
+	\begin{cases}
+	\lfloor \frac{3n}{2} \rfloor - 1, & \ell > 3, \\
+	0, & \ell= 3 \text{ and } n= 1, \\
+	\lfloor \frac{3n}{2} \rfloor - 2, & \ell= 3 \text{ and } n \geq 2
+	\end{cases}
+	\]
+Then:
+	\begin{enumerate}[(1)]
+	\item For any odd positive integer $d$, the groups $\{ \text{\textbullet} \}, \Z/2\Z, \Z/4\Z$, and $\Z/2\Z \oplus \Z/2\Z$ appear as the torsion subgroup of a CM elliptic curve defined over a number field of degree $d$.
+	\item $\Z/\ell^n\Z$ appears as the torsion subgroup of a CM elliptic curve defined over a number field of odd degree $d$ if and only if $\ell \equiv 3 \mod 8$ and $d$ is a multiple of $h_{\Q(\sqrt{-\ell})} \cdot \frac{\ell - 1}{2} \cdot \ell^\delta$.
+	\item $\Z/2\ell^n\Z$ appears as the torsion subgroup of a CM elliptic curve defined over a number field of odd degree $d$ if and only if one of the following holds:
+		\begin{enumerate}[(a)]
+		\item $\ell \equiv 3 \mod 8$, where $n \geq 2$ if $\ell= 3$, and $d$ is a multiple of $3 \cdot h_{\Q(\sqrt{-\ell})} \cdot \frac{\ell - 1}{2} \cdot \ell^\delta$, or 
+		\item $\ell= 3$ and $n= 1$ and $d$ is any odd positive integer, or
+		\item $\ell \equiv 7 \mod 8$ and $d$ is a multiple of $h_{\Q(\sqrt{-\ell})} \cdot \frac{\ell - 1}{2} \cdot \ell^\delta$. 
+		\end{enumerate}
+	\end{enumerate}
+\end{thm}
+
+
+For a given positive integer $d$, let $\mathscr{G}(d)$ denote the set of (isomorphism classes) of abelian groups that appear as $E(F)_\tors$ for some elliptic curve $E$ defined over some degree $d$ number field $F$, and let $T_{\text{CM}}(d)= \max_{G \in \mathscr{G}(d)} \#G$. Theorem~\ref{thm:strongodddegree} can be used to algorithmically determine $\mathscr{G}(d)$ for any odd degree $d$. In particular in \cite[Table~7]{bourdonpollack17}, Bourdon and Pollack give a table of groups arising for odd $d \leq 99$. They comment that one can compute the list for all odd $d \leq 2 \cdot 10^8$ on a modern desktop in about 12~hours. Their paper contains many interesting results, which would take too long to summarize here. We will comment that, under the Generalized Riemann Hypothesis, they prove that
+	\[
+	\left( \dfrac{12e^\gamma}{\pi} \right)^{2/3} \leq \limsup_{\substack{d \to \infty \\ d \text{ odd}}} \dfrac{T_{\text{CM}}(d)}{(d \log \log d)^{2/3}} \leq \left( \dfrac{24 e^\gamma}{\pi} \right)^{2/3}.
+	\]
+
+
+Work of Dieulefait, \gonjim{}, and Urroz, see \cite{dieulefaitgonjimurroz11}, examined the fields of definition of torsion points for rational elliptic curves with CM by examining the image of the mod $p$ Galois representation attached to $E$. Denote by $E_{D,\ff}$ the elliptic curve $E/\Q$ having CM by an order $R= \Z + \ff \cO_K$ of conductor $\ff$ in a quadratic imaginary field $K= \Q(\sqrt{-D})$, where $\cO_K$ is the ring of integers of $K$.
+
+
+\begin{thm}[{\cite[Thm.~1]{dieulefaitgonjimurroz11}}]
+Let $E/\Q$ be a rational elliptic curve with CM by an order $K= \Q(\sqrt{-D})$ of conductor $\ff$, and let $F$ be a Galois number field not containing $K$, then
+	\begin{enumerate}[(i)]
+	\item $j(E) \neq 0, 1728$:
+		\begin{enumerate}[--]
+		\item If $D \neq 8$ and $\ff$ odd, then $E(F)[2]= E(\Q)[2]$.
+		\item Otherwise, $\Q(E[2])= \Q(\sqrt{p})$, where $p \mid D$; in particular, there are 2-torsion points in a quadratic field different from $K$.
+		\end{enumerate}
+	\item $j(E)= 1728$: In this case, $E= E_{4,1}^d$ for $d \in \Q^*/(\Q^*)^4$ and $\Q(E[2])= \Q(\sqrt{-d})$; in particular for $d \neq 1$, there are 2-torsion points in a quadratic field different from $K$.
+	\item $j(E)= 0$: In this case, $E= E_{3,1}^d$ for $d \in \Q^*/(\Q^*)^6$ and $\Q(E[2])= \Q(\sqrt{-3}, \sqrt[3]{2d})$. Moreover, $E(F)[2]= E(\Q)[2]$. 
+	\end{enumerate}
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~2]{dieulefaitgonjimurroz11}}]
+Let $E$ be an elliptic curve defined over $\Q$ with CM by an order of $K= \Q(\sqrt{-D})$ and $p$ an odd prime not dividing $D$. Let $F$ be a Galois number field not containing $K$, then $E(F)[p]$ is trivial. 
+\end{thm}
+
+
+Define $n(E)$ as follows:
+	\[
+	n(E)=
+	\begin{cases}
+	2, & \text{if } j(E) \neq 0, 1728 \\
+	4, & \text{if } j(E)= 1728, \\
+	6, & \text{if } j(E)= 0.	
+	\end{cases}
+	\]
+
+\begin{thm}[{\cite[Thm.~3]{dieulefaitgonjimurroz11}}]
+Let $E$ be an elliptic curve defined over $\Q$ with CM by an order of $K= \Q(\sqrt{-D})$ of conductor $\ff$. We know that $E= E_{D,\ff}^d$ for some integer $d \in \Q^*/(\Q^*)^{n(E)}$. Let $p$ be an odd prime dividing $D$. 
+	\begin{enumerate}[(i)]
+	\item If $p > 7$, then there are $p$-torsion points of $E$ defined over $\Q(\zeta_p + \ov{\zeta}_p, \sqrt{d})$. Furthermore, $d= -p$ is the only case where any Galois number field containing $p$-torsion points contains $K$.
+	\item If $D= 7$:
+		\begin{enumerate}[--]
+		\item Case $\ff= 1$: There are 7-torsion points of $E$ defined over $\Q(\zeta_7 + \ov{\zeta}_7, \sqrt{-7d})$. Furthermore, $d= 1$ is the only case where any Galois number field containing 7-torsion points contains $K$.
+		\item Case $\ff= 2$: There are 7-torsion points of $E$ defined over $\Q(\zeta_7 + \ov{\zeta}_7, \sqrt{7d})$. Furthermore, $d= -1$ is the only case where any Galois number field containing 7-torsion points contains $K$.
+		\end{enumerate}
+	\item If $D= 3$:
+		\begin{enumerate}[--]
+		\item Case $\ff= 1$: $\Q(E[3])= \Q(d^{1/6}, \sqrt{-3})$. There is a 3-torsion point in the field $\Q(\sqrt{d})$ and, except for $d= -3$, this quadratic field is different from $K$. Moreover, if $d= e^3$, there is a 3-torsion point on $\Q(\sqrt{-3e})$ which, except when $e$ is a square, is different from $K$.
+		\item Case $\ff \neq 1$: There are 3-torsion points in the field $\Q(\sqrt{d})$. Except for $d= -3$, this quadratic field is different from $K$. 
+		\end{enumerate}
+	\end{enumerate}
+\end{thm}
+
+
+Daniels and \lozrob{} have determined an upper bound on the number of isomorphism classes of CM elliptic curves defined over a number field of fixed odd degree $N$. For a number field $L$, define $\Sigma(L)$ to be the set of all CM $j$-invariants defined over $L$ but not defined over $\Q$.\footnote{Then the total number of CM $j$-invariants defined over $L$ is $13 + \#\Sigma(L)$.} This set was already known to be finite for any field $L$. 
+
+
+\begin{thm}[{\cite[Thm.~1.1]{danielslozanorobledo15}}] \label{thm:easybounds}
+Let $L$ be a number field of odd degree. Then $\#\Sigma(L) \leq 2 \log_3([L \colon \Q])$. In particular, the number of distinct CM $j$-invariants defined over $L$ is bounded by $13 + 2 \log_3([L \colon \Q])$. 
+\end{thm} 
+
+
+Daniels and \lozrob{} remark that this bound is essentially sharp, in a sense we will not describe here. In fact, they actually prove a much stronger result depending on the factorization of $N$.
+
+
+\begin{thm}[{\cite[Thm.~1.4]{danielslozanorobledo15}}]
+Let $L/\Q$ be a number field of odd degree $N= p_1^{e_1} \cdots p_r^{e_r}$, and let $K_1, \ldots, K_t$ be the list of imaginary quadratic fields such that there is $j(E) \in \Sigma(L)$, where $E$ has CM by an order of $K_i$ for some $i= 1, \ldots, t$. Further, let $h_i$ be the class number of $K_i$, and suppose that $h_i > 1$ for $i= 1, \ldots, s$ and $h_i= 1$ for $i= s + 1, \ldots, t$. Then
+	\[
+	\#\Sigma(L) \leq 2s + 2 \sum_{j=1}^r \left( e_j - \sum_{i=1}^s f_{i,j} \right),
+	\]
+where $h_i= p_1^{f_{i,1}} \cdots p_r^{f_{i,r}}$. In particular, $\#\Sigma(L) \leq 2 \sum_{j=1}^r e_j$. 
+\end{thm}
+
+
+Observe that because $p_j \geq 3$, the quantity $\sum e_j$ is maximized if $r= 1$, $p_1= 3$, and $e_1= \log_3 N$,
+	\[
+	\#\Sigma(L) \leq 2 \sum_{j=1}^r e_j \leq 2 \log_3 N,
+	\]
+which proves Theorem~\ref{thm:easybounds}.
+
+
+Results in the CM case are not limited to torsion subgroups of elliptic curves. In particular building on their work in \cite{bourdonclark20} and establishing new results about rational cyclic isogenies for CM elliptic curves, Bourdon and Clark determine in \cite{bourdonclark20isog} for positive integers $M \mid N$ the least degree of an $\cO$-CM point on the modular curve $X(M,N)_{/K(\zeta_M)}$ and on the modular curve $X(M,N)_{/\Q(\zeta_M)}$. 
+
+
+\begin{thm}[{\cite[Thm.~1.1]{bourdonclark20isog}}]
+Let $\cO$ be an imaginary quadratic order of conductor $\ff$, and let $M \mid N$ be positive integers. There is a positive integer $T(\cO, M, N)$, explicitly given, such that for all positive integers $d$, there is a field extension $F/K(\ff)$ of degree $d$ and an $\cO$-CM elliptic curve $E/F$ such that $\Z/M\Z \times \Z/N\Z \hookrightarrow E(F)$ if and only if $T(\cO,M,N) \mid d$. 
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.2]{bourdonclark20isog}}]
+Let $\cO$ be an imaginary quadratic order, let $\ell$ be a prime number, and let $a \in \Z^+$. Let $m$ denote the maximum over all $i \in \Z^{\geq 0}$ such that there is an $\cO$-CM elliptic curve $E/\Q(\ff)$ with a $\Q(\ff)$-rational $\ell^i$-isogeny, and let $M$ denote the supremum over all $i \in \Z^{\geq 0}$ such that there is an $\cO$-CM elliptic curve $E/K(\ff)$ with a $K(\ff)$-rational cyclic $\ell^i$-isogeny. The least degree over $\Q(\ff)$ is which there is an $\cO$-CM elliptic curve with a rational point of order $\ell^a$ is as follows:
+	\begin{enumerate}[(i)]
+	\item If $a \leq m$, then the least degree is $T(\cO,\ell^a)$.
+	\item If $m < a \leq M$, then $\ell^a > 2$ and the least degree is $2 \cdot T(\cO, \ell^a)$.
+	\item If $a > M= m$, then the least degree is $T(\cO, \ell^a)$.
+	\item If $a > M > m$, then $\ell= 2$ and the least degree is $2 \cdot T(\cO,2^a)$.
+	\end{enumerate}
+\end{thm}
+
+
+Let $T^\circ(\cO,N)$ denote the least degree over $\Q(\ff)$ in which there is an $\cO$-CM elliptic curve with a rational point of order $N$. 
+
+
+\begin{thm}[{\cite[Thm.~1.3]{bourdonclark20isog}}]
+Let $\cO$ be an imaginary quadratic order. Let $N \in \Z^+$ have prime power decomposition $\ell_1^{a_1} \cdots \ell_r^{a_r}$ with $\ell_1 < \cdots < \ell_r$. The least degree over $\Q(\ff)$ in which there is an $\cO$-CM elliptic curve with a rational point of order $N$ is $T(\cO,N)$ if and only if $T^\circ(\cO,\ell_i^{a_i})= T(\cO, \ell_i^{a_i})$ for all $1 \leq i \leq r$. Otherwise, the least degree is $2 \cdot T(\cO,N)$. 
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.4]{bourdonclark20isog}}]
+Let $\cO$ be an imaginary quadratic order of discriminant $\Delta$. Let 
+	\[
+	2 \leq M= \ell_1^{a_1} \cdots \ell_r^{a_r} \mid N= \ell_1^{b_1} \cdots \ell_r^{b_r} \text{with } \ell_1 < \cdots < \ell_r.
+	\]
+The least degree $[F \colon \Q(\ff)]$ of a number field $F \supset \Q(\ff)$ for which there is an $\cO$-CM elliptic curve $E/F$ and an injective group homomorphism $\Z/M\Z \times \Z/N\Z \hookrightarrow E(F)$ is $T(\cO,M,N)$ if and only if all of the following conditions hold: $M= 2$, $\Delta$ is even, and $T^\circ(\cO, \ell_i^{a_i}, \ell_i^{b_i})= T(\cO, \ell_i^{a_i}, \ell_i^{b_i})$ for all $1 \leq i \leq r$. Otherwise, the least degree is $2 \cdot T(\cO,M,N)$. 
+\end{thm}
+
+
+
+
+
+% Torsion Subgroups for Rational Elliptic Curves
+\section{Torsion Subgroups of Rational Elliptic Curves}
+
+Like the case with CM elliptic curve, and unlike the case of elliptic curves over a general number field $K$, there has been tremendous progress in classifying the sets $\Phi_\Q(d)$ for various $d$. This is owed, in part, due to the fact that there is a complete classification of the possible $\Q$-rational isogenies for rational elliptic curves. 
+
+
+The initial progress was Najman's classification of $\Phi_\Q(2)$ and $\Phi_3(\Q)$ in \cite{najman16}, where he also found the example of sporadic torsion \texttt{162b1}, which has 21-torsion over a cubic field, namely $E(\Q(\zeta_9)^+) \cong \Z/21\Z$.
+
+
+\begin{thm}[{\cite[Thm.~2]{najman16}}] \label{thm:quadratictorsion}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a quadratic field. Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 15, 16 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2 \\
+	\Z/4\Z \oplus \Z/4\Z
+	\end{cases}
+	\]
+Moreover, each of these groups, except for $\Z/15\Z$, occurs over some quadratic field for infinitely many $\ov{\Q}$-isomorphism classes. The elliptic curves with Cremona labels \texttt{50b1} and \texttt{50a3} have 15-torsion over $\Q(\sqrt{5})$, and the curves with Cremona labels \texttt{50b2} and \texttt{450b4} have 15-torsion over $\Q(\sqrt{-15})$. These are the only rational elliptic curves having non-trivial 15-torsion over any quadratic field.
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~2]{najman16}}] \label{thm:cubictorsion}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a cubic number field. Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 14, 18, 21 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 7
+	\end{cases}
+	\]
+Moreover, each of these groups, except for $\Z/21\Z$, occurs over some cubic field for infinitely many $\ov{\Q}$-isomorphism classes. The elliptic curve \texttt{162b1} over $\Q(\zeta_9)^+$ is the unique rational elliptic curve with torsion $\Z/21\Z$. 
+\end{thm}
+
+
+Najman gives examples of elliptic curves having each possible torsion structure, not already occurring over $\Phi(1)$, occurring in Theorem~\ref{thm:quadratictorsion} and \ref{thm:cubictorsion} in his paper. Even for the $d$ with $\Phi_\Q(d) \neq \Phi(1)$ are known, it is generally an open problem to determine which types of fields of degree $d$ the various torsion subgroups $G \in \Phi_\Q(d)$ can occur. Najman classified the possibilities for $E(K)_\tors$ for elliptic curves $E/K$, where $K$ is a quadratic cyclotomic field, see \cite{najman11cyclo} and \cite{najman10}. Furthermore as noted, Kamienny and Najman describe a method in \cite{kamiennynajman11} to determine all the possible torsion subgroups $E(K)_\tors$ over a fixed quadratic field, and provide examples. Otherwise, results in these directions tend to be to classify the possibilities for $E(K)_\tors$, where $\Gal(\ov{K}/\Q)$ is of a fixed isomorphism type. For instance, see the results of Bosman, Bruin, Dujella, and Najman in \cite{bosmanbruindujellanajman14} or the work of Derickx and Najman in \cite{derickxnajman19}. We shall also see examples of this in the classification of $\Phi_\Q(4)$ in \cite{chou16}, \cite{gonzalezjimenezlozanorobledo18}, and \cite{gonzalezjimeneznajman20base}. But given a fixed field $K$ of degree $d$, it is generally an open problem to determine what are the possibilities for $E(K)_\tors$ in the case of rational elliptic curves over a fixed field $K$. There is some partial progress towards this in the case of quadratic fields, see \cite{trbovic18}. 
+
+
+The classification of $\Phi_\Q(4)$ came in a series of papers, beginning with the paper which inspired this work. Chou began the classification of $\Phi_\Q(4)$ by determining the possibilities for $\Phi_\Q^{\Gal}(4)$. Moreover, he determined the possible torsion subgroups based on the isomorphism type of $\Gal(K/\Q)$ and gives examples of each possible torsion subgroup not already occurring in $\Phi(1)$.
+
+
+\begin{thm}[{\cite[Thm.~1.2]{chou16}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K$ be a quartic Galois extension of $\Q$. Then $E(K)_\tors$ is isomorphic to one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1,\ldots, 10, 12, 13, 15, 16 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, \ldots, 6, 8, \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2, \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2, \\
+	\Z/5\Z \oplus \Z/5\Z, \\
+	\Z/6\Z \oplus \Z/6\Z.
+	\end{cases}
+	\]
+Moreover, each of these groups, except for $\Z/15\Z$, occurs over some quartic Galois field for infinitely many $\ov{\Q}$-isomorphism classes.
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.3]{chou16}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K$ be a quartic cyclic Galois extension, i.e. $\Gal(K/\Q) \cong \Z/4\Z$. Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, \ldots, 10, 12, 13, 15, 16, \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 8, \\
+	\Z/5\Z \oplus \Z/5\Z.
+	\end{cases}
+	\]
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.4]{chou16}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K$ be a quartic bicyclic Galois extension, i.e. $\Gal(K/\Q) \cong \Z/2\Z \oplus \Z/2\Z$. Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1,\ldots, 10, 12, 15, 16, \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 8, \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1,2, \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1,2, \\
+	\Z/6\Z \oplus \Z/6\Z.
+	\end{cases}
+	\]
+\end{thm}
+
+
+The only elliptic curves $E(K)$ with $E(K)_\tors \cong \Z/15\Z$ are those from Theorem~\ref{thm:quadratictorsion}, base extended to a Galois quartic field. \gonjim{} and \lozrob{} extended Chou's results to determine the set $\Phi_\Q^\infty(4)$.
+
+
+\begin{thm}[{\cite[Thm.~1]{gonzalezjimenezlozanorobledo18}}] \label{thm:intquartic}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a quartic number field. Then if $E(K)_\tors$ occurs for infinitely many distinct $\ov{\Q}$-isomorphism classes (or is isomorphic to $\Z/15\Z$), then $E(K)_\tors$ is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 15, 16, 20, 24 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 8 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2 \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2 \\
+	\Z/5\Z \oplus \Z/5\Z \\
+	\Z/6\Z \oplus \Z/6\Z.
+	\end{cases}
+	\]
+Moreover, if $E/\Q$ is an elliptic curve with $E(K)_\tors \cong \Z/15\Z$ over some quartic field $K$, then $j(E) \in \{ -5^2/2, -5^2 \cdot 241^3/2^3, -5 \cdot 29^3/2^5, 5 \cdot 211^3/2^{15} \}$. 
+\end{thm}
+
+
+Furthermore, \gonjim{} and \lozrob{} partially determine the possible torsion growths when base extending to $K$, i.e. if $E(\Q)_\tors \cong G$, they partially determine the possibilities for $E(K) \cong H$, where $H$ is a torsion subgroup listed in Theorem~\ref{thm:intquartic}. They also provide examples of each such torsion subgroup. It is worth noting that by Theorem~\ref{geninfquartic}, $\Z/15\Z$ occurs infinitely often for elliptic curves $E/K$, where $K$ is a quartic field. But when one begins with a rational elliptic curve $E/\Q$ and base extends to a quartic field, there are only finitely many elliptic curves that then gain a point of order 15---precisely the ones in Theorem~\ref{thm:intquartic}. Finally, \gonjim{} and Najman complete the classification of $\Phi_\Q(4)$ in \cite{gonzalezjimeneznajman20base}.
+
+
+\begin{thm}[{\cite[Cor.~8.7]{gonzalezjimeneznajman20base}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a quartic number field. Then $E(K)_\tors$ is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 15, 16, 20, 24 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 8 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2 \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2 \\
+	\Z/5\Z \oplus \Z/5\Z, \\
+	\Z/6\Z \oplus \Z/6\Z
+	\end{cases}
+	\]
+Moreover, each of these groups, except for $\Z/15\Z$, occurs over some quartic field for infinitely many $\ov{\Q}$-isomorphism classes. If $E/\Q$ is an elliptic curve with $E(K)_\tors \cong \Z/15\Z$ over some quartic field $K$, then $j(E) \in \{ -5^2/2, -5^2 \cdot 241^3/2^3, -5 \cdot 29^3/2^5, 5 \cdot 211^3/2^{15} \}$. 
+\end{thm}
+
+
+Furthermore, they determine the possible torsion structures based on the isomorphism type of $\Gal(\widehat{K}/\Q)$. Note that in the cases where $\Gal(\widehat{K}/\Q) \cong \Z/4\Z$ or $\Gal(\widehat{K}/\Q) \cong V_4$, the Klein-4 group, this is just Chou's result \cite{chou16}. 
+
+
+\begin{thm}[{\cite[Cor.~8.4,Thm.~8.5]{gonzalezjimeneznajman20base}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a quartic number field. Let $\widehat{K}$ denote the Galois closure of $K/\Q$. Then
+	\[
+	\begin{aligned}
+	\Phi_\Q^{\Z/4\Z}(4)&= \Phi(1) \cup \{ \Z/n\Z \colon = 13, 15, 16 \} \cup \{ \Z/2\Z \oplus \Z/2n\Z \colon n= 6, 8 \} \cup \{ \Z/5\Z \oplus \Z/5\Z \} \\
+	\Phi_\Q^{V_4}(4)&= \Phi_\Q(2) \cup \{ \Z/2\Z \oplus \Z/16\Z, \Z/4\Z \oplus \Z/8\Z, \Z/6\Z \oplus \Z/6\Z \} \\
+	\Phi_\Q^{D_4}(4)&= \Phi_\Q(2) \cup \{ \Z/20\Z, \Z/24\Z \} \\
+	\Phi_\Q^{S_4}(4)&= \Phi_\Q^{A_4}(4)= \Phi(1). \\
+	\end{aligned}
+	\]
+\end{thm}
+
+
+\gonjim{} determines the set $\Phi_\Q(5)$ in \cite{gonzalezjimenez17}. \gonjim{} also determines for a fixed possible torsion subgroup $G \cong E(\Q)_\tors$ the possible torsion subgroups $E(K)_\tors \supseteq G$ with $E(\Q)_\tors \subsetneq E(K)_\tors$, and the number of such fields there is torsion growth. In particular, he shows there is at most one quintic number field $K$ such that there is torsion growth. 
+
+
+\begin{thm}[{\cite[Thm.~1, Thm.~2]{gonzalezjimenez17}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a quintic number field. Then $E(K)_\tors$ is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 12, 25 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4
+	\end{cases}
+	\]
+Moreover, each of these groups, except for $\Z/11\Z$, occurs over some quintic field for infinitely many $\ov{\Q}$-isomorphism classes. The only elliptic curves $E/\Q$ with $E(K)_\tors \cong \Z/11\Z$ over some quintic field $K$ have Cremona label \texttt{121a2}, \texttt{121c2}, \texttt{121b1}. For elliptic curves $E/\Q$ with CM, $\Phi_\Q^{\cm}(5)= \{ \cO, \Z/2\Z, \Z/3\Z, \Z/4\Z, \Z/6\Z, \Z/11\Z, \Z/2\Z \oplus \Z/2\Z \}$. 
+\end{thm}
+
+
+The classification of the set $\Phi_\Q(6)$ began with work of Daniels and \gonjim{} in \cite{danielsgonzalezjimenez20}, where they classify the possible torsion subgroups $E(K)_\tors$ which occur infinitely often, as well as a few other torsion possibilities which do not. They are also able to determine the possible growth of torsion subgroups $E(\Q)_\tors$ to $E(K)_\tors$ in many cases, c.f. \cite[Thm.~2]{danielsgonzalezjimenez20}. 
+
+
+\begin{thm}[{\cite[Thm.~1]{danielsgonzalezjimenez20}}] \label{thm:sextictorsioninitial}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a sextic number field. Then if $E(K)_\tors$ occurs for infinitely many distinct $\ov{\Q}$-isomorphism classes (or is isomorphic to $\Z/15\Z$, $\Z/21\Z$, or $\Z/30\Z$), then $E(K)_\tors$ is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 21, 30, n \neq 11, 17, 19, 20 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 7, 9 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2, 3, 4 \\
+	\Z/4\Z \oplus \Z/4\Z, \\
+	\Z/6\Z \oplus \Z/6\Z.
+	\end{cases}
+	\]
+Moreover, if $E/\Q$ is an elliptic curve with $E(K)_\tors \cong H$ over some sextic field $K$, then if
+	\begin{enumerate}[(i)]
+	\item $H= \Z/15\Z$: then $E$ has Cremona label \texttt{50a3}, \texttt{50a4}, \texttt{50b1}, \texttt{50b2}, \texttt{450b4}, or \texttt{450b3}.
+	\item $H= \Z/21\Z$: $j(E) \in \{ 3^3 \cdot 5^3/2, -3^2 \cdot 5^3 \cdot 101^3/2^{21}, -3^3 \cdot 5^3 \cdot 382^3/2^7, -3^2 \cdot 5^6/2^3 \}$.
+	\item $H= \Z/30\Z$: then $E$ has Cremona label \texttt{50a3}, \texttt{50b1}, \texttt{50b2}, or \texttt{450b4}. 
+	\end{enumerate}
+\end{thm}
+
+
+Moreover, Daniels and \gonjim{} give examples of each possible torsion structure and conjecture that $\Phi_\Q(6)$ is the set of possibilities given in Theorem~\ref{thm:sextictorsioninitial} along with the group $\Z/4\Z \oplus \Z/12\Z$. The next progress in the classification of $\Phi_\Q(6)$ (including the near complete description of the possible growths for torsion subgroups) came shortly thereafter in work of Gu\u{z}vo\'c.
+
+
+\begin{thm}[{\cite[Thm.~1]{guzvic21}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a sextic number field. Then $E(K)_\tors$ is isomorphic to one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 21, 30, n \neq 11, 17, 19, 20 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 7, 9 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2, 3, 4 \\
+	\Z/4\Z \oplus \Z/4\Z, \\
+	\Z/6\Z \oplus \Z/6\Z.
+	\end{cases}
+	\]
+Furthermore, all but the groups $\Z/3\Z \oplus \Z/18\Z$ are known to occur. 	
+\end{thm}
+
+
+As Gu\u{z}vo\'c remarks, the group $\Z/3\Z \oplus \Z/18\Z$ is unlikely to actually occur, though he is unable to prove it entirely in the paper. If this group does not occur as the torsion subgroup $E(K)_\tors$ for an elliptic curve over a sextic number field, then this would confirm the conjecture of Daniels and \gonjim{}. 
+
+
+There are currently no remaining ``non-trivial'' classifications for the sets $\Phi_\Q(d)$, in the sense that there is no completely known $\Phi_\Q(d)$ with $\Phi_\Q(d) \neq \Phi(1)$. A remarkable paper of \gonjim{} and Najman actually classify the set $\Phi_\Q(7)$ (along with the possible torsion growth) and the sets $\Phi_\Q(d)$ for an infinite set of $d$, namely those whose smallest prime divisor is at least 11. 
+
+
+\begin{thm}[{\cite[Prop.~7.1,Cor.~7.3]{gonzalezjimeneznajman20base}}] \label{thm:growthuponchange}
+$\Phi_\Q(7)= \Phi(1)$. Furthermore, let $d$ be a positive integer whose smallest prime factor is at least 11. Then $\Phi_\Q(d)= \Phi(1)$. 
+\end{thm}
+
+
+As \gonjim{} and Najman remark (\cite[Rem.~7.4]{gonzalezjimeneznajman20base}), Theorem~\ref{thm:growthuponchange} is best possible in the sense that for $p \in \{ 2, 3, 5, 7 \}$, the set
+	\[
+	\bigcup_{n=1}^\infty \Phi_\Q(p^n)
+	\]
+contain $\Z/p^k\Z$ for all positive integers $k$, and hence be infinite. The positive integers whose smallest prime divisor is at least 11 are of the form $d= 210k + x$, where $1 \leq x < 210$ is an integer coprime to 210. But then 
+	\[
+	\dfrac{\phi(210)}{210}= \dfrac{48}{210}= \dfrac{8}{35} \approx 0.2286
+	\]
+of all integers satisfy this property. In fact, the methods applied in their paper also apply to infinite extensions of $\Q$.
+
+
+\begin{cor}[{\cite[Cor.~7.6]{gonzalezjimeneznajman20base}}]
+Let $p \geq 11$ be a prime, and let $K$ be the $\Z_p$-extension of $\Q$. Then $E(K)_\tors= E(\Q)_\tors$. 
+\end{cor}
+
+
+
+
+
+% Growth of Torsion Upon Base Extension
+\section{Growth of Torsion Upon Base Extension}
+
+One approach to classifying $\Phi(d)$ or $\Phi_\Q(d)$, especially in the cases when the set is known for $d' \mid d$, is to study how torsion subgroups can grow when base extending from $E(F)_\tors$ to $E(K)_\tors$, where $\Q \subseteq F \subseteq K$ is a finite extension of fields. For instance while studying torsion subgroups of elliptic curves defined over cubic fields, Najman proved the following:
+
+
+\begin{lem}[{\cite[Lemma~1]{najman11}}] \label{lem:najman2sylow}
+If $E(\Q)$ has a nontrivial 2-Sylow subgroup, then $E(K)$ has the same 2-Sylow subgroup as $E(\Q)$, i.e. $E(K)[2^\infty]= E(\Q)[2^\infty]$. 
+\end{lem}
+
+
+Furthermore while classifying the set $\Phi_\Q(3)$, Najman provided criterion for when one should not see torsion growth when base extending based on the structure of $E(K)_\tors$ and the Galois group. 
+
+
+\begin{lem}[{\cite[Lem.~16]{najman16}}] \label{najmangrow1}
+Let $p, q$ be distinct odd primes, $F_2/F_1$ a Galois extension of number fields such that $\Gal(F_2/F_1) \simeq \Z/q\Z$ and $E/F_1$ an elliptic curve with no $p$-torsion over $F_1$. Then if $q$ does not divide $p-1$ and $\Q(\zeta_p) \not\subset F_2$, then $E(F_2)[p]=0$. 
+\end{lem}
+
+
+\begin{lem}[{\cite[Lem.~17]{najman16}}] \label{najmangrow2}
+Let $p$ be an odd prime number, $q$ a prime not dividing $p$, $F_2/F_1$ a Galois extension of number fields such that $\Gal(F_2/F_1) \simeq \Z/q\Z$, $E/F_1$ an elliptic curve, and suppose $E(F_1) \supset \Z/p\Z$, $E(F_1) \not\supset \Z/p^2\Z$, and $\zeta_p \notin F_2$. Then $E(F_2) \not\supset \Z/p^2\Z$.
+\end{lem} 
+
+
+These results were vastly generalized in the amazing paper of \gonjim{} and Najman, \cite{gonzalezjimeneznajman20base}.
+
+
+\begin{thm}[{\cite[Thm.~4.1]{gonzalezjimeneznajman20base}}] \label{thm:base1}
+Let $L/F$ be a finite extension of number fields, $\widehat{L}$ denote the normal closure of $L$ over $F$, $G= \Gal(\widehat{L}/F)$, and suppose that $H= \Gal(\widehat{L}/L)$ is a non-normal maximal subgroup of $G$. Let $p$ be a prime, $a= [F(\zeta_p) \colon F]$, and suppose $G$ does not contain a cyclic quotient group of order $a$. Then for every elliptic curve $E/F$, it holds that $E(L)[p]= E(F)[p]$.
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~4.3]{gonzalezjimeneznajman20base}}] \label{thm:base2}
+Let $E/F$ be an elliptic curve, $L/F$ be a finite extension of number fields with no intermediate fields, and let $G= \Gal(\ov{L}/F)$, where $\widehat{L}$ is the normal closure of $L$ over $F$. If $G$ is not isomorphic to a quotient of $\Gal(F(E[p])/F)$, then $E(L)[p]= E(F)[p]$.
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~4.5]{gonzalezjimeneznajman20base}}] \label{thm:base3}
+Let $L/F$ be a finite extension of number fields, $G= \Gal(\widehat{L}/F)$, where $\widehat{L}$ is the normal closure of $L$ over $F$, $n$ be a positive integer, and let $p$ be a prime co-prime to $[L \colon F]$. Suppose that $G$ is not isomorphic to a quotient of any subgroup of $\GL_2(\Z/p^n\Z)$ and that $\Gal(\ov{L}/L)$ is maximal in $G$. Let $E/F$ be an elliptic curve such that it has a $F$-rational point of order $p^n$, but no $F$-rational points of order $p^{n+1}$. Then $E(L)$ has no points of order $p^{n+1}$. 
+\end{thm}
+
+
+\begin{thm}[{\cite[Prop.~4.6]{gonzalezjimeneznajman20base}}] \label{thm:base4}
+Let $E/F$ be an elliptic curve over a number field $F$, $n$ a positive integer, $P \in E(\ov{F})$ be a point of order $p^{n+1}$. Then $[F(P) \colon F(pP)]$ divides $p^2$ or $(p-1)p$. 
+\end{thm}
+
+
+\begin{thm}[{\cite[Prop.~4.8]{gonzalezjimeneznajman20base}}] \label{thm:base5}
+Let $E/F$ be an elliptic curve over a number field $F$, $n$ a positive integer, $P \in E(\ov{F})$ be a point of order $2^{n+1}$, and let $\widehat{F(P)}$ be the Galois closure of $F(P)$ over $F(2P)$. Then $[F(P) \colon F(2P)]$ divides 4 and $\Gal(\widehat{F(P)}/F(2P))$ is either trivial, isomorphic to $\Z/2\Z$, $\Z/2\Z \times \Z/2\Z$, or $D_4$. 
+\end{thm}
+
+
+The results in Theorem~\ref{thm:base1}--\ref{thm:base5} were based on a careful study of the mod $n$ Galois representation, building on work of Balakrishnan, Bilu, Dogra, Mazur, M\"uller, Parent, Rebolledo, Serre, Tuitman, Vonk, and Zywina, and the action of Galois on torsion points. But using these tools, one can do more than just determine criterion for when there is no torsion growth. \gonjim{} and Najman apply these same techniques to determine the degrees of the possible fields of definition for points of prime order. 
+
+
+\begin{thm}[{\cite[Thm.~5.8]{gonzalezjimeneznajman20base}}] \label{thm:definitionfield}
+Let $E/\Q$ be an elliptic curve, $p$ a prime and $P$ a point of order $p$ in $E$. Then all of the cases in table~\ref{tab:degreetab} occur for $p \leq 13$ or $p= 37$, and they are the only ones possible. The degrees in table~\ref{tab:degreetab} with an asterisk occur only when $E$ has CM. For all other $p$, the possibilities for $[\Q(P) \colon \Q]$ are as is given below. The degrees in equations~\ref{10}--\ref{12} occur only for CM elliptic curves $E/\Q$. Furthermore, the degrees in equation~\ref{12} occur only for elliptic curves with $j$-invariant 0. If a given conjecture is true, c.f. \cite[Conj.~3.5]{gonzalezjimeneznajman20base}, then the degrees in equations~\ref{13} also occur only for elliptic curves with $j$-invariant 0.
+	\begin{align}
+	\pushleft{p^2 - 1} & \pushright{\text{\itshape for all } p,\quad\quad\quad}  \label{8} \\
+	\pushleft{8, 16, 32^*, 136, 256^*, 272, 288} & \pushright{\text{\itshape for } p= 17,\quad\quad\quad} \label{9} \\
+	\pushleft{(p - 1)/2, p - 1, p(p - 1)/2, p(p - 1)} & \pushright{\text{\itshape if } p \in \{ 19, 43, 67, 163 \}\quad\quad\quad} \label{10} \\
+	%
+	\pushleft{2(p - 1), (p - 1)^2} & {\small \text{\itshape if } p \equiv 1 \mod 3 \text{\itshape\ or } \genfrac(){}{0}{-D}{p}= 1 \text{\itshape\ for any } D \in \text{CM} }\label{11} \\
+	%
+	\pushleft{(p - 1)^2/3, 2(p - 1)^2/3} &  \pushright{p \equiv 4, 7 \mod 9 \quad\quad\quad} \label{12} \\
+	\pushleft{(p^2 - 1)/3, 2(p^2 - 1)/3} &  \pushright{p \equiv 2, 5 \mod 9 \quad\quad\quad} \label{13}
+	\end{align}
+where $\text{CM}= \{ 1, 2, 7, 11, 19, 43, 67, 163 \}$. Apart from the cases above that have been proven to appear, the only other options that might be possible are:
+	\begin{equation} \label{14}
+	(p^2 - 1)/3, 2(p^2 - 1)/3 \quad \text{\itshape if } p \equiv 8 \mod 9.
+	\end{equation}
+\end{thm}
+
+	\begin{table}[!ht]
+	\centering
+	\caption{The possible degrees for the field of definitions for points of prime order $p=$ 2, 3, 5, 7, 11, 13, 37.\label{tab:degreetab}}
+	\begin{tabular}{|c|c|} \hline
+	$p$ & $[\Q(P) \colon \Q]$ \\ \hline
+	2 & 1, 2, 3 \\ \hline
+	3 & 1, 2, 3, 4, 6, 8 \\ \hline
+	5 & 1, 2, 4, 5, 8, 10, 16, 20, 24 \\ \hline
+	7 & 1, 2, 3, 6, 7, 9, 12, 14, 18, 21, $24^*$, 36, 42, 48 \\ \hline
+	11 & 5, 10, $20^*$, $40^*$, 55, $80^*$, $100^*$, 110, 120 \\ \hline
+	13 & 3, 4, 6, 12, $24^*$, 39, $48^*$, 52, 72, 78, 96, $144^*$, 156, 168 \\ \hline
+	37 & 12, 36, $72^*$, 444, $1296^*$, 1332, 1368 \\ \hline
+	\end{tabular}
+	\end{table}
+
+
+\begin{cor}[{\cite[Cor.~6.1]{gonzalezjimeneznajman20base}}]
+Let $\text{CM}= \{ 1, 2, 7, 11, 19, 43, 67, 163 \}$. The following holds:
+	\begin{enumerate}[(i)]
+	\item $11 \in R_\Q(d)$ if and only if $5 \mid d$.
+	\item $13 \in R_\Q(d)$ if and only if $3 \mid d$ or $4 \mid d$.
+	\item $17 \in R_\Q(d)$ if and only if $8 \mid d$.
+	\item $37 \in R_\Q(d)$ if and only if $12 \mid d$. 
+	\end{enumerate}
+\end{cor}
+
+
+As they state in their paper, \gonjim{} and Najman are able to determine the possible degree of the fields of definition for points of prime order $p$ for all primes with $p \not\equiv 8 \mod 9$ or $\genfrac(){}{0}{-D}{p}= 1$, which represents a set of primes of density $1535/1536 \approx 0.9993$. In particular, this computes the possible degrees for the fields of definition of points of prime order $p$ for all $p < 3167$. \gonjim{} and Najman are then able to determine the possible prime orders for points over all fields of degree $d \leq 3342296$. Furthermore, combing these results, given a number field $K$ of degree $d$, \gonjim{} and Najman are able to determine when there can be torsion growth when base extending an elliptic curve $E/\Q$ to $K$ based solely on the prime divisors of $d$. 
+
+
+\begin{thm}[{\cite[Thm.~7.2]{gonzalezjimeneznajman20base}}] \label{thm:baseextendlimit}
+Let $B$ be a positive integer. Let $E/\Q$ be an elliptic curve, and $K/\Q$ a number field of degree $d$, where the smallest prime divisor of $d$ is $\geq B$. Then
+	\begin{enumerate}[(i)]
+	\item If $B \geq 11$, then $E(K)[p^\infty]= E(\Q)[p^\infty]$ for all primes $p$. In particular, $E(K)_\tors= E(\Q)_\tors$.
+	\item If $B \geq 7$, then $E(K)[p^\infty]= E(\Q)[p^\infty]$ for all primes $p \neq 7$.
+	\item If $B \geq 5$, then $E(K)[p^\infty]= E(\Q)[p^\infty]$ for all primes $p \neq 5, 7, 11$.
+	\item If $B > 2$, then $E(K)[p^\infty]= E(\Q)[p^\infty]$ for all primes $p \neq 2, 3, 5, 7, 11, 13, 19, 43, 67, 163$.
+	\end{enumerate}
+\end{thm}
+
+
+In this same paper, \gonjim{} and Najman complete the classification of $\Phi_\Q(4)$ and also classify $\Phi_\Q(7)$. Moreover, using Theorem~\ref{thm:baseextendlimit}, they are able to determine $\Phi_\Q(d)= \Phi_\Q(1)$ for all degrees $d$ whose smallest prime divisor is at least 11. Obviously, Theorem~\ref{thm:baseextendlimit} says that not only is $\Phi_\Q(d)= \Phi_\Q(1)$ for such $d$, but that actually $E(K)_\tors= E(\Q)_\tors$ for all such fields $K$. 
+
+
+If that was not enough, \gonjim{} and Najman do even more in a later paper. Suppose we wanted to determine when there can be torsion growth for elliptic curves over fields of degree $d$. By Merel's Theorem, see \cite{merel96}, we know that the sets $\Phi_\Q(d)$ are uniformly bounded. Suppose that for the set $\Phi_\Q(d)$, we have an effective bound $B_d$, i.e. $\#E(K)_\tors \leq B_d$. For each prime power $\ell^n \leq B_d$, one can compute the $\ell^n$th division polynomial $\psi_{\ell^n}$. For each irreducible factor $f_i$ of $\psi_{\ell^n}$, one can check whether $\deg f_i$ divides $d$. If not, move onto the next prime or prime power. If so, then one checks whether the point of order $\ell^n$, say $P$, is defined over $\Q(f_i)$. If so, add this field to the list. If not, then the torsion is defined over a quadratic extension of $\Q(f_i)$, i.e. the field where $y$ is defined. Then if $2 \deg f_i$ divides $d$, add the field $\Q(P)$ to the list (the field where both the $x,y$ coordinates of the $\ell^n$-torsion point are defined). This is exactly what \gonjim{} and Najman do in \cite{gonzalezjimeneznajman20}. However, this is not a practical algorithm as the degree of $\psi_n$ is quadratic in $n$ and the prime powers needed to be checked grow exponentially in $d$. However, \gonjim{} and Najman apply information about the mod $n$ Galois representations attached to $E/\Q$ developed in \cite{gonzalezjimeneznajman20base} to avoid division polynomial computations when possible. They apply these techniques to all elliptic curves of conductor of less than 400,000 (a total of 2,483,649 curves) and all $d \leq 23$. They are then able to arrive at a number of interesting results. For instance, they show that there is no point of order 49 on any elliptic curve $E/\Q$ for fields of degree less than 42, or points of order 125 for fields of order less than degree 50. For a complete description of their results and data, see \cite{gonzalezjimeneznajman20}. 
+
+
+Of course, one can be more specific than just determining when there can or cannot be torsion growth. Instead, one could focus on exactly how the torsion structure grows or changes as one base extends the curve. That is, given $G \in \Phi(1)$ (or more generally, $G \in \Phi_\Q(d)$), what are the possible torsion subgroups $H \in \Phi_\Q(d)$ such that there is an elliptic curve $E/\Q$ with $E(K)_\tors \cong H$ and $E(\Q)_\tors \cong G$. Of course, one always has $E(\Q)_\tors \subseteq E(K)_\tors$, but what are the possibilities for torsion growth? In \cite{gonzalezjimeneztornero14} and \cite{gonzalezjimeneztornero16}, \gonjim{} and Tornero determine completely the sets $\Phi_\Q(2,G)$ for $G \in \Phi(1)$. They give examples of each such possible torsion growth, i.e. examples where $E(\Q)_\tors \subsetneq E(K)_\tors$. Moreover, fixing an elliptic curve $E/\Q$, they are able to determine the maximum number of quadratic fields such that $E(K)_\tors \not\cong E(\Q)_\tors$. For all $G \in \Phi(1)$ except for $G \cong \Z/2\Z \oplus \Z/2\Z$, there are at most two quadratic fields such that $E(K)_\tors \not\cong E(\Q)_\tors$. In the case of $G \cong \Z/2\Z \oplus \Z/2\Z$ and $H \cong \Z/2\Z \oplus \Z/4\Z$, three such fields are possible. For a complete description of their results, with tables and examples, see \cite{gonzalezjimeneztornero16}. \gonjim{} also classifies these sets when restricting to CM elliptic curves in \cite{gonzalezjimenezgrowth21}. In this case, \gonjim{} is also able to give an explicit characterization of the quadratic fields where the torsion grows in terms of invariants of the elliptic curve. The possible growths of torsion subgroups in the cubic case was completely characterized by \gonjim{}, Najman, and Tornero.
+
+
+\begin{thm}[{\cite[Thm.~1, Thm.~3]{gonjimnajmantornero16}}]
+For $G \in \Phi(1)$, the set $\Phi_\Q(3,G)$ is given in Table~\ref{tab:torsiongrowthcubic}. Furthermore, if $E/\Q$ is a rational elliptic curve, then
+	\begin{enumerate}[(i)]
+	\item There is at most one cubic number field $K$, up to isomorphism, such that $E(K)_\tors \cong H \neq E(\Q)_\tors$ for a fixed $H \in \Phi_\Q(3)$.
+	\item There are at most three cubic number fields $K_i$, $i= 1, 2, 3$ (non-isomorphic pairwise), such that $E(K_i)_\tors \neq E(\Q)_\tors$. Moreover, the elliptic curve \ostbt{} is the unique rational elliptic curve where the torsion grows over three non-isomorphic cubic fields. 
+	\end{enumerate}
+\end{thm}
+
+	\begin{table}[!ht]
+	\centering
+	\caption{A table of the sets $\Phi_\Q(3,G)$ for $G \in \Phi(1)$.\label{tab:torsiongrowthcubic}}
+	\begin{tabular}{|c|c|} \hline
+	$G$ & $\Phi_\Q(3,G)$ \\ \hline
+	$\{\cO\}$ & $\{ \{\cO\}, \Z/2\Z, \Z/3\Z, \Z/4\Z, \Z/6\Z, \Z/7\Z, \Z/13\Z, \Z/2\Z \times \Z/2\Z, \Z/2\Z \times \Z/14\Z \}$ \\ \hline
+	$\Z/2\Z$ & $\{ \Z/2\Z, \Z/6\Z, \Z/14\Z \}$ \\ \hline
+	$\Z/3\Z$ & $\{ Z\/3\Z, \Z/6\Z, \Z/9\Z, \Z/12\Z, \Z/21\Z, \Z/2\Z \times \Z/6\Z \}$ \\ \hline
+	$\Z/4\Z$ & $\{ \Z/4\Z, \Z/12\Z \}$ \\ \hline
+	$\Z/5\Z$ & $\{ \Z/5\Z, \Z/10\Z \}$ \\ \hline
+	$\Z/6\Z$ & $\{ \Z/6\Z, \Z/18\Z \}$ \\ \hline
+	$\Z/7\Z$ & $\{ \Z/7\Z, \Z/14\Z \}$ \\ \hline
+	$\Z/8\Z$ & $\{ \Z/8Z \}$ \\ \hline
+	$\Z/9\Z$ & $\{ \Z/9\Z, \Z/18\Z \}$ \\ \hline
+	$\Z/10\Z$ & $\{ \Z/10\Z \}$ \\ \hline
+	$\Z/12\Z$ & $\{ \Z/12\Z \}$ \\ \hline
+	$\Z/2\Z \times \Z/2\Z$ & $\{ \Z/2\Z \times \Z/2\Z, \Z/2\Z \times \Z/6\Z \}$ \\ \hline
+	$\Z/2\Z \times \Z/4\Z$ & $\{ \Z/2\Z \times \Z/4\Z \}$ \\ \hline
+	$\Z/2\Z \times \Z/6\Z$ & $\{ \Z/2\Z \times \Z/6\Z \}$ \\ \hline
+	$\Z/2\Z \times \Z/8\Z$ & $\{ \Z/2\Z \times \Z/8\Z \}$ \\ \hline
+	\end{tabular}
+	\end{table}
+
+
+They give the number of possible fields over which there is torsion growth, along with examples of each such growth, in their paper. It is worth noting that from their paper (as we will use this later) that if $H \cong \Z/18\Z$, there are only two possibilities for $G$---$\Z/6\Z$ or $\Z/9\Z$---and in each case there is at most one cubic field where one can see that torsion growth. Again, \gonjim{} determines the possible torsion growths in the CM case in \cite{gonzalezjimenezgrowth20}, along with examples and explicit characterizations of the cubic fields over which there is growth in terms of invariants attached to the elliptic curve. The sets $\Phi_\Q(d,G)$ are determined for $d= 4$ in \cite{gonzalezjimenezlozanorobledo18}, $d= 5$ in \cite{gonzalezjimenez17}, and $d= 6$ in \cite{danielsgonzalezjimenez20}. Finally from \cite{gonzalezjimeneznajman20base}, we know that $\Phi_\Q(7,G)= \{ G \}$ except in the case of $G \cong \{ \cO \}$, where $\Phi_\Q(d, \{ \cO \})= \{ \{ \cO \}, \Z/7\Z \}$, and that $\Phi_\Q(d,G)= \{ G \}$ for all number fields of degree $d$, where the smallest prime divisor of $d$ is at least 11. 
+
+
+
+
+
+% Torsion Subgroups for Elliptic Curves over Infinite Extensions
+\section{Torsion Subgroups of Elliptic Curves over Infinite Extensions}
+
+Of course, one not limit oneself to just number fields. Instead, one can examine the possible torsion structures for $E(K)_\tors$, where $K/\Q$ is an infinite extension of fields. The Mordell-Weil Theorem no longer applies, so one need prove first that the torsion subgroup is finite (while the rank may be infinite). The first progress in this direction came with Laska, Lorenz, \cite{laskalorenz85}, and Fujita's, \cite{fujita04,fujita05}, classification of the possibilities for $E(K)_\tors$, where $K$ is the maximal abelian 2-extension of $\Q$, i.e. $K= \Q(\{ \sqrt{n} \colon n \in \Z \})$. Generally, the maximal abelian 2-extension of a field $F$ is $K= F(\{ \sqrt{n} \colon n \in \cO_F \})$, where $\cO_F$ is the ring of integers of $F$. For ease of notation, we make the following definition:
+
+
+\begin{dfn}
+For each fixed integer $d \geq 1$, let $\Q(d^\infty)$ denote the compositum of all field extensions $K/\Q$ of degree $d$. More precisely, let $\ov{\Q}$ be a fixed algebraic closure of $\Q$, then define
+	\[
+	\Q(d^\infty):= \Q(\{ \beta \in \ov{\Q} \colon [\Q(\beta) \colon \Q]= d \}).
+	\]
+\end{dfn}
+
+
+The fields $\Q(d^\infty)$ have been studied by Gal and Grizzard in \cite{galgrizzard14}, where they prove a number of interesting results. Laska, Lorenz and Fujita show there are exactly 20 possibilities for $E(\Q(2^\infty))_\tors$, where $E/\Q$ is a rational elliptic curve. 
+
+
+\begin{thm}[{\cite{laskalorenz85,fujita04,fujita05}}]
+Let $E/\Q$ be a rational elliptic curve, and let $\Q(2^\infty)$ be the maximal abelian 2-extension of $\Q$. Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 3, 5, 7, 9, 15 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6, 8 \\
+	\Z/3\Z \oplus \Z/3\Z, \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2, 3, 4 \\
+	\Z/2n\Z \oplus \Z/2n\Z, & n= 3, 4,
+	\end{cases}
+	\]
+and each such possibility occurs. 
+\end{thm}
+
+
+Later in \cite{ejder18}, Ejder determined the possibilities for $E(K)_\tors$, where $K$ is the maximal abelian 2-extension of $\Q$, when $E$ is an elliptic curve defined over quadratic cyclotomic fields, i.e. $E/\Q(i)$ or $E/\Q(\sqrt{-3})$. 
+
+
+The next progress came with \cite{danielslozrobnajmansutherland18}. First, they prove a finiteness theorem about torsion subgroups for rational elliptic curves base extended to (possibly infinite) Galois extensions of $\Q$.
+
+
+\begin{thm}[{\cite[Thm.~4.1]{danielslozrobnajmansutherland18}}]
+Let $E/\Q$ be an elliptic curve, and let $F$ be a (possibly infinite) Galois extension of $\Q$ that contains only finitely many roots of unity. Then $E(F)_\tors$ is finite. Moreover, there is a uniform bound $B$, depending only on $F$, such that $\#E(F)_\tors \leq B$ for every elliptic curve $E/\Q$. 
+\end{thm}
+
+
+Using this, they are able to prove the following general result:
+
+
+\begin{prop}[{\cite[Prop.~4.7]{danielslozrobnajmansutherland18}}]
+For every $d \geq 2$, the cardinality of $E(\Q(d^\infty))_\tors$ is finite and uniformly bounded as $E$ varies over elliptic curves over $\Q$. 
+\end{prop}
+
+
+Daniels, \lozrob{}, Najman, and Sutherland then classify the possibilities for $E(\Q(3^\infty))_\tors$, where $E/\Q$ is a rational elliptic curve. 
+
+
+\begin{thm}[{\cite[Thm.~1.8]{danielslozrobnajmansutherland18}}] \label{thm:cubiccompositum}
+Let $E/\Q$ be a rational elliptic curve. Then the torsion subgroup $E(\Q(3^\infty))_\tors$ is finite and is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 4, 5, 7, 8, 13 \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2, 4, 7 \\
+	\Z/6\Z \oplus \Z/6n\Z, & n= 1, 2, 3, 5, 7 \\
+	\Z/2n\Z \oplus \Z/2n\Z, & n= 4, 6, 7, 9 \\
+	\end{cases}
+	\]
+All but four of the torsion subgroups, $T$, listed above occur for infinitely many $\ov{\Q}$-isomorphism classes of elliptic curves $E/\Q$. For $T \cong \Z/4\Z \oplus \Z/28\Z$, $\Z/6\Z \oplus \Z/30\Z$, $\Z/6\Z \oplus \Z/42\Z$, and $\Z/14\Z \oplus \Z/14\Z$, there are only 2, 2, 4, and 1 (respectively) $\ov{\Q}$-isomorphism classes of $E/\Q$ for which $E(\Q(3^\infty))_\tors \cong T$. 
+\end{thm}
+
+
+They give examples of each such torsion subgroup in their paper. Daniels continues to extend this work in \cite{daniels18}\footnote{In examining this paper, it is important that one also see Daniel's errata in \cite{daniels21}. While the main results of the paper are still true, the claim about the compositum of all $D_4$-extensions over $\Q$ and $\Q(D_4^\infty)$ being the same is not necessarily true.} by first observing a (less general) version of a result of Gal and Grizzard.
+
+
+\begin{prop}[{\cite[Prop.~1.9]{daniels18}}] \label{prop:danielsprop}
+Let $K/\Q$ be a finite extension. Then $K \subseteq \Q(d^\infty)$ if and only if the following two conditions are met:
+	\begin{enumerate}[(i)]
+	\item There exists a group $H$ which is a subdirect product of transitive subgroups of degree $d$ with some normal subgroup $N$ such that
+		\[
+		1 \ma{} N \ma{} H \ma{} \Gal(K/\Q) \ma{} 1
+		\]
+	is a short exact sequence. 
+	\item We can solve the corresponding Galois embedding problem, i.e. we can find a field $L \supseteq K$ such that $\Gal(L/\Q) \cong H$. 
+	\end{enumerate}
+\end{prop}
+
+
+Motivated by Proposition~\ref{prop:danielsprop}(i), Daniels makes the following definition: 
+
+
+\begin{dfn}
+Let $G$ be a transitive subgroup of $S_n$ for some $n \geq 2$. We say that a finite group $H$ is of generalized $G$-type if it is isomorphic to a quotient of a subdirect product of transitive subgroups of $G$. Given a number field $K/\Q$ and its Galois closure $\widehat{K}$, we say that $K/\Q$ is of generalized $G$-type if $\Gal(\widehat{K}/\Q)$ is a group of generalized $G$-type. Let $\Q(G^\infty)$ be the compositum of all fields that are of generalized $G$-type. 
+\end{dfn}
+
+
+\begin{ex}[{\cite[Ex.~3.1]{daniels18}}]
+Clearly the groups $\Z/4\Z$, $\Z/2\Z$ are all of generalized $D_4$-type. More interestingly, the quaternion group $Q_8$ is generalized $D_4$-type since $Q_8 \cong G/H$ with
+	\[
+	\begin{aligned}
+	G&= \langle (2,4)(5,6,7,8), (1,2,3,4),(1,3)(2,4),(5,7)(6,8) \rangle, \\
+	H&= \langle (1,3)(2,4)(5,7)(6,8) \rangle.
+	\end{aligned}
+	\]
+\end{ex}
+
+
+Daniels is then able to classify the possibilities for $E(\Q(D_4^\infty))_\tors$, where $E/\Q$ is a rational elliptic curve. 
+
+
+\begin{thm}[{\cite[Thm~1.10]{daniels18}}]
+Let $E/\Q$ be a rational elliptic curve. Then the torsion subgroup $E(\Q(D_4^\infty))_\tors$ is finite and is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z & \text{with } n= 1, 3, 5, 7, 9, 13, 15 \text{ or} \\
+	\Z/3\Z \oplus \Z/3n\Z & \text{with } n= 1,5 \text{ or} \\
+	\Z/4\Z \oplus \Z/4n\Z & \text{with } n= 1, 2, 3, 4, 5, 6, 8 \text{ or} \\
+	\Z/5\Z \oplus \Z/5\Z & \text{ or} \\
+	\Z/8\Z \oplus \Z/8n\Z & \text{with } n= 1, 2, 3, 4 \text{ or} \\
+	\Z/12\Z \oplus \Z/12n\Z & \text{with } n= 1, 2 \text{ or} \\
+	\Z/16\Z \oplus \Z/16\Z.
+	\end{cases}
+	\]
+All but three of the 24 torsion structures listed above occur for infinitely many $\ov{\Q}$-isomorphism classes of elliptic curves $E/\Q$. The torsion structures that occur finitely often are $\Z/15\Z$, $\Z/3\Z \oplus \Z/15\Z$, and $\Z/12\Z \oplus \Z/24\Z$ which occur for 4, 2, and 1 $\ov{\Q}$-isomorphism classes respectively.
+\end{thm}
+
+
+Examples of each torsion subgroup occurring are found in his paper. Daniels, Derickx, and Hatley\footnote{While unimportant, it is interesting to note that Hatley owns several llamas: Nimbus, Maverick, Gunnar, and Wes, who have their own Instagram account, see \url{https://www.nimbusthellama.com/}. Moreover, they are available for rent for parties---they llama meet you! Union College, as Hatley notes, has an archaic policy that faculty are able to allow their livestock to graze on the quad. So perhaps you may one day find the llamas grazing in the quad.} classified the possibilities for $E(\Q(A_4^\infty))_\tors$ in \cite{danielsderickhatley19}. 
+
+
+\begin{thm}[{\cite[Thm.~1.7]{danielsderickhatley19}}]
+Let $E/\Q$ be a rational elliptic curve. Then the torsion subgroup $E(\Q(A_4^\infty))_\tors$ is finite and isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 3, 5, 7, 9, 13, 15, 21 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, \ldots, 9 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 3 \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2, 3, 4, 7 \\
+	\Z/6\Z \oplus \Z/6\Z, \\
+	\Z/8\Z \oplus \Z/8\Z, 
+	\end{cases}
+	\]
+All but four of the 26 torsion structures listed above occur for infinitely many $\ov{\Q}$-isomorphism classes of elliptic curves $E/\Q$. The torsion structures which occur finitely often are $\Z/15\Z$, $\Z/21\Z$, $\Z/2\Z \oplus \Z/14\Z$, and $\Z/3\Z \oplus \Z/9\Z$, which occur for 2, 4, 2, and 1 $\ov{\Q}$-isomorphism classes, respectively. 
+\end{thm}
+
+
+Examples of each torsion subgroup are given in their paper. Now let $\Q^{\ab}$ denote the maximal abelian extension of $\Q$, i.e. the compositum of all abelian extensions of $\Q$. By the Kronecker-Weber Theorem, $\Q^{\ab}= \Q(\{ \zeta_n \colon n \in \Z^+ \})$, where $\zeta_n$ is a primitive $n$th root of unity. Ribet proved in \cite{ribet81} that given an abelian variety $A/\Q$, $A(\Q^{\ab})_\tors$ is finite. Chou then proves the following:
+
+
+\begin{thm}[{\cite{chou19}}]
+Let $E/\Q$ be a rational elliptic curve. Then $E(\Q^{\ab})_\tors$ is finite, and is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 25, 27, 37, 43, 67, 163 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, \ldots, 9 \\
+	\Z3\Z \oplus \Z/3n\Z, & n= 1, 3 \\
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2, 3, 4 \\
+	\Z/n\Z \oplus \Z/n\Z, & n= 5, 6, 8
+	\end{cases}
+	\]
+and each of the listed groups appears as a torsion subgroup for $E(\Q^{\ab})_\tors$ for some elliptic curve over $\Q$. 
+\end{thm}
+
+
+Now for a prime $p$, define $\Q_{\infty,p}$ to be the unique $\Z_p$-extension of $\Q$. Let $\Q_{n,p}$ be the $n$th layer of $\Q_{\infty,p}$, i.e. the unique subfield of $\Q_{\infty,p}$ such that $\Gal(\Q_{n,p}/\Q) \simeq \Z/p^n \Z$. We know that $\Gal(\Q_{\infty,p}/\Q) \simeq \Z_p$ and $\Z_p$ is the unique Galois extension of $\Q$ with this property. We know also that
+	\[
+	G:= \Gal(\Q(\zeta_{p^\infty})/\Q) = \plim_n \Gal(\Q(\zeta_{p^{n+1}})/\Q) \ma{\sim} \plim_n(\Z/p^{n+1}\Z)^\times= \Z_p^\times. 
+	\]
+Fixing a prime $p$, define $\Gamma_p= \Z_p$ and
+	\[
+	\Delta_p:=
+	\begin{cases}
+	\Z/2\Z, & p= 2 \\
+	\Z/(p - 1)\Z, & p \geq 3.
+	\end{cases}
+	\]
+Then $G \cong \Delta_p \times \Gamma_p$. We can then define $\Q_{\infty,p}:= \Q(\zeta_{p^\infty})^{\Delta_p}$, so that every layer $\Q_{n,p}$ is given by $\Q_{n,p}= \Q(\zeta_{p^{n+1}})^{\Delta_p}$. Then for $p \geq 3$, $\Q_{n,p}$ is the unique subfield of $\Q(\zeta_{p^{n+1}})$ of degree $p^n$ over $\Q$. Elliptic curves have been extensively studied in $\Z_p$-extensions. Indeed, understanding elliptic curves in these extensions this is one of the main goals of Iwasawa Theory for elliptic curves---though this mostly focuses on the rank and $n$-Selmer group of $E$. For more on these fields or Iwasawa Theory for elliptic curves, see \cite{washington97} or \cite{lang90} and \cite{greenberg99}, respectively. 
+
+
+Chou, Daniels, Krijan, and Najman classify the possibilities for $E(\Q_{\infty,p})_\tors$, where $E/\Q$ is a rational elliptic curve, for each prime $p$. 
+
+
+\begin{thm}[{\cite[Thm.~1.1]{choudanielskrijannajman21}}]
+Let $E/\Q$ be a rational elliptic curve, and let $p \geq 5$ be a prime. Then
+	\[
+	E(\Q_{\infty,p})_\tors= E(\Q)_\tors.
+	\]
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.2]{choudanielskrijannajman21}}]
+Let $E/\Q$ be an elliptic curve. Then $E(\Q_{\infty,2})_\tors$ is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z,& n= 1, 2, \ldots, 10, 12 \\ 
+	\Z/2\Z \oplus \Z/2n\Z,&  n= 1, 2, 3, 4, 
+	\end{cases}
+	\]
+and each such group occurs for some rational elliptic curve. 
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.3]{choudanielskrijannajman21}}]
+Let $E/\Q$ be a rational elliptic curve. Then $E(\Q_{\infty,3})_\tors$ is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z,& n= 1, 2, \ldots, 10, 12, 21, 27 \\
+	\Z/2\Z \oplus \Z/2n\Z,& n= 1, 2, 3, 4,
+	\end{cases}
+	\]
+and each such group occurs for some rational elliptic curve. 
+\end{thm}
+
+
+Furthermore, they are able to prove several interesting general results about the fields of definitions for torsion points. 
+
+
+\begin{lem}[{\cite[Lem.~2.8]{choudanielskrijannajman21}}]
+Let $p$ and $q$ be prime numbers such that $q - 1 \nmid p$ and $p \nmid q - 1$. Let $K/\Q$ be a cyclic extension of degree $p$, and $P \in E$ a point of degree $q$. If $P \in E(K)$, then $P \in E(\Q)$. 
+\end{lem}
+
+
+\begin{lem}[{\cite[Lem.~2.9]{choudanielskrijannajman21}}]
+Let $E/\Q$ be a rational elliptic curve and $P \in E$ a point of order $n$ such that $\Q(P)/\Q$ is Galois, and let $E(\Q(P))[n] \simeq \Z/n\Z$. Then $\Gal(\Q(P)/\Q)$ is isomorphic to a subgroup of $(\Z/n\Z)^\times$. 
+\end{lem}
+
+
+\begin{prop}[{\cite[Prop.~2.11]{choudanielskrijannajman21}}]\footnote{Note that this is \cite[Prop.~4.6]{gonzalezjimeneznajman20base} with added assumptions.}
+Let $E/F$ be an elliptic curve over a number field $F$, $n$ a positive integer, $P \in E$ be a point of order $p^{n+1}$ such that $E(F(pP))$ has no points of order $p^{n+1}$ and such that $F(P)/F(pP)$ is Galois. Then $[F(P) \colon F(pP)]$ divides $p^2$.
+\end{prop}
+
+
+We make the following definition: $\cK:= \prod_{p \text{ prime}} \Q_{\infty,p}$;
+that is, $\cK$ is the compositum for all $\Z_p$-extensions of $\Q$. Denote by $\cK_{\geq q}$ the compositum of all $\Z_p$-extensions with $p \geq q$. Extending the results in \cite{choudanielskrijannajman21}, Gu{\u{z}}vi\'c and Krijan classify the possibilities for $E/\Q$ when base extended to a compositum of $\Z_p$-extensions. 
+
+
+\begin{thm}[{\cite[Thm.~1.1]{guzvickrijan20}}]
+Let $E/\Q$ be a rational elliptic curve, then
+	\[
+	E(\cK_{\geq 5})_\tors= E(\Q)_\tors
+	\]
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.2]{guzvickrijan20}}]
+Let $E/\Q$ be a rational elliptic curve. Then $E(\cK)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 21, 27 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4
+	\end{cases}
+	\]
+and each such possibility occurs for some rational elliptic curve $E/\Q$.
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.3]{guzvickrijan20}}] \label{thm:guzvickrijan}
+Let $E/\Q$ be a rational elliptic curve. Then for a prime $p \geq 5$, we have
+	\[
+	E(\Q(\mu_{p^\infty}))_\tors= E(\Q(\mu_p))_\tors.
+	\]
+Furthermore,
+	\[
+	E(\Q(\mu_{3^\infty}))_\tors= E(\Q(\mu_{3^3}))_\tors \quad \text{ and } \quad E(\Q(\mu_{2^\infty}))_\tors= E(\Q(\mu_{2^4}))_\tors.
+	\]
+\end{thm}
+
+
+Gu{\u{z}}vi\'c and Krijan remark that Theorem~\ref{thm:guzvickrijan} is the best possible in the following sense: if $E, E^\prime$ have Cremona label \tsaf{} and \ttaf{}, respectively, then
+	\[
+	\begin{aligned}
+	E(\Q(\mu_{3^2}))_\tors= \Z/9\Z \subsetneq \Z/27\Z= E(\Q(\mu_{3^3}))_\tors \\
+	E(\Q(\mu_{2^3}))_\tors= \Z/2\Z \oplus \Z/4\Z \subsetneq \Z/2\Z \oplus \Z/8\Z= E(\Q(\mu_{2^4}))_\tors. 
+	\end{aligned}
+	\]
+
+
+
+
+
+% Torsion Subgroups for Elliptic Curves with Specified Structure
+\section{Torsion Subgroups for Elliptic Curves with Specified Structure}
+
+There are many other questions one can ask that also lead to interesting classifications. For example, rather than simply classifying the sets $\Phi_\Q(d)$, one can be more general and instead try to classify the sets $\Phi_{j \in \Q}(d)$. Of course, one has $\Phi_\Q(d) \subseteq \Phi_{j \in \Q}(d)$ for all $d$. But a priori, this need not be an equality. Gu{\u{z}}vi\'c classifies the sets $\Phi_{j \in \Q}(d)$ when $d$ is a prime. 
+
+
+\begin{thm}[{\cite[Thm.~1.1--1.4]{guzvic19}}]
+Let $K/\Q$ be a number field of degree $p$, where $p$ is a prime. Then if $p \geq 7$, $\Phi_{j \in \Q}(p)= \Phi(1)$. If $p \in \{ 3, 5 \}$, then $\Phi_{j \in \Q}(p)= \Phi_\Q(p)$. Finally, if $p= 2$, then $\Phi_{j \in \Q}(p)= \Phi_\Q(2) \cup \{ \Z/13\Z \}$. 
+\end{thm}
+
+
+ Gu{\u{z}}vi\'c also proves a number of other interesting results, including several specifically about number fields of odd degree.
+ 
+ 
+ \begin{lem}[{\cite[Lem.~3.9]{guzvic19}}]
+ Let $K/\Q$ be a number field of odd degree. Then there does not exist an elliptic curve $E/K$ with rational $j$-invariant such that $\Z/16\Z \subseteq E(K)$. 
+ \end{lem}
+
+
+ \begin{lem}[{\cite[Lem.~3.9]{guzvic19}}]
+ Let $K/\Q$ be a number field of odd degree, and let $E/K$ be an elliptic curve with rational $j$-invariant. Then $E(K)$ cannot contain $\Z/2\Z \oplus \Z/12\Z$. 
+ \end{lem}
+
+
+Even more general than elliptic curves $E/K$ with $j_E \in \Q$, one can instead work with elliptic curves that are $\Q$-curves. 
+
+
+\begin{dfn}
+An elliptic curve is called a $\Q$-curve if it is isogenous (over $\ov{\Q}$) to all of its $\Gal(\ov{\Q}/\Q)$-conjugates. $\Q$-curves not isogenous to an elliptic curve with rational $j$-variant are called strict $\Q$-curves. 
+\end{dfn}
+
+
+$\Q$-curves can be thought of as generalizations of elliptic curves with rational $j$-invariant. Assuming Serre's conjecture (now a theorem, see \cite{kharewintenberger1,kharewintenberger2}), Ribet proved that $\Q$-curves are precisely the modular elliptic curves $E/K$, in that they are a quotient of $J_1(N)$ for some $N$. All CM elliptic curves are $\Q$-curves. The study of such curves have a number of interesting applications, as Le~Fourn and Najman note in \cite{lefournnajman20}. For instance, Pila used results about isogenies of non-CM elliptic curves with $j_E \in \Q$ in \cite{pila17} to prove results about Diophantine equations coming from ``unlikely intersections.'' Furthermore, Dieulefait and Urroz solve the equation $x^4 + dy^2= z^p$ in the cases $d= 2, 3$ and $p$ `large' using the properties of $\Q$-curves over quadratic fields, see \cite{dieulefaiturroz09}.
+
+ 
+In a recent paper, Najman studied the isogenies of non-CM elliptic curves with rational $j$-invariant over number fields. Cremona and Najman build on this work to prove a number of interesting results about $\Q$-curves over odd degree number fields. 
+
+
+\begin{thm}[{\cite[Thm.~1.1]{cremonanajman21}}]
+Let $E$ be a $\Q$-curve without complex multiplication defined over an odd degree number field $K$. Then
+	\begin{enumerate}[(a)]
+	\item If $E$ has a $K$-rational isogeny of prime degree $\ell$, then $\ell \in \{2,3,5,7,11,13,17,37 \}$.
+	\item If $d= [K \colon \Q]$ is not divisible by any prime $\ell \in \{ 2,3,5,7,11,13,17,37 \}$, and $E$ has a cyclic isogeny of degree $n$, then $n \leq 37$. 
+	\end{enumerate}
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.2]{cremonanajman21}}]
+For every odd positive integer $d$, there exists a bound $C_d$ depending only on $d$ such that all cyclic isogenies of all $\Q$-curves over all number fields of degree $d$ are of degree at most $C_d$.
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.3]{cremonanajman21}}]
+Let $d$ be a prime $>7$, let $K$ be a number field of degree $d$ and $E/K$ a $\Q$-curve. Then $E(K)_\tors$ is one of the groups from Mazur's Theorem, i.e. a torsion group of an elliptic curve over $\Q$. 
+\end{thm}
+
+
+Le Fourn and Najman study the torsion subgroups of $\Q$-curves defined over quadratic fields. 
+
+
+\begin{thm}[{\cite[Thm.~1.1]{lefournnajman20}}]
+Let $E$ be a $\Q$-curve defined over a quadratic field $K$. Then $E(K)_\tors$ is isomorphic to one of the following groups
+	\[
+	\begin{aligned}
+	&\cC_n, \text{ where } 1 \leq n \leq 18, n \neq 11, 17 \\
+	&\cC_2 \times \cC_{2n}, \text{ where } n= 1,\ldots,6, \\
+	&\cC_3 \times \cC_{3n}, \text{ where } n=1,2, \\
+	&\cC_4 \times \cC_4
+	\end{aligned}
+	\]
+There are infinitely many $\Q$-curves with each of these torsion groups, except for $\Z/14\Z$ and $\Z/15\Z$ of which there are finitely many. 
+\end{thm}
+
+
+One can also study sets $\Phi_{j \in \cO_K}(d)$. For instance, we have the following results of Fung, M{\"u}ller, Str{\"o}her, Williams, and Zimmer:
+
+
+\begin{thm}[{\cite[Thm.~4]{zimmerstrohermuller89}}]
+Let $E$ be an elliptic curve with integral absolute invariant $j$ over a quadratic field $K$. Then up to isomorphism, the torsion subgroup $E(K)_\tors$ is isomorphic to one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 8, 10 \\
+	\Z/2\Z \oplus \Z/2\Z, & n= 1, 2, 3 \\
+	\Z/3\Z \oplus \Z/3\Z
+	\end{cases}
+	\]
+Moreover, except for $\Z/2\Z$, $\Z/3\Z$, and $\Z/2\Z \oplus \Z/2\Z$, each such possibility occurs for finitely many curves $E$. The curves $E/K$ with $E(K)_\tors \cong \Z/3\Z$ or $\Z/2\Z \oplus \Z/2\Z$ have $j$-invariants belonging to a finite set. 
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~10]{fungstroherwilliamszimmer89}}]
+Let $E$ be an elliptic curve with integral absolute invariant $j$ over a pure cubic field $K$. Then up to isomorphism, the torsion subgroup $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, 3, 4, 5, 6 \\
+	\Z/2\Z \oplus \Z/2\Z
+	\end{cases}
+	\]
+Moreover, except for $\Z/2\Z$, $\Z/3\Z$, and $\Z/2\Z \oplus \Z/2\Z$, each such possibility occurs for finitely many curves $E$ and pure cubic fields $K$. The curves $E/K$ with $E(K)_\tors \cong \Z/2\Z \oplus \Z/2\Z$ have $j$-invariants belonging to a finite set. 
+\end{thm}
+
+
+Of course in each paper, they give examples and have much more specific results about the fields and elliptic curves involved, which we will not state here. There are further results in this direction, e.g. the following result of Kishi:
+
+
+\begin{thm}[{\cite{kishi97}}]
+Let $K$ be an imaginary cyclic quartic field, and $E/K$ be an elliptic curve. Suppose that
+	\begin{enumerate}[(i)]
+	\item $\ff_2 < 4$ or $\ff_3 < 4$, where $\ff_p$ is the residue degree of a prime ideal over $p$ in the extension $K/\Q$, and 
+	\item the $j \in \cO_K$.
+	\end{enumerate}
+Then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 6, 8 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3,
+	\end{cases}
+	\]
+and all these cases occur for some elliptic curve $E/K$. 
+\end{thm}
+
+
+
+
+
+% Torsion Subgroups for Elliptic Curves over Function Fields
+\section{Torsion Subgroups for Elliptic Curves over Function Fields}
+
+One need not restrict to extensions of $\Q$ (finite or infinite) when studying torsion subgroups of elliptic curves. After all, the Mordell-Weil Theorem (the Lang-N\'eron generalization) equally applies in the case of function fields. Before discussing results in this direction, we will need to make some definitions. 
+
+
+\begin{dfn}
+Let $\F$ be a finite field with characteristic $p$, and let $\cC/\F$ be be a smooth projective curve. Let $K= \F(\cC)$, and let $E/K$ be an elliptic curve. We say that\dots
+	\begin{enumerate}[(i)]
+	\item $E$ is constant if there is an elliptic curve $E_0/\F$ with $E \cong E_0 \times_\F K$. Otherwise, we say that $E$ is non-constant. 
+	\item $E$ is isotrivial if there is a finite extension $L/K$ such that $E/L$ is constant. Otherwise, we say that $E$ is non-isotrivial. 
+	\end{enumerate}
+\end{dfn}
+
+
+Essentially, isotriviality essentially states that the curve $E$ is a base extension of a curve over a finite field. Early progress in the classification of the torsion subgroups $E(K)_\tors$ in the case where $K$ is a function field came with the work of Levin and Cox and Parry. 
+
+
+\begin{cor}[{\cite{levin68}}]
+Let $\F$ be a finite field of characteristic $p$, and define $K= \F(T)$. Let $E/K$ be a non-isotrivial elliptic curve. Suppose $\ell^e \mid \#E(K)_\tors$ for some prime $\ell$. Then	 if $\ell \neq p$,
+	\[
+	\ell \leq 7 \text{ and } 
+	e \leq 
+	\begin{cases}
+	4, & \text{if } \ell= 2 \\
+	2, & \text{if } \ell= 3, 5 \\
+	1, & \text{if } \ell= 7.
+	\end{cases}
+	\]
+If $\ell= p$, then
+	\[
+	\ell \leq 11 \text{ and }
+	e \leq 
+	\begin{cases}
+	3, & \text{if } \ell= 2 \\
+	2, & \text{if } \ell= 3 \\
+	1, & \text{if } \ell= 5, 7, 11.
+	\end{cases}
+	\]
+\end{cor}
+
+
+\begin{thm}[{\cite{coxparry80}}]
+Let $\F$ be a finite field of characteristic $p \geq 5$. Let $m,n$ be positive integers. Then the following are equivalent:
+	\begin{enumerate}[(i)]
+	\item There is a non-isotrivial elliptic curve $E$ over $\F(T)$ such that $\Z/n\Z \oplus \Z/nm\Z \cong E(K)_\tors \setminus E(K)[p^\infty]$.
+	\item If $p \nmid n$, the field $\F$ contains a primitive $n$th root of unity and $\Z/n\Z \oplus \Z/nm\Z$ is one of the following groups:
+		\[
+		\begin{cases}
+		\Z/n\Z, & n= 1, 2, \ldots, 10, 12 \\
+		\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4 \\
+		\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2 \\
+		\Z/4\Z \oplus \Z/4\Z \\
+		\Z/5\Z \oplus \Z/5\Z
+		\end{cases}
+		\]
+	\end{enumerate}
+Furthermore, if $E(K)_\tors \cong \Z/n\Z \oplus \Z/nm\Z$ and $\F$ contains a primitive $n$th root of unity, then this torsion group appears for infinitely many non-isomorphic, non-isotrivial elliptic curves.
+\end{thm}
+
+
+Despite these results having been known for many years, no one had used them to classify the possibilities for $E(K)_\tors$. Recent work of McDonald has finally classified the possibilities for $E(K)_\tors$ in the case where $K$ is a function field of a curve of genus zero or one. 
+
+
+\begin{thm}[{\cite[Thm.~1.13]{mcdonald2}}]
+Let $k= \F_q$ for $q$ a power of $p$. Define $K= k(T)$, and let $E/K$ be a non-isotrivial elliptic curve. If $p \nmid \#E(K)_\tors$, then $E(K)_\tors$ is isomorphic to precisely one of the following: 
+		\begin{equation} \label{eqn:functionlist}
+		\begin{cases}
+		\Z/n\Z, & n= 1, 2, \ldots, 10, 12 \\
+		\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4 \\
+		\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2 \\
+		\Z/4\Z \oplus \Z/4\Z \\
+		\Z/5\Z \oplus \Z/5\Z
+		\end{cases}
+		\end{equation}
+If $p \leq 11$ and $p \mid \#E(K)_\tors$, then $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+		\[
+		\begin{cases}
+		\Z/p\Z, \\
+		\Z/2p\Z, & n= 2, 3, 5, 7 \\
+		\Z/3p\Z, & n= 2, 3, 5 \\
+		\Z/4p\Z, & p= 2, 3 \\
+		\Z/5p\Z & p= 2, 3 
+		\end{cases} \quad\quad
+		\begin{cases}
+		\Z/12\Z, \Z/14\Z, \Z/18\Z, & p= 2 \\
+		\Z/5\Z \oplus \Z/10\Z, & p= 2 \text{ and } \zeta_5 \in k \\
+		\Z/2\Z \oplus \Z/12\Z, & p= 3 \text{ and } \zeta_4 \in k \\
+		\Z/2\Z \oplus \Z/10\Z, & p= 5
+		\end{cases}
+		\]
+If $p \geq 13$, then the complete list of possible torsion subgroups is given in \eqref{eqn:functionlist}. Furthermore, every group in this list appears infinitely often as $E(K)_\tors$ for some elliptic curve. 
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~3.3]{mcdonald2}}]
+Let $k$ be a finite field of characteristic 5, and define $K= k(T)$. Let $E/K$ be a non-isotrivial elliptic curve. Then the torsion subgroup $E(K)_\tors$ is isomorphic to precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 15 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2 \text{ if } \zeta_3 \in k \\
+	\Z/4\Z \oplus \Z/4\Z
+	\end{cases}
+	\]
+Furthermore, each of these groups appears infinitely often as $E(K)_\tors$ for some elliptic curve. 
+\end{thm}
+
+
+\begin{thm}[{\cite[Thm.~1.4.3]{mcdonald1,mcdonald3}}]
+Let $\cC$ be a curve of genus 1 over $\F$, where $\F$ is a field of characteristic $p$, and define $K= \F(\cC)$. Let $E/K$ be a non-isotrivial. If $p \nmid \#E(K)_\tors$, then $E(K)_\tors$ is isomorphic to precisely one of the following:
+	\begin{equation} \label{eqn:genus1case}
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 12, 14, 15 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 6 \\
+	\Z/3\Z \oplus \Z/3n\Z, & n= 1, 2, 3 
+	\end{cases} \quad\quad
+	\begin{cases}
+	\Z/4\Z \oplus \Z/4n\Z, & n= 1, 2 \\
+	\Z/5\Z \oplus \Z/5\Z, \\
+	\Z/6\Z \oplus \Z/6\Z 
+	\end{cases}
+	\end{equation}
+If $p \mid \#E(K)_\tors$, then $p \leq 13$ and $E(K)_\tors$ is one of the following:
+	\[
+	\begin{cases}
+	\Z/p\Z, & p= 2, 3, 5, 7, 11, 13 \\
+	\Z/2p\Z, & p= 3, 5, 7 \\
+	\Z/3p\Z, & p= 2, 3, 5 \\
+	\Z/4p\Z, & p= 2, 3, 5 \\
+	\Z/5p\Z, & p= 2, 3 \\
+	\Z/6p\Z, & p= 2, 3
+	\end{cases} \quad
+	\begin{cases}
+	\Z/7p\Z, & p= 2, 3 \\
+	\Z/8p\Z, & p= 2, 3 \\
+	\Z/2n\Z, & n= 9, 10, 11, 15, p= 2 \\
+	\Z/2\Z \oplus \Z/2p\Z, & n= 3, 5, 7 \\
+	\Z/3\Z \oplus \Z/6n\Z, & n= 1, 2, 3, p= 2 \\
+	\Z/2\Z \oplus \Z/12\Z, \Z/4\Z \oplus \Z/12\Z, & p= 3 \\
+	\Z/5\Z \oplus \Z/10\Z, & p= 2 
+	\end{cases}
+	\]
+If $p \geq 17$, then \eqref{eqn:genus1case} is the complete list of possible torsion subgroups. Furthermore, if $E(K)_\tors \cong \Z/n\Z \oplus \Z/nm\Z$ and $\F$ contains a primitive $n$th root of unity, then this torsion group appears for infinitely many non-isomorphic, non-isotrivial elliptic curves.
+\end{thm}
+
+
+
+
+
+% Other Related Results
+\section{Other Related Results}
+
+There are a plethora of other interesting results related to torsion subgroups of elliptic curves. Indeed, many of these results make appearances in the works above. For instance, Kenku has shown that there are at most either $\Q$-isomorphism classes of elliptic curves in each $\Q$-isogeny class, and has a number of other bounds based on what isogenies there are, see \cite{kenku82}. Harron and Snowden counted torsion subgroups of rational elliptic curves, see \cite{harronsnowden17}, and Pizzo, Pomerance, and Voight have recently counted elliptic curves with an isogeny of degree three, see \cite{pizzopomerancevoight20}. Bandini and Paladino have studied fields generated by torsion points of elliptic curves, see \cite{bandinipaladino12,bandinipaladino16}.
+
+
+We also have a wonderful theorem of Kenku classifying the number of $\Q$-isogenies an elliptic curve can have
+
+
+\begin{thm}[{\cite[Thm.~2]{kenku82}}] \label{thm:kenku}
+There are at most eight $\Q$-isomorphism classes of elliptic curves in each $\Q$-isogeny class. 
+\end{thm}
+
+
+Let $C(E)$ denote the number of $\Q$-isomorphism classes of elliptic curves in the $\Q$-isogeny class of $E$. $C(E)$ is also the number of distinct $\Q$-rational cyclic subgroups of $E$ (including the identity subgroup). For a prime $p$, let $C_p(E)$ be the $p$ component of $C(E)$. We have the product formula $C(E)= \prod_p C_p(E)$. From the definition of $C(E)$ it is independent of the choice of the representative of the class; so also are the $p$-factors. By Manin's theorem $C_p(E)$ is bounded for each $p$ as $E$ varies over all the $\Q$-isogeny classes of elliptic curves. By considering $_pE$ as a $\Gal(\ov{\Q}/\Q)$-module and using Theorem 1, we have the following table for bounds $C_p$, of $C_p(E)$
+	\begin{table}[!ht]
+	\centering
+	\begin{tabular}{ccccccccccccc}
+	$p$ & 2 & 3 & 5 & 7 & 11 & 13 & 17 & 19 & 37 & 43 & 67 & 163 \\ 
+	$C_p$ & 8 & 4 & 3 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2
+	\end{tabular}
+	\end{table}
+and $C_p= 1$ for all other primes. 
+
+
+
+
+
+%Garc{\'i}a-Selfa, \gonjim{}, and Tornero
+%\cite{garciaselfgonzalezjimeneztornero10}
+
+
+
+
+
+
+
+
+
+

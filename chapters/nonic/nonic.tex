@@ -1,0 +1,852 @@
+% !TEX root = ../../thesis.tex
+\chapter{The Nonic Galois Case}
+
+% Overview for the Classification
+\section{Overview for the Classification\label{sec:nonicoverview}}
+
+We wish to classify the possible isomorphism classes of torsion subgroups for rational elliptic curves over nonic Galois fields. It will be useful to give a brief overview of the process we will use for the classification. We will begin by finding the possible prime orders for torsion points on these elliptic curves. We then know the possible non-trivial Sylow $p$-subgroups for the torsion subgroups. Bounding the Sylow $p$-subgroups for each prime $p$, we can then produce a finite list of possible torsion subgroups for these elliptic curves. Of course, many of these torsion subgroups will occur. We can easily find examples for many of these torsion subgroups by `base extending' rational elliptic curves and elliptic curves $E(K)$, where $K$ is a cubic Galois field, to a nonic Galois field, being sure to avoid adding any additional torsion points. This will give us a much smaller list of possible torsion subgroups whose existence/non-existence we will need to consider. We eliminate many of the remaining possibilities on a case-by-case basis, and we find examples for the rest. Combining all this work, the classification will then immediately follow. Note that in this chapter and the next, we use the Cremona \cite{cremonadat} labeling system for elliptic curves as well as his database along with the LMFDB Database (our primary reference) \cite{lmfdb} (when necessarily, we will also label fields by their LMFDB label). Computations were primarily made in Sage \cite{sage}, but other test cases, especially ranks, were made in MAGMA \cite{magma1,magma2}. 
+
+
+Before beginning the proof, we will make a few general remarks of things we may implicitly use. We are considering rational elliptic curves, $E/\Q$, over nonic Galois fields. As $|\Gal(K/\Q)|= 9$ is the square of a prime, $\Gal(K/\Q)$ is necessarily an abelian group. Moreover, we know that $\Gal(K/\Q) \cong \Z/9\Z$ or $\Gal(K/\Q) \cong \Z/3\Z \oplus \Z/3\Z$. Let $F$ be an intermediate cubic subfield of $K$, i.e. $\Q \subseteq F \subseteq K$ and $[F \colon \Q]= 3$. Because $\Gal(K/\Q)$ is abelian, we know that the subgroup $\Gal(F/\Q)$ is normal and hence $F/\Q$ is an abelian Galois extension, and we know that $\Gal(F/\Q) \cong \Z/3\Z$. Furthermore, as the extension $K/\Q$ is Galois, $K$ is totally real or totally imaginary. Recall also the following definitions:
+
+	\begin{itemize}
+	\item $\Phi_\Q(d)$ denotes the set of possible isomorphism classes of torsion subgroups $E(K)_\tors$ as $E/\Q$ varies over all rational elliptic curves and $K$ varies over all number fields of degree $d$.
+	\item $\Phi_\Q^{\Gal}(d)$ denotes the set of possible isomorphism classes of torsion subgroups $E(K)_\tors$ as $E/\Q$ varies over all rational elliptic curves and $K$ varies over all Galois number fields of degree $d$. Similarly, let $\Phi_\Q^{G}(d)$ denote the set of isomorphism classes of torsion subgroups $E(K)_\tors$, where $K$ varies over all number fields of degree $d$ with $\Gal(\widehat{K}/\Q) \cong G$, where $\ov{K}$ is the Galois closure of $K$, and $E$ varies over all rational elliptic curves, i.e. elliptic curves $E/\Q$ base extended to $K$. Note that if $K$ is Galois, then $\widehat{K} \cong K$.
+	\item Let $S(d)$ denote the set of primes such that there exists a number field of degree $\leq d$ and an elliptic curve $E/K$ such that there is a point of order $p$ on $E(K)$. Similarly, let $S_\Q(d)$ denote the set of primes such that there exists a number field of degree $\leq d$ and a rational elliptic curve $E/K$ such that, when $E$ is base extended to $K$, there is a point of order $p$ on $E(K)$.
+	\item Let $R(d)$ denote the set of primes such that there exists a number field of exact degree $d$ and an elliptic curve $E/K$ such that there is a point of order $p$ on $E(K)$. Similarly, let $R_\Q(d)$ denote the set of primes such that there exists a number field of exact degree $d$ and a rational elliptic curve $E/K$ such that, when $E$ is base extended to $K$, there is a point of order $p$ on $E(K)$.
+	\end{itemize}
+
+
+Finally, recall that if $E/\Q$ is an elliptic curve and $n \in \Z^+$, we denote by $\psi_{E,n}$ the $n$th division polynomial of $E$. Suppose $P \in E[n]$ is a point of order $n$, where $E[n]$ is the set of points of order $n$ on $E(\ov{\Q})$. If $n$ is odd, then the $x$-coordinate of $P$ is a root of $\psi_{E,n}$. If $n$ is even, the $x$-coordinate of $P \in E[n] \setminus E[2]$ are the roots of $\psi_{E,n}/\psi_{E,2}$. Let $f_{E,n}$ denote the primitive $n$-division polynomial associated to $\psi_{E,2}$, i.e. a polynomial whose roots are the $x$-coordinates of points $P \in E[n]$ of exact order $n$. If $p$ is prime, then $\psi_{E,n}= f_{E,n}$. For composite $n$, we have
+	\[
+	f_{E,n}= \dfrac{\psi_{E,n}}{\prod_{\substack{d \mid n \\ d \neq n}} f_{E,d}}.
+	\]
+Let $E^d$ be a quadratic twist of $E/\Q$. Because $\psi_{E,n}= p_d \psi_{E^d,n}$ and $f_{E,n}= q_d f_{E^d,n}$ for some $p_d, q_d \in \Q$, depending on $d$, the roots of $\psi_{E,n}, \psi_{E^d,n}$ and $f_{E,n}, f_{E^d,n}$ are the same, respectively. When asking if $E(K)$ contains a point of order exact order $n$, we define the ``method of division polynomials'' as follows: if $E/\Q$ is an elliptic curve with $j$-invariant $j_E$ (or a twist of an elliptic curve with $j$-invariant $j_E$), to determine if $E(K)$ contains a point of exact order $p$ over a field $K$, one computes and factors the primitive division polynomial $f_{E,n} \in \Q[x]$. Suppose that $f_{E,n}= f_1^{n_1} \cdots f_i^{n_i}$, where the $f_i$ are the irreducible factors of $f_{E,n}$ over $\Q[x]$ and $n_i \in \Z^+$. The $x$-coordinate of a point of exact order $n$ is then a root of one of the $f_i$. One then checks if $\Q(f_i) \subseteq K$ for some $i$. If not, then there cannot be a point of exact order $n$ for $E$ over $K$. Note that even if $\Q(f_i) \subseteq K$ for some $i$, a point of order $P$ may still not be possible as the $y$-coordinate need not be defined over $\Q(f_i)$, but rather defined over a quadratic extension of $\Q(f_i)$. 
+
+
+
+
+
+% Points of Prime Order
+\section{Points of Prime Order\label{sec:nonicporders}}
+
+The first step in any classification of torsion subgroups for elliptic curves naturally begins with a determination of the possible points of prime order for a specified collection of fields. \lozrob{} showed, \cite[Corollary~1.5]{lozanorobledo13}, that $S_\Q(9)= \{ 2, 3, 5, 7, 11, 13, 17, 19 \}$. Further work of \gonjim{} and Najman proved the following:
+
+
+\begin{prop}[{\cite[Corollary~6.1]{gonzalezjimeneznajman20}}] \label{prop:rqdegree} \hfill
+	\begin{enumerate}[(i)]
+	\item $11 \in R_\Q(d)$ if and only if $5 \mid d$.
+	\item $13 \in R_\Q(d)$ if and only if $3 \mid d$ or $4 \mid d$. 
+	\item $17 \in R_\Q(d)$ if and only if $8 \mid d$.
+	\item $19 \in R_\Q(d)$ if and only if $9 \mid d$. 
+	\end{enumerate}
+\end{prop}
+
+
+Then the following result immediate.
+
+
+\begin{lem} \label{lem:nonicprimeorder}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic field. If $P \in E(K)_\tors$ is a point of order $p$, then $p \in \{ 2, 3, 5, 7, 13, 19 \}$. 
+\end{lem}
+
+\begin{proof} 
+We know from \cite[Corollary~1.5]{lozanorobledo13} that $S_\Q(9)= \{ 2, 3, 5, 7, 11, 13, 17, 19 \}$. By definition, we know that $R_\Q(9) \subseteq S_\Q(9)$. Points of order 2, 3, 5, and 7 already occur for elliptic curves $E(\Q)$ and hence for elliptic curves $E(K)_\tors$, c.f. Proposition~\ref{prop:mazur_growth}. Therefore, $2, 3, 5, 7 \in R_\Q(9)$. We then only need to consider the primes 11, 13, 17, and 19. By Proposition~\ref{prop:rqdegree}, we know that $11, 17 \notin R_\Q(9)$ and $13, 19 \notin R_\Q(9)$. Therefore, $R_\Q(9)= \{ 2, 3, 5, 7, 13, 19 \}$. 
+\end{proof}
+
+
+
+
+
+% Bounding the p-Sylow Subgroups
+\section{Bounding the $p$-Sylow Subgroups\label{sec:nonicsylowbound}}
+
+We will now work prime-by-prime to bound the Sylow $p$-subgroups for each of the primes $p \in \{ 2, 3, 5, 7, 13, 19 \}$. Fortunately, it will turn out that the only ``real work'' involved will be in the $p= 2$ case, as the cases of $p= 3, 5, 7, 13$, and 19 can essentially be handled in the same way.
+
+
+
+% The Case of p = 2
+\subsection{The Case of $p= 2$\label{sec:nonic2}}
+
+For elliptic curves without CM, Rouse and Zureick-Brown have classified all the possible 2-adic images of $\rho_{E,2}: \Gal(\ov{\Q}/\Q) \to \GL_2(\Z_2)$.
+
+
+\begin{thm}[{\cite{rousezureickbrown15}}]
+Let $E/\Q$ be a rational elliptic curve without CM. Then there are exactly 1,208 possibilities for the 2-adic image $\rho_{E,2^\infty}(\Gal(\ov{\Q}/\Q))$, up to conjugacy in $\GL_2(\Z_2)$. Moreover,
+	\begin{enumerate}[(i)]
+	\item the index of $\rho_{E,2^\infty}(\Gal(\ov{\Q}/\Q))$ in $\GL_2(\Z_2)$ divides 64 or 96, and
+	\item the image $\rho_{E,2^\infty}(\Gal(\ov{\Q}/\Q))$ is the full inverse image of $\rho_{E,32}(\Gal(\ov{\Q}/\Q))$ under reduction modulo 32. 
+	\end{enumerate}
+\end{thm}
+
+
+The 1,208 distinct possibilities for the 2-adic images in \cite{rousezureickbrown15}, along with 1-parameter families determining the curves with these images, are given on Rouse's website, \url{https://users.wfu.edu/rouseja/2adic/} Using this result, \gonjim{} and \lozrob{} were able to determine the minimal degrees of definition for the subgroup $E[2^n]$. 
+
+
+\begin{thm}[{\cite[Theorem~1.4]{gonzalezjimenezlozaborobledo17}}] \label{thm:2torsionbound}
+Let $E/\Q$ be an elliptic curve without CM. Let $1 \leq s \leq N$ be fixed integers, and let $T \subseteq E[2^N]$ be a subgroup isomorphic to $\Z/2^s/Z \oplus \Z/2^N \Z$. Then $[\Q(T) \colon \Q]$ is divisible by 2 if $s=N=2$, and otherwise by $2^{2N+2s-8}$ if $N \geq 3$, unless $s \geq 4$ and $j(E)$ is one of the two values:
+	\[
+	- \dfrac{3 \cdot 18249920^3}{17^{16}} \text{ or } - \dfrac{7 \cdot 1723187806080^3}{79^{16}}
+	\]
+in which case $[\Q(T) \colon \Q]$ is divisible by $3 \cdot 2^{2N+2s-9}$. Moreover, this is best possible in that there are one-parameter families $E_{s,N}(t)$ of elliptic curves over $\Q$ such that for each $s, N \geq 0$ and each $t \in \Q$, and subgroups $T_{s,N} \in E_{s,N}(t)(\ov{\Q})$ isomorphic to $\Z/2^s\Z \oplus \Z/2^N\Z$ such that $[\Q(T_{s,N}) \colon \Q]$ is equal to the bound given above. 
+\end{thm}
+
+
+In particular, we can create an initial bound for the 2-Sylow subgroup for $E(K)_\tors$, where $K$ is \textit{any} odd degree number field, by combining Theorem~\ref{thm:noniccmbound} (or generally Theorem~\ref{thm:oddcmbound}) and Theorem~\ref{thm:2torsionbound}.
+
+
+\begin{lem} \label{lem:rough2bound}
+Let $E/\Q$ be a rational elliptic curve, and $K/\Q$ be an odd degree number field. Then $E(K)_\tors$ does not contain the group $\Z/2\Z \oplus \Z/16\Z$ or the group $\Z/4\Z \oplus \Z/4\Z$. 
+\end{lem}
+
+\begin{proof} 
+If $E$ had CM, then in either case $E(K)_\tors$ would be a subgroup of the list given in Theorem~\ref{thm:oddcmbound} (or in the nonic case Theorem~\ref{thm:noniccmbound}), but this is not the case. If $E$ does not have CM, then using Theorem~\ref{thm:2torsionbound} with $s= 1$, $N= 4$ or $s= N= 2$, we find that $[K \colon \Q]$ is divisible by 4 or 2, respectively, which is impossible. Therefore, $E(K)_\tors$ cannot contain $\Z/2\Z \oplus \Z/16\Z$ or $\Z/4\Z \oplus \Z/4\Z$, respectively. 
+\end{proof}
+
+
+While Corollary~\ref{lem:rough2bound} works for any odd degree number field, it is not ``sharp'' in the sense that for nonic Galois fields $K$, $E(K)_\tors \not\supseteq \Z/16\Z$. However, proving this will require a little bit more machinery.  
+
+
+\begin{lem} \label{lem:no16torsion}
+Let $E/\Q$ be a rational elliptic curve and $K/\Q$ an odd degree Galois field. Then $E(K)_\tors \not\supseteq \Z/16\Z$.
+\end{lem}
+
+\begin{proof} 
+Assume that $E(K)_\tors \supseteq \Z/16\Z$. Clearly, either $E(\Q)[2^\infty]= \{ \cO \}$ or $E(\Q)[2^\infty] \neq \{ \cO \}$. If $E(\Q)[2^\infty] \neq \{ \cO \}$, then it follows from Lemma~\ref{lem:najman2sylow} that $E(\Q)[2^\infty]= E(K)[2^\infty] \supseteq \Z/16\Z$, which is impossible by Mazur's classification of $\Phi(1)$, c.f. Theorem~\ref{thm:mazurclassification}. Therefore, it must be that $E(\Q)[2^\infty]= \{ \cO \}$. 
+
+Choose a model $y^2= x^3 + Ax + B$ for $E$. The points of order two correspond to the roots of $x^3 + Ax +B$. Because $E(\Q)[2^\infty]= \{ \cO \}$, we know that $x^3 + Ax + B$ must be irreducible. In particular, if $P$ is a nontrivial point of order two on $E$ then $\Q(P) \subseteq K$ is a cubic extension of $\Q$. Because $[K \colon \Q]= 3^2$, we know that $\Gal(K/\Q)$ is abelian. Therefore because $K/\Q$ is Galois, $\Q(P)$ is Galois. The irreducible polynomial $x^3 + Ax + B$ then generates a cubic Galois extension. It is well known, for example see \cite{dummitfoote,conradcubic}, that $\disc(x^3 + Ax + B)$ must be a square in $\Q$. 
+
+Furthermore by Lemma~\ref{lem:galoisisogeny}, $E$ must have a rational cyclic 16-isogeny. Therefore using \cite[Table~3]{lozanorobledo13}, any elliptic curve with a rational cyclic 16-isogeny must have $j$-invariant
+	\[
+	j= \dfrac{(h^8-16h^4+16)^3}{h^4(h^4-16)}
+	\]
+for some $h \in \Q \setminus \{ 0, \pm 2 \}$. In particular, $E$ is a twist of the curve
+	\[
+	E^\prime \colon y^2 + xy = x^3 - \dfrac{36}{j - 1728} \,x - \dfrac{1}{j-1728}.
+	\]
+Because $E$ is a twist of the curve $E^\prime$, the discriminant of $E$ will only differ from the discriminant of $E^\prime$ by at most a square. In particular, the discriminant of $E^\prime$ must be a square. Therefore, after computing the discriminant of $E^\prime$, there exists $y \in \Q$ such that
+	\[
+	y^2=  \dfrac{136048896h^4(h^4-16)(h^8-16h^4+16)^6}{(h^{12}-24h^8+120h^4+64)^6}.
+	\]
+Absorbing squares into the left hand side, a rational solution $(y,h)$ to the equation above implies the existence of a rational solution $(n,m)$ to the equation $n^2= m^4 - 16$. But the curve given by $n^2= m^4 - 16$ is birationally equivalent to the elliptic curve given by $C \colon y^2= x^3 + 64x$. Using SAGE, we find that this curve has rank 0 and torsion subgroup $\Z/6\Z$ generated by the point $(8,24)$. Furthermore, $C(\Q)= \{ \cO, (-4,0), (0, \pm 8), (8, \pm 24) \}$. The points $(0,\pm 8)$ correspond to cusps for $j$, and it is routine to check that the remaining rational solutions $(n,m)$ do not correspond to rational solutions $(y,h)$. 
+\end{proof}
+
+
+With all these results in hand, the following bound for 2-Sylow subgroup $E(K)[2^\infty]$ is immediate:
+
+
+\begin{prop} \label{2sylowbound}
+Let $E/\Q$ be a rational elliptic curve, and let $K$ be a nonic Galois field. Then $E(K)[2^\infty] \subseteq \Z/2\Z \times \Z/8\Z$. 
+\end{prop}
+
+\begin{proof}
+This follows immediately from Lemma~\ref{lem:rough2bound} and Lemma~\ref{lem:no16torsion}. 
+\end{proof}
+
+
+
+% The Case of p = 3, 5, 7, 13, 19
+\subsection{The Case of $p= 3, 5, 7, 13, 19$\label{sec:noniccases}}
+
+Bounding the $p$-Sylow subgroups for $p > 2$ simply makes use of the isogeny restrictions forced on rational elliptic curves over odd degree Galois number fields. First, we observe the well known result, see \cite{najman16,chou16,gonzalezjimenez17,chou19,guzvic19} for just a few references, that full $n$-torsion cannot be defined over an odd degree number field (not necessarily Galois) for any integer $n > 2$. 
+
+
+\begin{lem} \label{lem:nofulltorsion}
+Let $E/\Q$ be an elliptic curve and let $K/\Q$ be an odd degree number field. Then $E[n] \not\subseteq E(K)_\tors$ for all $n > 2$. In particular, $E(K)_\tors$ does not contain full $p$-torsion for $p > 2$. 
+\end{lem}
+
+\begin{proof}
+Suppose that $E[n] \subseteq E(K)$ for some $n$. It is well known (see \ref{cor:weilpairing}) that by the existence of the Weil pairing, full $n$-torsion can be defined over a number field $K$ only if the $n$th roots of unity are defined over $K$, i.e. $\Q(\zeta_n) \subseteq K$. But we know that  $[\Q(\zeta_n) \colon \Q]= \phi(n)$, where $\phi$ is the Euler-phi function. Therefore, 
+	\[
+	[K \colon \Q]= [K \colon \Q(\zeta_n)] [\Q(\zeta_n) \colon \Q]= [K \colon \Q(\zeta_n)]\, \phi(n). 
+	\]
+Because $\phi(n)$ is even for $n > 2$, it must be that $n = 2$. 
+\end{proof}  
+
+
+\begin{thm} \label{thm:isogenyclassification}
+Let $N \geq 2$ be such that $X_0(N)$ has a non-cuspidal $\Q$-rational point. Then
+	\begin{enumerate}[(i)]
+	\item $N \leq 10$ or $N=$ 12, 13, 16, 18, or 25. In this case, $X_0(N)$ is a curve of genus 0, and the $\Q$ rational points on $X_0(N)$ form an infinite 1-parameter family, or
+	\item $N=$ 11, 14, 15, 17, 19, 21, or 27, i.e. $X_0(N)$ is a rational elliptic curve (in each case $X_0(N)(\Q)$ is finite, or
+	\item $N=$ 37, 43, 67, or 163. In this case, $X_0(N)$ is a curve of genus $\geq 2$ and by Faltings' Theorem has only finitely many $\Q$-rational points. 
+	\end{enumerate}
+In particular, a rational elliptic curve may only have a rational cyclic $n$-isogeny for $n \leq 19$ or $n \in \{ 21, 25, 27, 37, 43, 67,163\}$. Furthermore, if $E$ does not have CM, then $n \leq 18$ or $n \in \{ 21, 25, 37 \}$.
+\end{thm}
+
+
+This classification of the possible rational cyclic isogenies for elliptic curves $E/\Q$ places great restrictions on the possible torsion subgroups for elliptic curves over (odd) degree Galois fields. We prove the following well known results, c.f. \cite{najman16,chou16,gonzalezjimenez17,chou19}. 
+
+
+\begin{lem}[{\cite[Lem.~3.10]{chou16}}] \label{lem:galoisisogeny}
+Let $E/\Q$ be a rational elliptic curve and $K/\Q$ be a Galois extension. If $E(K)[n] \cong \Z/n\Z$, then $E$ has a rational $n$-isogeny. 
+\end{lem}
+
+\begin{proof} 
+Let $\{ P, Q \}$ be a basis for $E[n]$. Without loss of generality, assume that $P \in E(K)$ and $Q \notin E(K)$. Let $\sigma \in \Gal(\ov{\Q}/\Q)$. Because $K/\Q$ is Galois and $P \in E(K)$, $P^\sigma \in E(K)[n]= \langle P \rangle$. But then $E(K)[n]= \langle P \rangle$ is Galois stable, which implies that $E$ has an $n$-isogeny over $\Q$.
+\end{proof}
+
+
+\begin{lem}[{\cite[Lem.~2.7]{chou19}}] \label{lem:galoisisogeny2}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a Galois extension. If $E(K)_\tors \cong \Z/m\Z \oplus \Z/mn\Z$, then $E$ has a rational $n$-isogeny. 
+\end{lem}
+
+\begin{proof}
+Choose a basis $\{ P , Q \}$ for $E(K)_\tors$ with $P, Q$ having exact order $m, mn$, respectively, i.e. $E(K)_\tors= \langle P, Q \rangle \cong \Z/m\Z \oplus \Z/mn\Z$. We know that $[m] E(K)_\tors= \langle mP,mQ \rangle \cong \langle nQ \rangle \cong \Z/n\Z$. Let $\sigma \in \Gal(\ov{\Q}/\Q)$. Because $K/\Q$ is Galois and $E/\Q$ is a rational elliptic curve, the action of $\sigma$ commutes with $[m]$ and $[n]$. But then $(mQ)^\sigma \in E(K)[n] \cong \langle mQ \rangle$. But then $\langle mQ \rangle$ is a Galois stable subgroup of order $n$ so that $E$ has an $n$-isogeny over $\Q$. 
+\end{proof}
+
+
+We can now combine Lemma~\ref{lem:nofulltorsion} and Lemma~\ref{lem:galoisisogeny} to bound the $p$-Sylow subgroups for torsion subgroups of $E/\Q$ over nonic Galois fields. 
+
+
+\begin{prop} \label{psylowbound}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then
+	\[
+	\begin{aligned}
+	E(K)[3] &\subseteq \Z/27\Z \\
+	E(K)[5] &\subseteq \Z/25\Z \\
+	E(K)[7] &\subseteq \Z/7\Z \\
+	E(K)[13] &\subseteq \Z/13\Z \\
+	E(K)[19] &\subseteq \Z/19\Z
+	\end{aligned}
+	\]
+\end{prop}
+
+\begin{proof}
+Because $[K \colon \Q]$ is odd, it follows from Lemma~\ref{lem:nofulltorsion} that $E(K)[p] \cong \Z/p^n\Z$ for some $n \geq 0$. Then by Lemma~\ref{lem:galoisisogeny}, $E$ has a cyclic rational $p^n$ isogeny. The maximal such $n$ can be immediately deduced from Theorem~\ref{thm:isogenyclassification}.
+\end{proof}
+
+
+
+
+
+% The List of Possible Torsion Subgroups
+\section{The List of Possible Torsion Subgroups\label{sec:noniclist}}
+
+It follows from Proposition~\ref{2sylowbound} and Proposition~\ref{psylowbound} that if $E/\Q$ is a rational elliptic curve and $K/\Q$ is a nonic Galois field, then
+	\[
+	E(K)_\tors \subseteq (\Z/2\Z \oplus \Z/8\Z) \oplus \Z/27\Z \oplus \Z/25\Z \oplus \Z/7\Z \oplus \Z/13\Z \oplus \Z/19\Z
+	\]
+In particular, we can use these $p$-Sylow bounds to create a finite list of possibilities for the torsion subgroups $E(K)_\tors$. Using only the fact that $E(K)_\tors$ is a subgroup of the bounding group above, we would have a list of 672 possible torsion subgroups (using the above bound and the fact that $E(K)_\tors \cong \Z/n\Z \oplus \Z/nm\Z$ for some $n,m \in \Z_{\geq 0}$). To create a more manageable list, we will first have to eliminate more possibilities for orders of points $P \in E(K)_\tors$. 
+
+
+\begin{lem} \label{3primebound}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. If $p > 7$ is a prime, then $E(K)_\tors$ contains no points of order $3^np^m$ for all $n,m \geq 1$. Furthermore, $E(K)_\tors$ does not contain points of order $3^2 \cdot 5, 3 \cdot 5^2, 3^2 \cdot 7$, or $3 \cdot 7^2$. 
+\end{lem}
+
+\begin{proof}
+If $P \in E(K)_\tors$ is a point of order $3^nq^m$, then by Lemma~\ref{lem:nofulltorsion} $E(K)[p^nq^m] \cong \Z/3^nq^m\Z$. By Lemma~\ref{lem:galoisisogeny}, $E$ has a cyclic rational $3^np^m$ isogeny. But examining the possible $\Q$ rational isogenies in Theorem~\ref{thm:isogenyclassification}, we see that no such isogeny can exist for $p > 7$. Mutatis mutandis, $E(K)_\tors$ does not contain points of order $3^2 \cdot 5, 3 \cdot 5^2, 3^2 \cdot 7$, or $3 \cdot 7^2$.
+\end{proof}
+
+
+\begin{lem} \label{higherbound}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. If $p,q > 3$ are distinct primes, then $E(K)_\tors$ contains no points of order $p^nq^m$ for all $n,m \geq 1$. 
+\end{lem}
+
+\begin{proof}
+If $P \in E(K)_\tors$ is a point of order $p^nq^m$, then by Lemma~\ref{lem:nofulltorsion}, $E(K)[p^nq^m] \cong \Z/p^nq^m\Z$. By Lemma~\ref{lem:galoisisogeny}, $E$ has a cyclic rational $p^nq^m$ isogeny. But examining the possible $\Q$ rational isogenies in Theorem~\ref{thm:isogenyclassification}, we see that no such isogeny can exist. 
+\end{proof}
+
+
+\begin{lem} \label{finalbound}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then $E(K)_\tors \not\cong \Z/n\Z$ for any $n > 19$, $n \neq 21, 25, 27$. Furthermore, $E(K)_\tors$ contains neither points of order $n \geq 56$ nor $n \in \{ 40, 52 \}$. 
+\end{lem}
+
+\begin{proof}
+Suppose that $E(K)_\tors \cong \Z/n\Z$ for some $n > 19$, $n \neq 21, 25, 27$. By Lemma~\ref{lem:nonicprimeorder}, we know that $n$ cannot be prime. But by Lemma~\ref{lem:galoisisogeny} $E$ has a cyclic rational $n$-isogeny. But examining the possible $\Q$ rational isogenies in Theorem~\ref{thm:isogenyclassification}, the only possible isogenies for $n > 27$ are prime, a contradiction. 
+
+Now suppose that $E(K)_\tors$ contained a point of $n$, where $n \in \{ 40, 52 \}$ or $n \geq 56$. If $n$ is odd, then by Lemma~\ref{lem:nofulltorsion} $E(K)[n] \cong \Z/n\Z$. By Lemma~\ref{lem:galoisisogeny}, $E$ has a cyclic rational $n$-isogeny. But examining the possible $\Q$ rational isogenies in Theorem~\ref{thm:isogenyclassification}, there can be no such isogeny. If $n$ is even, write $n= 2k$, where by necessity $k \geq 28$ or $k \in \{ 20, 26 \}$. Either $E(K)[n] \cong \Z/2k\Z$ or $E(K)[n] \cong \Z/2\Z \oplus \Z/2k\Z$. In either case, $E$ has a point of order $k$ and a rational $k$-isogeny. By examining the possible prime $k$ in Lemma~\ref{lem:nonicprimeorder} or $k$-isogenies in Theorem~\ref{thm:isogenyclassification}, we see that no such $k$ exists.
+\end{proof}
+
+
+We are now in a position to create a much smaller list of possibilities for $E(K)_\tors$.
+
+
+\begin{prop} \label{nonicshortlist}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then $E(K)_\tors$ is isomorphic to one of the following (although not all cases need occur):
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 14, 15, 18, 19, 21, 25, 27 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, \ldots, 7, 9, 10, 12, 13, 14, 15, 18, 19, 21, 25, 27
+	\end{cases}
+	\]
+\end{prop}
+
+\begin{proof}
+By Proposition~\ref{2sylowbound} and Proposition~\ref{psylowbound}, $E(K)_\tors$ must be a subgroup of 
+	\[
+	(\Z/2\Z \oplus \Z/8\Z) \oplus \Z/27\Z \oplus \Z/25\Z \oplus \Z/7\Z \oplus \Z/13\Z \oplus \Z/19\Z.
+	\]
+Equivalently, $E(K)_\tors \cong \Z/2^i\Z \oplus (2^j \cdot 3^k \cdot 5^m \cdot 7^n \cdot 13^r \cdot 19^s)\Z$ for some $i, j, k, m, n, r, s$, where $i, n, r, s \in \{ 0, 1 \}$, $j, k \in \{ 0,1, 2, 3 \}$, and $i \leq j$. It is then routine to enumerate 672 possibilities for $E(K)_\tors$. Eliminating any torsion subgroups excluded by Lemma~\ref{3primebound}, Lemma~\ref{higherbound}, and Lemma~\ref{finalbound}, we immediately obtain the given list of possible torsion subgroups. 
+\end{proof}
+
+
+
+
+
+% Base Extension
+\section{Base Extension\label{sec:nonicbaseext}}
+
+Many of the possible torsion subgroups in Proposition~\ref{nonicshortlist} can be realized by base extending elliptic curves $E(\Q)$ or $E(K)$, where $K$ is a Galois cubic field, to a nonic Galois field. We begin by observing that given a torsion subgroup $E(\Q)_\tors$, there always exists a number field of specified degree over which when we base extend $E$ to $K$ there is no torsion growth.
+
+
+\begin{prop} \label{prop:mazur_growth}
+Let $E/\Q$ be a rational elliptic curve, and let $d>1$ be an integer. Then there exists a number field of degree $d$, $K$, such that $E(K)_\tors= E(\Q)_\tors$. 
+\end{prop}
+
+\begin{proof} 
+By the Mordell-Weil Theorem, we know that $E(F)_\tors$ is finite for any number field $F$. Furthermore by the work of Merel~\cite{merel96} and Parent~\cite{parent99}, c.f. the introduction to Chapter~\ref{ch:known}, we know that the size of $E(F)_\tors$ is uniformly bounded as $F$ varies over all number fields of degree $d$. Let $M$ denote the largest possible order for all $E(F)_\tors$, where $F$ is a number field of degree $d$. But then there are at most $M$ possibilities for the order of $E(F)_\tors$ for any number field $F$ of degree $d$. Let $N$ be the least common multiple of all these possible orders. Now $E(\Q)_\tors \subseteq E[N]$ and $\Q(E[N])$ is a finite (Galois) extension of $\Q$. In particular, $E(F)[N]$ has finitely many subfields. As there exists infinitely many number fields of degree $d$ (for instance, this follows from the fact that there are infinitely many primes and that $x^d + p$ is Eisenstein at $p$), we can choose a field $K$ of degree $d$ such that $K \cap \Q(E[N])= \Q$. But then $E(K)_\tors= E(\Q)_\tors$.
+\end{proof}
+
+
+Of course, we have not shown that we can choose the field $K$ in Proposition~\ref{prop:mazur_growth} to be a nonic Galois field. Proving this requires little modification from the proof of Proposition~\ref{prop:mazur_growth}. 
+
+
+\begin{cor} \label{cor:nonicrationalext}
+Let $E/\Q$ be a rational elliptic curve. Then there exists a nonic Galois field $K$ such that $E(K)_\tors= E(\Q)_\tors$.
+\end{cor}
+
+\begin{proof}
+If $K_1$ and $K_2$ are distinct cubic Galois fields, then $K_1K_2$ is a nonic Galois field, see \cite[Ch.~14,Prop.~21]{dummitfoote} or \cite[VI,\S1,Thm.~1.14]{lang93}. From the proof of Proposition~\ref{prop:mazur_growth}, it suffices to prove that we can find infinitely many distinct cubic Galois fields. For any integer $k$, choose $a:= k^2 + k + 7$. From \cite[Cor.~2.5]{conradcubic}, we know that the polynomial $x^3 - ax + a$ is irreducible over $\Q$ and $K_a:= \Q(x^3 - ax + a)$ is a cubic Galois field. By considering discriminants, for distinct $a,a'$, the fields $K_a, K_{a'}$ are distinct. But then we can always find infinitely many distinct cubic Galois fields. 
+\end{proof}
+
+
+Furthermore, we will show that every torsion subgroup over a cubic Galois field occurs over some nonic Galois field. 
+
+
+\begin{thm} \label{thm:noniccubicext}
+Let $E/\Q$ be a rational elliptic curve and $K_1/\Q$ be a Galois cubic field. Then there exists a Galois cubic field $K_2/\Q$, distinct from $K_1$, with $E(K_1K_2)_\tors \cong E(K_1)_\tors$. 
+\end{thm}
+
+\begin{proof} 
+Fixing an algebraic closure $\ov{\Q}$, we have $E(K_1)_\tors \subseteq E(\Q(3^\infty))_\tors$, where $\Q(3^\infty)$ denotes the compositum of all cubic fields. Let $L$ denote the field of definition of the points in $E(\Q(3^\infty))_\tors$. It follows from Theorem~\ref{thm:cubiccompositum} that there are only finitely many points in $E(\Q(3^\infty))_\tors$. But then $L/\Q$ is a finite extension. In particular, $E(L)$ has finite many subfields. Again for any integer $k$, choose $a:= k^2 + k + 7$. From \cite[Cor.~2.5]{conradcubic}, we know that the polynomial $x^3 - ax + a$ is irreducible over $\Q$ and $K_a:= \Q(x^3 - ax + a)$ is a cubic Galois field. There must then be an $a$ such that $L \cap K_a= \Q$. 
+
+Because $E(K_a)_\tors \subseteq E(\Q(3^\infty))_\tors$ and $L \cap K_a= \Q$, we know that $E(K_a)_\tors= E(\Q)_\tors$. As $K_1$ and $K_2$ are distinct cubic Galois fields, then $K_1K_2$ is a nonic Galois field, see \cite[Ch.~14,Prop.~21]{dummitfoote} or \cite[VI,\S1,Thm.~1.14]{lang93}. But then $K_1K_2$ is a nonic Galois field with $E(K_1K_2)_\tors \cong E(K_1)_\tors$.
+\end{proof} 
+
+
+Recall the classification of torsion subgroups $\Phi(1)$ and $\Phi_\Q(3)$.
+
+
+\begin{thm}[{\cite{mazur77,mazur77}}]
+Let $E/\Q$ be a rational elliptic curve. Then $E(\Q)_\tors$ is precisely one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4
+	\end{cases}
+	\]
+\end{thm}
+
+
+\begin{thm}[\cite{najman16}]
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a cubic extension. Then $E(K)_\tors$ is one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1,2 ,\ldots, 10, 12, 13, 14, 18, 21 \\
+	\Z/2\Z \times \Z/2n\Z, & n= 1, 2, 3, 4, 7
+	\end{cases}
+	\]
+The elliptic curve with Cremona label \ostbt{} over $\Q(\zeta_9)^+$ is the unique rational elliptic curve over a cubic field with torsion subgroup $\Z/21\Z$. For all other torsion subgroups listed, there exist infinitely many non-isomorphic rational elliptic curves with the specified torsion subgroup over some cubic field. 
+\end{thm}
+
+
+Of course, we do not know that each possible torsion subgroup in the list above occurs over some cubic Galois field. Table~\ref{tab:3qsm1} completes the demonstration that every torsion subgroup in $\Phi_\Q(3)$ occurs for some elliptic curve over some Galois cubic field. 
+
+
+	\begin{table}[!ht]
+	\centering
+	\caption{Examples of torsion subgroups $\Phi_\Q(3) \setminus \Phi(1)$\label{tab:3qsm1}}
+	\begin{tabular}{ccc} \hline
+	Torsion Subgroup & Elliptic Curve & Galois Cubic Field \\ \hline
+	$\Z/13\Z$ & \ofsbo{} & \qzetasp{} \\
+	$\Z/14\Z$ & \fnat{} & \qzetasp{} \\
+	$\Z/18\Z$ & \ofaf{} & \qzetasp{} \\
+	$\Z/21\Z$ & \ostbo{} & \qzetanp{} \\
+	$\Z/2\Z \times \Z/14\Z$ & \onttco{} & \ttnsoo{}
+	\end{tabular}
+	\end{table}
+
+
+Theorem~\ref{cor:nonicrationalext} and Theorem~\ref{thm:noniccubicext} prove that $\Phi(1) \subseteq \Phi_\Q^{\Gal}(9)$ and $\Phi_\Q(3) \subseteq \Phi_\Q^{\Gal}(9)$, respectively. Furthermore, note that the possibilities of $E(K)_\tors \cong \Z/19\Z$ and $E(K)_\tors \cong \Z/27\Z$ do occur, c.f. Table~\ref{tab:1927tor}.
+
+        \begin{table}[!ht]
+        \centering
+        \caption{Examples of $E(K)$ with 19 and 27-torsion\label{tab:1927tor}}
+        \begin{tabular}{cccc} \hline
+        $E(K)_\tors$ & $E(\Q)_\tors$ &  $E$ & $K$ \\ \hline
+        $\Z/19\Z$ & $\{ \cO \}$ & \tsoao{} & \qzetantp{} \\ 
+        $\Z/27\Z$ & $\Z/3\Z$ & \tsaf{} & \qzetatsp{}
+        \end{tabular}
+        \end{table}
+
+
+Eliminating the torsion subgroups occurring in $\Phi(1) \cup \Phi_\Q(3) \cup \{ \Z/19\Z, \Z/27\Z \}$ from the list of possible torsion subgroups from Proposition~\ref{nonicshortlist} leaves the following list of torsion subgroups whose existence or non-existence we have yet to prove. 
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 15, 25 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 5, 6, 9, 10, 12, 13, 14, 15, 18, 19, 21, 25, 27
+	\end{cases}
+	\]
+It will turn out that each of these cases does not actually occur. But of course, we need actually prove this. 
+
+
+
+
+
+% Eliminating Torsion Cases
+\section{Eliminating Torsion Cases\label{sec:nonicelim}}
+
+We now eliminate the remaining possibilities for $E(K)_\tors$. There are more benefits to working over Galois fields than just Lemma~\ref{lem:galoisisogeny}. The `Galoisness' of our field will allow us to restrict when there can be torsion growth when base extending our elliptic curve $E$. For instance, Najman proved the following useful results in the classification of $\Phi_\Q(3)$:
+
+
+\begin{lem}[{\cite[Lem.~16]{najman16}}] \label{najmangrow1}
+Let $p, q$ be distinct odd primes, $F_2/F_1$ a Galois extension of number fields such that $\Gal(F_2/F_1) \simeq \Z/q\Z$ and $E/F_1$ an elliptic curve with no $p$-torsion over $F_1$. Then if $q$ does not divide $p-1$ and $\Q(\zeta_p) \not\subset F_2$, then $E(F_2)[p]=0$. 
+\end{lem}
+
+
+\begin{lem}[{\cite[Lem.~17]{najman16}}] \label{najmangrow2}
+Let $p$ be an odd prime number, $q$ a prime not dividing $p$, $F_2/F_1$ a Galois extension of number fields such that $\Gal(F_2/F_1) \simeq \Z/q\Z$, $E/F_1$ an elliptic curve, and suppose $E(F_1) \supset \Z/p\Z$, $E(F_1) \not\supset \Z/p^2\Z$, and $\zeta_p \notin F_2$. Then $E(F_2) \not\supset \Z/p^2\Z$.
+\end{lem} 
+
+
+\begin{lem}[{\cite[Lem.~21]{najman16}}] \label{najman5}
+Let $K$ be a cubic field. Then the 5-Sylow groups of $E(\Q)$ and $E(K)$ are equal.
+\end{lem}
+
+
+\begin{lem}[{\cite[Lem~1]{najman11}}] \label{najman2}
+If the torsion subgroup of an elliptic curves $E$ over $\Q$ has a nontrivial 2-Sylow subgroup, then over any number field of odd degree the torsion of $E$ will have the same 2-Sylow subgroup as over $\Q$. 
+\end{lem}
+
+
+There are many generalizations of these results in \cite{gonzalezjimeneznajman20base}. Using the lemmas above, we prove the following:
+
+
+\begin{lem} \label{lem:no2-10}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then $E(K)_\tors$ does not contain $\Z/2\Z \oplus \Z/10\Z$. 
+\end{lem}
+
+\begin{proof} 
+Choose a model for $E$ of the form $y^2= x^3 + Ax + B$. Suppose that $E(K)_\tors$ contains $\Z/2\Z \oplus \Z/10\Z$. But then $E$ has full 2-torsion over $K$. Because the points of order two correspond to roots of $x^3 + Ax + B$, $K$ contains a splitting field for $x^3 + Ax + B$. Call this field $F$. Because $x^3 + Ax + B$ is a cubic polynomial, the only possible degrees for the splitting field $F$ are 1, 3, or 6. But then $F \subseteq K$ has degree at most three because $K$ is an odd degree number field, i.e. $F= \Q$ or $F$ is a cubic Galois field. In either case, possibly making use of Lemma~\ref{najman5}, we know that $E(F)[5^\infty]= E(\Q)[5^\infty] \cong \Z/5\Z$. But then $E(F) \supseteq \Z/2\Z \oplus \Z/10\Z$, which is not a possibility for torsion subgroups over $\Q$ by Mazur's classification of $\Phi(1)$ \cite{mazur77,mazur78} or over any cubic field by \cite{najman16}, a contradiction. 
+\end{proof}  
+
+
+We now eliminate the possibility that $E(K)_\tors \cong \Z/25\Z$, which will turn out to be part of a more general result. 
+
+
+\begin{lem} \label{no25}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then $E(K)_\tors$ does not contain $\Z/25\Z$.
+\end{lem}
+
+\begin{proof}
+Denote by $F$ a subfield of $K$ of degree 3. Then $K/F$ is Galois and $\Gal(K/F) \cong \Z/3\Z$. Because $K$ is an odd degree number field and $[\Q(\zeta_p) \colon \Q]= \phi(p)$ for all odd primes $p$, $\Q(\zeta_p) \not\subseteq K$ for all odd primes $p$. The point of order five is either defined over $F$ (with the possibility that the point is rational) or over $K$. If $E(F)[5]= \{ \cO \}$, then the point of order five is defined over $K$. Using Lemma~\ref{najmangrow1} with $p= 5$ and $q=3$, we know that $E(K)[5]= \{ \cO \}$, a contradiction. 
+ 
+Suppose then that the point of order five is defined over $F$, i.e. $E(F)[5] \neq \{ \cO \}$. Using Najman's classification of $\Phi_\Q(3)$, see \cite{najman16}, we know that $E(F) \not\supseteq \Z/25\Z$ which implies $E(F) \cong \Z/5\Z$. But then by Lemma~\ref{najmangrow2}, we have that $E(K) \not\supseteq \Z/25\Z$. 
+\end{proof}  
+
+
+In fact, the 5-Sylow subgroup of $E(K)_\tors$ is contained entirely within $E(\Q)_\tors$.
+
+
+\begin{lem} \label{nonic5sylow}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then the 5-Sylow subgroup of $E(\Q)_\tors$ and $E(K)_\tors$ are equal, i.e. $E(\Q)[5^\infty]= E(K)[5^\infty]$.
+\end{lem}
+
+\begin{proof}
+Let $F/\Q$ be an intermediate field of $K$ of degree 3. By Lemma~\ref{najman5}, $E(F)[5^\infty]= E(\Q)[5^\infty]$. By Mazur's classification of $\Phi(1)$, either $E(F)[5^\infty]= E(\Q)[5^\infty]= \{ \cO \}$ or  $E(F)[5^\infty]= E(\Q)[5^\infty]= \Z/5\Z$. 
+
+Suppose that $E(F)[5^\infty]= \{ \cO \}$. Because $K$ is an odd degree number field and $[\Q(\zeta_p) \colon \Q]= \phi(p)$ for all odd primes $p$, $\Q(\zeta_p) \not\subseteq K$ for all odd primes $p$. We know also that $K/F$ is Galois and $\Gal(K/F) \cong \Z/3\Z$. But then by Lemma~\ref{najmangrow1}, $E(K)[5^\infty]= E(F)[5^\infty]= E(\Q)[5^\infty]= \{ \cO \}$. 
+
+Now assume that $E(F)[5^\infty] \cong \Z/5\Z$. By Najman's classification of $\Phi_\Q(3)$ in \cite{najman16}, we know that $E(F) \not\supseteq \Z/25\Z$. But then by Lemma~\ref{najmangrow2}, $E(K)[5^\infty]= E(F)[5^\infty]= E(\Q)[5^\infty] \cong \Z/5\Z$.
+\end{proof}
+
+
+Using Lemma~\ref{lem:no2-10} and Lemma~\ref{no25}, we have reduced our list of remaining possible torsion subgroups to the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 15 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 6, 9, 12, 13, 14, 18, 19, 21, 27
+	\end{cases}
+	\]
+
+
+In the previous proofs, we eliminated possible torsion subgroups $E(K)_\tors$ by showing that points of certain prime orders or prime powers occur `early on', i.e. over strict subfields of $K$. That is, certain torsion subgroups  $E(K)_\tors$ can only be obtained by base extending an elliptic curve $E(\Q)$ or $E(F)$, where $F \subseteq K$ is a cubic subfield, to $K$. This is part of a general phenomenon, which we will prove. The proof will make use of the Galois representations attached to elliptic curves. Recall that if $E/\Q$ is an elliptic curve and $n \geq 1$, we denote by $E[n]$ the $n$-torsion subgroup of $E(\ov{\Q})$, where $\ov{\Q}$ is a fixed algebraic closure of $\Q$. The absolute Galois group $\Gal_\Q:= \Gal(\ov{\Q}/\Q)$ has a natural action on $E[n]$ which respects the group structure of $E$. This induces a representation $\Gal(\ov{\Q}/\Q) \to \Aut(E[n])$. But $E[n]$ is a free $\Z/n\Z$-module of rank 2. Choosing a compatible basis $\{ P, Q \}$ of $E[n]$, we can identify $\Aut(E[n])$ with $\GL_2(\Z/n\Z)$. This gives a Galois representation $\rho_{E,n}: \Gal(\ov{\Q}/\Q) \to \GL_2(\Z/n\Z)$ whose image is uniquely defined up to conjugacy. It is routine to verify that the field $\Q(E[n]):= \Q(\{ x,y \colon (x,y) \in E[n]\})$ is Galois, and $\ker \rho_{E,n}= \Gal(\ov{\Q}/\Q(E[n]))$. But then we have $G_E(n) \cong \Gal(\ov{\Q}(E[n])/\Q)$. Now suppose that $P \in E[n]$ so that $\Q(P) \subseteq \Q(E[n])$. By the Fundamental Theorem of Galois Theory, there exists a subgroup $H$ of $\Gal(\Q(E[n])/\Q)$ such that $\Q(P)= \Q(E[n])^H$. But then denoting the image of $H$ in $\GL_2(\Z/n\Z)$ by $\mathcal{I}$, we have $[\Q(P) \colon \Q]= [G_E(n) \colon \mathcal{I}]$. In particular, $[\Q(P) \colon \Q]$ divides $|G_E(n)|$, and hence $[\Q(P) \colon \Q]$ divides $|\GL_2(\Z/n\Z)|$. Following \cite[Prop.~2.8]{chou16}, this allows us to prove the following:
+
+
+\begin{prop} \label{prop:noniclimitdegree}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Suppose $P \in E(K)_\tors$ is a point of order $p$. Then
+        \begin{enumerate}[(i)]
+        \item if $p \in \{ 3, 5 \}$, then $P$ is defined over $\Q$, i.e. $P \in E(\Q)[p]$.
+        \item if $p= 13$, then there is a cubic field $F \subseteq K$ with $P \in E(F)[p]$. 
+        \item if $p \in \{ 2, 7 \}$, then $P$ is defined over $\Q$, i.e. $P \in E(\Q)[p]$, or there is a cubic field $F \subseteq K$ with $P \in E(F)[p]$. 
+        \end{enumerate}
+\end{prop}
+
+\begin{proof} 
+First, consider the case where $p= 2$. Choosing a model $y^2= x^3+Ax+B$ for $E$, the points of order two correspond to roots of $x^3+Ax+B$. But any root of $x^3+Ax+B$ is defined either over $\Q$ or some cubic (Galois) field. 
+
+Now suppose that $p > 2$. By Lemma~\ref{lem:nofulltorsion}, $E$ cannot contain full $p$-torsion over $K$. But then we can choose a basis $\{ P, Q \}$ for $E[p]$ such that $P \in E(K)$ and $Q \notin E(K)$. Let $\rho_{E,p}: \Gal(\ov{\Q}/\Q) \to \Aut(E(K)) \cong \GL_2(\F_p)$ be the associated Galois representation with respect to the basis $\{ P, Q \}$. Because $P \in E(K)$ and $E(K)$ does not contain full $p$-torsion, we know $P^\sigma \in E(K)[p]$ for all $\sigma \in \Gal(K/\Q)$. But as $\Gal(K/\Q) \cong \Gal(\ov{\Q}/\Q)/\Gal(\ov{\Q}/K)$, $P^\sigma \in \langle P \rangle$ for all $\sigma \in \Gal(\ov{\Q}/\Q)$. Therefore, $\im \rho_{E,p}$ is contained in a Borel subgroup of $\GL_2(\F_p)$. Suppose then that
+	\[
+	\rho(\sigma)=
+	\begin{pmatrix}
+	\phi(\sigma) & \tau(\sigma) \\
+	0 & \psi(\sigma)
+	\end{pmatrix},
+	\]
+where $\phi, \psi$ are both $\F_p$-valued characters of $\Gal(\ov{\Q}/\Q)$ and $\tau: \Gal(\ov{\Q}/\Q) \to \F_p$. Using the Galois representation and the Galois correspondence, the field of definition of $P$, $\Q(P)$, is given by $\ker \phi= \Gal(\ov{\Q}/\Q(P))$. 
+
+Denote by $S$ the subgroup  of $\Gal(K/\Q)$ fixing $\Q(P)$. We know that 
+	\[
+	|\im \varphi|= |\{ P^\sigma \colon \sigma \in \Gal(K/\Q) \}| = \dfrac{|\Gal(K/\Q)|}{|S|}= [\Q(P) \colon \Q].
+	\]
+Now because $\Q(P) \subseteq K$, $[\Q(P) \colon \Q]$ divides $[K \colon \Q]= 9$. But we know also that $\im \varphi \leq \F_p^\times$, so that $|\im \varphi|= [\Q(P) \colon \Q]$ divides $p - 1$. 
+
+If $p$ is 3 or 5, then $[\Q(P) \colon \Q]$ divides 9 and divides either 2 or 4, respectively. In either case, this implies $[\Q(P) \colon \Q]= 1$ so that $P$ is defined over $\Q(P)= \Q$. If $p= 7$, then $[\Q(P) \colon \Q]$ divides 9 and 6 so that $[\Q(P) \colon \Q]$ is either 1, in which case $P$ is defined over $\Q$, or 3, in which case $P$ is defined over a cubic field. Now if $p$ is 13, then $[\Q(P) \colon \Q]$ divides 9 and 12. But it is not possible that $[\Q(P) \colon \Q]= 1$ because there are no rational points of order 13 for torsion subgroups $E(\Q)_\tors$ by Mazur's classification of $\Phi(1)$. Therefore, $[\Q(P) \colon \Q]= 3$ so that $P$ is defined over a cubic field $F \subseteq K$. 
+\end{proof} 
+
+
+\begin{lem} \label{degreelimitelim}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then $E(K)_\tors$ is not isomorphic to $\Z/15\Z$, $\Z/2\Z \oplus \Z/26\Z$, or $\Z/2\Z \oplus \Z/42\Z$.
+\end{lem}
+
+\begin{proof} 
+If $P \in E(K)_\tors$ is a point of order 15, then $E(K)$ contains points of order 3 and 5. By Proposition~\ref{prop:noniclimitdegree}, these points are necessarily defined over $\Q$. But then $E(\Q)_\tors \cong \Z/15\Z$, which is impossible by Mazur's classification of $\Phi(1)$. Furthermore by Proposition~\ref{prop:noniclimitdegree}, points of order 2, 3, 7, and 13 are defined over a cubic field (if any of these are defined over $\Q$, they are trivially contained in every cubic field). But this implies there is a cubic field $F$ with $E(F)_\tors \cong \Z/2\Z \oplus \Z/26\Z$ or $\Z/2\Z \oplus \Z/42\Z$, which is impossible by Najman's classification of $\Phi_\Q(3)$. 
+\end{proof}
+
+
+We can apply isogeny restrictions to eliminate three more remaining possibilities. Note that this result does not assume that $K$ is nonic, merely that it is Galois. 
+
+
+\begin{lem} \label{lem:no6-18}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field. Then $E(K)_\tors$ does not contain a subgroup isomorphic to $\Z/2\Z \oplus \Z/18\Z$. 
+\end{lem}
+
+\begin{proof}
+Suppose that $E(K)_\tors \supseteq \Z/2\Z \oplus \Z/18\Z$. Clearly, $\Z/9\Z \subseteq E(K)_\tors$ so that by Lemma~\ref{lem:galoisisogeny} $E$ has a rational 9-isogeny. In particular $E$ by \cite{lozanorobledo13}, we know that $E$ is a twist of an elliptic curve, say by $d$, with $j$-invariant given by
+	\[
+	j= \dfrac{h^3 (h^3 - 24)^3}{h^3 - 27}
+	\]
+for $h \in \Q \setminus \{ 3 \}$. By \cite[Table~2,Prop.~III.2.3]{kubert76}, there are no rational elliptic curves with a rational 9-isogeny and full 2-torsion or two independent 3-isogenies and full 2-torsion. Therefore, it must be that $E(\Q)_\tors= \{ \cO \}$. Choose a model $y^2= x^3 + Ax + B$. As $E$ has full 2-torsion over $K$ and $K$ is odd, there is a cubic field $\Q \subseteq F \subseteq K$ such that $F$ is a splitting field for $x^3 + Ax + B$. But then $F/\Q$ is Galois. In particular, we know that $\disc(x^3 + Ax + B)$ is a square. But then there is a $M \in \Q$ such that	
+	\[
+	M^2= \dfrac{2^8 \cdot 3^{12} \cdot d^6 (h^3 - 27) ( h^3 - 24)^6}{(h^6 - 36h^3 + 216)^6}
+	\]
+Absorbing the squares into the left hand side, a solution to the equation above implies a rational solution $(m,n)$ to the equation $m^2= n^3 - 27$. This is an elliptic curve with $E(\Q)= \{ \cO, (3,0) \}$. The point $(3,0)$ corresponds to a cusp. Therefore, $E(K)_\tors \not\supseteq \Z/2\Z \oplus \Z/18\Z$. 
+\end{proof}
+
+
+We can use another result of Najman to eliminate yet another two remaining possibilities.
+
+
+\begin{lem}[{\cite[Cor.~12]{najman16}}] \label{nocubic4tor}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a cubic Galois field. If $E(\Q)$ has no points of order 4, then $E(K)$ has no 4-torsion.
+\end{lem}
+
+\begin{proof}
+This is simply Corollary~12 in \cite{najman16} applied to the case where $K/\Q$ is a Galois cubic field. 
+\end{proof}
+
+
+\begin{lem} \label{nononic12}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then $E(K)_\tors$ does not contain $\Z/2\Z \oplus \Z/12\Z$.
+\end{lem}
+
+\begin{proof}
+Suppose that $E(K)_\tors$ contained $\Z/2\Z \oplus \Z/12\Z$. If $E(\Q)_\tors \not\cong \{ \cO \}$, then by Lemma~\ref{najman2} $E(\Q)[2^\infty] \cong \Z/2\Z \oplus \Z/4\Z$. By Proposition~\ref{prop:noniclimitdegree}, the point of order 3 is defined over $\Q$. But then $E(\Q)_\tors \cong \Z/2\Z \oplus \Z/12\Z$, contradicting Mazur's classification of $\Phi(1)$. Therefore, it must be that $E(\Q)_\tors= \{ \cO \}$. By Lemma~\ref{nocubic4tor}, we know that $E(K)$ has no 4-torsion. 
+
+Suppose that $P= (x(P), y(P))$ is a point of order 4 on $E$. It must be then that $[\Q(P) \colon \Q] > 3$. Because $y(P)$ is defined at most over a quadratic extension of $\Q(x(P))$, noting that $K$ is odd and $x(P)$ is not defined over $\Q$ or a cubic field, it must be that $K= \Q(x(P))$. Choose a model $y^2= x^3 + Ax + B$ for $E$. We know that $x(P)$ is a root for 
+	\[
+	\Psi_4(x)= 4(x^6 + 5Ax^4 + 20Bx^3 - 5A^2x^2 - 4ABx - 8B^2 - A^3).
+	\]
+In particular, $x(P)$ is a root of a polynomial of at most degree 6, contradicting the fact that $K= \Q(x(P))$.
+\end{proof}
+
+
+This leaves only the possibilities of $\Z/2\Z \oplus \Z/28\Z$ and $\Z/2\Z \oplus \Z/38\Z$ for $E(K)_\tors$ to eliminate. First, we prove two trivial lemmas.
+
+
+\begin{lem} \label{rat2tortwist}
+Let $E/\Q$ be a rational elliptic curve. Then $E(\Q)[2] \cong E^d(\Q)[2]$ for all twists $E^d$ of $E$. 
+\end{lem}
+
+\begin{proof} 
+Choosing a model $y^2= x^3 + Ax + B$ for $E$, the points of order two correspond to roots of $x^3 + Ax + B$. But $r$ is a root of $x^3 + Ax + B$ if and only if $dr$ is a root for $x^3 + Ad^2x + Bd^3$. 
+\end{proof}
+
+
+\begin{lem} \label{twistsquare}
+Let $E/\Q$ be a rational elliptic curve. Let $E^d$ be a twist of $E$. Choose a model $y^2= x^3 + Ax + B$ for $E$. If $\Delta_E$ is a square, then $\Delta_{E^d}$ is a square for all twists $E^d$. Similarly, if $\disc(x^3 + Ax + B)$ is a square, then $\disc(x^3 + Ad^2x + Bd^3)$ is a square. 
+\end{lem}
+
+\begin{proof}
+We know that $\Delta_E= -16(4A^3 + 27B^2)$. Twisting $E$ by $d$ gives $\Delta_{E^d}= -16(4A^3 + 27B^2) \cdot d^6$ and the first claim follows. Similarly, $\disc(x^3 + Ad^2x + Bd^3)= -(4A^3 - 27B^2) \cdot d^6$ and the second claim follows. 
+\end{proof}
+
+
+\begin{lem} \label{no28-38}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then $E(K)_\tors$ does not contain $\Z/2\Z \oplus \Z/28\Z$ or $\Z/2\Z \oplus \Z/38\Z$.
+\end{lem}
+
+\begin{proof}
+If $E(K)_\tors$ contained $\Z/2\Z \oplus \Z/38\Z$, then $E$ has a rational 19-isogeny. In particular by \cite[Table~4]{lozanorobledo13}, $E$ is a twist of an elliptic curve with $j$-invariant $j= -2^{15} \cdot 3^3$, e.g. \tsoao{}. Now $E$ is a twist of \tsoao{} and this elliptic curve has no rational 2-torsion. By Lemma~\ref{rat2tortwist}, $E(\Q)[2]= \{ \cO \}$. Then $E$ gains full 2-torsion over some cubic field $K$. Choosing a model $y^2= x^3 + Ax + B$ for $E$, $K$ is a splitting field for $x^3 + Ax + B$. In particular, $\disc(x^3 + Ax + B)$ is a square. However, the noting that any twist of $E$ has discriminant differing from $E$ by a rational square and that the discriminant of \tsoao{} is $-1048576/6859$, we have a contradiction. 
+
+Mutatis mutandis, if $E(K)_\tors$ contained $\Z/2\Z \oplus \Z/28\Z$, then $E$ has a rational 14-isogeny. In particular by \cite[Table~4]{lozanorobledo13}, $E$ is a twist of an elliptic curve with $j$-invariant $j= -3^3 \cdot 5^3$ or $j= 3^3 \cdot 5^3 \cdot 17^3$. It is routine to verify that in either case $E(\Q)[2] \cong \Z/2\Z$. But then in either case, $E[2]$ is defined over a quadratic extension of $\Q$, which clearly is not contained in $K$. 
+\end{proof}
+
+
+This eliminated the remaining two possibilities for $E(K)_\tors$. We are finally in a position to give the classification. 
+
+
+
+
+
+% The General Nonic Result
+\section{The General Nonic Result\label{sec:gennonic}}
+
+We can now combine all our previous results to classify the possible torsion subgroups for rational elliptic curves base extended to nonic Galois fields. 
+
+
+\begin{thm} \label{thm:nonicclassification}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then $E(K)_\tors$ is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 14, 18, 19, 21, 27 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 7
+	\end{cases}
+	\]
+\end{thm}
+
+\begin{proof}
+By Proposition~\ref{nonicshortlist}, the only possibilities for $E(K)_\tors$ are the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 14, 15, 18, 19, 21, 25, 27 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, \ldots, 7, 9, 10, 12, 13, 14, 15, 18, 19, 21, 25, 27
+	\end{cases}
+	\]
+Eliminating possibilities for $E(K)_\tors$ excluded by Lemmas \ref{lem:no2-10}, \ref{no25}, \ref{degreelimitelim}, \ref{lem:no6-18}, \ref{nononic12}, and \ref{no28-38}, the only remaining possibilities for $E(K)_\tors$ are those given in the statement of the theorem. Finally, Table~\ref{tab:completenoniclist} shows that each of these possibilities actually occurs. 
+\end{proof}
+
+
+For each group $G \in \Phi_{\Q}^{\Gal}(9)$, we give an example of an elliptic curve $E/\Q$ and a nonic Galois field $K$ such that $E(K)_\tors \cong G$. 
+
+
+	\begin{table}[!ht]
+	\centering
+	\caption{Examples of each possible $E(K)_\tors$ in $\Phi_\Q^{\Gal}(9)$\label{tab:completenoniclist}}
+	\begin{tabular}{cccc} \hline
+	 $E(K)_\tors$ & Cremona Label & $E(\Q)_\tors$ & $K$ \\ \hline
+	$\{ \cO \}$ & \ooat{} & $\{ \cO \}$ & \qzetantp{} \\
+	$\Z/2\Z$ & \ffafiv{} & $\Z/2\Z$ & \qzetantp{} \\
+	$\Z/3\Z$ & \onao{} & $\Z/3\Z$ & \qzetantp{} \\
+	$\Z/4\Z$ & \ofas{} & $\Z/4\Z$ & \qzetantp{} \\
+	$\Z/5\Z$ & \ooao{} & $\Z/5\Z$ & \qzetantp{} \\
+	$\Z/6\Z$ & \ofat{} & $\Z/6\Z$ & \qzetantp{} \\
+	$\Z/7\Z$ & \tsbo{} & $\Z/7\Z$ & \qzetantp{} \\
+	$\Z/8\Z$ & \ffafo{} & $\Z/8\Z$ & \qzetantp{} \\
+	$\Z/9\Z$ & \ffbt{} & $\Z/9\Z$ & \qzetantp{} \\
+	$\Z/10\Z$ & \ssco{} & $\Z/10\Z$ & \qzetantp{} \\
+	$\Z/12\Z$ & \nzct{} & $\Z/12\Z$ & \qzetantp{} \\
+	$\Z/13\Z$ & \ofsbo{} & $\{ \cO \}$ & \qzetantp{} \\
+	$\Z/14\Z$ & \fnaf{} & $\Z/2\Z$ & \qzetantp{} \\
+	$\Z/18\Z$ & \tszsozot{} & $\Z/6\Z$ & \nnezsb{} \\
+	$\Z/19\Z$ & \tsoao{} & $\{ \cO \}$ & \qzetantp{} \\
+	$\Z/21\Z$ & \ostbo{} & $\Z/3\Z$ & \nnstfttf{} \\
+	$\Z/27\Z$ & \tsaf{} & $\Z/3\Z$ & \qzetatsp{} \\
+	$\Z/2\Z \oplus \Z/2\Z$ & \ffat{} & $\Z/2\Z \oplus \Z/2\Z$ & \qzetantp{} \\
+	$\Z/2\Z \oplus \Z/4\Z$ & \ffao{} & $\Z/2\Z \oplus \Z/4\Z$ & \qzetantp{} \\
+	$\Z/2\Z \oplus \Z/6\Z$ & \tzat{} & $\Z/2\Z \oplus \Z/6\Z$ & \qzetantp{} \\
+	$\Z/2\Z \oplus \Z/8\Z$ & \tozet{} & $\Z/2\Z \oplus \Z/8\Z$ & \qzetantp{} \\
+	$\Z/2\Z \oplus \Z/14\Z$ & \onttco{} & $\{ \cO \}$ & \nnstfttfz{} \\
+	\end{tabular}
+	\end{table}
+
+
+Of course, Theorem~\ref{thm:nonicclassification} only classifies the possibilities for $E(K)_\tors$ over a general nonic Galois field $K$. We would like a classification for $E(K)_\tors$ when $\Gal(K/\Q) \cong \Z/3\Z \oplus \Z/3\Z$ and $\Gal(K/\Q) \cong \Z/9\Z$, which will be our next goal. 
+
+
+
+
+
+% The Bicyclic Nonic Galois Case
+\section{The Bicyclic Nonic Galois Case\label{sec:nonicbi}}
+
+First, we will classify the possibilities for $E(K)_\tors$, where $K/\Q$ is a nonic Galois field with $\Gal(K/\Q) \cong \Z/3\Z \oplus \Z/3\Z$. Recall from Theorem~\ref{thm:cubiccompositum} that in \cite{danielslozrobnajmansutherland18}, Daniels, \lozrob{}, Najman, and Sutherland classify the possible torsion subgroups of rational elliptic curves over the composition of all cubic fields. In particular, they showed
+	\[
+	E(\Q(3^\infty))_\tors \simeq
+	\begin{cases}
+	\Z/2\Z \oplus \Z/2n\Z, & \text{with } n= 1,2,4,5,7,8,13 \text{ or} \\
+	\Z/4\Z \oplus \Z/2n\Z, & \text{with } n= 1,2,4,7 \text{ or} \\
+	\Z/6\Z \oplus \Z/6n\Z, & \text{with } n= 1,2,3,5,7 \text{ or} \\
+	\Z/2n\Z \oplus \Z/2n\Z, & \text{with } n=4,6,7,9
+	\end{cases}
+	\]
+Let $K$ be a nonic Galois field with $\Gal(K/\Q) \cong \Z/3\Z \oplus \Z/3\Z$, i.e. a nonic bicyclic Galois field. Because $K$ is the compositum of its Galois intermediate subfields, it must be that $E(K)_\tors$ must be a subgroup of the list of possible torsion subgroups above. This will allow us to eliminate two possible torsion subgroups for $\Phi_\Q^{\cC_3 \times \cC_3}(9)$. 
+
+
+\begin{lem} \label{biexclude}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic bicyclic Galois field, i.e. a nonic field with $\Gal(K/\Q) \cong \Z/3\Z \oplus \Z/3\Z$. Then $E(K)_\tors$ is not isomorphic to $\Z/19\Z$ or $\Z/27\Z$. 
+\end{lem}
+
+\begin{proof}
+Let $F_1,F_2$ be distinct cubic subfields of $K$. Because $F_1 \cap F_2= \Q$, $K$ is the compositum of $F_1$ and $F_2$, and $\Gal(K/\Q) \cong \Gal(F_1/\Q) \times \Gal(F_2/\Q)$, see \cite[Ch.~14,Prop.~21]{dummitfoote} or \cite[VI,\S1,Thm.~1.14]{lang93}. Fixing an algebraic closure $\overline{\Q}$ of $\Q$, we have $E(K)_\tors \subseteq E(\Q(3^\infty))_\tors$. But then $E(K)_\tors$ is a subgroup of some $E(\Q(3^\infty))_\tors$ appearing on the list from Theorem~\ref{thm:cubiccompositum} and is also one of the possibilities from Theorem~\ref{thm:nonicclassification}. However, $\Z/19\Z$ and $\Z/27\Z$ are not subgroups of possible torsion subgroups for $E(\Q(3^\infty))_\tors$ by the classification in Theorem~\ref{thm:cubiccompositum}. 
+\end{proof}
+
+
+We prove that each of these cases occur by proving that every torsion subgroup appearing in $\Phi_\Q(3)$ occurs over a nonic `bicyclic' Galois field. Fixing a torsion subgroup $G \in \Phi_\Q^{\Gal}(3)$, we merely need to find a cubic Galois fields $K, L$ such that $E(K)_\tors \cong G$ and that $K \cap L= \Q$. Taking the compositum $KL$ will result in a nonic `bicyclic' Galois field over which there is no torsion growth, i.e. $\Gal(KL) \cong \Gal(K/\Q) \times \Gal(L/\Q) \cong \Z/3\Z \times \Z/3\Z$ and $E(KL)_\tors \cong E(K)_\tors \cong G$. But this is precisely what we proved in Theorem~\ref{thm:noniccubicext}, which we restate below for convenience. 
+
+
+\begin{thm}
+Let $E/\Q$ be a rational elliptic curve and $K_1/\Q$ be a Galois cubic field. Then there exists a Galois cubic field $K_2/\Q$, distinct from $K_1$, with $E(K_1K_2)_\tors \cong E(K_1)_\tors$. 
+\end{thm}
+
+
+In fact, the proof of Theorem~\ref{thm:noniccubicext} was computationally explicit in the sense that given $G \in \Phi_\Q^{\Gal}(3)$ and $E(K)_\tors \cong G$, a method was given to find a cubic Galois field $L$ with $E(KL)_\tors \cong G$. What was not mentioned was how many fields one would need to examine before finding such an $L$. In practice, such a cubic Galois field is found immediately. But in fact, \gonjim{}, Najman, and Tornero study the growth in torsion subgroups of rational elliptic curves over cubic number fields in \cite{gonjimnajmantornero16}. In particular, they prove the following:
+
+
+\begin{thm}[{\cite[Theorem 1.4]{gonjimnajmantornero16}}]
+If $E$ is an elliptic curve defined over $\Q$, then there are at most three non-isomorphic pairwise cubic number fields $K_i$ such that $E(K_i)_\tors \neq E(\Q)_\tors$. 
+\end{thm}
+
+
+Then one need examine at most 4 possible fields $L$ before finding a suitable candidate. We can use all of the above discussion to find examples of a rational elliptic curve $E/\Q$ and a nonic `bicyclic' Galois field $K$ such that $E(K)_\tors \cong G$ for all $G \in \Phi_\Q^{\Gal}(9)$. 
+
+
+\begin{thm}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic bicyclic Galois field, i.e. a nonic field with $\Gal(K/\Q) \cong \Z/3\Z \oplus \Z/3\Z$. Then $E(K)_\tors$ is precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 14, 18, 21 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 7
+	\end{cases}
+	\]
+\end{thm}
+
+\begin{proof}
+By Lemma~\ref{biexclude}, $E(K)_\tors \not\cong \Z/19\Z$ and $E(K)_\tors \not\cong \Z/27\Z$. But by Theorem~\ref{thm:noniccubicext}, if $G \in \Phi_\Q^{\Gal}(3)= \Phi_\Q(3)$, then there is a nonic bicyclic field $K$ such that $E(K)_\tors \cong G$. But as $E(K)_\tors \in \Phi_\Q^{\Gal}(9)$, this shows that every possibility stated in the theorem occurs, c.f. Table~\ref{completenonicbicyclic}.
+\end{proof}
+
+
+We give an example of a rational elliptic curve $E/\Q$ and a nonic bicyclic Galois field $K$ such that $E(K)_\tors \cong G$ for all $G \in \Phi_\Q^{\cC_3 \times \cC_3}(9)$ in Table~\ref{tab:completenonicbicyclic}.
+
+
+	\begin{table}[!ht] 
+	\centering
+	\caption{Examples of torsion subgroups $E(K)_\tors$ in $\Phi_\Q^{\cC_3 \times \cC_3}(9)$\label{tab:completenonicbicyclic}}
+	\begin{tabular}{cccc} \hline
+	 $E(K)_\tors$ & Cremona Label & $E(\Q)_\tors$ & $K$ \\ \hline
+	$\{ \cO \}$ & \ooat{} & $\{ \cO \}$ & \nnstfttf{} \\
+	$\Z/2\Z$ & \ffafiv{} & $\Z/2\Z$ & \nnstfttf{} \\
+	$\Z/3\Z$ & \onao{} & $\Z/3\Z$ & \nnstfttf{} \\
+	$\Z/4\Z$ & \ofas{} & $\Z/4\Z$ & \nnstfttf{} \\
+	$\Z/5\Z$ & \ooao{} & $\Z/5\Z$ & \nnstfttf{} \\
+	$\Z/6\Z$ & \ofat{} & $\Z/6\Z$ & \nnstfttf{} \\
+	$\Z/7\Z$ & \tsbo{} & $\Z/7\Z$ & \nnstfttf{} \\
+	$\Z/8\Z$ & \ffaf{} & $\Z/8\Z$ & \nnstfttf{} \\
+	$\Z/9\Z$ & \ffbt{} & $\Z/9\Z$ & \nnstfttf{} \\
+	$\Z/10\Z$ & \ssco{} & $\Z/10\Z$ & \nnstfttf{} \\
+	$\Z/12\Z$ & \nzct{} & $\Z/12\Z$ & \nnstfttf{} \\
+	$\Z/13\Z$ & \ofsbo{} & $\{ \cO \}$ & \nnstfttf{} \\
+	$\Z/14\Z$ & \fnaf{} & $\Z/2\Z$ & \nnstfttf{} \\
+	$\Z/18\Z$ & \ofaf{} & $\Z/6\Z$ & \nnstfttf{} \\
+	$\Z/21\Z$ & \ostbo{} & $\Z/3\Z$ & \qzetatsp{} \\
+	$\Z/2\Z \oplus \Z/2\Z$ & \ffat{} & $\Z/2\Z \oplus \Z/2\Z$ & \nnstfttf{} \\
+	$\Z/2\Z \oplus \Z/4\Z$ & \ffao{} & $\Z/2\Z \oplus \Z/4\Z$ & \nnstfttf{} \\
+	$\Z/2\Z \oplus \Z/6\Z$ & \tzat{} & $\Z/2\Z \oplus \Z/6\Z$ & \nnstfttf{} \\
+	$\Z/2\Z \oplus \Z/8\Z$ & \tozet{} & $\Z/2\Z \oplus \Z/8\Z$ & \nnstfttf{} \\
+	$\Z/2\Z \oplus \Z/14\Z$ & \onttco{} & $\{ \cO \}$ & \nnstfttfz{} \\
+	\end{tabular}
+	\end{table}
+
+
+
+
+
+% The Cyclic Nonic Galois Case
+\section{The Cyclic Nonic Galois Case\label{sec:noniccyclic}}
+
+Finally, we will classify the possibilities for $E(K)_\tors$, where $K/\Q$ is a nonic cyclic Galois field, i.e. $\Gal(K/\Q) \cong \Z/3\Z \oplus \Z/3\Z$ and $E(K)_\tors \in \Phi_\Q^{\cC_9}(9)$. This classification will rely on the action of $\Gal(K/\Q)$ and the structure of $E(K)_\tors$ when base extended to $\Q^\abelian$. Before classifying $\Phi_\Q^{\cC_9}(9)$, we will observe that if $E/\Q$ is a rational elliptic curve and $K/\Q$ is a nonic cyclic Galois field, there is a simpler proof that $E(K)_\tors \notin \{ \Z/15\Z, \Z/16\Z, \Z/25\Z \}$ than we saw in Lemmas~\ref{lem:rough2bound}, \ref{lem:no16torsion}, \ref{no25}, and \ref{degreelimitelim}. 
+
+
+\begin{lem}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic cyclic Galois field, i.e. $\Gal(K/\Q) \cong \Z/9\Z$. Then $E(K)_\tors$ is not isomorphic to $\Z/15\Z$, $\Z/16\Z$, or $\Z/25\Z$.
+\end{lem}
+
+\begin{proof} 
+Suppose that $E(K)_\tors \cong \Z/n\Z$, where $n \in \{ 15, 16, 25 \}$, and let $P$ be a point of order $n$. Let $\sigma \in \Gal(K/\Q)$ be a generator for $\Gal(K/\Q)$. Because $E(K)[n]= \langle P \rangle$, we know that $P^\sigma= aP$ for some $a \in (\Z/n\Z)^\times$. But for $n \in \{ 15, 16, 25 \}$, $(\Z/n\Z)^\times$ has order 8, 8, and 20, respectively. Then the orbit of $P$ under $\Gal(K/\Q)$ has size dividing 8 or 20, which implies that $[\Q(P) \colon \Q]$ divides either 8 or 20. However, $\Q(P) \subseteq K$ so that $[\Q(P) \colon \Q]$ divides 9. This shows that $[\Q(P) \colon \Q]= 1$, implying $E(\Q)$ has a point of order $n \in \{ 15, 16, 25 \}$. However by Mazur's classification of $\Phi(1)$, no such elliptic curve exists. 
+\end{proof} 
+
+
+We now complete the classification of $\Phi_\Q^{\cC_9}(9)$ by showing that $\Z/14\Z$ and $\Z/2\Z \oplus \Z/14\Z$ do not occur over a nonic cyclic Galois field. 
+
+
+\begin{lem} \label{lem:nocyclic14-2-14}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic cyclic Galois field, i.e. $\Gal(K/\Q) \cong \Z/9\Z$. Then $E(K)_\tors$ is not isomorphic to $\Z/14\Z$ or $\Z/2\Z \oplus \Z/14\Z$  
+\end{lem}
+
+\begin{proof}
+Throughout, fix an algebraic closure of $\Q$. Note that because $[K \colon \Q]= 9$, $\Gal(K/\Q)$ is abelian. Now suppose that $P \in E(K)_\tors$ is a point of order 18, and choose a generator $\sigma \in \Gal(K/\Q)$ for $\Gal(K/\Q)$. Because $E(K)[18]= \langle P \rangle$, we know that $P^\sigma= aP$ for some $a \in (\Z/18\Z)^\times$. As $|(\Z/18\Z)^\times|= 6$. Thus, the orbit of $P$ under $\Gal(K/\Q)$ has size dividing 6, implying that $[\Q(P) \colon \Q]$ divides 6. Because $\Q(P) \subseteq K$, $[\Q(P) \colon \Q]$ must also divide 9. If $[\Q(P) \colon \Q]= 1$, then the point of order 18 is defined over $\Q$, contradicting Mazur's classification of $\Phi(1)$. Therefore, $[\Q(P) \colon \Q]= 3$, i.e. $P$ is defined over the unique cubic subfield of $K$. Call this intermediate field $F$. Then $E(F)_\tors= \langle P \rangle \cong \Z/18\Z$ and $E(F)_\tors \subseteq E(\Q^\abelian)_\tors$. By Chou's classification of the possibilities for the possible groups $E(\Q^\abelian)_\tors$ in \cite{chou19}, it must be that $E(\Q^\abelian)_\tors \cong \Z/2\Z \oplus \Z/18\Z$. That is, $\Q(E(\Q^\abelian)_\tors)/\Q(E(F)_\tors)$ is at most a quadratic extension. By the Galois correspondence, there can be no intermediate $K$ between $F$ and $\Q(E(\Q^\abelian)_\tors)$. 
+
+Now suppose that $E(K)_\tors$ contained a subgroup isomorphic to $\Z/14\Z$. Because $[K \colon \Q]= 9$, $\Gal(K/\Q)$ is abelian. Fix an algebraic closure of $\Q$. Then we have $E(K)_\tors \subseteq E(\Q^\abelian)$. By Chou's classification of the possibilities for the possible groups $E(\Q^\abelian)_\tors$ in \cite{chou19}, it must be that $E(\Q^\abelian)_\tors \cong \Z/2\Z \oplus \Z/14\Z$. In particular, there are finitely many possibilities $j$-invariant for $E$. Examining the possible structures for $\Gal(\Q(E(\Q^\abelian)_\tors)/\Q)$ in each case, we see that there can be no nonic cyclic Galois field $K$ and an elliptic curve $E$ with $E(K)_\tors \supseteq \Z/14\Z$.  
+\end{proof}
+
+
+Lemma~\ref{lem:nocyclic14-2-14} highlights something interesting. There are no elliptic curves with either $\Z/14\Z$ or $\Z/2\Z \oplus \Z/14\Z$ over nonic cyclic Galois fields. In particular, if $E/\Q$ is a rational elliptic curve, and $K/\Q$ is a Galois cubic extension with $E(K)_\tors$ isomorphic to either of these groups, then $K/\Q$ has no cubic Galois extension. Something about the structures of torsion subgroups for elliptic curves is giving us arithmetic data about number fields. Of course, here it is really only giving us data about one specific Galois field. We could have proven this directly, which we show in Lemma~\ref{lem:secondproof} more explicitly. For simplicity, we show this only for the $\Z/14\Z$, as the other case reduces to the proof for $\Z/14\Z$ anyway.
+
+
+\begin{lem} \label{lem:secondproof}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic cyclic Galois field, i.e. $\Gal(K/\Q) \cong \Z/9\Z$. Then $E(K)_\tors \not\cong \Z/14\Z$. 
+\end{lem}
+
+\begin{proof}
+We know by Lemma~\ref{lem:galoisisogeny} that $E$ has a rational 14-isogeny. From \cite[Table~4]{lozanorobledo13}, the only possible $j$-invariants for a rational elliptic curves with a rational 14-isogeny are $j= -3^3 \cdot 5^3$ or $j= 3^3 \cdot 5^3 \cdot 17^3$. If $j= 3^3 \cdot 5^3 \cdot 17^3$, then $E$ is isomorphic to a twist of the the elliptic curve given by $y^2= x^3 - \frac{613997}{22743} x + \frac{1227994}{22743}$. We know by Proposition~\ref{prop:noniclimitdegree} that the points of order 2 occurs either over $\Q$ or a cubic field. The polynomial $x^3 - \frac{613997}{22743} x + \frac{1227994}{22743}$ is irreducible over $\Q$ so that the point of order 2 is defined over the cubic field $F:= \Q\left(x^3 - \frac{613997}{22743} x + \frac{1227994}{22743}\right)$ (note that twisting does not change this, nor the discriminant except by a rational square). But as $K/\Q$ is Galois, $F/\Q$ is Galois. 
+
+Then the discriminant of $F$ is a square over $\Q$. But the discriminant of $F$ is $-\frac{2^8 \cdot 43^2 \cdot 109^2 \cdot 131^2}{3^6 \cdot 5^3 \cdot 7^3 \cdot 19^6}$. Then it must be that $E$ is a twist of the elliptic curve with $j$-invariant $j= -3^3 \cdot 5^3$. Thus, $E$ is isomorphic to a twist of the elliptic curve given by $y^2= x^3 - \frac{125}{7} x + \dfrac{250}{7}$. Again by Proposition~\ref{prop:noniclimitdegree}, the point of order 7, say $P$, is defined either over $\Q$ or a cubic field. Using division polynomials, we find that the $x$-coordinate of $P$ satisfies an equation $7(x^3 + x^2 - 2x - 1)g(x)= 0$, where $g(x)$ is a degree 21 polynomial that is irreducible over $\Q$. Then the $x$-coordinate of $P$ is a root of $x^3 + x^2 - 2x - 1$. But $\Q(x^3 + x^2 - 2x - 1)= \Q(\zeta_7)^+$. So $\Q(\zeta_7)^+$ is the unique cubic subfield of $K/\Q$. We show there is no field $K$ with $\Q \subseteq \Q(\zeta_7)^+ \subseteq K$ with $\Gal(K/\Q) \cong \Z/9\Z$. 
+
+Suppose such a field $K$ existed. Because $\Gal(K/\Q) \cong \Z/9\Z$ is abelian, by the Kronecker-Weber Theorem, there exists an $N$ with $F \subseteq K \subseteq \Q(\zeta_N)$. We know that $N= 7^sm$ for some $s \geq 0, m \geq 1$ with $\gcd(m,7)=1$. Now $|(\Z/7^s\Z)^\times|= 7^{s-1}(7-10= 2 \cdot 3 \cdot 7^{s-1}$. Using the Chinese Remainder Theorem, we choose an integer $n$ with $n \equiv 2 \mod 7$ and $n \equiv 1 \mod m$. Let $\phi: \Q(\zeta_N) \to \Q(\zeta_N)$ be the automorphism given by $\zeta_N \mapsto \zeta_N^n$. We know $\phi(K)=K$, and that $\phi$ has order 3 in $\Gal(\Q(\zeta_N)/\Q)$. By construction, the restriction of $\phi$ to $F$ is nontrivial. But $\Gal(K/\Q) \cong \Z/9\Z$ so that the restriction of $\phi$ to $K$ is equal to $\psi^3$ for some $\psi \in \Gal(K/\Q)$. As $\Gal(F/\Q) \cong \Z/3\Z$, it must be that $\psi^3$ fixes $F$, a contradiction. 
+\end{proof}  
+
+
+\begin{thm}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic cyclic Galois field, i.e. a nonic field with $\Gal(K/\Q) \cong \Z/9\Z$. Then $E(K)_\tors$ is precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 14, 21 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4
+	\end{cases}
+	\]
+\end{thm}
+
+\begin{proof}
+We know that $E(K)_\tors$ must be one of the torsion subgroups from Theorem~\ref{nonicclassification}. Eliminating the torsion subgroups eliminated by Lemma~\ref{lem:nocyclic14-2-14}, and then combining this with the examples from Table~\ref{tab:completenoniccyclic} completes the proof. 
+\end{proof}
+
+
+	\begin{table}[!ht] 
+	\centering
+	\caption{Examples of torsion subgroups $E(K)_\tors$ in $\Phi_\Q^{\cC_9}(9)$\label{tab:completenoniccyclic}}
+	\begin{tabular}{cccc} \hline
+	 $E(K)_\tors$ & Cremona Label & $E(\Q)_\tors$ & $K$ \\ \hline
+	$\{ \cO \}$ & \ooat{} & $\{ \cO \}$ & \qzetantp{} \\
+	$\Z/2\Z$ & \ffafiv{} & $\Z/2\Z$ & \qzetantp{} \\
+	$\Z/3\Z$ & \onao{} & $\Z/3\Z$ & \qzetantp{} \\
+	$\Z/4\Z$ & \ofas{} & $\Z/4\Z$ & \qzetantp{} \\
+	$\Z/5\Z$ & \ooao{} & $\Z/5\Z$ & \qzetantp{} \\
+	$\Z/6\Z$ & \ofat{} & $\Z/6\Z$ & \qzetantp{} \\
+	$\Z/7\Z$ & \tsbo{} & $\Z/7\Z$ & \qzetantp{} \\
+	$\Z/8\Z$ & \ffaf{} & $\Z/8\Z$ & \qzetantp{} \\
+	$\Z/9\Z$ & \ffbt{} & $\Z/9\Z$ & \qzetantp{} \\
+	$\Z/10\Z$ & \ssco{} & $\Z/10\Z$ & \qzetantp{} \\
+	$\Z/12\Z$ & \nzct{} & $\Z/12\Z$ & \qzetantp{} \\
+	$\Z/13\Z$ & \ofsbo{} & $\{ \cO \}$ & \qzetantp{} \\
+	$\Z/18\Z$ & \tszsozot{} & $\Z/6\Z$ & \nnezsb{} \\
+	$\Z/21\Z$ & \ostbo{} & $\Z/3\Z$ & \nnstfttf{} \\
+	$\Z/2\Z \oplus \Z/2\Z$ & \ffat{} & $\Z/2\Z \oplus \Z/2\Z$ & \qzetantp{} \\
+	$\Z/2\Z \oplus \Z/4\Z$ & \ffao{} & $\Z/2\Z \oplus \Z/4\Z$ & \qzetantp{} \\
+	$\Z/2\Z \oplus \Z/6\Z$ & \tzat{} & $\Z/2\Z \oplus \Z/6\Z$ & \qzetantp{} \\
+	$\Z/2\Z \oplus \Z/8\Z$ & \tozet{} & $\Z/2\Z \oplus \Z/8\Z$ & \qzetantp{} \\
+	\end{tabular}
+	\end{table}
+
+
+As a final remark, it is worth noting that $\Z/18\Z$ is `rare' as a torsion subgroup over nonic cyclic Galois fields in the following sense: we know by Proposition~\ref{prop:noniclimitdegree} and work of \cite{gonjimnajmantornero16}, that if $E(K)_\tors \cong \Z/18\Z$, then $E(K)_\tors \supseteq \Z/3\Z$. In particular, it must be that $E(\Q)_\tors \cong \Z/9\Z$ or $\Z/6\Z$. The latter case is ruled out by the action of Galois as $P^\sigma= aP$ for $a \in (\Z/9\Z)^\times$, where $P$ is the point of order 18. But if $E(\Q)_\tors \cong \Z/9\Z$, then we must have $2P= (2P)^\sigma= 2aP$, which implies that $a= 1$. But then we would have a point of order 18 defined over $\Q$, which is impossible. It must then be that $E(\Q)_\tors \cong \Z/6\Z$. Moreover by \cite{gonjimnajmantornero16}, there is at most one cubic field over which this torsion subgroup grows. Searching across all 6759 torsion subgroups in the LMFDB across all nonic cyclic Galois fields in the database (of which there are 284), the first such example we found was the one given---the 4699th such curve. 

@@ -1,0 +1,1078 @@
+% !TEX root = ../../thesis.tex
+
+%% Silverman - Rational Points on Elliptic Curves
+%
+%Why have we concentrated attention only on non-singular cubics? It is not just to be fussy. Singular cubics and non-singular cubics have completely different sorts of behavior. For instance, singular cubics are just as easy to treat as conics. If we project from the singular point onto some line, we see that the line going through that singular point meets the cubic twice at the singular point, so it meets the cubic only once more. The projection of a singular cubic curve onto a line is thus one-to-one. So just as for a conic, the rational points on a singular cubic can be put in one-to-one correspondence with the rational points on a line. In fact, it is very easy do so explicitly with formulas.
+%
+%So the rational points on singular cubics are trivial to analyze, and Mordell’s theorem does not hold for them. Actually, we have not yet explained how to get a group law for these singular curves, but if one avoids the singularity and uses the procedure that we described earlier, then one does get a group. We will study these singular groups in more detail at the end of Chapter 3, and in particular we will see that they are not finitely generated.
+%
+%
+%% Points Order 2
+%Which points in our group satisfy $2P= O$, but $P \neq O$? Instead of $2P= O$, it is easier to look at the equivalent condition $P= -P$ . Since $-(x, y)= (x, -y)$, these are just the points with $y= 0$, i.e., the points $P_1= (\alpha_1,0)$, $P_2= (\alpha_2,0)$, $P_3= (\alpha_3,0)$, where $\alpha_1, \alpha_2, \alpha_3$ are the (complex) roots of the cubic polynomial f(x). So if we allow complex coordinates, there are exactly three points of order two, because the non-singularity of the curve ensures that $f(x)$ has distinct roots.
+%
+%
+%If we take all of the points satisfying $2P= O$, including $P= O$, then we get the set $\{O, P_1, P_2, P_3 \}$. It is easily seen that in any abelian group, the set of solutions to the equation $2P= O$ forms a subgroup. (More generally, for any $m$, the set of solutions to $mP= O$ forms a subgroup.) So we have an abelian group of order four, and since every element has order one or two, it is clear that this group is the Four Group, i.e., a direct product of two groups of order two. This means that the sum of any two of the points $P_1, P_2, P_3$ should equal the third, which is obvious from the fact that the three points are colinear. So now we know exactly what the group of points $P$ such that $2P= O$ looks like. If we allow complex coordinates, it is the Four Group. If we allow only real coordinates, it is either the Four Group or a cyclic group of order two, depending on whether $f(x)$ has three real roots or one real root. And if we restrict attention to points with rational coordinates, there are three possibilities, it is either the Four Group, cyclic of order two, or trivial, depending on whether $f(x)$ has three, one, or zero rational roots.
+%
+%
+%Next we look at the points of order three. Instead of $3P= O$, we write $2P= -P$, so a point of order three will satisfy $x(2P)= x(-P)= x(P)$. Conversely, if $P \neq O$ satisfies $x(2P)= x(P)$, then $2P = \pm P$, so either $P = O$ (excluded by our assumption) or $3P= O$. In other words, the points of order three are exactly the points satisfying $x(2P)= x(P)$. 
+%
+%
+%To find the points satisfying these conditions, we use the duplication formula and set the $x$-coordinate of $2P$ equal to the $x$-coordinate of $P$. If we write $P= (x,y)$, then we have shown in Section 1.4 that the $x$-coordinate of $2P$ equals
+%	\[
+%	\dfrac{x^4 - 2bx^2 - 8cx + b^2 - 4ac}{4x^3 + 4ax^2 + 4bx + 4c}
+%	\]
+%
+%Setting this expression equal to $x$, cross-multiplying, and doing a little algebra, we have that a point $P= (x,y) \neq O$ on $C$ has order three if and only if $x$ is a root of the polynomial
+%	\[
+%	\psi_3(x)= 3x^4 + 4ax^3 + 6bx^2 + 12cx + 4ac - b^2
+%	\]
+%
+%
+%%Let β1, β2, β3, β4 be the four complex root of ψ3(x), and for each βi, let 􏰢
+%%δi be one of the square roots δi = f(βi). Then from (c), the set 􏰂(β1, ±δ1), (β2, ±δ2), (β3, ±δ3), (β4, ±δ4)􏰃
+%%is the complete set of points of order three on C. Further, we observe that no δi can equal zero, because otherwise the point (βi, δi) = (βi, 0) would have order two, contradicting the fact that it has order three. Therefore the set contains eight distinct points, so C contains eight points of order three. The only other point on C with order dividing three is the point of order one, namely O, which completes the proof that C has exactly nine points of order dividing three.
+%
+%
+%We have subgroups
+%	\[
+%	\{ O \} \subset C(\Q) \subset C(\R) \subset C(\C)
+%	\]
+%It is intuitively clear that the addition of real points on the curve is continuous, since if we move two points a little bit, the line connecting them and the third intersection point with C also move just a little bit. So the group of real points is a one-dimensional Lie group, and it is in fact compact, although it does not look it, because it has the point at infinity. There is only one such connected group. Any one-dimensional compact connected Lie group is isomorphic to the group of rotations of the circle, that is, the multiplicative group of complex numbers of absolute value one. So if the group of real points on the curve is connected, then it is isomorphic to the circle group, and in any case, the component of the curve that contains O is isomorphic to the circle group. And from this description, we can immediately see what the real points of finite order look like.
+%
+%
+%So if $C(\R)$ has one component, then the points of order dividing $m$ in $C(\R)$ form a cyclic group of order $m$. If there are two connected components, then the group $C(\R)$ is the direct product of the circle group with a group of order two. In this case, there are two possibilities for the points of order dividing $m$. If $m$ is odd, we again get a cyclic group of order $m$, whereas if $m$ is even, then we find the direct product of a cyclic group of order two and a cyclic group of order $m$.
+%
+%
+%In particular, we see that the real points of order dividing three always form a cyclic group of order three. Since we saw in Section 2.1 that there are eight complex points of order three, it is never possible for all of the complex points of order three to be real, and certainly they cannot all be rational. Notice that the $x$-coordinates of the points of order three are the roots of the quartic polynomial $\psi_3(x)$ described in Section 2.1. This quartic has real coefficients, so it has either zero, two, or four real roots. Since each $x$ gives two possible values for $y$, this shows that the curve has either zero, four, or eight points of order three with real $x$-coordinate. However, our discussion shows that there must be exactly one real value of $x$ for which the two corresponding $y$’s are real. This can also be proven directly from the equations, a task that we leave for the exercises.
+%
+%
+%% p 41 for complex group
+%
+%
+%Warning. We are not asserting that every point $(x,y)$ with integer coordinates and $y \mid D$ must have finite order. The Nagell-Lutz theorem is not an ``if and only if'' statement.
+%
+%% cremona 37a1, lmfdb 37.a1
+%% cremona 58a1, lmfdb 58.a1
+%
+%% The standard way of doing this is to compute 𝐸(𝔽𝑝) for a few primes 𝑝 of good reduction, and to use the fact that the coprime-to-𝑝 torsion of 𝐸(ℚ) injects into 𝐸(𝔽𝑝) 
+%
+%% Hence if a point $P= (x,y) \in \Z \times \Z$ lying on $E$ is such that $y^2 \mid D$ then we only need to check whether $mP= O$ for $m= 2,3,\ldots,10,12$ in order to determine whether it is of finite order or not. 
+%
+%% https://link.springer.com/chapter/10.1007%2F978-93-86279-15-6_4
+%
+%
+%
+%%If f(x) is any polynomial with leading coefficient 1 in the ring Z[x] of polynomials with integer coefficients, then the discriminant of f(x) will al- ways be in the ideal of Z[x] generated by f(x) and f′(x). This follows from the general theory of discriminants, but for our particular polynomial f (x) = x3 + ax2 + bx + c, the quickest proof is just to write out an explicit formula:
+%%􏰍􏰎
+%%D = (18b−6a2)x−(4a3 −15ab+27c) f(x) 􏰍􏰎
+%%+ (2a2 −6b)x2 +(2a3 −7ab+9c)x+(a2b+3ac−4b2) f′(x).
+%%We leave it to you to multiply this out and verify that it is correct. The im- portant thing to remember is that there are polynomials r(x) and s(x) with integer coefficients so that D can be written as
+%%D = r(x)f(x) + s(x)f′(x).
+%
+%
+%% My phrasing - first half
+%\begin{thm}[Nagell-Lutz]
+%Consider an elliptic curve given by $y^2= x^3 + ax^2 + bx + c$ with $a,b,c \in \Z$. Let $P \in E(\Q)$ be a point of finite order. Then either $2P= O$, i.e. $y= 0$ or $x,y \in \Z$ and $y^2 \mid D$.
+%\end{thm}
+%
+%
+%% Singular cubics dealt with on p 107
+%
+%
+%
+%% FOR MOTIVATION THEOREM OF GAUSS ON PAGE 121
+%
+%
+%% Page 133 for Sato Tate conjecture 
+%
+%
+%% Page 168 Siegel's Theorem
+%
+%The proofs of Siegel’s and Thue’s theorems have one other thing in com- mon with the proof of Mordell’s theorem. Recall that although Mordell’s the- orem tells us that the group of rational points is finitely generated, it does not provide a guaranteed method for finding generators. Similarly, Siegel’s and Thue’s theorems tell us that the set of points with integer coordinates is finite, but their proofs do not provide us with a method that is guaranteed to find all of the integer points. In the 1930s, Skolem [50] came up with a new proof of Siegel’s theorem that, in practice, often allows one to find all solutions, but it, too, was not guaranteed to work. Finally, in 1966, Baker [2] gave an effective method for finding all solutions.
+
+% MOVITATING EXAMPLE 
+
+%Theorem 5.5. (Thue [54]) Let a, b, c be non-zero integers. Then the equation ax3 + by3 = c
+%has only finitely many solutions in integers x, y.
+
+
+
+
+
+% LEFT OFF ON PAGE 188
+
+
+
+
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%% Silverman - Arithmetic of Elliptic Curves
+%\section{Silverman - Arithmetic of Elliptic Curves}
+%
+%\subsection{Affine Varieties} % p ?
+%
+%\begin{dfn}
+%Affine $n$-space (over $K$) is the set of $n$-tuples
+%	\[
+%	\A^n= \A^n(\ov{K})= \{ P= (x_1,\ldots,x_n) \colon x_i \in \ov{K} \}
+%	\]
+%Similarly, the set of $K$-rational points of $\A^n$ is the set
+%	\[
+%	\A^n(K)= \{ P= (x_1,\ldots,x_n) \in \A^n \colon x_i \in K \}
+%	\]
+%\end{dfn}
+%
+%
+%Notice that the Galois group $G_{\ov{K}/K}$ acts on $\A^n$ for $\sigma \in G_{\ov{K}/K}$ and $P \in \A^n$,
+%	\[
+%	P^\sigma= (x_1^\sigma, \ldots, x_n^\sigma)
+%	\]
+%Then $\A^n(K)$ may be characterized by
+%	\[
+%	\A^n(K)= \{ P \in \A^n \colon P^\sigma= P \text{ for all } \sigma \in G_{\ov{K}/K} \}
+%	\]
+%
+%Let $\ov{K}[X]= \ov{K}[X_1,\ldots,X_n]$ be a polynomial ring in $n$ variables, and let $I \subset \ov{K}[X]$ be an ideal. To each $I$ we associate a subset of $\A^n$
+%	\[
+%	V_I= \{ P \in \A^n \colon f(P)= 0 \text{ for all } P \in V \}
+%	\]
+%
+%
+%\begin{dfn}
+%An (affine) algebraic set is any set of the form $V_I$. If $V$ is an algebraic set, the ideal of $V$ is given by
+%	\[
+%	I(V)= \{ f \in \ov{K}[X] \colon f(P)= 0 \text{ for all } P \in V \}
+%	\]
+%An algebraic set is defined over $K$ if its ideal $I(V)$ can be generated by polynomials in $K[X]$. We denote this by $V/K$. If $V$ is defined over $K$, then the set of $K$-rational points of $V$ is the set 
+%	\[
+%	V(K)= V \cap \A^n(K)
+%	\]
+%\end{dfn}
+%
+%
+%Note that by the Hilbert basis theorem, [8, 7.6], [73, \S1.4], all ideals in $\ov{K}[X]$ and $K[X]$ are finitely generated. 
+%
+%
+%\begin{rem} % 1.2
+%Let $V$ be an algebraic set, and consider the ideal $I(V/K)$ defined by
+%	\[
+%	I(V/K)= \{ f \in K[X] \colon f(P)= 0 \text{ for all } P \in V \}= I(V) \cap K[X]
+%	\]
+%Then we see that $V$ is defined over $K$ if and only if 
+%	\[
+%	I(V)= I(V/K) \ov{K}[X]
+%	\]
+%Now suppose that $V$ is defined over $K$ and let $f_1, \ldots, f_m \in K[X]$ be generators for $I(V/K)$. Then $V(K)$ is precisely the set of solutions $(x_1, \ldots, x_n)$ to the simultaneous polynomial equations
+%	\[
+%	f_1(X)= \cdots = f_m(X) = 0 \text{ with } x_1,\ldots,x_n \in K
+%	\]
+%Thus one of the fundamental problems in the subject of Diophantine geometry, namely the solution of polynomial equations in rational numbers, may be said to be the problem of describing sets of the form $V(K)$ when $K$ is a number field.
+%\end{rem}
+%
+%
+%Notice that if $f(X) \in K[X]$ and $P \in \A^n$, then for any $\sigma \in G_{\ov{K}/K}$
+%	\[
+%	f(P^\sigma)= f(P)^\sigma
+%	\]
+%Hence if $V$ is defined over $K$, the action of $G_{\ov{K}/K}$ on $\A^n$ induces an action on $V$, and clearly
+%	\[
+%	V(K)= \{ P \in V \colon P^\sigma= P \text{ for all } \sigma \in G_{\ov{K}/K} \}
+%	\]
+%
+%
+%\begin{dfn}
+%An affine algebraic set $V$ is called an (affine) variety if $I(V)$ is a prime ideal in $\ov{K}[X]$. Note that if $V$ is defined over $K$, it is not enough to check that $I(V/K)$ is prime in $K[X]$. 
+%\end{dfn}
+%
+%
+%Let $V/K$ be a variety, i.e. $V$ is a variety defined over $K$. Then the affine coordinate ring of $V/K$ is defined by
+%	\[
+%	K[V]= \dfrac{K[X]}{I(V/K)}
+%	\]
+%The ring $K[V]$ is an integral domain. Its quotient field is denoted by $K(V)$ and is called the function field of $V/K$. Similarly, $\ov{K}[V]$ and $\ov{K}(V)$ are defined by replacing $K$ with $\ov{K}$. 
+%
+%
+%Note that since an element $f \in \ov{K}[V]$ is well-defined up to adding a polynomial vanishing on $V$, it induces a well-defined function $f: V \to \ov{K}$. If $f(X) \in \ov{K}[X]$ is any polynomial, then $G_{\ov{K}/K}$ acts on $f$ by acting on its coefficients. Hence if $V$ is defined over $K$, so $G_{\ov{K}/K}$ takes $I(V)$ into itself, then we obtain an action of $G_{\ov{K}/K}$ on $\ov{K}[V]$ and $\ov{K}(V)$. One can check that $K[V]$ and $K(V)$ are, respectively, the subsets of $\ov{K}[V]$ and $\ov{K}(V)$ fixed by $G_{\ov{K}/K}$. We denote the action of $\sigma \in G_{\ov{K}/K}$ on $f$ by $f \mapsto f^\sigma$. Then for all points $P \in V$
+%	\[
+%	\big( f(P) \big)^\sigma= f^\sigma(P^\sigma)
+%	\]
+%
+%
+%\begin{dfn}
+%Let $V$ be a variety. The dimension of $V$, denoted by $\dim V$, is the transcendence degree of $\ov{K}(V)$ over $\ov{K}$. 
+%\end{dfn}
+%
+%
+%\begin{dfn}
+%Let $V$ ba variety, $P \in V$, and $f_1, \ldots, f_m \in \ov{K}[X]$ a set of generators for $I(V)$. Then $V$ is nonsingular (or smooth) at $P$ if the $m \times n$ matrix
+%	\[
+%	\left( \dfrac{\partial f_i}{\partial X_j}\, (P) \right)_{\substack{1 \leq i \leq m \\ 1 \leq j \leq n}}
+%	\]
+%has $\rank n - \dim V$. If $V$ is nonsingular at every point, then we say that $V$ is nonsingular (or smooth). 
+%\end{dfn}
+%
+%
+%There is another characterization of smoothness, in terms of the functions on the variety $V$, that is often quite useful. For each point $P \in V$, we define an ideal $M_P$ of $\ov{K}[V]$ by
+%	\[
+%	M_P= \{ f \in \ov{K}[V] \colon f(P)= 0 \}
+%	\]
+%Notice that $M_P$ is a maximal ideal, since there is an isomorphism
+%	\[
+%	\ov{K}[V]/M_P \to \ov{K} \text{ given by } f \mapsto f(P)
+%	\]
+%The quotient $M_P/M_P^2$ is a finite-dimensional $\ov{K}$-vector space. 
+%
+%
+%\begin{prop} % 1.7
+%Let $V$ be a variety. A point $P \in V$ is nonsingular if and only if
+%	\[
+%	\dim_{\ov{K}} M_P/M_P^2= \dim V
+%	\]
+%\end{prop}
+%
+%
+%\begin{dfn}
+%The local ring of $V$ at $P$, denoted by $\ov{K}[V]_P$, is the localization of $\ov{K}[V]$ at $M_P$. In other words,
+%	\[
+%	\ov{K}[V]_P= \{ F \in \ov{K}(V) \colon F= f/g \text{ for some } f,g \in \ov{K}[V] \text{ with } g(P) \neq 0 \}
+%	\]
+%Notice that if $F= f/g \in \ov{K}[V]_P$, then $F(P)= f(P)/g(P)$ is well-defined. The functions in $\ov{K}[V]_P$ are said to be regular (or defined) at $P$. 
+%\end{dfn}
+%
+%
+%
+%
+%
+%
+%% Projective Varieties
+%\subsection{Projective Varieties} % p ?
+%
+%\subsection{Maps between Varieties} % p ?
+%
+%
+%
+%% Curves
+%\subsection{Curves} % p 17
+%
+%By a curve, we will always mean a projective variety of dimension one. 
+%
+%\begin{prop} % 1.1
+%Let $C$ be a curve and $P \in C$ a smooth point. Then $\ov{K}[C]_P$ is a DVR. 
+%\end{prop}
+%
+%
+%\begin{dfn}
+%Let $C$ be a curve and $P \in C$ a smooth point. The (normalized) valuation on $\ov{K}[C]_P$ is given by
+%	\[
+%	\begin{aligned}
+%	\ord_P \colon \ov{K}[C]_P &\ma{} \{ 0,1,\ldots \} \cup \{ \infty \} \\
+%	\ord_P(f)&= \sup \{ d \in \Z \colon f \in M_P^d \}
+%	\end{aligned}
+%	\]
+%Using $\ord_P(f/g)= \ord_P(f) - \ord_P(g)$, we extend $\ord_P$ or $\ov{K}(C)$,
+%	\[
+%	\ord_P \colon \ov{K}(C) \ma{} \Z \cup \infty
+%	\]
+%A uniformizer for $C$ at $P$ is any function $t \in \ov{K}(C)$ with $\ord_P(t)= 1$, i.e. a generator for the ideal of $M_P$. 
+%\end{dfn}
+%
+%
+%If $P \in C(K)$, then it is not too hard to show that $K(C)$ contains uniformizers for $P$. 
+%
+%
+%\begin{dfn}
+%Let $C$ and $P$ be as above, and let $f \in \ov{K}(C)$. The order of $f$ at $P$ is $\ord_P f$. If $\ord_P f > 0$, then $f$ has a zero at $P$, and if $\ord_P f < 0$, then $f$ has a pole at $P$. If $\ord_P f \geq 0$, then $f$ is regular (or defined) at $P$ and we can evaluate $f(P)$. Otherwise $f$ has a pole at $P$ and we write $f(P)= \infty$.
+%\end{dfn}
+%
+%
+%\begin{dfn}
+%Let $C$ and $P$ be as above, and let $f \in \ov{K}(C)$. The order of $f$ at $P$ is $\ord_P f$. If $\ord_P f > 0$, then $f$ has a zero at $P$, and if $\ord_P f < 0$, then $f$ has a pole at $P$. If $\ord_P f \geq 0$, then $f$ is regular (or defined) at $P$ and we can evaluate $f(P)$. Otherwise $f$ has a pole at $P$ and we write $f(P)= \infty$.
+%\end{dfn}
+%
+%
+%\begin{prop} % 1.2
+%Let $C$ be a smooth curve at $f \in \ov{K}(C)$ with $f \neq 0$. Then there are only finitely many points of $C$ at which $f$ has a pole or zero. Further, if $f$ has no poles, then $f \in \ov{K}$.
+%\end{prop}
+%
+%%PROOF. See[111,I.6.5],[111,II.6.1],or[243,III§1]forthefinitenessofthenumber of poles. To deal with the zeros, look instead at 1/f. The last statement is [111, I.3.4a] or [243, I §5, Corollary 1].
+%
+%
+%\begin{prop} % 1.4
+%Let $C/K$ be a curve, and let $t \in K(C)$ be a uniformizer at some nonsingular point $P \in C(K)$. Then $K(C)$ is a finite separable extension of $K(t)$. 
+%\end{prop}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%% Maps between Curves
+%\subsection{Maps between Curves} % p ?
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%% Divisors
+%\subsection{Divisors} % p 27
+%
+%The divisor group of a curve $C$, denoted by $\Div(C)$, is the free abelian group generated by the points of $C$. Thus a divisor $D \in \Div C$ is a formal sum
+%	\[
+%	D= \sum_{P \in C} n_P(P)
+%	\]
+%where $n_P \in \Z$ and $n_P= 0$ for all but finitely many $P \in C$. The degree of $D$ is defined by
+%	\[
+%	\deg D= \sum_{P \in C} n_P
+%	\]
+%The divisors of degree 0 form a subgroup of $\Div(C)$, which we denote by
+%	\[
+%	\Div^0(C)= \{ D \in \Div(C) \colon \deg D= 0 \}
+%	\]
+%If $C$ is defined over $K$, we let $G_{\ov{K}/K}$ act on $\Div(C)$ and $\Div^0(C)$ in the obvious way
+%	\[
+%	D^\sigma= \sum_{P \in C} p_P(P^\sigma)
+%	\]
+%Then $D$ is defined over $K$ if $D^\sigma= D$ for all $\sigma \in G_{\ov{K}/K}$. We note that if $D= n_1(P_1) + \cdots + n_r(P_r)$ with $n_1, \ldots, n_r \neq 0$, then to say that $D$ is defined over $K$ does not mean that $P_1, \ldots, P_r \in C(K)$. It suffices for the group $G_{\ov{K}/K}$ to permute the $P_i$'s in an appropriate fashion. We denote the group of divisors defined over $K$ by $\Div_K(C)$, and similarly for $\Div_K^0(C)$.
+%
+%
+%Assume now that the curve $C$ is smooth, and let $f \in \ov{K}(C)^*$. Then we can associate to $f$ the divisor $\div f$ given by
+%	\[
+%	\div f= \sum_{P \in C} \ord_P(f)(P)
+%	\]
+%This is a divisor by II.1.2. If $\sigma \in G_{\ov{K}/K}$, then it is easy to see that
+%	\[
+%	\div(f^\sigma)= (\div f)^\sigma
+%	\]
+%In particular, if $f \in K(C)$, then $\div f \in \Div_K(C)$. Since each $\ord_P$ is a valuation, the map
+%	\[
+%	\div: \ov{K}(C)^* \to \Div C
+%	\]
+%is a homomorphism of abelian groups. It is analogous to the map that sends an element of a number field to the corresponding fractional ideal. This prompts the following definitions.
+%
+%
+%\begin{dfn}
+%A divisor $D \in \Div C$ is principal if it has the form $D= \div f$ for some $f \in \ov{K}(C)^*$. Two divisors are linearly equivalent, written $D_1 \sim D_2$, if $D_1 - D_2$ is principal. The divisor class group (or Picard group) of $C$, denoted $\Pic C$, is the quotient of $\Div C$ by its subgroup of principal divisors. We let $\Pic_K C$ be the subgroup of $\Pic C$ fixed by $G_{\ov{K}/K}$. In general, $\Pic_K C$ is not the quotient of $\Div_K C$ by its subgroup of principal divisors. 
+%\end{dfn}
+%
+%
+%\begin{prop} % 3.1
+%Let $C$ be a smooth curve and let $f \in \ov{K}(C)^*$.
+%
+%\begin{enumerate}[(a)]
+%\item $\div f= 0$ if and only if $f \in \ov{K}^*$
+%\item $\deg \div f= 0$
+%\end{enumerate}
+%\end{prop}
+%
+%
+%%thatD=􏰌nP(P)hasdegree0.WritingP =[αP,βP]∈P1,weseethatDisthe
+%%    divisor of the function
+%%􏰐
+%%􏰌 P∈P1
+%%(βPX −αPY)nP .
+%%Notethat nP =0ensuresthatthisfunctionisinK(P1).Itfollowsthatthedegree map deg : Pic(P1) → Z is an isomorphism. The converse is also true, i.e., if C is a smooth curve and Pic(C) ∼= Z, then C is isomorphic to P1.
+%%Example 3.3. Assume that char(K) ̸= 2. Let e1,e2,e3 ∈ K ̄ be distinct, and con- sider the curve
+%%C:y2 =(x−e1)(x−e2)(x−e3).
+%%One can check that C is smooth and that it has a single point at infinity, which we
+%%denote by P∞. For i = 1,2,3, let Pi = (ei,0) ∈ C. Then div(x − ei) = 2(Pi) − 2(P∞),
+%%div(y) = (P1) + (P2) + (P3) − 3(P∞).
+%
+%
+%\begin{dfn}
+%It follows from II.3.1b that the principal divisors from a subgroup of $\Div^0(C)$. We define the degree-0 part of the divisor class group of $C$ to be the quotient of $\Div^0(C)$ by the subgroup of principal divisors. We denote this group by $\Pic^0(C)$. Similarly, we write $\Pic_K^0(C)$ for the subgroup of $\Pic^0(C)$ fixed by $G_{\ov{K}/K}$. 
+%\end{dfn}
+%
+%
+%The above definitions and II.3.1 may be summarized by saying that there is an exact sequence
+%	\[
+%	1 \ma{} \ov{K}^* \ma{} \ov{K}(C)^* \ma{\div} \Div^0(C) \ma{} \Pic^0(C) \ma{} 0
+%	\]
+%
+%
+%Let $\phi: C_1 \to C_2$ be a nonconstant map of smooth curves. As we have seen, $\phi$ induces maps on the function fields of $C_1$ and $C_2$. 
+%	\[
+%	\phi^*: \ov{K}(C_2) \to \ov{K}(C_1) \text{ and } \phi_* \ov{K}(C_1) \to \ov{K}(C_2)
+%	\]
+%We similarly define maps of divisor groups as follows:
+%	\[
+%	\begin{aligned}
+%	\phi^*: \Div(C_2) &\to \Div(C_1) & & \phi_*: \Div(C_1) &\to \Div(C_2) \\
+%	(Q) &\mapsto \sum_{P \in \phi^{-1}(Q)} e_\phi(P)(P) & & (P)&\mapsto (\phi P)
+%	\end{aligned}
+%	\]
+%and extend $\Z$-linearly to arbitrary divisors. 
+%
+%
+%%Example 3.5. Let C be a smooth curve, let f ∈ K ̄ (C) be a nonconstant function, and let f : C → P1 be the corresponding map (II.2.2). Then directly from the
+%%definitionsdiv(f) = f∗􏰇(0) − (∞)􏰈.
+%
+%
+%\begin{prop} % 3.6
+%Let $\phi: C_1 \to C_2$ be a nonconstant map of smooth curves.
+%	\begin{enumerate}[(a)]
+%	\item $\deg(\phi^* D)= (\deg \phi)(\deg D)$ for all $D \in \Div(C_2)$
+%	\item $\phi^*(\div f)= \div(\phi^* f)$ for all $f \in \ov{K}(C_2)^*$
+%	\item $\deg(\phi_* D)= \deg D$ for all $D \in \Div(C_1)$
+%	\item $\phi_*(\div f)= \div(\phi_* f)$ for all $f \in \ov{K}(C_1)^*$
+%	\item $\phi_* \circ \phi^*$ acts as multiplication by $\deg \phi$ on $\Div C_2$
+%	\item If $\psi: C_2 \to C_3$ is another such map, then
+%		\[
+%		(\psi \circ \phi)^*= \phi^* \circ \psi^* \text{ and } (\psi \circ \phi)_*= \psi_* \circ \phi_*
+%		\]
+%	\end{enumerate}
+%\end{prop}
+%
+%%Remark 3.7. From (II.3.6) we see that φ∗ and φ∗ take divisors of degree 0 to divisors
+%%of degree 0, and principal divisors to principal divisors. They thus induce maps φ∗ : Pic0(C2) −→ Pic0(C1) and φ∗ : Pic0(C1) −→ Pic0(C2).
+%%In particular, if f ∈ K ̄(C) gives the map f : C → P1, then degdiv(f)=degf∗􏰇(0)−(∞)􏰈=degf−degf =0.
+%%This provides a proof of (II.3.1b)
+%
+%
+%%2.13. Let C/K be a curve.
+%%(a) Prove that the following sequence is exact:
+%%1 −→ K∗ −→ K(C)∗ −→ Div0K (C) −→ Pic0K (C).
+%%(b) Suppose that C has genus one and that C(K) ̸= ∅. Prove that the map
+%%Div0K (C) −→ Pic0K (C) is surjective 
+%
+%
+%%2.14. For this exercise we assume that charK ̸= 2. Let f(x) ∈ K[x] be a polynomial of
+%%degree d ≥ 1 with nonzero discriminant, let C0/K be the affine curve given by the equation C0 :y2 =f(x)=a0xd +a1xd−1 +···+ad−1x+ad,
+%%and let g be the unique integer satisfying d − 3 < 2g ≤ d − 1. (a) Let C be the closure of the image of C0 via the map
+%%[1,x,x2,...,xg+1,y] : C0 −→ Pg+2.
+%%ProvethatCissmoothandthatC∩{X0 ̸=0}isisomorphictoC0.ThecurveCiscalled
+%%is surjective.
+%%a hyperelliptic curve. (b) Let
+%%f∗(v) = v2g+2f(1/v) =
+%%􏰆
+%%a0 + a1v + ··· + ad−1vd−1 + advd a0v+a1v2 +···+ad−1vd +advd+1
+%%Show that C consists of two affine pieces
+%%C0 :y2 =f(x) and
+%%“glued together” via the maps
+%%C0 −→ C1,
+%%(x, y) 􏰁−→ (1/x, y/xg+1),
+%%C1 :w2 =f∗(v), C1 −→ C0,
+%%(c) Calculate the divisor of the differential dx/y on C and use the result to show that C has genus g. Check your answer by applying Hurwitz’s formula (II.5.9) to the map [1, x] : C → P1. (Note that Exercise 2.7 does not apply, since C ̸⊂ P2.)
+%%(d) FindabasisfortheholomorphicdifferentialsonC.(Hint. Considerthesetofdifferential forms {xi dx/y : i = 0, 1, 2, . . .}. How many elements in this set are holomorphic?)
+%
+%
+%
+%
+%% Differentials
+%\subsection{Differentials} % p 30
+%
+%In this section we discuss the vector space of differential forms on a curve. This vector space serves two distinct purposes. First, it performs the traditional calculus role of linearization. (See (III \S5), especially (III.5.2).) Second, it gives a useful criterion for determining when an algebraic map is separable. (See (II.4.2) and its utilization in the proof of (III.5.5).) Of course, the latter is also a familiar use of calculus, since a field extension is separable if and only if the minimal polynomial of each element has a nonzero derivative
+%
+%
+%\begin{dfn}
+%Let $C$ be a curve. The \emph{space of (meromorphic) differential forms} on $C$, denoted by $\Omega_C$, is the $\ov{K}(C)$-vector space generated by symbols of the form $dx$ for $x \in \ov{K}(C)$, subject to the usual relations:
+%	\begin{enumerate}[(i)]
+%	\item $d(x + y)= dx + dy$ for all $x, y \in \ov{K}(C)$
+%	\item $d(xy)= x \,dy + y \,dx$ for all $x, y \in \ov{K}(C)$
+%	\item $da= 0$ for all $a \in \ov{K}$
+%	\end{enumerate}
+%\end{dfn}
+%
+%Remark 4.1. There is, of course, a functorial definition of $\Omega_C$ . See, for example, [164, Chapter 10], [111, II.8], or [210, II \S3].
+%
+%
+%Let $\phi: C_1 \to C_2$ be a nonconstant map of curves. The associated function field map $\phi^*: \ov{K}(C_2) \to \ov{K}(C_1)$ induces a map on differentials,
+%	\[
+%	\phi^*: \Omega_{C_2} \to \Omega_{C_1}, \quad \phi^* \left( \sum f_i \,dx_i \right)= \sum (\phi^* f_i) d(\phi^*x_i)
+%	\]
+%This map provides a useful criterion for determining when $\phi$ is separable.
+%
+%
+%\begin{prop} % 4.2
+%Let $C$ be a curve.
+%
+%\begin{enumerate}[(a)]
+%\item $\Omega_C$ is a 1-dimensional $\ov{K}(C)$-vector space.
+%
+%\item Let $x \in \ov{K}(C)$. Then $dx$ is a $\ov{K}(C)$-basis for $\Omega_C$ if and only if $\ov{K}(C) / \ov{K}(x)$ is a finite separable extension.
+%
+%\item Let $\phi: C_1 \to C_2$ be a nonconstant map of curves. Then $\phi$ is separable if and only if the map 
+%	\[
+%	\phi^* : \Omega_{C_2} \to \Omega_{C_1}
+%	\]
+%is injective (equivalently, nonzero). 
+%\end{enumerate}
+%\end{prop}
+%
+%
+%\begin{prop} % 4.3
+%Let $C$ be a curve, let $P \in C$, and let $t \in \ov{K}(C)$ be a uniformizer at $P$.
+%
+%\begin{enumerate}[(a)]
+%\item For every $\omega \in \Omega_C$ there exists a unique function $g \in \ov{K}(C)$, depending on $\omega$ and $t$, satisfying 
+%	\[
+%	\omega= g \,dt
+%	\]
+%We denote $g$ by $\omega/dt$
+%
+%\item Let $f \in \ov{K}(C)$ be regular at $P$. Then $df/dt$ is also regular at $P$.
+%
+%\item Let $\omega \in \Omega_C$ with $\omega \neq 0$. The quantity
+%	\[
+%	\ord_P(\omega/dt)
+%	\]
+%depends only on $\omega$ and $P$, independent of the choice of uniformizer $t$. We call this value the order of $\omega$ at $P$ and denote it by $\ord_P(\omega)$. 
+%
+%\item Let $x, f \in \ov{K}(C)$ with $x(P)= 0$, and let $p= \ch K$. Then
+%	\[
+%	\begin{aligned}
+%	\ord_P(f \,dx)&= \ord_P(f) + \ord_P(x) - 1, & & \text{if } p=0 \text{ or } p \nmid \ord_P(x) \\
+%	\ord_P(f \,dx)&\geq \ord_P(f) + \ord_P(x), & & \text{if } p > 0 \text{ and } p \mid \ord_P(x)
+%	\end{aligned}
+%	\]
+%
+%\item Let $\omega \in \Omega_C$ with $\omega \neq 0$. Then
+%	\[
+%	\ord_P(\omega)= 0 \text{ for all but finitely many } P \in C
+%	\]
+%\end{enumerate}
+%\end{prop}
+%
+%
+%\begin{dfn}
+%Let $\omega \in \Omega_C$ with $\omega \neq 0$. The \emph{divisor associated to} $\omega$ is
+%	\[
+%	\div(\omega)= \sum_{P \in C} \ord_P(\omega)(P) \in \Div(C)
+%	\]
+%The differential $\omega \in \Omega_C$ is \emph{regular} (or \emph{holomorphic}) if 
+%	\[
+%	\ord_P(\omega) \geq 0 \text{ for all } P \in C
+%	\]
+%It is \emph{nonvanishing} if
+%	\[
+%	\ord_P(\omega) \leq 0 \text{ for all } P \in C
+%	\]
+%\end{dfn}
+%
+%
+%%Remark 4.4. If ω1,ω2 ∈ ΩC are nonzero differentials, then (II.4.2a) implies that
+%%there is a function f ∈ K ̄(C)∗ such that ω1 = fω2. Thus div(ω1) = div(f) + div(ω2),
+%%which shows that the following definition makes sense.
+%
+%
+%\begin{dfn}
+%The \emph{canonical divisor class on} $C$ is the image in $\Pic(C)$ of $\div(\omega)$ for any nonzero differential $\omega \in \Omega_C$. Any divisor in this divisor class is called a \emph{canonical divisor}. 
+%\end{dfn}
+%
+%
+%%Example 4.5. We are going to show that there are no holomorphic differentials on P1. First, if t is a coordinate function on P1, then
+%%div(dt) = −2(∞).
+%%
+%%T o s e e t h i s , n o t e t h a t f o r a l l α ∈ K ̄ , t h e f u n c t i o n t − α i s a u n i f o r m i z e r a t α , s o 􏰆􏰇
+%%ordα(dt) = ordα d(t − α) = 0.
+%%However, at ∞ ∈ P1 we need to use a function such as 1/t as our uniformizer, so
+%%􏰄 􏰄􏰅􏰅
+%%ord∞(dt) = ord∞ −t2 d 1 = −2. t
+%%Thus dt is not holomorphic. But now for any nonzero ω ∈ ΩP1 , we can use (II.4.3a) to compute
+%%deg div(ω) = deg div(dt) = −2, so ω cannot be holomorphic either.
+%
+%
+%%Example 4.6. Let C be the curve
+%%C:y2 =(x−e1)(x−e2)(x−e3),
+%%where we continue with the notation from (II.3.3). Then
+%%div(dx) = (P1) + (P2) + (P3) − 3(P∞). (Note that dx = d(x − ei) = −x2 d(1/x).) We thus see that
+%%div(dx/y) = 0.
+%%Hence the differential dx/y is both holomorphic and nonvanishing.
+%
+%
+%
+%% Riemann-Roch Theorem
+%\subsection{Riemann-Roch Theorem} % p 33
+%
+%Let $C$ be a curve. We put a partial order on $\Div(C)$ in the following way. 
+%
+%\begin{dfn}
+%A divisor $D= \sum n_P(P)$ is \emph{positive} (or \emph{effective}), denoted by
+%	\[
+%	D \geq 0,
+%	\]
+%if $n_P \geq 0$ for every $P \in C$. Similarly, for any two divisors $D_1, D_2 \in \Div(C)$, we write
+%	\[
+%	D_1 \geq D_2
+%	\]
+%to indicate that $D_1 - D_2$ is positive. 
+%\end{dfn}
+%
+%
+%%Example 5.1. Let f ∈ K ̄(C)∗ be a function that is regular everywhere except at one point P ∈ C, and suppose that it has a pole of order at most n at P. These requirements on f may be succinctly summarized by the inequality
+%%Similarly,
+%%div(f ) ≥ −n(P ). div(f) ≥ (Q) − n(P)
+%%says that in addition, f has a zero at Q. Thus divisorial inequalities are a useful tool for describing poles and/or zeros of functions.
+%
+%
+%\begin{dfn}
+%Let $D \in \Div(C)$. We associate to $D$ the set of functions
+%	\[
+%	\cL(D)= \{ f \in \ov{K}(C)^* \colon \div(f) \geq -D \} \cup \{ 0 \}
+%	\]
+%The set $\cL(D)$ is a finite-dimensional $\ov{K}$-vector space (see II.5.2b below), and we denote its dimension by $\ell(D)= \dim_{\ov{K}} \cL(D)$. 
+%\end{dfn}
+%
+%
+%\begin{prop} % 5.2
+%Let $D \in \Div(C)$.
+%\begin{enumerate}[(a)]
+%\item If $\deg D < 0$, then
+%	\[
+%	\cL(D)= \{ 0 \} \text{ and } \ell(D)= 0
+%	\]
+%
+%\item $\cL(D)$ is a finite-dimensional $\ov{K}$-vector space.
+%
+%\item If $D' \in \Div(C)$ is linearly equivalent to $D$, then
+%	\[
+%	\cL(D) \cong \cL(D'), \text{ and so } \ell(D)= \ell(D')
+%	\]
+%\end{enumerate}
+%\end{prop}
+%
+%
+%%Example 5.3. Let KC ∈ Div(C) be a canonical divisor on C, say
+%%KC = div(ω). Then each function f ∈ L(KC ) has the property that
+%%div(f ) ≥ − div(ω), so div(f ω) ≥ 0.
+%%In other words, f ω is holomorphic. Conversely, if the differential f ω is holomorphic, then f ∈ L(KC ). Since every differential on C has the form f ω for some f , we have established an isomorphism of K ̄ -vector spaces,
+%%L(KC ) ∼= {ω ∈ ΩC : ω is holomorphic}.
+%%The dimension l(KC ) of these spaces is an important invariant of the curve C .
+%
+%We are now ready to state a fundamental result in the algebraic geometry of curves. Its importance, as we will see amply demonstrated in (III \S3), lies in its ability to tell us that there are functions on C having prescribed zeros and poles.
+%
+%
+%\begin{thm}[Riemann-Roch]
+%Let $C$ be a smooth curve and let $K_C$ be a canonical divisor on $C$. There is an integer $g \geq 0$, called the genus of $C$, such that for every divisor $D \in \Div(C)$,
+%	\[
+%	\ell(D) - \ell(K_C - D)= \deg D - g + 1
+%	\]
+%\end{thm}
+%
+%PROOF. For a fancy proof using Serre duality, see [111, IV \S1]. A more elementary
+%proof, due to Weil, is given in [136, Chapter 1].
+%
+%
+%\begin{cor} \hfill % 5.5
+%\begin{enumerate}[(a)]
+%\item $\ell(K_C)= g$
+%\item $\deg K_C= 2g - 2$
+%\item If $\deg D > 2g - 2$, then
+%	\[
+%	\ell(D)= \deg D - g + 1
+%	\]
+%\end{enumerate}
+%\end{cor}
+%
+%%Example 5.6. Let C = P1. Then (II.4.5) says that there are no holomorphic dif- ferentials on C, so using the identification from (II.5.3), we see that l(KC) = 0. Then (II.5.5a) says that P1 has genus 0, and the Riemann–Roch theorem reads
+%%l(D) − l(−2(∞) − D) = deg D + 1. In particular, if deg D ≥ −1, then
+%%l(D) = deg D + 1.
+%%(See Exercise 2.3b.)
+%
+%%Example 5.7. Let C be the curve
+%%C:y2 =(x−e1)(x−e2)(x−e3),
+%%where we continue with the notation of (II.3.3) and (II.4.6). We have seen in (II.4.6)
+%%that
+%%div(dx/y) = 0, sothecanonicalclassonCistrivial,i.e.,wemaytakeKC =0.Henceusing(II.5.5a)
+%%we find that
+%%g = l(KC) = l(0) = 1,
+%%so C has genus one. The Riemann–Roch theorem (II.5.5c) then tells us that
+%%l(D) = deg D provided deg D ≥ 1. We consider several special cases.
+%%
+%%(i)
+%%(ii) (iii) (iv)
+%%􏰆􏰇 􏰆􏰇
+%%Let P ∈ C. Then l (P) = 1. But L (P) certainly contains the constant functions, which have no poles, so this shows that there are no functions on C having a single simple pole.
+%%􏰆􏰇
+%%Recall that P∞ is the point at infinity on C. Then l 2(P∞) = 2, and {1, x} 􏰆􏰇
+%%provides a basis for L 2(P∞) . Similarly,theset{1,x,y}isabasisforL􏰆3(P∞)􏰇,and{1,x,y,x2}isabasis
+%%􏰆􏰇
+%%for L 4(P∞) .
+%%Now we observe that the seven functions 1, x, y, x2, xy, x3, y2 are all in L􏰆6(P∞)􏰇, but l􏰆6(P∞)􏰇 = 6, so these seven functions must be K ̄ -linearly dependent. Of course, the equation y2 = (x − e1)(x − e2)(x − e3) used to define C gives an equation of linear dependence among them.
+%
+%
+%The next result says that if $C$ and $D$ are defined over $K$, then so is $\cL(D)$. 
+%
+%
+%\begin{prop} % 5.8
+%Let $C/K$ be a smooth curve and let $D \in \Div_K(C)$. Then $\cL(D)$ has a basis consisting of functions in $K(C)$.
+%\end{prop}
+%
+%
+%We conclude this section with a classic relationship connecting the genera of curves linked by a nonconstant map.
+%
+%
+%\begin{thm}[Hurwitz] % 5.9
+%Let $\phi: C_1 \to C_2$ be a nonconstant separable map of smooth curves of genera $g_1$ and $g_2$, respectively. Then
+%	\[
+%	2g_1 - 2 \geq (\deg \phi) (2g_2 - 2) + \sum_{P \in C_1} \left( e_\phi(P) - 1 \right)
+%	\]
+%Further, equality holds if and only if one of the following conditions is true:
+%	\begin{enumerate}[(i)]
+%	\item $\ch(K)= 0$
+%	\item $\ch(K)= p > 0$ and $p$ does not divide $e_\phi(P)$ for all $P \in C_1$
+%	\end{enumerate}
+%\end{thm}
+%
+%
+%%2.2. Let φ : C1 → C2 be a nonconstant map of smooth curves, let f ∈ K ̄(C2)∗, and
+%%let P ∈ C1. Prove that
+%%ordP (φ∗f) = eφ(P)ordφ(P)(f).
+%
+%%2.5. LetC be a smooth curve.Prove that the following are equivalent (overK ̄): (i) C is isomorphic to P1.
+%%(ii) C has genus 0.
+%%(iii) ThereexistdistinctpointsP,Q∈Csatisfying(P)∼(Q).
+%
+%
+%%2.6. Let C be a smooth curve of genus one, and fix a base point P0 ∈ C.
+%%(a) Prove that for all P, Q ∈ C there exists a unique R ∈ C such that
+%%(P) + (Q) ∼ (R) + (P0).
+%%Denote this point R by σ(P, Q).
+%%(b) Provethatthemapσ:C×C→Cfrom(a)makesCintoanabeliangroupwithidentity
+%%element P0.
+%%(c) Define a map
+%%κ : C −→ Pic0(C), P 􏰃−→ divisor class of (P) − (P0).
+%%Prove that κ is a bijection of sets, and hence that κ can be used to make C into a group
+%%via the rule
+%%(d) Prove that the group operations on C defined in (b) and (c) are the same.
+%
+%%2.7. Let F (X, Y, Z) ∈ K[X, Y, Z] be a homogeneous polynomial of degree d ≥ 1, and
+%%assume that the curve C in P2 given by the equation F = 0 is nonsingular. Prove that genus(C)= (d−1)(d−2).
+%%2
+%%(Hint. Define a map C → P1 and use (II.5.9).)
+%
+%%2.8. Let φ : C1 → C2 be a nonconstant separable map of smooth curves.
+%%(a) Prove that genus(C1) ≥ genus(C2).
+%%(b) Prove that if C1 and C2 have the same genus g, then one of the following is true:
+%%(i) g = 0.
+%%(ii) g = 1 and φ is unramified.
+%%(iii) g ≥ 2 and φ is an isomorphism.
+%%
+%%2.12. UsetheextensionofHilbert’sTheorem90(B.3.2),whichsaysthat H 1 􏰆 G K ̄ / K , G L n ( K ̄ ) 􏰇 = 0 ,
+%%to give another proof of (II.5.8.1).
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\subsection{The Invariant Differential} % p 75
+%
+%Let $E/K$ be an elliptic curve given the usual Weierstrass equation
+%	\[
+%	E: y^2 + a_1 xy + a_3y = x^3 + a_2 x^2 + a_4 x + a_6
+%	\]
+%We have seen (III.1.5) that the differential 
+%	\[
+%	\omega= \dfrac{dx}{2y + a_1x + a_3} \in \Omega_E
+%	\]
+%has neither zeros nor poles. We now justify the name of invariant differential by proving that it is invariant under translation.
+%
+%
+%\begin{prop}[Silverman III.5.1]
+%Let $E$ and $\omega$ be as above, let $Q \in E$, and let $\tau_Q: E \to E$ be the translation-by-$Q$ map (III.4.7). Then
+%	\[
+%	\tau_Q^* \omega = \omega
+%	\]
+%\end{prop}
+%
+%
+%\begin{thm}[Silverman III.5.2]
+%Let $E$ and $E'$ be elliptic curves, let $\omega$ be an invariant differential on $E$ and let $\phi, \psi: E' \to E$ be isogenies. Then $(\phi + \psi)^* \omega= \phi^* \omega + \psi^* \omega$. 
+%\end{thm}
+%
+%The two plus signs in this equation represent completely different operations. The first is addition in $\Hom(E',E)$, which is essentially addition using the group law on $E$. The second is the usual addition in the vector space of differentials $\Omega_{E'}$. 
+%
+%
+%\begin{cor}[Silverman III.5.3]
+%Let $\omega$ be an invariant differential on an elliptic curve $E$. Let $m \in \Z$. Then $[m]^*\omega= m\omega$.
+%\end{cor}
+%
+%
+%\begin{cor}[Silverman III.5.4]
+%Let $E/K$ be an elliptic curve and let $m \in \Z$. Assume that $m \neq 0$ in $K$. Then the multiplication-by-$m$ map on $E$ is a finite separable endomorphism. 
+%\end{cor}
+%
+%
+%\begin{cor}[Silverman III.5.5]
+%Let $E$ be an elliptic curve defined over a finite field $\F_q$ of characteristic $p$, let $\phi: E \to E$ be the $q$th power Frobenius morphism and let $m,n \in \Z$. Then the map 
+%	\[
+%	m + n\phi: E \to E
+%	\]
+%is separable if and only if $p \nmid m$. In particular, the map $1 - \phi$ is separable. 
+%\end{cor}
+%
+%
+%\begin{cor}
+%Let $E/K$ be an elliptic curve and let $\omega$ be a nonzero invariant differential on $E$. We define a map from $\End E$ to $\ov{K}$ in the following way
+%	\[
+%	\End E \to \ov{K}, \phi \mapsto a_\phi \text{ such that } \phi^*\omega= a_\phi \omega
+%	\]
+%\begin{enumerate}[(a)]
+%\item The map $\phi \mapsto a_\phi$ is a ring homomorphism.
+%\item The kernel of $\phi \mapsto a_\phi$ is the set of inseparable endomorphisms of $E$.
+%\item If $\ch K= 0$, then $\End E$ is a commutative ring. 
+%\end{enumerate}
+%\end{cor}
+
+
+
+%\subsection{The Dual Isogeny} % p 80
+%
+%Let $\phi: E_1 \to E_2$ be a nonconstant isogeny. The maps $\phi^*$ and $\phi_*$ take divisors of degree 0 to divisors of degree 0, and principal divisors to principal divisors. They thus induce maps 
+%	\[
+%	\phi^*: \Pic^0(C_2) \to \Pic^0(C_1) \text{ and } \phi_*: \Pic^0(C_1) \to \Pic^0(C_2)
+%	\]
+%In particular, if $f \in \ov{K}(C)$ gives the map $f: C \to \bP^1$, then
+%	\[
+%	\deg \div f = \deg f^* \big( (0) - (\infty) \big)= \deg f - \deg f= 0.
+%	\]
+%Then $\phi$ induces a map
+%	\[
+%	\phi^*: \Pic^0(E_2) \to \Pic^0(E_1).
+%	\]
+%On the other hand, for $i= 1$ and 2 we have group homomorphisms 
+%	\[
+%	\kappa_i: E_i \to \Pic^0(E_i), P \mapsto \text{ class of } (P) - (\cO).
+%	\]
+%This gives a homomorphism going in the opposite direction to $\phi$, namely the composition 
+%	\[
+%	E_2 \ma{\kappa_2} \Pic^0(E_2) \ma{\phi^*} \Pic^0(E_1) \ma{\kappa_1^{-1}} E_1.
+%	\]
+%We will verify that the map may be computed as follows. Let $Q \in E_2$, and choose any $P \in E_1$ satisfying $\phi(P)= Q$. Then	
+%	\[
+%	\kappa_1^{-1} \circ \phi^* \circ \kappa_2(Q)= [\deg \phi](P).
+%	\]
+%It is by no means clear that the homomorphism $\kappa_1^{-1} \circ \phi^* \circ \kappa_2$ is an isogeny, i.e. that it is given by a rational map. The process of finding a point $P$ satisfying $\phi(P)= Q$ involves taking roots of various polynomial equations. If $\phi$ is separable, one needs to check that applying $[\deg \phi]$ to $P$ causes the conjugate roots to appear symmetrically. (It is actually reasonably clear that this is true if only explicitly write out $\kappa_1^{-1} \circ \phi^* \circ \kappa_2$). If $\phi$ is inseparable, this approach is more complicated. We will now show that in all cases there is an actual isogeny that may be computed in the manner described above. 
+%
+%
+%\begin{thm}[Silverman III.6.1]
+%Let $\phi: E_1 \to E_2$ be a nonconstant isogeny of degree $m$.
+%
+%\begin{enumerate}[(a)]
+%\item There exists a unique isogeny 
+%	\[
+%	\hat{\phi}: E_2 \to E_1 \text{ satisfying } \hat{\phi} \circ \phi= [m]
+%	\]
+%
+%\item As a group homomorphism, $\hat{\phi}$ equals the composition 
+%	\[
+%	\begin{aligned}
+%	&E_2 \ma{} \Div^0(E_2) \ma{\phi^*} \Div^0(E_1) \ma{\text{sum}} E_1, \\
+%	&Q \mapsto (Q) - (\cO) \quad\quad \sum n_P(P) \mapsto \sum [n_P]P
+%	\end{aligned}
+%	\]
+%\end{enumerate}
+%\end{thm}
+%
+%
+%\begin{dfn}
+%Let $\phi: E_1 \to E_2$ be an isogeny. The dual isogeny to $\phi$ is the isogeny $\hat{\phi}: E_2 \to E_1$ described in III.6.1a. [This assumes that $\phi \neq [0]$. If $\phi= [0]$, then we set $\hat{\phi}= [0]$.] 
+%\end{dfn}
+%
+%
+%The next theorem gives the basic properties of the dual isogeny. From these basic facts, we will be able to deduce a number of very important corollaries, including a good description of the kernel of the multiplication-by-$m$ map.
+%
+%
+%\begin{thm}[Silverman III.6.2]
+%Let 
+%	\[
+%	\phi: E_1 \to E_2
+%	\]
+%be an isogeny. 
+%
+%\begin{enumerate}[(a)]
+%\item Let $m= \deg \phi$. Then
+%	\[
+%	\hat{\phi} \circ \phi= [m] \text{ on } E_1 \text{ and } \phi \circ \hat{\phi}= [m] \text{ on } E_2
+%	\]
+%
+%\item Let $\lambda: E_2 \to E_3$ be another isogeny. Then
+%	\[
+%	\hat{\lambda \circ \phi}= \hat{\phi} \circ \hat{\lambda}
+%	\]
+%
+%\item Let $\psi: E_1 \to E_2$ be another isogeny. Then
+%	\[
+%	\hat{\phi + \psi}= \hat{\phi} + \hat{\psi}
+%	\]
+%
+%\item For all $m \in \Z$,
+%	\[
+%	\hat{[m]}= [m] \text{ and } \deg [m]= m^2
+%	\]
+%
+%\item $\deg \hat{\phi}= \deg \phi$
+%
+%\item $\hat{\hat{\phi}}= \phi$. 
+%\end{enumerate}
+%\end{thm}
+%
+%
+%\begin{dfn}
+%Let $A$ be an abelian group. A function $d: A \to \R$ is a quadratic form if it satisfies the following conditions:
+%	\begin{enumerate}[(i)]
+%	\item $d(\alpha)= d(-\alpha)$ for all $\alpha \in A$.
+%	\item The pairing
+%		\[
+%		A \times A \to \R, \quad (\alpha,\beta) \mapsto d(\alpha + \beta) - d(\alpha) - d(\beta)
+%		\]
+%	is bilinear. 
+%	\end{enumerate}
+%A quadratic form $d$ is positive definite if it further satisfies:
+%	\begin{enumerate}
+%	\item[(iii)] $d(\alpha) \geq 0$ for all $\alpha \in A$.
+%	\item[(iv)] $d(\alpha)= 0$ if and only if $\alpha= 0$. 
+%	\end{enumerate}
+%\end{dfn}
+%
+%
+%\begin{cor}[Silverman III.6.3]
+%Let $E_1$ and $E_2$ be elliptic curves. The degree map
+%	\[
+%	\deg: \Hom(E_1, E_2) \to \Z
+%	\]
+%is a posit definite quadratic form.
+%\end{cor}
+%
+%
+%\begin{cor}[Silverman III.6.4]
+%Let $E$ be an elliptic curve and let $m \in \Z$ with $m \neq 0$.
+%
+%\begin{enumerate}[(a)]
+%\item $\deg [m]= m^2$
+%\item If $m \neq 0$ in $K$, i.e. if either $\ch K= 0$ or $p= \ch K > 0$ and $p \nmid m$, then
+%	\[
+%	E[m]= \Z/m\Z \times \Z/m\Z
+%	\]
+%
+%\item If $\ch K= p > 0$, then one of the following is true
+%	\begin{enumerate}[(i)]
+%	\item $E[p^e]= \{ \cO \}$ for all  $e= 1,2,3,\ldots$
+%	\item $E[p^e]= \Z/p^e\Z$ for all $e= 1,2,3,\ldots$
+%	\end{enumerate}
+%\end{enumerate}
+%\end{cor}
+%
+%
+%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

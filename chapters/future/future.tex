@@ -1,0 +1,91 @@
+% !TEX root = ../../thesis.tex
+\chapter{Future Directions\label{ch:future}}
+
+After the classification of torsion subgroups of rational elliptic curves over odd degree Galois number fields, there are a great number of directions one could take. One obvious question would be could one replicate the work for rational elliptic curves over even degree Galois number fields. However at present, this would be appear to be a futile direction. Such a classification would necessarily entail classifying the torsion subgroups $E(\Q(\zeta_n))$, where $\zeta_n$ is a primitive $n$th root of unity. As the field $\Q(E[n])$ contains $Q(\zeta_n)$ for all $n$, c.f. Corollary~\ref{cor:weilpairing}, this would very nearly amount to the complete classification of $\Phi_\Q(d)$ for all $d$, which is not currently likely. Recall that \gonjim{} and \lozrob's work in \cite{gonzalezjimenezlozanorobledo18}, and \gonjim{} and Najman's work in \cite{gonzalezjimeneznajman20base} extending  Chou's classification of $\Phi_\Q^{\Gal}(4)$ in \cite{chou16} completely determined the set $\Phi_\Q(4)$. A future problem could then be to then use the classification of $\Phi_\Q^{\Gal}(9)$ to determine the set $\Phi_\Q(9)$. 
+
+
+If one instead wanted to focus on the set $\Phi_\Q^{\Gal}(9)$, another direction would be to determine the possible torsion growth of torsion subgroups when base extending from $\Q$ or a cubic Galois field, similar to the work of  \gonjim{}, Najman, and Tornero in \cite{gonjimnajmantornero16}. In fact, some of the work towards this has been done in this paper.  A similar direction (in the probable techniques involved) would be to try to `count' torsion subgroups occurring $\Phi_\Q^{\Gal}(9)$. For instance in \cite{harronsnowden17}, Harron and Snowden as the following question:
+	\begin{quote}
+	 Mazur established that there are only 15 possibilities for the torsion subgroup\dots With this classification in hand, it is natural to ask a more refined question: how often does each of these groups occur?
+	\end{quote}
+Of course, one must define what one means by `count.' For each elliptic curve $E$, choose a model $E_{A,B}: y^2= x^3 + Ax + B$, where $A,B \in \Z$ are chosen `minimally', i.e. $\gcd(A^3, B^2)$ is not divisibly by $p^{12}$ for any prime $p$. Equivalently, for all primes $p$, if $p^4 \mid A$, then $p^6 \nmid B$. Otherwise, $E_{A,B} \cong E_{A/p^4, B/p^6}$ using the map $(x,y) \mapsto (p^2x', p^3y')$. All elliptic curves $E/\Q$ are isomorphic to an elliptic curve of this form. One then defines the (na\"ive) height of $E$ to be $H(E_{A,B}):= \max(|A|^33, |B|^2)$.\footnote{Some would define this to be $\max(4|A|^33, 27|B|^2)$ to more closely match the discriminant. But for counting purposes, this gives the same count as $H(E_{A,B})$ in the limit as $H \to \infty$ in that the difference tends to 0.} There are then only finitely many elliptic curves up to fixed height $X \in \R$. Then if $G \in \Phi(1)$, Harron and Snowden define $N_G(X)$ to be the number of (isomorphism classes of) elliptic curves $E/\Q$ of height at most $X$ for which $E(\Q)_\tors$ is isomorphic to $G$. They then prove the following:
+
+
+\begin{thm}[{\cite[Thm.~1.1]{harronsnowden17}}]
+For any group $G \in \Phi(1)$, the limit
+	\[
+	\dfrac{1}{d(G)}= \lim_{X \to \infty} \dfrac{\log N_G(X)}{\log X}
+	\]
+exists. The value of $d(G)$ is as indicated in Table~\ref{tab:harronsnowden}.
+\end{thm}
+
+	\begin{table}[!ht]
+	\centering
+	\caption{The values of $d(G)$ for $G \in \Phi(1)$.\label{tab:harronsnowden}}
+	\begin{tabular}{|c|c||c|c||c|c|} \hline
+	$G$ & $d$ & $G$ & $d$ & $G$ & $d$ \\ \hline\hline
+	0 & 6/5 & $\Z/6\Z$ & 6 & $\Z/12\Z$ & 24 \\ \hline
+	$\Z/2\Z$ & 2 & $\Z/7\Z$ & 12 & $\Z/2\Z \times \Z/2\Z$ & 3 \\ \hline
+	$\Z/3\Z$ & 3 & $\Z/8\Z$ & 12 & $\Z/2\Z \times \Z/4\Z$ & 6 \\ \hline
+	$\Z/4\Z$ & 4 & $\Z/9\Z$ & 18 & $\Z/2\Z \times \Z/6\Z$ & 12 \\ \hline
+	$\Z/5\Z$ & 6 & $\Z/10\Z$ & 18 & $\Z/2\Z \times \Z/8\Z$ & 24 \\ \hline
+	\end{tabular}
+	\end{table}
+
+
+Because $d(0) < d(G)$ for all $G \in \Phi(1)$ with $\#G > 1$, this recovers a result of Duke \cite{duke97} that `almost all' rational elliptic curves have trivial torsion. Harron and Snowden prove a stronger result: for $G \in \Phi(1)$ there exist positive constants $K_1$ and $K_2$ such that
+	\[
+	K_1 X^{1/d(G)} \leq N_G(X) \leq K_2 X^{1/d(G)}
+	\]
+holds for all $X \geq 1$, suggesting that the following limit exists:
+	\[
+	c(G)= \lim_{X \to \infty} \dfrac{N_G(X)}{X^{1/d(G)}}
+	\]
+They prove this is the case for $\#G \leq 3$.
+
+
+\begin{thm}[{\cite[Thm.~1.6]{harronsnowden17}}] \label{thm:harronsnowden}
+Let $f, g \in \Q[t]$ be non-zero coprime polynomials of degrees $r$ and $s$, with at least one of $r$ or $s$ positive, and write
+	\[
+	\max\left( \dfrac{r}{4}, \dfrac{s}{6} \right)= \dfrac{n}{m},
+	\]
+with $n$ and $m$ coprime. Assume $n= 1$ or $m= 1$. Let $\cE$ be the family of elliptic curves defined by
+	\[
+	y^2= x^3 + f(t)x + g(t).
+	\]
+Let $N(X)$ be the number of (isomorphism classes of) elliptic curves $E/\Q$ of height at most $X$ for which $E \cong \cE_t$ for some $t \in \Q$. Then there exist positive constants $K_1$ and $K_2$ such that
+	\[
+	K_1X^{(m+1)/12n} \leq N(X) \leq K_2 X^{(m+1)/12n}
+	\]
+for all $X \geq 1$. 
+\end{thm}
+
+
+Harron and Snowden also discuss several interesting possible future directions for their work in their paper, the most general being the following:
+
+
+\begin{quote}
+ Let $\cX$ and $\cY$ be proper smooth Deligne-Mumford stacks over $\Q$ with course space $\P^1$, and let $f: \cY \to \cX$ be a map. Suppose that there is a good notion of height $h_\cX$ on the set $|\cX(\Q)|$, where $|\cdot|$ denotes isomorphism classes. Then one would like a formula for
+	\[
+	\lim_{T \to \infty} \dfrac{\# \{ x \in f(|\cY(\Q)|) \;|\; h_\cX(x) \leq T \}}{\log T}
+	\]
+in terms of invariants of $\cX, \cY$, and $f$. More generally, one may ask these questions over general global fields. What kind of dependence is there on the base field?
+\end{quote}
+
+
+Pizzo, Pomerance, and Voight perform similar analyses when counting elliptic curves with a 3-isogeny in \cite{pizzopomerancevoight20}. Bruin and Najman extend Harron and Snowden's work by extending their result to number fields and level structure $G$ such that the corresponding modular curve $X_G$ is a weighted projective line $\bP(w_0, w_1)$ and the morphism $X_G \to X(1)$ some specified conditions, e.g. modular curves $X_1(m,n)$ with a course moduli space of genus 0. 
+
+
+\begin{thm}[{\cite[Thm.~1.1]{bruinnajman20}}]
+Let $n$ be a positive integer, and let $G$ be a subgroup of $\GL_2(\Z/n\Z)$. Let $K_G$ be the fixed field of the action of $G$ on $\Q(\zeta_n)$ given by $(g,\zeta_n) \mapsto \zeta_n^{\det g}$. Assume that the stack $X_G$ over $K_G$ is isomorphic to $\bP(w)_{K_G}$, where $w= (w_0, w_1)$ is a pair of positive integers, and let $e$ be as in \cite[Lem~4.1]{bruinnajman20}. Furthermore, assume $e= 1$ or $w= (1,1)$ holds. Then for every finite extension $K$ of $K_G$, we have
+	\[
+	N_{G,K}(X) \asymp X^{1/d(G,K)} \text{ as } X \to \infty,
+	\]
+where $d(G,K)= \dfrac{12e}{w_0 + w_1}$. 
+\end{thm}
+
+
+Because `most' of the torsion in $\Phi_\Q^{\Gal}(d)$ occurs over $\Q$ for any odd $d$, and one should be able to track the number of fields over which the torsion can grow, one should be able to apply the results from Theorem~\ref{thm:harronsnowden} to count the density of elliptic curves over these fields. One could also try to do this in a simpler case, as in $\Phi_\Q(2)$. 
+
+
+One could also try to classify the possible torsion structures $\Phi_\Q^{\Gal}(d)$ if one restricts to Galois groups with a specified structure, such as abelian groups. This could then make use of Chou's result \cite{chou19}. Furthermore, one could look at the interesting interplay between torsion subgroups and the arithmetic of number fields hinted at in Lemma~\ref{lem:nocyclic14-2-14}. This is similar to work of Hanson Smith, who has interesting results connecting elliptic curves and monogenic number fields. Finally, following \cite{guzvic19} and \cite{cremonanajman21}, one could try to extend the classification of $\Phi_\Q^{\Gal}(d)$ instead to $\Phi_{j \in \Q}^{\Gal}(d)$. 

@@ -1,0 +1,708 @@
+% !TEX root = ../../thesis.tex
+\chapter{General Odd Degree Galois Fields}
+
+
+% Overview for the Classification
+\section{Overview for the Classification}
+
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field of fixed degree $d$. Recall that the set $\Phi_\Q^{\Gal}(d)$ is the set of possible isomorphism classes of torsion subgroups $E(K)_\tors$ as $E$ varies over all rational elliptic curves and $K$ varies over all possible Galois fields of degree $d$. To find the sets $\Phi_\Q^{\Gal}(d)$, we proceed in a similar fashion as we did in the nonic case. First, we find the possible prime orders for points $P \in E(K)_\tors$. We then bound the size of the $p$-Sylow subgroups. We can then create a finite list of possibilities for $E(K)_\tors$. We will then eliminate torsion subgroups which do not occur for any rational elliptic curve over any odd degree Galois field. This will leave us with a list of torsion subgroups that occur for some rational elliptic curve over some odd degree Galois field, i.e. torsion subgroups $E(K)_\tors \in \bigcup_{k=0}^\infty \Phi_\Q^{\Gal}(2k+1)$. We show which torsion subgroups $E(K)_\tors \in \Phi_\Q^{\Gal}(d)$ for a few critically important $d$. Then we prove that these torsion subgroups can be base extended to any Galois field of degree $D$, where $d \mid D$. Finally, we are then able to classify the possible torsion subgroups $E(K)_\tors \in \Phi_\Q^{\Gal}(d)$ in the case of odd $d$ based on the factorization of $d$. 
+
+
+
+
+
+% Points of Prime Order
+\section{Points of Prime Order}
+
+We must first find the possible prime orders for points on rational elliptic curves over odd degree Galois number fields. Unlike our result in the nonic case, we do not have a complete classification of the possible prime orders for points on rational elliptic curves over an arbitrary (Galois) number fields of degree $d$. However, we can make use of the restrictions on points of prime order that isogeny conditions force upon the elliptic curve. This allows us to prove the following:
+
+
+\begin{lem} \label{odddegreeprime}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field. If $P \in E(K)_\tors$ is a point of prime order $p$, then
+	\[
+	p \in \{ 2, 3, 5, 7, 11, 13, 19, 43, 67, 163 \}.
+	\]
+\end{lem}
+
+\begin{proof} 
+Observing that points of prime order $p= 2$ occur for elliptic curves $E(\Q)$, because $\Phi(1) \subseteq \Phi(d)$ for all $d$, points of order 2 are possible. In fact, this shows points of order 2, 3, 5, and 7 are possible. Now let $p$ be an odd prime. By Lemma~\ref{lem:nofulltorsion}, $E(K)_\tors$ cannot contain full $p$-torsion so that $E(K)_\tors \cong \Z/p\Z$. But then by Lemma~\ref{lem:galoisisogeny}, $E(K)_\tors$ has a rational $p$-isogeny. From Theorem~\ref{thm:isogenyclassification}, we know this is only possible for $p \in \{ 2, 3, 5, 7, 11, 13, 17, \allowbreak 19, 37, 43, 67, 163 \}$. Finally by \cite{gonzalezjimeneznajman20base}, we note that points of prime order 17 and 37 occur if and only if $8 \mid d$ and $12 \mid d$, respectively, which obviously cannot occur if $d$ is odd. 
+\end{proof}
+
+
+In fact in \cite{gonzalezjimeneznajman20base}, \gonjim{} and Najman prove that if $P$ is a point of order $p$ for an elliptic curve $E/\Q$, that the possible degrees for the field of definition of $P$ are the ones in Table~\ref{tab:order1737}
+	\begin{table}[!ht]
+	\centering
+	\caption{Orders for the field of definition for points of order $p= 17, 37$\label{tab:order1737}}
+	\begin{tabular}{cc} \hline
+	$p$ & $[\Q(P) \colon \Q]$ \\ \hline
+	17 & $8, 16, 32^*, 136, 256^*, 272, 288$ \\
+	37 & $12, 36, 72^*, 444, 1296^*, 1332, 1368$
+	\end{tabular}
+	\end{table}
+with the starred degrees occurring only for elliptic curves $E/\Q$ with CM. In the case of $p= 37$, these degrees are the only ones possible. In fact, we are able to say more about the fields of definition for these possible prime orders. For ease of reference, we include the result of \gonjim{} and Najman.
+
+
+\begin{thm}[{\cite[Thm.~5.8]{gonzalezjimeneznajman20base}}] \label{thm:fielddefodd}
+Let $E/\Q$ be an elliptic curve, $p$ a prime and $P$ a point of order $p$ in $E$. Then all of the cases in table~\ref{tab:degreetab} occur for $p \leq 13$ or $p= 37$, and they are the only ones possible. The degrees in table~\ref{tab:degreetab} with an asterisk occur only when $E$ has CM.
+	\begin{table}[!ht]
+	\centering
+	\caption{Degrees of fields of definition for prime orders\label{tab:degreetab}}
+	\begin{tabular}{|c|c|} \hline
+	$p$ & $[\Q(P) \colon \Q]$ \\ \hline
+	2 & 1, 2, 3 \\ \hline
+	3 & 1, 2, 3, 4, 6, 8 \\ \hline
+	5 & 1, 2, 4, 5, 8, 10, 16, 20, 24 \\ \hline
+	7 & 1, 2, 3, 6, 7, 9, 12, 14, 18, 21, $24^*$, 36, 42, 48 \\ \hline
+	11 & 5, 10, $20^*$, $40^*$, 55, $80^*$, $100^*$, 110, 120 \\ \hline
+	13 & 3, 4, 6, 12, $24^*$, 39, $48^*$, 52, 72, 78, 96, $144^*$, 156, 168 \\ \hline
+	37 & 12, 36, $72^*$, 444, $1296^*$, 1332, 1368 \\ \hline
+	\end{tabular}
+	\end{table}
+For all other $p$, the possibilities for $[\Q(P) \colon \Q]$ are as is given below. The degrees in equations~\ref{10}--\ref{12} occur only for CM elliptic curves $E/\Q$. Furthermore, the degrees in equation~\ref{12} occur only for elliptic curves with $j$-invariant 0. If a given conjecture is true, c.f. \cite[Conj.~3.5]{gonzalezjimeneznajman20base}, then the degrees in equations~\ref{13} also occur only for elliptic curves with $j$-invariant 0.
+	\begin{align}
+	\pushleft{p^2 - 1} & \pushright{\text{\itshape for all } p,\quad\quad\quad}  \label{8} \\
+	\pushleft{8, 16, 32^*, 136, 256^*, 272, 288} & \pushright{\text{\itshape for } p= 17,\quad\quad\quad} \label{9} \\
+	\pushleft{(p - 1)/2, p - 1, p(p - 1)/2, p(p - 1)} & \pushright{\text{\itshape if } p \in \{ 19, 43, 67, 163 \}\quad\quad\quad} \label{10} \\
+	%
+	\pushleft{2(p - 1), (p - 1)^2} & {\small \text{\itshape if } p \equiv 1 \mod 3 \text{\itshape\ or } \genfrac(){}{0}{-D}{p}= 1 \text{\itshape\ for any } D \in \text{CM} }\label{11} \\
+	%
+	\pushleft{(p - 1)^2/3, 2(p - 1)^2/3} &  \pushright{p \equiv 4, 7 \mod 9 \quad\quad\quad} \label{12} \\
+	\pushleft{(p^2 - 1)/3, 2(p^2 - 1)/3} &  \pushright{p \equiv 2, 5 \mod 9 \quad\quad\quad} \label{13}
+	\end{align}
+where $\text{CM}= \{ 1, 2, 7, 11, 19, 43, 67, 163 \}$. Apart from the cases above that have been proven to appear, the only other options that might be possible are:
+	\begin{equation} \label{14}
+	(p^2 - 1)/3, 2(p^2 - 1)/3 \quad \text{\itshape if } p \equiv 8 \mod 9.
+	\end{equation}
+\end{thm}
+
+
+\begin{thm}[{\cite[Prop.~4.6]{gonzalezjimeneznajman20base}}] \label{thm:fielddefdiv}
+Let $E/F$ be an elliptic curve over a number field $F$, $n$ a positive integer, $P \in E(\ov{F})$ a point of order $p^{n+1}$. Then $[F(P) \colon F(pP)]$ divides $p^2$ or $(p - 1)p$.
+\end{thm}
+
+
+% Bounding the p-Sylow Subgroups
+\section{Bounding the $p$-Sylow Subgroups}
+
+We now know the possible prime order for points $P \in E(K)$, where $E/\Q$ is a rational elliptic curve, and $K/\Q$ is an odd degree Galois field. Now we need to bound the possible $p$-Sylow subgroups. However at this stage, this is almost trivial. We have already bounded the 2-Sylow subgroup in classifying $\Phi_\Q^{\Gal}(9)$. The others follow immediately from Lemma~\ref{lem:nofulltorsion} and Lemma~\ref{lem:galoisisogeny} along with Theorem~\ref{thm:isogenyclassification}.
+
+
+\begin{lem} \label{lem:2oddbound}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field. Then $E(K)[2^\infty] \subseteq \Z/2\Z \oplus \Z/8\Z$. 
+\end{lem}
+
+\begin{proof}
+By Lemma~\ref{lem:nofulltorsion}, $E(K)_\tors$ cannot contain full $n$-torsion for any $n > 2$. Then $E(K)[2^\infty] \cong \Z/2\Z \oplus \Z/2^n\Z$ for some nonnegative integer $n$. Using $s=1, N=4$ in Theorem~\ref{thm:2torsionbound} shows that if $n= 4$ then $[K \colon \Q]$ is divisible by 2, which is impossible. We now need only consider the case where $s= 0$ in Theorem~\ref{thm:2torsionbound}, i.e. the case where $E(K)[2^\infty] \cong \Z/2^n\Z$ for some $n$. We show that $E(K)_\tors$ cannot contain $\Z/16\Z$. We know that points of order 2 in $E(K)_\tors$ can only occur over fields of degree 1, 2, or 3. Because $K/\Q$ is odd, they cannot be defined over a quadratic field. If $E(\Q)[2] \not\cong \{ \cO \}$, then by Lemma~\ref{lem:najman2sylow}, we know that $E(\Q)[2^\infty] \subseteq \Z/16\Z$, which contradicts Mazur's classification of $\Phi(1)$. Then it must be that the points of order 2 are defined over a cubic field, say $F$. But as $K/\Q$ is an odd degree Galois field, and $3= [F \colon \Q]= |\Gal(K/\Q) \colon \Gal(K/F)|$ is the smallest prime dividing $|\Gal(K/\Q)|$, it must be that $F/\Q$ is a cubic Galois extension. But then choosing a model $E: y^2= x^3 + Ax + B$, it must be that $x^3 + Ax + B$ splits over $F$, so that $E$ has full 2-torsion over $F \subseteq K$, a contradiction. 
+\end{proof}
+
+
+We can also prove a stronger result that the 2-Sylow subgroup is either defined over $\Q$ or a Galois cubic field.
+
+
+\begin{lem} \label{lem:2sylowoddqgal}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field. Then $E(K)_\tors[2^\infty]= E(\Q)[2^\infty]$ or there is a cubic Galois field, $F$, $\Q \subseteq F \subseteq K$ such that $E(K)[2^\infty]= E(F)[2^\infty] \supseteq \Z/2\Z \oplus \Z/2\Z$. In particular, $E(K)_\tors \subseteq \Z/2\Z \oplus \Z/8\Z$.  
+\end{lem}
+
+\begin{proof}
+If $E(K)[2^\infty]= \{ \cO \}$, the result is trivial, so assume there is a point of order 2. If $E(\Q)_\tors \neq \{ \cO \}$, then by Lemma~\ref{lem:najman2sylow}, we know that $E(K)[2^\infty]= E(\Q)_\tors[2^\infty]$. So assume $E(\Q)_\tors= \{ \cO \}$. Then there is a point of order 2 defined over a cubic field, say $F$. We know that $\widehat{F} \subseteq K$, where $\widehat{F}$ is the Galois closure of $F$. But as $F/\Q$ is a cubic extension and $K/\Q$ has odd degree, it must then be that $|\Gal(\widehat{F}/\Q)|= 3$. But then $\widehat{F}= F$, and hence $F$ is Galois. Note that choosing a model $y^2= x^3 + Ax + B$, because $E$ has a point of order 2, $E(\Q)_\tors= \{ \cO \}$, and $F/\Q$ is Galois, it must be that $E(K)[2] \cong \Z/2\Z \oplus \Z/2\Z$. If $E(K)[2^\infty] \cong \Z/2\Z \oplus \Z/2\Z \cong E(F)[2]$, we are done. Otherwise, assume that there is a point of order $2^{n+1}$, say $P$, where $n$ is a positive integer. But by Theorem~\ref{NJAMNp2pp(p-1)}, the only possible degrees of $[\Q(P) \colon \Q(2P)]$ are 1, 2, or 4. As $K/\Q$ is odd, it must then be that $[\Q(P) \colon \Q(2P)]= 1$ for all $n \geq 1$. As the 2-torsion is defined over $F$, we then have $E(K)[2^\infty]= E(F)[2^\infty]$. By Mazur's classification of $\Phi(1)$ and Najman's classification of $\Phi_\Q(3)$, we see that then $E(K)_\tors \subseteq \Z/2\Z \oplus \Z/8\Z$.
+\end{proof}
+
+
+% NOTE ABOUT KNAPP RESULT
+
+
+There is a more general result of Gu{\u{z}}vi\'c in \cite{guzvic19} that if $K$ is an odd degree number field and $E/K$ is an elliptic curve with rational $j$-invariant, then $E(K)_\tors$ cannot contain $\Z/16\Z$. We now easily bound the $p$-Sylow subgroups for odd $p$. 
+
+
+
+\begin{lem} \label{lem:oddpsylowbound}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field. Then for $p \in \{ 3, 5, 7, 11, 13, 19, 43, 67, 163 \}$, the $p$-Sylow subgroup, $E(K)[p^\infty]$, is bounded as follows:
+	\[
+	\begin{aligned}
+	E(K)[3^\infty] &\subseteq \Z/27\Z &\hspace{2cm} E(K)[19^\infty] &\subseteq \Z/19\Z \\
+	E(K)[5^\infty] &\subseteq \Z/25\Z & E(K)[43^\infty] &\subseteq \Z/43\Z \\
+	E(K)[7^\infty] &\subseteq \Z/7\Z & E(K)[67^\infty] &\subseteq \Z/67\Z \\
+	E(K)[11^\infty] &\subseteq \Z/11\Z & E(K)[163^\infty] &\subseteq \Z/163\Z \\
+	E(K)[13^\infty] &\subseteq \Z/13\Z & &
+	\end{aligned}
+	\]
+\end{lem}
+
+\begin{proof}
+By Lemma~\ref{lem:nofulltorsion}, $E(K)_\tors$ cannot contain full $p$-torsion so that $E(K)[p^\infty] \subseteq \Z/p^n\Z$ for some nonnegative integer $n$. But then by Lemma~\ref{lem:galoisisogeny}, $E(K)_\tors$ has a rational $p^n$-isogeny. For each prime $p$, we can use Theorem~\ref{thm:isogenyclassification} to examine the maximal possible $n$ in each case. This yields the bounds given in the statement of the lemma. 
+\end{proof}
+
+
+Using Lemma~\ref{lem:2oddbound} and Lemma~\ref{lem:oddpsylowbound}, we can combine all of this data to create a list of possible torsion structures for rational elliptic curves over odd degree Galois fields. 
+
+
+\begin{lem} \label{lem:oddpossible}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois number field. Then $E(K)_\tors$ is isomorphic to one of the following (although not all cases need occur):
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 15, 18, 19, 21, 25, 27, 43, 67, 163 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, \ldots, 7, 9, 10, 11, 12, 13, 14, 15, 18, 19, 21, 25, 27, 43, 67, 163
+	\end{cases}
+	\]
+\end{lem}
+
+\begin{proof}
+By Lemma~\ref{lem:2oddbound} and Lemma~\ref{lem:oddpsylowbound}, we know that
+	\[
+	E(K)_\tors \subseteq \Z/2\Z \oplus \Z/8\Z \oplus \Z/27\Z \oplus \Z/25\Z \oplus \Z/7\Z \oplus \Z/11\Z \oplus \Z/13\Z \oplus \Z/19\Z \oplus \Z/43\Z \oplus \Z/67\Z \oplus \Z/163\Z.
+	\]
+One then simply enumerates all possible subgroups of the group above, up to isomorphism. This gives a list of over 10,000 such subgroups. Of course, not all such possibilities are possible for $E(K)_\tors$. We only need examine the subgroups of the form $\Z/m\Z \oplus \Z/mn\Z$. We know by Lemma~\ref{lem:galoisisogeny} that if $E(K)_\tors \cong \Z/n\Z$, then $E$ has an $n$-isogeny. We know also by Lemma~\ref{lem:galoisisogeny} that if $E(K)_\tors \cong \Z/m\Z \oplus \Z/mn\Z$, then $E$ has an $n$-isogeny. Using Theorem~\ref{thm:isogenyclassification}, eliminate any subgroup from this list of the form $\Z/n\Z$ and $ \Z/m\Z \oplus \Z/mn\Z$ where $n$ is not a possible degree of an isogeny for a rational elliptic curve. This leaves the 45 remaining possibilities given in the statement of the lemma. 
+\end{proof}
+
+
+
+
+
+% Eliminating Torsion Subgroups
+\section{Eliminating Torsion Subgroups}
+
+As stated in Lemma~\ref{lem:oddpossible}, not all these subgroups need actually occur for some rational elliptic curve $E/\Q$ and some odd degree Galois field $K/\Q$. We need then eliminate torsion subgroups which do not occur. It will turn out that each of the possibilities $\Z/n\Z$ given in the statement of Lemma~\ref{lem:oddpossible} do occur. So we need only focus on the `bicyclic' groups. We first eliminate the torsion subgroups for the `bicyclic' torsion subgroups corresponding to elliptic curves with an $n$-isogeny occurring for finitely many $j$-invariants. We will make use of the following theorem.
+
+
+\begin{thm}[{Dedekind, c.f. \cite[Ch.~14.8]{dummitfoote}}] \label{thm:dedekind}
+Let $f(x) \in \Z[x]$ be a monic irreducible polynomial of degree $n$, and let $G_f$ be its Galois group. Let $p$ be a prime that does not divide $\Delta_f$, the discriminant of $f$. Let $\ov{f(x)}_p$ denote the reduction of $f(x)$ modulo $p$. If $\ov{f(x)}_p$ is a product of distinct monic irreducible polynomials in $\F_p[x]$ of degree $n_1, \ldots, n_r$, with $\deg f(x)= \sum_i n_i$, then $G_f$ contains a permutation of the roots with cycle type $(n_1, \ldots, n_r)$. 
+\end{thm}
+
+
+\begin{lem} \label{lem:oddbicyclicelim}
+Let $E/\Q$ be a rational elliptic curve. Then there does not exist an odd degree Galois field $K/\Q$ such that $E(K)_\tors \cong \Z/2\Z \oplus \Z/2n\Z$ for $n \in \{ 11, 14, 15, 19, 21, 27, 43, 67, 163 \}$ or $E(K)_\tors \cong \Z/15\Z$. 
+\end{lem}
+
+\begin{proof}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field. Suppose that $n \in \{ 11, 14, 15, 19, 21, 27, 43, 67, 163 \}$. By Lemma~\ref{lem:galoisisogeny}, if $E(K)_\tors \cong \Z/2\Z \oplus \Z/2n\Z$, then $E(K)_\tors$ has a rational $n$-isogeny. However by Theorem~\ref{thm:isogenyclassification}, for $n \in \{ 11, 14, 15, 17, 19, 21, 27, 37, 43, 67, 163 \}$, these isogenies occur for finitely many $j$-invariants. Therefore, $E$ must be a twist of an elliptic curve with $j$-invariant given in \cite[Table~4]{lozanorobledo13}. Using the method of division polynomials, we check each of the primitive factors $f_i$ for $f_{E,n}$. If $f_i$ is of even degree, we can move on because $\Q(f_i) \not\subseteq K$ because $K$ is odd. So suppose that $f_i$ is odd. If $\Q(f_i) \subseteq K$, then because $K/\Q$ is Galois, we know that $\widehat{\Q(f_i)}$, where $\widehat{\Q(f_i)}$ denotes the Galois closure of $\Q(f_i)$. In each case, we can compute the Galois group of $\Q(f_i)$. If the order of the Galois group is even, then clearly we cannot have $\Q(f_i) \subseteq K$. However in some of these cases, the degrees are restrictively large. For instance in the case of $n= 163$, we see this would involve computing the Galois group of a field with degree 13,203. In the cases where the Galois group is conjecturally large, we instead apply Theorem~\ref{thm:dedekind}. We reduce $f_i$ modulo primes $p \nmid \Delta_{f_i}$. In each case, we see that the Galois group contain an element of even order so that the Galois group must have even order. Then again, we cannot have $\Q(f_i) \subseteq K$. For each $n \in \{ 11, 14, 15, 19, 21, 27, 43, 67, 163 \}$, one of these cases occurs. Therefore, $E(K)_\tors \not\cong \Z/2\Z \oplus \Z/2n\Z$ for $n \in \{ 11, 14, 15, 19, 21, 27, 43, 67, 163 \}$. The computations in the case of $E(K)_\tors \cong \Z/15\Z$, i.e. $j \in \{ -5^2/2, -5^2 \cdot 241^3/2^3, -5 \cdot 29^3/2^5, 5 \cdot 211^3/2^{15} \}$, show that the case of $E(K)_\tors \cong \Z/15\Z$ occurs over no odd degree Galois field. 
+\end{proof}
+
+
+Eliminating the torsion subgroups precluded by Lemma~\ref{lem:oddbicyclicelim}, we are left with these remaining torsion subgroups. 
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 14, 18, 19, 21, 25, 27, 43, 67, 163 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, \ldots, 7, 9, 10, 12, 13, 18, 25
+	\end{cases}
+	\]
+
+
+\begin{lem} \label{lem:no2-12odd}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field. Then $E(K)_\tors$ does not contain a subgroup isomorphic to $\Z/2\Z \oplus \Z/12\Z$.
+\end{lem}
+
+\begin{proof}
+If $E(\Q)_\tors \neq \{ \cO \}$, then by Lemma~\ref{lem:najman2sylow}, we know that $E(\Q)_\tors \cong \Z/2\Z \oplus \Z/4\Z$. But by Theorem~\ref{thm:fielddefodd}, the only odd degrees a point of order 3 can be defined over are 1 or 3. In either case, this implies that there is a rational elliptic curve $E(K)_\tors \in \Phi_\Q(3)$ with $E(K)_\tors \supseteq \Z/2\Z \oplus \Z/12\Z$, contradicting the classification of $\Phi_\Q(3)$. So it must be that $E(\Q)_\tors = \{ \cO \}$. Choose a model $y^2= x^3 + Ax + B$ for $E$. As $E(K)_\tors$ contains full 2-torsion, it must be that there is a cubic $\Q \subseteq F \subseteq K$ that is a splitting field for $x^3 + Ax + B$. In particular, we know that $F/\Q$ is Galois. Now let $P \in E(K)_\tors$ be a point of order 4. By Proposition~\ref{thm:fielddefdiv}, we know that $[\Q(P) \colon \Q(2P)]$ divides $4$ or $2$. As $\Q(P) \subseteq K$, it must be that $[\Q(P) \colon \Q(2P)]= 1$. But then the point $P$ is defined over $F$. Again by Theorem~\ref{thm:fielddefodd}, the point of order 3 is defined over at most a cubic extension of $\Q$. But again this implies there is $E(K)_\tors \in \Phi_\Q(3)$ with $E(K)_\tors \supseteq \Z/2\Z \oplus \Z/12\Z$, contradicting the classification of $\Phi_\Q(3)$.
+\end{proof}
+
+
+We could have also used a more general result of Gu{\u{z}}vi\'c that no elliptic curve with rational $j$-invariant defined over an odd degree number field can contain a subgroup isomorphic to $\Z/2\Z \oplus \Z/12\Z$, see \cite[Lem.~3.10]{guzvic19}. Eliminating the torsion subgroups precluded by Lemma~\ref{lem:no2-12odd}, we are left with these remaining torsion subgroups. 
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 14, 18, 19, 21, 25, 27, 43, 67, 163 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 5, 7, 9, 10, 13, 25
+	\end{cases}
+	\]
+
+
+\begin{lem} \label{lem:no2-10oddgal}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field. Then $E(K)_\tors \not\supseteq \Z/2\Z \oplus \Z/10\Z$.
+\end{lem}
+
+\begin{proof}
+If $E(\Q)_\tors \neq \{ \cO \}$, then by Lemma~\ref{lem:najman2sylow}, we know that $E(\Q)_\tors \cong \Z/2\Z \oplus \Z/2\Z$. But by Theorem~\ref{thm:fielddefodd}, the only odd degrees a point of order 5 can be defined over are 1 or 5. In either case, this would imply the existence of an elliptic curve $E(K)_\tors \in \Phi_\Q(5)$ with $E(K)_\tors \supseteq \Z/2\Z \oplus \Z/10\Z$, contradicting the classification of $\Phi_\Q(5)$. Then we must have $E(\Q)_\tors = \{ \cO \}$. By Lemma~\ref{lem:galoisisogeny}, we know that $E$ has a 5-isogeny. In particular, by \cite[Table~3]{lozanorobledo13}, we know that $E$ is a twist of an elliptic curve with $j$-invariant given by $j= \dfrac{(h^2 + 10h + 5)^3}{h}$ for some $h \in \Q$. Choose a model $y^2= x^3 + Ax + B$ for $E$. As $E$ has full 2-torsion, we know that there is a subfield, say $F$, with $\Q \subseteq F \subseteq K$ that is a splitting field for $x^3 + Ax + B$. But then $F/\Q$ is Galois. In particular, we know that $\disc(x^3 + Ax + B)$ is a square. This implies that there is a $q \in \Q$ with
+	\[
+	q^2= \dfrac{136048896 h (h^2 + 10h + 5)^6}{(h^2 + 4h - 1)^6 (h^2 + 22h + 125)^3}.
+	\]
+Absorbing squares into the left side, we see that this implies there is a rational solution $(n,m)$ to the equation $n^2= m^3 + 22h^2 + 125h$. This is the elliptic curve with Cremona label \tntyat{} and is isomorphic to $\Z/2\Z$. We see that the only solution corresponds to a cusp for $j$. 
+\end{proof}
+
+
+We have already eliminated the case that $E(K)_\tors \supseteq \Z/2\Z \oplus \Z/18\Z$ in Lemma~\ref{lem:no6-18}. Eliminating the torsion subgroups precluded by this observation and Lemma~\ref{lem:no2-10oddgal}, we are left with these remaining torsion subgroups. 
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 14, 18, 19, 21, 25, 27, 43, 67, 163 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 7, 13
+	\end{cases}
+	\]
+
+
+\begin{lem} \label{lem:no2-26odd}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be an odd degree Galois field. Then $E(K)_\tors \not\supseteq \Z/2\Z \oplus \Z/26\Z$.
+\end{lem}
+
+\begin{proof}
+If $E(K)_\tors \not\supseteq \Z/2\Z \oplus \Z/26\Z$, then by Lemma~\ref{lem:galoisisogeny}, we know that $E$ has a 13-isogeny. In particular, by \cite[Table~3]{lozanorobledo13}, we know that $E$ is a twist of an elliptic curve with $j$-invariant given by $j= \dfrac{(h^2 + 5h + 13)(h^4 + 7h^3 + 20h^2 + 19h + 1)^3}{h}$ for some $h \in \Q$. By Theorem~\ref{thm:kenku}, we know that $E$ cannot have any 2-isogenies. But then $E(\Q)_\tors \cong \{ \cO \}$. Choose a model $y^2= x^3 + Ax + B$ for $E$. Then there is a cubic field $\Q \subseteq F \subseteq K$ that is a splitting field for $x^3 + Ax + B$. But then $F/\Q$ is Galois so that $\disc E$ is a square. Again by absorbing squares, this implies there is a solution to the equation $M^2= h(h^2 + 6h + 13)$. This is an elliptic curve with Cremona label \ftat{}. We see that this elliptic curve is isomorphic to $\Z/2\Z$ and all the rational solutions correspond to cusps. 
+\end{proof}
+
+
+Then by Lemma~\ref{lem:no2-26odd}, we are left with these remaining torsion subgroups. 
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 14, 18, 19, 21, 25, 27, 43, 67, 163 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 7, 13
+	\end{cases}
+	\]
+
+
+
+
+
+% Base Extension
+\section{Base Extension}
+
+We will now prove that if $E(K)_\tors \in \Phi_\Q^{\Gal}(d')$, then $E(K)_\tors \in \Phi_\Q^{\Gal}(d)$ with $d' \mid d$. Suppose that $d= nd'$ and $|E(K)_\tors|= N$. We will show that we can construct a Galois number field of degree $n$, say $L$, such that $L \cap K= \Q$. Then the compositum $LK$ will be a Galois number field of degree $nd'= d$. We begin with a theorem of Minkowski, see \cite[Thm.~2.17]{neukirch}. 
+
+
+\begin{thm}[Minkowski] \label{thm:minkowski}
+For any number field $K \neq \Q$, $\disc K \neq \pm 1$. In particular, there is a prime that ramifies in $K$, so that there are no unramified extensions of $\Q$. 
+\end{thm}
+
+
+\begin{cor} \label{cor:minkowski}
+If $K,L$ are number fields with $\gcd(\disc K, \disc L)= 1$, then $K \cap L= \Q$. 
+\end{cor}
+
+\begin{proof}
+Let $p$ be a prime and suppose that $p$ ramifies in $K \cap L$. Then $p$ ramifies in both $K$ and $L$. If $\fp$ is a prime of $K \cap L$ lying over $p$, then the degree of $\fp$ over $p$ must be greater than 1. Then if $\fB$ is a prime of $K$ lying over $\fp$, then
+	\[
+	e(\fB \,|\, \fp)= e(\fB \,|\, \fp)\, e(\fp \,|\, p) > 1 
+	\]
+Now $\fB$ ramifies in $K$ so that $p$ divides $\disc K$. Mutatis mutandis, $p$ divides $\disc L$. This contradicts the fact that $\gcd(\disc K, \disc L)= 1$. Therefore by Theorem~\ref{thm:minkowski}, it must be that $K \cap L= \Q$. 
+\end{proof} 
+
+
+We now state the well-known and amazing result of Dirichlet on primes in arithmetic progression. 
+
+
+\begin{thm}[{Dirichlet,\cite{dirichlet}}] \label{thm:dirichlet}
+For every natural number $n$, there are infinitely many primes with $p \equiv a \mod n$, where $\gcd(a,n)= 1$. In particular, there are infinitely many primes $p$ with $p \equiv 1 \mod n$. 
+\end{thm}
+
+
+As groundbreaking as it was, now it has sadly been reduced to an exercise, c.f. \cite[Ch.~13.6, Ex.~8]{dummitfoote} which only uses cyclotomic polynomials or \cite[Ch.~1,\S10, Ex.~1]{neukirch} for the case of $a= 1$. 
+
+
+
+\begin{lem} \label{lem:infgaloisfields}
+Let $d>1$ be a positive integer. Then there are infinitely many non-isomorphic Galois fields of degree $d$. 
+\end{lem}
+
+\begin{proof}
+Suppose that $d= p_1^{a_1}p_2^{a_2} \cdots p_r^{a_r}$ is the prime factorization for $d$. For each $i$, we use Theorem~\ref{thm:dirichlet} to choose distinct primes $q_i$ so that $q_i \equiv 1 \mod p_i^{a_i}$. The field $K_i= \Q(\zeta_{q_i})$ is Galois with $\Gal(K/\Q) \cong (\Z/q_i\Z)^\times$. Observe that $\Gal(K/\Q)$ is abelian and $p_i^{a_i}$ divides $q_i - 1$ so that there is a subgroup of $\Gal(K/\Q)$ with index $p_i^{a_i}$. By the Fundamental Theorem of Galois Theory, there is an abelian Galois subfield of $K_i$, say $F_i$, of degree $p_i^{a_i}$. 
+
+We know that $\disc K_i= (-1)^{\frac{q_i-1}{2}} q_i^{q_i - 2}$ and $\disc F_i$ necessarily divides $\disc K_i$. Therefore, the only prime factor of $\disc F_i$ is $q_i$. But then $\gcd(F_i,F_j)= 1$ for $i \neq j$. By Corollary~\ref{cor:minkowski}, $F_i \cap F_j= \Q$ for $i \neq j$. Let $K= F_1F_2\cdots F_r$. Because $K$ is a compositum of Galois fields, $K(q_1,\ldots,q_r)$ is necessarily Galois with 
+	\[
+	\Gal(K/\Q) \cong \Gal(F_1/\Q) \times \cdots \Gal(F_r/\Q)= \Z/p_1^{a_1} \times \cdots \times \Z/p_r^{a_r}\Z.
+	\]
+Furthermore as $F_i \cap F_j= \Q$ for $i \neq j$, $K$ has degree $|F_1| |F_2| \cdots |F_r|= p_1^{a_1} p_2^{a_2} \cdots p_r^{a_r}= d$. There are infinitely many choices for $q_1,\ldots,q_r$, each corresponding to a unique field $K$. Therefore, there are infinitely many non-isomorphic Galois fields of degree $d$. 
+\end{proof}
+
+
+We now prove the claim we stated at the beginning of this section.
+
+
+\begin{prop} \label{prop:galoisbaseextend}
+Let $d', d$ be positive integers with $d' \mid d$. If $E(K)_\tors \in \Phi_\Q^{\Gal}(d')$, then $E(K)_\tors \in \Phi_\Q^{\Gal}(d)$.
+\end{prop}
+
+\begin{proof}
+By Theorem~\ref{thm:boundedness}, a fortiori, we know that for all $d$, the sets $\Phi_\Q(d) \supseteq \Phi_\Q^{\Gal}(d)$ are uniformly bounded. Let $N$ be the least common multiple of all possible orders for $E(K)_\tors \in \Phi_\Q^{\Gal}(d')$. We know that $\Q(E[N])$ is a finite Galois extension of $\Q$. In particular, it has finitely many subfields. Suppose that $d= nd'$. By Lemma~\ref{lem:infgaloisfields}, we know that we can choose a Galois number field, say $L$, of degree $n$ with $L \cap \Q(E[N])= \Q$. The compositum $L\Q(E[N])$ is a Galois number field of degree $nd'= n$. Moreover because $L \cap \Q(E[N])= \Q$, $E(K)_\tors$ does not gain any torsion when base extending to the compositum. But then $E(K)_\tors \in \Phi_\Q^{\Gal}(d)$.
+\end{proof}
+
+
+Note that we did not need to invoke Theorem~\ref{thm:boundedness} if we restricted ourselves to odd degree Galois number fields because our previous work (even using the non-sharp bounds given in Lemma~\ref{lem:oddpossible}) has already shown that the possibilities for $\Phi_\Q^{\Gal}(d)$ are uniformly bounded for all odd $d \geq 1$. Furthermore, if $E(K)_\tors \in \Phi_\Q(d')$ (not necessarily in $\Phi_\Q^{\Gal}(d)$), we can use the same construction in Proposition~\ref{prop:galoisbaseextend} to show that $E(K)_\tors \in \Phi_\Q(d)$ (the field we construct has degree $nd'=d$, c.f. \cite[Ch.~14.4, Cor.~20]{dummitfoote}, but is not necessarily Galois). This recovers the following well-known result. 
+
+
+\begin{cor} \label{cor:obvious}
+Let $d', d$ be positive integers with $d' \mid d$. If $E(K)_\tors \in \Phi_\Q(d')$, then $E(K)_\tors \in \Phi_\Q(d)$.
+\end{cor}
+
+
+
+
+
+% Fields of Definition
+\section{Fields of Definition}
+
+We will now give some results on what degree fields over which these various torsion subgroups can occur. Because $\Phi(1) \subseteq \Phi_\Q^{\Gal}(d) \subseteq \Phi_\Q(d)$ for all $d$, we need only focus our attention on torsion subgroups not already in $\Phi(1)$. We break the cases by their method of proof. 
+
+
+\begin{lem} \label{lem:oddgalfinp}
+Suppose that $p \in \{ 11, 13, 19, 43, 67, 163 \}$. Then $\Z/p\Z \in \Phi_\Q(d)$ if and only if $d_n \mid d$, where $d_n$ is given in the table below. Furthermore, we can find an elliptic curve $E/\Q$ and Galois field $K$ such that $E(K)_\tors \cong \Z/p\Z$ for each such $d_n$. Hence, $\Z/p\Z \in \Phi_\Q^{\Gal}(d)$ if and only if $d_n \mid d$.
+	\begin{table}[!ht]
+	\centering
+	%\caption{The table of $d_n$ such that $\Z/n\Z \in \Phi_\Q(d)$.\label{tab:dntable}}
+	\begin{tabular}{|c||cccccc|} \hline
+	$n$ & 11 & 13 & 19 & 43 & 67 & 163 \\ \hline
+	$d_n$ & 5 & 3 & 9 & 21 & 33 & 81 \\ \hline
+	\end{tabular}
+	\end{table}
+\end{lem}
+
+\begin{proof}
+We know that $\Z/p\Z \in \Phi_\Q(d)$ if and only if there is a number field of degree $d$ such that the $p$-torsion for $E/\Q$ is defined. Theorem~\ref{thm:fielddefodd} gives the possible degrees for the field of definition for each $p \in \{ 11, 13, 19, 43, 67, 163 \}$. For each $p$, we see that the possible degrees are all divisible by the $d_n$ given in the table. Using base extension, it suffices to prove that each torsion subgroup occurs over a (Galois) number field of degree $d_n$.\footnote{For the `larger' $p$, these are defined over number fields not currently contained in the LMFDB and are formed by adjoining a root of a tediously long polynomial, which we shall not give. Instead, we write ``N/A.'' To find the field, simply compute and factor the division polynomial. Search through the factors for the irreducible factor with the given degree $d_n$---there will only be one such factor in each case. One can verify that $E$ has the specified torsion over that field, as well as check that the field is indeed Galois.} From Table~\ref{tab:finpexamples}, we see that each such possibility occurs for a rational elliptic curve defined over a number field of degree $d_n$. In fact, each field in Table~\ref{tab:finpexamples} is Galois. By Proposition~\ref{prop:galoisbaseextend} and Corollary~\ref{cor:obvious}, we see that $E(K)_\tors \in \Phi_\Q^{\Gal}(d) \subseteq \Phi_\Q(d)$. 
+\end{proof}
+
+
+	\begin{table}[!ht]
+	\centering
+	\caption{Examples such that $\Z/p\Z \in \Phi_\Q^{\Gal}(d_n) \subseteq \Phi_\Q(d_n)$ for $p \in \{ 11, 13, 19, 43, 67, 163 \}$.\label{tab:finpexamples}}
+	\begin{tabular}{ccc} \hline
+	$E(K)_\tors$ & Cremona Label & Field \\ \hline
+	$\Z/11\Z$ & \otoco{} & \qzetaeep{} \\
+	$\Z/13\Z$ & \ofsbo{} & \qzetasp{} \\
+	$\Z/19\Z$ & \tsoao{} & \qzetantp{} \\
+	$\Z/43\Z$ & \oefnao{} & --- \\
+	$\Z/67\Z$ & \ffenao{} & --- \\
+	$\Z/163\Z$ & \tsfsnao{} & ---
+	\end{tabular}
+	\end{table}
+
+
+\begin{lem} \label{lem:oddgalfinp}
+Suppose that $d > 1$ is an odd integer, and $n \in \{ 14, 18, 21, 25, 27 \}$. Then $\Z/n\Z \in \Phi_\Q(d)$ if and only if $d_n \mid d$, where $d_n$ is given in the table below. Furthermore, we can find an elliptic curve $E/\Q$ and Galois field $K$ such that $E(K)_\tors \cong \Z/n\Z$ for each such $d_n$. Hence, $\Z/n\Z \in \Phi_\Q^{\Gal}(d)$ if and only if $d_n \mid d$.
+	\begin{table}[!ht]
+	\centering
+	%\caption{The table of $d_n$ such that $\Z/n\Z \in \Phi_\Q(d)$.\label{tab:dntable}}
+	\begin{tabular}{|c||cccccc|} \hline
+	$n$ & 14 & 18 & 21 & 25 & 27 \\ \hline
+	$d_n$ & 3 & 3 & 3 & 5 & 9 \\ \hline
+	\end{tabular}
+	\end{table}
+\end{lem}
+
+\begin{proof}
+Suppose that $E(K)_\tors \cong \Z/14\Z$. By Lemma~\ref{lem:2sylowoddqgal}, we know that the point of order 2 must be defined over $\Q$. From Theorem~\ref{thm:fielddefodd}, the point of order 7 is defined either defined over $\Q$, a septic field, or a field of degree divisible by 3. If the 7-torsion is defined over $\Q$ or a septic field, in either case, this implies that $\Z/14\Z \in \Phi_\Q(7)$, contradicting Theorem~\ref{thm:fielddefodd}. Then the field of definition of the 7-torsion has degree divisible by 3. Table~\ref{tab:fincompexamples} shows that we do have $E(F)_\tors \cong \Z/14\Z$ for some rational elliptic curve $E$ and cubic (Galois) field $F$. Then by Proposition~\ref{prop:galoisbaseextend} and Corollary~\ref{cor:obvious}, we see that there is a field $F^\prime$ such that $E(F^\prime)_\tors \cong \Z/14\Z \in \Phi_\Q^{\Gal}(d) \subseteq \Phi_\Q(d)$.   
+
+Suppose that $E(K)_\tors \cong \Z/18\Z$. By Lemma~\ref{lem:2sylowoddqgal}, we know that the point of order 2 must be defined over $\Q$. Because $K/\Q$ is odd, by Theorem~\ref{thm:fielddefodd}, the point of order 3 is defined over $\Q$ or a cubic field. In the latter case, we are done because this implies that $[K \colon \Q]$ is divisible by 3. Assume then that the point of order 3 is defined over $\Q$. Let $P$ be the point of order 9. By Theorem~\ref{thm:fielddefodd}, we know that $[\Q(P) \colon \Q]$ is in the set $\{1, 2, 3, 6, 9 \}$. But because $K/\Q$ has odd degree there are no points of order 18 on elliptic curves $E(\Q)$ by Mazur's Theorem, $[\Q(P) \colon \Q]$ must then be divisible by 3. As $\Q \subseteq \Q(P) \subseteq K$, we know that $K/\Q$ has degree divisible by 3. Table~\ref{tab:fincompexamples} shows that we do have $E(F)_\tors \cong \Z/18\Z$ for some rational elliptic curve $E$ and cubic (Galois) field $F$. Then by Proposition~\ref{prop:galoisbaseextend} and Corollary~\ref{cor:obvious}, we see that there is a field $F^\prime$ such that $E(F^\prime)_\tors \cong \Z/18\Z \in \Phi_\Q^{\Gal}(d) \subseteq \Phi_\Q(d)$.   
+
+Suppose that $E(K)_\tors \cong \Z/21\Z$. Because $K/\Q$ is odd, by Theorem~\ref{thm:fielddefodd}, we know that the point of order of order 3 is defined over $\Q$ or a cubic field, and the point of order 7 is defined over $\Q$, a septic field, or a field of degree divisible by 3. Then the only way $[K \colon \Q]$ is not divisible by 3 is if the 3-torsion is defined over $\Q$ and the 7-torsion is defined over a septic field. But this would imply that $\Z/21\Z \in \Phi_\Q(7)$, contradicting Theorem~\ref{thm:fielddefodd}. Therefore, $3 \mid [K \colon \Q]$. Table~\ref{tab:fincompexamples} shows that we do have $E(F)_\tors \cong \Z/21\Z$ for some rational elliptic curve $E$ and cubic (Galois) field $F$. Then by Proposition~\ref{prop:galoisbaseextend} and Corollary~\ref{cor:obvious}, we see that there is a field $F^\prime$ such that $E(F^\prime)_\tors \cong \Z/21\Z \in \Phi_\Q^{\Gal}(d) \subseteq \Phi_\Q(d)$.   
+
+Suppose that $E(K)_\tors \cong \Z/25\Z$. Let $P$ be a point of order $5^n$ for $n \geq 1$ on a rational elliptic curve $E^\prime/\Q$. Theorem~\ref{thm:fielddefodd}, we know that $[\Q(P) \colon \Q(5P)]$ is in the set $\{ 1, 2, 4, 5, 10, 20, 25 \}$ for all $n \geq 1$. For the case where $n= 0$, because $K/\Q$ is odd, Theorem~\ref{thm:fielddefodd} says that the point of order 5 is defined over $\Q$ or a quintic field. Because $K/\Q$ has odd degree, the only way for $[K \colon \Q]$ to not be divisible by 5 is for $[\Q(P) \colon \Q(5P)]= 1$ for all $n$. But this implies there is a point $P$ of order 25 defined over $\Q$ on $E$, contradicting Mazur's classification of $\Phi(1)$. Therefore, $[K \colon \Q]$ is divisible by 5. Table~\ref{tab:fincompexamples} shows that we do have $E(F)_\tors \cong \Z/25\Z$ for some rational elliptic curve $E$ and quintic (Galois) field $F$. Then by Proposition~\ref{prop:galoisbaseextend} and Corollary~\ref{cor:obvious}, we see that there is a field $F^\prime$ such that $E(F^\prime)_\tors \cong \Z/25\Z \in \Phi_\Q^{\Gal}(d) \subseteq \Phi_\Q(d)$.  
+
+Finally, suppose that $E(K)_\tors \cong \Z/27\Z$. By Theorem~\ref{thm:fielddefodd} and the fact that $K/\Q$ has odd degree, we know that the point of order 3 is defined over $\Q$ or a cubic field. By Theorem~\ref{thm:fielddefodd}, we know also that for a point of order $3^{n+1}$, say $P$, where $n$ is a positive integer, that $[\Q(P) \colon \Q(3P)] \in \{ 1, 2, 3, 6, 9 \}$. If $\Q(P)$ is contained in an odd degree field, clearly then $[\Q(P) \colon \Q(3P)] \in \{ 1, 3, 9 \}$. Let $P \in E(K)_\tors$ be the point of order 27. We know then that $[\Q(P) \colon \Q]= 3^m$ for some $m \geq 0$. But if $m \in \{ 0, 1 \}$, then $\Z/27\Z \in \Phi_\Q(3)$, contradicting Theorem~\ref{NAJMANCUBIC}. Then $m \geq 2$ so that $[\Q(P) \colon \Q]$, and hence $[K \colon \Q]$, is divisible by 9. Table~\ref{tab:fincompexamples} shows that we do have $E(F)_\tors \cong \Z/27\Z$ for some rational elliptic curve $E$ and nonic (Galois) field $F$. Then by Proposition~\ref{prop:galoisbaseextend} and Corollary~\ref{cor:obvious}, we see that there is a field $F^\prime$ such that $E(F^\prime)_\tors \cong \Z/27\Z \in \Phi_\Q^{\Gal}(d) \subseteq \Phi_\Q(d)$.  
+\end{proof}
+
+
+	\begin{table}[!ht]
+	\centering
+	\caption{Examples such that $\Z/n\Z \in \Phi_\Q^{\Gal}(d_n) \subseteq \Phi_\Q(d_n)$ for $n \in \{ 14, 18, 21, 25, 27 \}$.\label{tab:fincompexamples}}
+	\begin{tabular}{ccc} \hline
+	$E(K)_\tors$ & Cremona Label & Field \\ \hline
+	$\Z/14\Z$ & \fnaf{} & \qzetasp{} \\ 
+	$\Z/18\Z$ & \ffasix{} & \qzetasp{} \\
+	$\Z/21\Z$ & \ostbo{} & \qzetanp{} \\ 
+	$\Z/25\Z$ & \eeat{} & \qzetaeep{} \\
+	$\Z/27\Z$ & \tsaf{} & \qzetatsp{} 
+	\end{tabular}
+	\end{table}
+
+
+For the case of $\Z/27\Z$ in Lemma~\ref{lem:oddgalfinp}, if we restricted ourselves to the case of Galois fields, observe we could have instead used the fact that $E$ would have a rational 21-isogeny (which occurs for finitely many $j$-invariants), and then used the method of division polynomials. 
+
+
+\begin{lem} \label{lem:oddgal214}
+If $d$ is odd, $\Z/2\Z \oplus \Z/14\Z \in \Phi_\Q(d)$ if and only if $3 \mid d$. Furthermore, we can find an elliptic curve $E/\Q$ and Galois field $K$ such that $E(K)_\tors \cong \Z/2\Z \oplus \Z/14\Z$ for each such $d$. Hence, $\Z/2\Z \oplus \Z/14\Z \in \Phi_\Q^{\Gal}(d)$ if and only if $3 \mid d$.
+\end{lem}
+
+\begin{proof}
+By Theorem~\ref{thm:fielddefodd}, the only odd field degrees over which a point of order 2 is defined is 1 or 3, and the only odd field degrees over which a point of order 7 is defined is 1, 7, or an odd integer divisible by 3. The only way that $3 \nmid d$ is if the points of exact order 2 are defined over $\Q$, and the point of order 7 is defined over either $\Q$ or a field of degree 7. In either case, this implies that $\Z/2\Z \oplus \Z/14\Z \in \Phi(7)$, contradicting Theorem~\ref{thm:fielddefodd}. Therefore, $3 \mid d$. The elliptic curve with Cremona label \onttet{} has torsion subgroup $\Z/2\Z \oplus \Z/14\Z$ over the field \ttnsoo{}. By Proposition~\ref{prop:galoisbaseextend} and Corollary~\ref{cor:obvious}, we see that $E(K)_\tors \in \Phi_\Q^{\Gal}(d) \subseteq \Phi_\Q(d)$. 
+\end{proof}
+
+
+	\begin{table}[!ht]
+	\centering
+	\caption{An elliptic curve $E/\Q$ with $E(K)_\tors \cong \Z/2\Z \oplus \Z/14\Z$ for some odd degree Galois field $K$.\label{tab:2-14ex}}
+	\begin{tabular}{ccc} \hline
+	$E(K)_\tors$ & Cremona Label & Field \\ \hline
+	$\Z/2\Z \oplus \Z/14\Z$ & \onttet{} & \ttnsoo{}
+	\end{tabular}
+	\end{table}
+
+
+
+% Odd Order Galois Fields with Small Degree
+\section{Odd Order Galois Fields with Small Degree}
+
+
+% Cubic Galois Fields
+\subsection{Cubic Galois Fields}
+
+Recall that Najman classified the torsion subgroups for rational elliptic curves over cubic fields in \cite{najman16}.
+
+
+\begin{thm}[{\cite{najman16}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a cubic extension. Then $E(K)_\tors$ is one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1,2 ,\ldots, 10, 12, 13, 14, 18, 21 \\
+	\Z/2\Z \times \Z/2n\Z, & n= 1, 2, 3, 4, 7
+	\end{cases}
+	\]
+The elliptic curve with Cremona label \texttt{162b1} over $\Q(\zeta_9)^+$ is the unique rational elliptic curve over a cubic field with torsion subgroup $\Z/21\Z$. For all other torsion subgroups listed, there exist infinitely many non-isomorphic rational elliptic curves with the specified torsion subgroup over some cubic field. 
+\end{thm}
+
+
+By Proposition~\ref{prop:galoisbaseextend} for every torsion subgroup in $G \in \Phi(1)$, we can find a cubic Galois field so that $G \in \Phi_\Q^{\Gal}(3)$. It remains to show that every torsion subgroup in $\Phi_\Q(3) \setminus \Phi(1)$ occurs for some rational elliptic curve over some cubic Galois field. Table~\ref{tab:cubicgaloisoddex} completes the demonstration that every torsion subgroup in $\Phi_\Q(3)$ occurs for some elliptic curve over some cubic Galois field. That is, we have $\Phi_\Q^{\Gal}(3)= \Phi_\Q(3)$. 
+
+
+	\begin{table}[!ht]
+	\centering
+	\caption{Torsion subgroups in $\Phi_\Q(3) \setminus \Phi(1)$ occurring over Galois cubic fields.\label{tab:cubicgaloisoddex}}
+	\begin{tabular}{ccc} \hline
+	Torsion Subgroup & Elliptic Curve & Galois Cubic Field \\ \hline
+	$\Z/13\Z$ & \ofsbo{} & \qzetasp{} \\
+	$\Z/14\Z$ & \fnat{} & \qzetasp{} \\
+	$\Z/18\Z$ & \ofaf{} & \qzetasp{} \\
+	$\Z/21\Z$ & \ostbo{} & \qzetanp{} \\
+	$\Z/2\Z \times \Z/14\Z$ & \onttco{} & \ttnsoo{}
+	\end{tabular}
+	\end{table}
+
+
+
+
+
+% The Case of Quintic Galois Fields
+\subsection{The Case of Quintic Galois Fields}
+
+Recall that \gonjim{} classified the torsion subgroups of rational elliptic curves over quintic number fields in \cite{gonzalezjimenez17}.
+
+
+\begin{thm}[{\cite{gonzalezjimenez17}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a quintic extension. Then $E(K)_\tors$ is one of the following groups:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1,2 ,\ldots, 12, 25 \\
+	\Z/2\Z \times \Z/2n\Z, & n= 1, 2, 3, 4
+	\end{cases}
+	\]
+The elliptic curves with Cremona labels \texttt{121a2}, \texttt{121b1}, and \texttt{121c2} are the only elliptic curves with torsion subgroup $\Z/11\Z$ over some quintic number field. For all other torsion subgroups listed above, there exist infinitely many non-isomorphic rational elliptic curve with the specified torsion subgroup over some quintic field. 
+\end{thm}	
+
+
+By Proposition~\ref{prop:galoisbaseextend} for every torsion subgroup in $G \in \Phi(1)$, we can find a quintic Galois field so that $G \in \Phi_\Q^{\Gal}(5)$. It remains to show that every torsion subgroup in $\Phi_\Q(5) \setminus \Phi(1)$ occurs for some rational elliptic curve over some quintic Galois field. Table~\ref{tab:quinticgaloisoddex} completes the demonstration that every torsion subgroup in $\Phi_\Q(5)$ occurs for some elliptic curve over some quintic Galois field. That is, we have $\Phi_\Q^{\Gal}(5)= \Phi_\Q(5)$.
+
+
+	\begin{table}[!ht]
+	\centering
+	\caption{Torsion subgroups in $\Phi_\Q(5) \setminus \Phi(1)$ occurring over Galois quintic fields.\label{tab:quinticgaloisoddex}}
+	\begin{tabular}{ccc} \hline
+	Torsion Subgroup & Elliptic Curve & Galois Quintic Field \\ \hline
+	$\Z/11\Z$ & \otoct{} & \qzetaeep{} \\
+	$\Z/25\Z$ & \eeat{} & \qzetaeep{}
+	\end{tabular}
+	\end{table}
+
+
+
+% The Case of Septic Galois Fields
+\subsection{The Case of Septic Galois Fields}
+
+In \cite{gonzalezjimeneznajman20base}, \gonjim{} and Najman prove that 
+
+
+\begin{thm}[{\cite[Prop~7.1]{gonzalezjimeneznajman20base}}]
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a septic field. The set of possible torsion subgroups $E(K)_\tors$ are precisely those found in Mazur's list $\Phi(1)$, i.e.
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12 \\
+	\Z/2\Z \times \Z/2n\Z, & n= 1, 2, 3, 4
+	\end{cases}
+	\]
+\end{thm}
+
+
+In fact in the proof of \ref{ThmAbove}, \gonjim{} and Najman show that even stronger that $E(K)[p^\infty]= E(\Q)[p^\infty]$ for $p \neq 7$. In particular, ``nearly all'' torsion for rational elliptic curves over septic fields is the result of base change. 
+
+
+\begin{prop}[{\cite[Prop7.7]{gonzalezjimeneznajman20base}}]
+Let $E/\Q$ be an elliptic curve, and $K$ a number field of degree 7.
+	\begin{enumerate}[(i)]
+	\item If $E(\Q)_\tors \not\simeq \{\cO\}$, then $E(\Q)_\tors= E(K)_\tors$.
+	\item If $E(\Q)_\tors \simeq \{\cO\}$, then $E(K)_\tors \simeq \{\cO\}$ or $\Z/7\Z$. Furthermore, if $E(\Q)_\tors \simeq \{\cO\}$ and $E(K)_\tors \simeq \Z/7\Z$, then $K$ is the unique degree 7 number field with this property and $E$ is isomorphic to the elliptic curve
+		\[
+		\begin{aligned}
+		E_t \colon y^2= x^3 &+ 27(t^2 - t + 1)(t^6 + 229t^5 + 270t^4 - 1695t^3 + 1430t^2 - 235t + 1)x \\
+		&+ 54(t^{12} - 522t^{11} - 8955t^{10} + 37950t^9 - 70998t^8 _ 131562t^7 \\
+		&\phantom{+54..} - 253239t^6 + 316290t^5 - 218058t^4 + 80090t^3 - 14631t^2 + 510t + 1) 
+		\end{aligned}
+		\]
+	for some $t \in \Q$.
+	\end{enumerate}
+\end{prop}
+
+
+
+% The Case of Nonic Galois Fields
+\subsection{The Case of Nonic Galois Fields}
+
+For ease of reference, we restate our main result from Chapter~\ref{NONIC}.
+
+\begin{thm} \label{thm:nonicclassification}
+Let $E/\Q$ be a rational elliptic curve, and let $K/\Q$ be a nonic Galois field. Then $E(K)_\tors$ is isomorphic to precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 10, 12, 13, 14, 18, 19, 21, 27 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 7
+	\end{cases}
+	\]
+\end{thm}
+
+
+
+
+
+% The Case of Prime Degree Galois Fields, p > 5
+\section{The Case of Prime Degree Galois Fields, $p>5$}
+
+Furthermore, \gonjim{} and Najman show that this is the case for torsion subgroups for rational elliptic curves over number fields with degree free of ``small'' divisors.
+
+
+\begin{thm}[\text{gonzalezjimeneznajman20base}]
+Let $d$ be a positive integer. Let $E/\Q$ be an elliptic curve, and let $K/\Q$ be a number field of degree $N$, where the smallest prime divisor of $N$ is $\geq d$. Then 
+	\begin{enumerate}[(i)]
+	\item If $d \geq 11$, then $E(K)[p^\infty]= E(\Q)[p^\infty]$ for all primes $p$. In particular, $E(K)_\tors= E(\Q)_\tors$. 
+	\item If $d \geq 7$, then $E(K)[p^\infty]= E(\Q)[p^\infty]$ for all primes $p \neq 7$.
+	\item If $d \geq 5$, then $E(K)[p^\infty]= E(\Q)[p^\infty]$ for all primes $p \neq 5, 7, 11$.
+	\item If $d > 2$, then $E(K)[p^\infty]= E(\Q)[p^\infty]$ for all primes $p \neq 2, 3, 5, 7, 11, 13, 19, 43, 67, 163$. 
+	\end{enumerate}
+\end{thm}
+
+
+In particular, this proves the following
+
+
+\begin{cor}[{\cite[Cor~7.3]{gonzalezjimeneznajman20base}}]
+Let $d$ be a positive integer such that the smallest prime factor of $d$ is $\geq 11$. Then $\Phi_\Q(d)= \Phi(1)$. 
+\end{cor}
+
+
+Therefore over number fields without ``small'' prime divisors, $K$, the only torsion for rational elliptic curves $E(K)_\tors$ are the result of base change from an elliptic curve $E(\Q)$. This is a remarkable result in terms of the sheer number of fields for which this result is applicable. Suppose that $K$ is a number field of degree $d$ with the smallest prime divisor of $d$ being $\geq 11$. Noting that $2 \cdot 3 \cdot 5 \cdot 7= 210$, we can write $d= 210k + r$, where $k \in \Z_{\geq 0}$ and $(r,210)= 1$. In particular, we now know the possible torsion subgroups for Galois number fields of degree $d$ with smallest prime divisor $\geq 7$ because the torsion subgroups in $\Phi(1)$ occur over every Galois number field (infinitely often). Then ordering number fields by their degree, this applies to $\frac{\phi(210)}{210}= \frac{8}{35} \approx 22.9\%$ of number fields. Finally, as remarked by \gonjim{} and Najman, \ref{COR} is perhaps the best possible result in this direction in the following sense: for primes $p \in \{ 2, 3, 5, 7 \}$, the set
+	\[
+	\bigcup_{n=1}^\infty \Phi_\Q(p^n)
+	\]
+will contain $\Z/p^k\Z$ for each positive integer $k$. 
+
+
+
+
+
+% The Classification of Odd Degree Galois Fields
+\section{The Classification of Odd Degree Galois Fields}
+
+We have enough to classify the possible torsion subgroups for rational elliptic curves over odd degree number fields. By abuse of notation, we define the following set:
+	\[
+	\Phi_\Q^{\Gal,\text{odd}}(d^\infty):= \bigcup_{\substack{d \in \N \\ d \text{ odd}}} \Phi_\Q^{\Gal}(d)
+	\]
+Of course, a priori, there is no need for this set to be finite. But all of our previous work not only proves this set is finite, but identifies the set explicitly. 
+
+\begin{thm} \label{thm:listoddgroups}
+The set $\Phi_\Q^{\Gal,\text{odd}}(d^\infty)$ is finite, and if $E(K)_\tors \in \Phi_\Q^{\Gal,\text{odd}}(d^\infty)$, then $E(K)_\tors$ is precisely one of the following:
+	\[
+	\begin{cases}
+	\Z/n\Z, & n= 1, 2, \ldots, 14, 18, 19, 21, 25, 27, 43, 67, 163 \\
+	\Z/2\Z \oplus \Z/2n\Z, & n= 1, 2, 3, 4, 7
+	\end{cases}
+	\]
+Moreover, each such possibility occurs. 
+\end{thm}
+
+\begin{proof}
+If $K$ is an odd degree Galois number field and $E/\Q$ is a rational elliptic curve, we know that $E(K)_\tors$ is one of the torsion subgroups given in Lemma~\ref{lem:oddpossible}. As this is true for any odd degree Galois number field of degree $d$ and any rational elliptic curve $E$, we know that $\Phi_\Q^{\Gal,\text{odd}}(d^\infty)$ is a subset of the list given in Lemma~\ref{lem:oddpossible}. This proves the set $\Phi_\Q^{\Gal,\text{odd}}(d^\infty)$ is finite. 
+
+Eliminating from the list of torsion subgroups given in Lemma~\ref{lem:oddpossible} precluded by Lemma~\ref{lem:oddbicyclicelim}, Lemma~\ref{lem:no2-12odd}, Lemma~\ref{lem:no2-10oddgal}, and Lemma~\ref{lem:no2-26odd}, we are left with the list of torsion subgroups given in the statement of the theorem. By Proposition~\ref{prop:galoisbaseextend}, we know that $\Phi(1) \subseteq \Phi_\Q^{\Gal}(d)$ for all $d$. Table~\ref{tab:finpexamples}, Table~\ref{tab:fincompexamples}, and Table~\ref{tab:2-14ex} show that all remaining cases occur for some rational elliptic curve over some odd degree Galois field. 
+\end{proof}
+
+
+Of course, we are primarily interested in the sets $\Phi_\Q^{\Gal}(d)$ for some fixed odd integer $d$. So our next goal will be to classify these sets for all odd $d$. To state this theorem, we make the following definition:
+
+
+\begin{dfn}
+Let $d$ be a positive odd integer. Write $d$ as $d= 3^{n_3} \cdot 5^{n_5} \cdot 7^{n_7} \cdot 11^{n_{11}}N$, where $n_i$ is a nonnegative integer and $N$ is an integer not divisible by 3, 5, 7, or 11. Using this notation, define $F(d):= (n_3, n_5, n_7, n_{11})$. We say that $d$ has has type $F(d)$. If an odd degree number field $K$ has degree $d$, we say also that $K$ has type $F(d)$. 
+
+If $F(d)= (n_3, n_5, n_7, n_{11})$, by abuse of notation, we shall write $F(d)^+= (a^+,b,c,d)$ if $n_3 \geq a$, $n_5= b$, $n_7= c$, $n_{11}= d$. We define $F(d)= (a,b^+,c,d)$, \dots, $F(d)= (a^+,b^+,c,d)$, $F(d)= (a^+,b,c^+,d)$, \dots, $F(d)= (a^+,b^+,c^+,d^+)$ mutatis mutandis. Otherwise, we say that these are unequal. We take $F(d)^+= (a,b,c,d)$ to mean $F(d)= (a,b,c,d)$. Finally, we also denote by $d_{(a,b,c,d)}$ the set of integers such that $d$ has type $F(d)= (a,b,c,d)$. 
+\end{dfn}
+
+
+\begin{ex}
+A sample of values for $F(d)$ is given in Table~\ref{tab:fd}. Some examples of $d_{(a,b,c,d)}$ can be found below. 
+	\[
+	\begin{aligned}
+	d_{(0,1,0,0)}&= \{ 5N \colon N \in \N, \gcd(3,5,7,11,N)= 1 \} \\
+	d_{(2,0,0,0)}&=  \{ 9N \colon N \in \N, \gcd(3,5,7,11,N)= 1 \} \\
+	d_{(1,0,1,0)}&=  \{ 21N \colon N \in \N, \gcd(3,5,7,11,N)= 1 \}
+	\end{aligned}
+	\]
+	\begin{table}[!ht]
+	\centering
+	\caption{A table of $F(d)$ for select $d$ values.\label{tab:fd}}
+	\begin{tabular}{cc} \hline
+	$d$ & $F(d)$ \\ \hline 
+	1 & $(0,0,0,0)$ \\
+	3 & $(1,0,0,0)$ \\
+	5 & $(0,1,0,0)$ \\
+	21 & $(1,0,1,0)$ \\
+	26 & $(0,0,0,0)$ \\
+	45 & $(2,1,0,0)$ \\
+	55 & $(0,1,0,1)$
+	\end{tabular}
+	\end{table}
+Observe that $F(3)^+= (1,0,0,0)$, $F(3)^+= (1^+,0,0,0)$, and $F(3)^+= (1,0,0,0^+)$ but $F(3)^+ \neq (2,0,0,0)$, $F(3)^+ \neq (1^+,1,0,0)$, and $F(3)^+ \neq (1,0,1^+,0)$. Similarly, $F(55)^+= (0,1,0,1)$, $F(55)^+= (0,1^+,0,1)$, and $F(3)^+= (0^+,1,0,1)$ but $F(55)^+ \neq (1,1,0,1)$, $F(55)^+ \neq (0,2,0,1)$, and $F(3)^+ \neq (1^+,1,0,1)$.
+\end{ex}
+
+
+We can now state our main theorem. 
+
+
+\begin{thm}
+Let $d$ be a positive odd integer. The set of possible isomorphism classes of torsion subgroups $E(K)_\tors$, where $E$ is a rational elliptic curve and $K/\Q$ is an odd degree number field of degree $d$, i.e. $\Phi_\Q^{\Gal}(d)$, is given in Table~\ref{tab:oddtorsiongroups}. 
+ \end{thm}
+ 
+\begin{proof}
+We know that any torsion subgroup in $\Phi_\Q^{\Gal}(d)$ must be one among the list in Theorem~\ref{thm:listoddgroups}. By Corollary~\ref{cor:obvious} for all $d$ (not necessarily odd), we know that $\Phi(1) \subseteq \Phi_\Q^{\Gal}(d)$. 
+
+If $d$ has no prime factors $p$ with $p \leq 11$, then by Theorem~\ref{NAJMAN}, we know that $\Phi_\Q^{\Gal}(d)= \Phi(1)$. Otherwise, by Lemma~\ref{lem:oddgalfinp}, Lemma~\ref{lem:oddgalfinp}, and Lemma~\ref{lem:oddgal214}, the torsion subgroups in $\Phi_\Q^{\Gal,\text{odd}}(d^\infty) \setminus \Phi(1)$ depend only on the factorization of $d$, i.e. how many factors of 3, 5, 7, and 11 $d$ has. Applying these divisibility conditions and the examples from Table~\ref{tab:finpexamples}, Table~\ref{tab:fincompexamples}, and Table~\ref{tab:2-14ex} combined with Proposition~\ref{prop:galoisbaseextend} gives the exact list of possibilities for $\Phi_\Q^{\Gal}(d)$ that appear in Table~\ref{tab:oddtorsiongroups}, and these are the only torsion subgroups which can appear. 
+\end{proof}
+
+
+        \begin{table}[!ht]
+        \centering
+        \caption{The set of possible isomorphism classes of torsion subgroups $\Phi_\Q^{\Gal}(d)$, where $d$ is odd, determined by $F(d)^+$.\label{tab:oddtorsiongroups}}
+        %\resizebox{0.85\textwidth}{!}{%
+        \begin{tabular}{>{\raggedright\arraybackslash}p{2.4cm}|%
+           >{\centering\arraybackslash}p{5cm}||%
+           >{\raggedright\arraybackslash}p{2.6cm}|%
+           >{\centering\arraybackslash}p{5cm}%
+          } \hline
+        $F(d)^+$ & $\Phi_\Q^{\Gal}(d)$ & $F(d)^+$ & $\Phi_\Q^{\Gal}(d)$  \\ \hline
+        & & & \\ %
+        $(0,0,0^+,0^+)$ & $\Phi(1)$ & $(2,0,1^+,1^+)$ & $\Phi_\Q(3) \cup \{ \Z/19\Z, \Z/27\Z,$ $\Z/43\Z, \Z/67\Z \}$ \\
+        & & & \\ %
+        $(0,1,0^+,0^+)$ & $\Phi_\Q(5)$ & $(2,1^+,0,0)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/19\Z, \Z/27\Z \}$ \\
+        & & & \\ %
+        $(1,0,0,0)$ & $\Phi_\Q(3)$ & $(2,1^+,0,1^+)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/19\Z, \Z/27\Z, \Z/67\Z \}$ \\
+        & & & \\ %
+        $(1,0,0,1^+)$ & $\Phi_\Q(3) \cup \{ \Z/11\Z \}$ & $(2,1^+,1^+,0)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/19\Z, \Z/27\Z, \Z/43\Z \}$ \\
+        & & & \\ %
+        $(1,0,1^+,0)$ & $\Phi_\Q(3) \cup \{ \Z/43\Z \}$ & $(2,1^+,1^+,1^+)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/19\Z, \Z/27\Z, \Z/43\Z,$ $\Z/67\Z \}$ \\
+        & & & \\ %
+        $(1,0,1^+,1^+)$ & $\Phi_\Q(3) \cup \{ \Z/11\Z, \Z/43\Z \}$ & $(4^+,0,0,0)$ & $\Phi_\Q(3) \cup \{ \Z/19\Z, \Z/27\Z,$ $\Z/163\Z \}$ \\
+        & & & \\ %
+        $(1,1^+,0,0)$ & $\Phi_\Q(3) \cup \Phi_\Q(5)$ & $(4,0,0,1^+)$ & $\Phi_\Q(3) \cup \{ \Z/19\Z, \Z/27\Z,$ $\Z/67\Z, \Z/163\Z \}$ \\
+        & & & \\ %
+        $(1,1^+,0,1^+)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/67\Z \}$ & $(4,0,1^+,0)$ & $\Phi_\Q(3) \cup \{ \Z/19\Z, \Z/27\Z,$ $\Z/47\Z, \Z/163\Z \}$ \\
+        & & & \\ %
+        $(1,1^+,1^+,0)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/43\Z \}$ & $(4,0,1^+,1^+)$ & $\Phi_\Q(3) \cup \{ \Z/19\Z, \Z/27\Z,$ $\Z/43\Z, \Z/67\Z, \Z/163\Z \}$ \\
+        & & & \\ %
+        $(1,1^+,1^+,1^+)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/43\Z,$ $\Z/67\Z \}$ & $(4,1^+,0,0)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/19\Z, \Z/27\Z, \Z/163\Z \}$ \\
+        & & & \\ %
+        $(2,0,0,0)$ & $\Phi_\Q(3) \cup \{ \Z/19\Z, \Z/27\Z \}$ & $(4,1^+,0,1^+)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/19\Z,$ $\Z/27\Z, \Z/67\Z, \Z/163\Z \}$ \\
+        & & & \\ %
+        $(2,0,0,1^+)$ & $\Phi_\Q(3) \cup \{ \Z/19\Z, \Z/27\Z,$ $\Z/67\Z \}$ & $(4,1^+,1^+,0)$ & $\Phi_\Q(3) \cup \Phi_\Q(5) \cup \{ \Z/19\Z,$ $\Z/27\Z, \Z/43\Z, \Z/163\Z \}$ \\
+        & & & \\ %
+        $(2,0,1^+,0)$ & $\Phi_\Q(3) \cup \{ \Z/19\Z, \Z/27\Z,$ $\Z/43\Z \}$ & $(4^+,1^+,1^+,1^+)$ & $\Phi_\Q(3) \cup \Phi(5) \cup \{ \Z/19\Z,$ $\Z/27\Z, \Z/43\Z, \Z/67\Z, \Z/163\Z \}$
+        \end{tabular}%
+        %}
+        \end{table}

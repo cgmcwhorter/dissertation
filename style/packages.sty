@@ -1,0 +1,104 @@
+% -------------------
+% Packages
+% -------------------
+\usepackage{
+	amsmath,			% Math Environments
+	amsfonts,			% Math Fonts
+	amssymb,			% Extended Symbols
+	bm,				% i,j,k
+	enumerate,		% Enumerate Environments
+	etoolbox,			% Use Booleans
+	float,				% Force Table Placement
+	graphicx,			% Include Images
+	hyperref,			% Use Links
+	lastpage,			% Reference Lastpage
+	multicol,			% Use Multiple Columns
+	multirow,			% Use Multiple Rows
+	pifont,			% Checkmark
+	xcolor,			% Use Colors
+}%epstopdf,booktabs
+
+\usepackage{amsthm}
+\usepackage{mathtools}	% Ceiling & Floor
+\usepackage{stmaryrd} % Power Series Brackets
+\usepackage[mathscr]{euscript} % Mathscr
+\usepackage{mathrsfs} % Smith Formal Script 
+\usepackage{subcaption}
+
+%\usepackage{relsize} % Scaling
+
+% -------------------
+% Tikz
+% -------------------
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+	
+
+% -------------------
+% Font
+% -------------------
+%\usepackage[T1]{fontenc}
+%\usepackage{charter}
+
+
+% -------------------
+% Colors
+% -------------------
+\definecolor{quotegray}{RGB}{58,58,58}
+\definecolor{endquotegray}{RGB}{107,107,107}
+
+
+% -------------------
+% Links
+% -------------------
+\usepackage[all]{xy}
+\hypersetup{
+	colorlinks = true,
+	citecolor = blue,
+  	linkcolor  = blue,
+  	urlcolor   = blue
+}
+\PassOptionsToPackage{hyphens}{url}
+\urlstyle{same}
+
+
+
+
+
+
+% Theorems & Alike
+\numberwithin{equation}{chapter}
+
+%\theoremstyle{theorem}
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[chapter]
+\newtheorem{nex}{Non-Example}[section]
+\newtheorem*{dfn}{Definition}
+\newtheorem{ques}{Question}
+
+%\theoemstyle{remark}
+\newtheorem*{rem}{Remark} 
+
+
+
+
+\usepackage{thmtools, thm-restate}
+\declaretheorem{theorem}
+
+
+
+
+
+\usepackage{array}
+
+
+

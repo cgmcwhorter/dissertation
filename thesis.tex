@@ -1,0 +1,99 @@
+\documentclass[12pt,letterpaper,twoside]{book}
+\usepackage[lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+\usepackage{style/packages}
+\usepackage{style/commands}
+\usepackage{style/formatting}
+\usepackage{style/links}
+
+% Author/Date Information
+\newcommand{\conferredMonth}{May}
+\newcommand{\conferredYear}{\the\year}
+\newcommand{\theAuthor}{Caleb G. McWhorter}
+\newcommand{\theTitle}{Torsion Subgroups of Rational Elliptic Curves over Odd Degree Galois Fields}
+
+% Include SU Logo (true/false)
+\setbool{includeSUlogo}{true}
+
+
+% -------------------
+% Content
+% -------------------
+\begin{document}
+
+% ----------
+% Frontmatter 
+% ----------
+\frontmatter
+
+% Abstract
+\input{frontmatter/abstract/abstract.tex}
+
+% Title 
+\input{frontmatter/title/title.tex}
+
+% Copyright Notice
+\input{frontmatter/copyright/copyright.tex}
+
+% Acknowledgements 
+\input{frontmatter/acknowledgements/acknowledgements.tex}
+
+% Table of Contents
+\mytableofcontents
+
+% List of Figures
+\mylistoffigures
+
+% List of Tables
+\mylistoftables
+
+
+% ----------
+% Mainmatter 
+% ----------
+\mainmatter
+
+% 1 - History
+\input{chapters/history/history}
+
+% 2 - Elliptic Curves
+\input{chapters/ellipticcurves/ellipticcurves}
+
+% 3 - Previous
+\input{chapters/previous/previous}
+
+% 4 - Nonic
+\input{chapters/nonic/nonic}
+
+% 5 - Odd
+\input{chapters/odd/odd}
+
+% 6 - Future
+\input{chapters/future/future}
+
+
+% ----------
+% Backmatter 
+% ----------
+\backmatter
+
+% Appendix
+%\input{backmatter/appendix/appendix.tex}
+
+% Bibliography
+%\bibliographystyle{plain}
+
+\newpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\nocite{*}
+\printbibliography
+
+%\nocite{*}
+%\bibliography{bib}
+
+% Index
+
+% Vita 
+%\input{backmatter/vita/vita.tex}
+
+
+\end{document}

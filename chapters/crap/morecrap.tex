@@ -1,0 +1,1073 @@
+% !TEX root = ../../thesis.tex
+
+
+
+% ON THE FIELD OF DEFINITION OF p-TORSION POINTS ON ELLIPTIC CURVES OVER THE RATIONALS - Lozano-Robledo (CONTAINS DEFINITIONS OF BORELS, CARTANS, ETC) and X0(N) materials
+\subsection{ON THE FIELD OF DEFINITION OF p-TORSION POINTS ON ELLIPTIC CURVES OVER THE RATIONALS - Lozano-Robledo}
+
+\begin{dfn}
+We define $S(d)$ as the set of primes $p$ for which there exists a number field $K$ of degree $\leq d$ and an elliptic curve $E/K$ such that $|E(K)_\tors|$ is divisible by $p$. We also define $\Phi(d)$ as the set of all possible isomorphism types for $E(K)_\tors$ over all $K$ and $E$ as above. 
+\end{dfn}
+
+
+\begin{itemize}
+\item Mazur: $S(1)= \{ 2,3,5,7 \}$ and $\Phi(1)$ is determined with 15 types
+\item Kammieny, Mazur\dots $S(2)= \{ 2,3,5,7,11,13 \}$ and $\Phi(2)$ has 26 types.
+\item Faltings, Frey If $S(d)$ is finite, then $\Phi(d)$ is finite. 
+\item Merel, For all $d \geq 1$, the set $S(d)$ is always finite; thus, $\Phi(d)$ is also finite. Moreover, if $d > 1$ and $p \in S(d)$, then $p \leq d^{3d^2}$.
+\item Osterl\'e, unpublished work but mentioned in \dots, if $p \in S(d)$, then $p \leq (3^{d/2} + 1)^2$.
+\item Parent, $S(3)= \{ 2,3,5,7,11,13 \}$. 
+\end{itemize}
+
+In addition, Derickx, Kamienny, Stein, and Stoll have recently shown using a computational method that $S(4)= S(3) \cup \{17\}$, $S(5)= S(4) \cup \{19\}$, and $S(6) \subseteq S(5) \cup \{ 37,73 \}$. 
+
+
+\begin{dfn} % 1.2
+Let $S_\Q(d)$ be the set of primes $p$ for which there exists a number field $K$ of degree $\leq d$ and an elliptic curve $E/\Q$, such that $|E(K)_\tors|$ is divisible by $p$. 
+\end{dfn}
+
+
+\begin{thm} % 1.3
+Let $p \geq 11$ with $p \neq 13$ or 37, and such that $p \in S_\Q(d)$. Then $p \leq 2d + 1$. 
+\end{thm}
+
+
+\begin{thm} % 1.4
+Let $d \geq 1$ and define sets of primes $A= \{ 2,3,5,7 \} \cup \{13, \text{ if } d \geq 13\} \cup \{37, \text{ if } d \geq 12 \}$, and sets $B, C, D, F$ by :
+	\[
+	\begin{aligned}
+	B&= \{ \text{primes } p= 11, 17, 19, 43, 67, \text{ or } 163 \text{ and such that } p \leq 2d + 1 \}, \\
+	C&= \{ \text{primes } p \text{ such that } p \leq \sqrt{d + 1}, \\
+	D&= \{ \text{primes } p \text{ such that } p \leq d + 1 \}
+	\end{aligned}
+	\]
+and let $F$ be the set of all primes $11 \leq p \leq d/2 + 1$ such that there is a quadratic imaginary field of class number 1 in which $p$ splits. Then:
+	\begin{enumerate}[(1)]
+	\item $A \cup B \cup C \cup F \subseteq S_\Q(d) \subseteq A \cup B \cup D$, and
+	\item Suppose that there is a constant $M \geq 11$ such that, for all primes $p > M$ either $E/\Q$ is CM, or $\rho_{E,p}$ is surjective, or its image is a Borel. Then $A \cup B \cup C \cup F= S_\Q(d)$ for all $d \geq M^2 - 1$.
+	\end{enumerate}
+\end{thm}
+
+We note that, if $d \leq 21$ and $p \in S_\Q(d) \cap D$, then $p \in A \cup B$. It follows that $S_\Q(d)= A \cup B \cup C \cup F$ for all $d \leq 21$. This allows us to give an explicit description of $S_\Q(d)$ for $d \leq 21$. 
+
+
+\begin{cor} % 1.5
+Let $S_\Q(d)$ be the set of Definition~1.2. 
+	\begin{itemize}
+	\item $S_\Q(d)= \{ 2,3,5,7 \}$ for $d= 1$ and 2;
+	\item $S_\Q(d)= \{ 2,3,5,7,13 \}$ for $d= 3$ and 4; 
+	\item $S_\Q(d)= \{ 2,3,5,7,11,13 \}$ for $d= 5,6$ and 7;
+	\item $S_\Q(d)= \{ 2,3,5,7,11,13,17 \}$ for $d= 8$;
+	\item $S_\Q(d)= \{ 2,3,5,7,11,13,17,19 \}$ for $d= 9,10$ and 11;
+	\item $S_\Q(d)= \{ 2,3,5,7,11,13,17,19,37 \}$ for $12 \leq d \leq 20$;
+	\item $S_\Q(d)= \{ 2,3,5,7,11,13,17,19,37,43 \}$ for $d= 21$.
+	\end{itemize}
+\end{cor}
+
+
+\begin{thm} % 1.7
+Let $d \geq 1$ be fixed, let $A, B, C, F$ be the set of primes defined above, and let $F'$ be the set of all primes $p \leq d/2 + 1$. Then
+	\[
+	A \cup B \cup C \cup F \subseteq S_\Q(d) \subseteq A \cup B \cup F'.
+	\]
+Moreover, suppose that the following hypotheses is verified for all primes $13 < p < d/2 + 1$ that do not belong to $A \cup B$:
+	\begin{enumerate}
+	\item[(H)] If $E/\Q$ is an elliptic curve such that the image of $\rho_{E,p}$ is contained in a normalizer of a non-split Cartan subgroup, then the image is either a full non-split Cartan subgroup or its normalizer. 
+	\end{enumerate}
+Then, $A \cup B \cup C \cup F= S_\Q(d)$. 
+\end{thm}
+
+
+Theorem~1.7 relies on recent progress towards Serre’s uniformity problem. Let $p$ be
+a prime and let $(H')$ be the following condition for $p$:
+	\begin{enumerate}
+	\item[(H')] If $E/\Q$ is an elliptic curve such that the image of $\rho_{E,p}$ is contained in a normalizer of a split Cartan subgroup, then the curve $E/\Q$ has CM by a quadratic imaginary field $K$ and $p$ splits in $K/\Q$. 
+	\end{enumerate}
+
+
+\begin{cor} % 1.9
+The formula $S_\Q(d)= A \cup B \cup C \cup F$ is valid for all $1 \leq d \leq 42$. 
+\end{cor}
+
+
+\begin{thm} % 2.1
+Let $E/\Q$ be an elliptic curve and let $p \geq 11$ be a prime, other than 13. Let $R \in E[p]$ be a torsion point of exact order $p$ and let $\Q(R)= \Q(x(R),y(R))$ be the field of definition of $R$. Then
+	\[
+	[\Q(R) \colon \Q] \geq \dfrac{p - 1}{2}
+	\]
+unless $j(E)= -7 \cdot 11^3$ and $p= 37$, in which case $[Q(R) \colon \Q] \geq (p - 1)/3= 12$. More concretely, suppose $j(E) \neq -7 \cdot 11^3$:
+	\begin{enumerate}[(1)]
+	\item If the image of $\rho_{E,p}$ with respect to an $\F_p$-basis $\{P, Q\}$ of $E[p]$, is a Borel subgroup of $\GL(2,\F_p)$, then $p= 11, 17, 19, 37, 43, 67$ or 163. Moreover, if $R \in \langle P \rangle$, then $\Q(R)/\Q$ is Galois, cyclic and $[\Q(R) \colon \Q]= (p - 1)/2$ or $(p-1)$. Otherwise, $[\Q(R) \colon |Q] \geq p$. 
+	\item If the image of $\rho_{E,p}$ is not a Borel (in any basis), then $[\Q(R) \colon \Q] \geq p - 1$. 
+	\end{enumerate}
+\end{thm}
+
+
+\begin{thm} % 5.1
+Let $p$ be a prime and let $E/\Q$ be an elliptic curve. Suppose that $\rho_{E,p}$ is surjective, i.e. its image is $\GL(E[p])$. Then, for every non-trivial torsion point $R \in E[p]$, the degree of the field of definition of $R$ satisfies $[\Q(R) \colon \Q]= p^2 - 1$. 
+\end{thm}
+
+
+\begin{cor} % 5.2
+Let $E/\Q$ be an elliptic curve without complex multiplication. Then, for all but finitely many primes $p$, the field of definition of any non-trivial torsion point $R \in E[p]$ has degree $p^2 - 1$ over $\Q$. 
+\end{cor}
+
+
+\begin{thm} % 6.2
+Let $p$ be a prime and let $E/\Q$ be an elliptic curve. Suppose that there is an $\F_p$-basis $\{ P, Q \}$ of $E[p]$ such that the image of $\rho_{E,p}$ is a subgroup of $C_{sp}$. Then $p \leq 5$.
+\end{thm}
+
+
+        \begin{table}[!ht]
+        \centering
+        \begin{tabular}{lccccccccccccc} \hline
+        \multicolumn{14}{c}{Bounds for $C_p(E)$} \\ \hline
+        $p$ & 2 & 3 & 5 & 7 & 11 & 13 & 17 & 19 & 37 & 43 & 67 & 163 & else \\ \hline
+        $C_p(E) \leq$ & 8 & 4 & 3 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 1 \\ \hline
+        \multicolumn{14}{l}{Note: $C= \prod_p C_p \leq 8$, and $C= 8$ iff $C_2= 8$, or $C_2= 4$ and $C_3= 2$.} \\ \hline
+        \multicolumn{14}{l}{References: [26]; see also [4], [35], [45]} \\ \hline
+        \end{tabular}
+        \end{table}
+
+
+\begin{thm} % 6.5
+Let $E/\Q$ be an elliptic curve and let $p \geq 11$ be a prime. Let $R \in E[p]$ be a
+point of exact order $p$. Suppose that there is an $\F_p$-basis of $E[p]$ such that the image of $\rho_{E,p}$ lies in the normalizer of the split Cartan subgroup, but it is not contained in the split Cartan. Then $[\Q(R) \colon \Q] \geq p - 1$.
+\end{thm}
+
+
+\begin{thm} % 9.3
+Let $E/\Q$ be an elliptic curve and let $p$ be a prime such that the image of $\rho_{E,p}$ is a Borel subgroup $B(J)$, with respect to some basis $\{P,Q\}$ of $E[p]$. Then:
+	\begin{enumerate}[(1)]
+	\item The extension $\Q(P)/\Q$ is Galois, cyclic, of degree $\leq p -1$;
+	\item If $R \in E[p]$ but $R \notin \langle R \rangle$, then $[\Q(R) \colon \Q] \geq p$.
+	\end{enumerate}
+\end{thm}
+
+
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+% FILL IN TABLES FOR ISOGENIES 
+
+
+\begin{thm} % 9.4
+Let $E/\Q$ be an elliptic curve and let $p= 11$ or $p \geq 17$ be a prime. Suppose that there is an $\F_p$-basis $\{P,Q\}$ of $E[p]$ such that the image of $\rho_{E,p}$ is a Borel subgroup. Let $R \in E[p]$ be non-trivial. Then $[\Q(R) \colon \Q] \geq (p - 1)/2$, except if $j= -7 \cdot 11^3$ and $p= 37$, in which case $[\Q(R) \colon \Q] \geq (p - 1)/3= 12$. 
+\end{thm}
+
+
+\begin{lem}
+Let $E/\Q$ and $E'/\Q$ be isomorphic elliptic curves (over $\C$) with $j(E) \neq 0$ or 1728, and let $\phi: E \to E'$ be an isomorphism. Then:
+	\begin{enumerate}[(1)]
+	\item $E$ and $E'$ are isomorphic over $\Q$ or $E'$ is a quadratic twist of $E$.
+	\item For all $R \in E(\ov{\Q})$, we have $\Q(x(R))= \Q(x(\phi(R)))$. 
+	\item Moreover, if $\Q(R)/\Q$ is Galois, cyclic, and $[\Q(x(R)) \colon \Q]$ is even, then the quotient $[\Q(\phi(R)) \colon \Q] / [\Q(R) \colon \Q]= 1$ or 2. 
+	\end{enumerate}
+\end{lem}
+
+
+\begin{thm} % 9.7 Silverberg, Prasad-Yogananda
+Let $F$ be a number field of degree $d$, and let $E/F$ be an elliptic curve with complex multiplication by an order $\cO$ in the imaginary quadratic field $K$. Let $w= w(\cO)= \#\cO^\times$ (so $w= 2,4$ or 6) and let $e$ be the maximal order of an element of $E(F)_\tors$. Then:
+	\begin{enumerate}[(1)]
+	\item$\phi(e) \leq wd$ ($\phi$ is Euler's totient function).
+	\item If $K \subseteq F$, then $\phi(e) \leq \frac{w}{2} d$.
+	\item If $F$ does not contain $K$, then $\phi(\#E(F)_\tors) \leq wd$. 
+	\end{enumerate}
+\end{thm}
+
+
+
+% ON THE NUMBER OF ISOMORPHISM CLASSES OF CM ELLIPTIC CURVES DEFINED OVER A NUMBER FIELD HARRIS B. DANIELS AND ALVARO LOZANO-ROBLEDO
+\subsection{ON THE NUMBER OF ISOMORPHISM CLASSES OF CM ELLIPTIC CURVES DEFINED OVER A NUMBER FIELD HARRIS B. DANIELS AND ALVARO LOZANO-ROBLEDO}
+
+The theory of complex multiplication has proven to be an essential tool in number theory, mainly due to the connections with class field theory developed by Kronecker, Weber, Fricke, Hasse, Deuring, and Shimura, among others. Certain important results have been shown first in the case of complex multiplication, such as the analytic continuation to the entire complex plane for the $L$-function of an elliptic curve (see [Sil94], Ch. III, \S10), some cases of the Birch and Swinnerton-Dyer conjecture (see [CW77], [Rub99]) or the main conjectures of Iwasawa theory for elliptic curves (see for example [PR04]). Thus, it is a natural question to find all the isomorphism classes of elliptic curves with complex multiplication defined over a fixed number field, for which these important results hold. 
+
+
+It is well known that there are only 13 isomorphism classes of elliptic curves defined over $\Q$ with complex multiplication ([Sil09], Appendix A, \S3), namely the curves with $j$-invariant in the list:
+	\[
+	\{ 0, 2^4 3^3 5^3, -2^{15} \cdot 3 \cdot 5^3, 2^6 3^3, 2^3 3^3 11^3, -3^3 5^3, 3^3 5^3 17^3, 2^6 5^3, -2^{15}, -2^{15} 3^3, -2^{18} 3^3 5^3, -2^{15} 3^3 5^3 11^3, -2^{18} 3^3 5^3 23^3 29^3 \}
+	\]
+However, the number of CM $j$-invariants varies wildly depending on the choice of field of definition, even in the case of quadratic number fields (see Table 1). For a number field $L$, we will write $\Sigma(L)$ for the set of all CM $j$-invariants defined over $L$, but not defined over $\Q$, so that the total number of CM $j$-invariants defined over $L$ is $13 + \#\Sigma(L)$. It is known that $\Sigma(L)$ is a finite set, for any number field $L$. In this article, we show the following simple bound for $\#\Sigma(L)$ when the degree of $L$ is odd.
+
+
+\begin{thm} % 1.1
+Let $L$ be a number field of odd degree. Then $\#\Sigma(L) \leq 2 \log_3([L \colon \Q])$. In particular, the number of distinct CM $j$-invariants defined over $L$ is bounded by $13 + 2 \log_3([L \colon \Q])$. 
+\end{thm}
+
+
+\begin{rem}
+The simple bound given in Theorem~1.1 is essentially sharp. The bound is trivially sharp when $L= \Q$. Moreover, let $K= \Q(\sqrt{-3})$, and for any fixed $e \geq 1$, let $\cO_e$ be an order of $\cO_K$ with conductor $\ff= 2 \cdot 3^e$. Let $E_e$ be an elliptic curve with CM by $\cO$, and define $L_e= \Q(j(E_e))$. Then, $[L_e \colon \Q]= 3^e$, and it follows from Theorem~1.3 that $\#\Sigma(L)= 2e - 1= 2\log_3([L_e \colon \Q]) - 1$, which is just one unit below the bound of Theorem~1.1. 
+\end{rem}
+
+
+
+% A PROBABILISTIC MODEL FOR THE DISTRIBUTION OF RANKS OF ELLIPTIC CURVES OVER Q - ALVARO LOZANO-ROBLEDO
+
+
+% GALOIS REPRESENTATIONS ATTACHED TO ELLIPTIC CURVES WITH COMPLEX MULTIPLICATION - ALVARO LOZANO-ROBLEDO 
+
+% Let F be a number field, let E/F be an elliptic curve, let p be a prime, let Tp(E) = lim←− E[pn] be the p-adic Tate module attached to E, and fix a Zp-basis for Tp(E). The natural action of the absolute Galois group of F, denoted by GF = Gal(F /F), produces a p-adic Galois representation ρE,p∞ : Gal(F /F) → Aut(Tp(E)) ∼= GL(2,Zp). Serre’s open image theorem (see [19]) implies that, if we fix an elliptic curve E/F without complex multiplication, then ρE,p∞ is surjective for all but finitely many primes p. Much work has been done to classify the possible images when F = Q and ρE,p∞ is not surjective. For instance, Rouse and Zureick-Brown have classified the possible 2-adic images for non-CM curves (see [17]), and Sutherland and Zywina have produced a conjectural list of all the possible mod p images ([24], [27]) which is complete if we assume a positive answer to a uniformity question of Serre. In [25] the authors provide a classification of all the possible p-adic representations over Q that is complete except for a finite set J of exceptional j-invariants (note that J includes all j-invariants in Q with CM). The goal of this article is to describe all the possible images of p-adic Galois representations attached to elliptic curves with complex multiplication, as subgroups of GL(2,Zp) defined up to conjugation. More concretely, let K be an imaginary quadratic field, let OK be the ring of integers of K with discriminant ∆K, let f ≥ 1 be an integer, and let OK,f be the order of K of conductor f. Let j : X(1) → P 1 (C) be the modular j-invariant function, and let j(C/OK,f ) be the j-invariant associated to the order OK,f when regarded as a complex lattice. The theory of complex multiplication shows that j(C/OK,f ) is an algebraic integer (see Theorem 2.1 below). Let jK,f be an arbitrary Galois conjugate of j(C/OK,f ). Then, an elliptic curve E/Q(jK,f ) with j(E) = jK,f has complex multiplication by OK,f , i.e., End(E) ∼= OK,f , and every elliptic curve with CM by OK,f , and defined over Q(jK,f ), arises in this way. It is then the goal of this article to completely describe the possible images of ρE,p∞ : Gal(Q(jK,f )/Q(jK,f )) → GL(2,Zp) for any prime p ≥ 2, and any elliptic curve E/Q(jK,f ) with complex multiplication and j-invariant jK,f . We shall describe the image of ρE,p∞
+
+% REVIEWS CLASS FIELD THEORY AND CM ELLIPTIC CURVES. 
+
+
+
+
+
+
+% COINCIDENCES OF DIVISION FIELDS - HARRIS B. DANIELS AND ALVARO LOZANO-ROBLEDO
+\subsection{COINCIDENCES OF DIVISION FIELDS - HARRIS B. DANIELS AND ALVARO LOZANO-ROBLEDO}
+
+Let $E/\Q$ be an elliptic curve, let $n > 1$ be an integer, let $\ov{\Q}$ be a fixed algebraic closure of $\Q$, and let $\Q(E[n]) \subset \Q$ be the $n$-th division field, i.e., $\Q(E[n])$ is the field of definition of the $n$-torsion subgroup $E[n] \subseteq E(\ov{\Q})$. The absolute Galois group of $\Q$, hereby denoted by $G_\Q= \Gal(\ov{\Q}/\Q)$, acts on $E[n]$ and induces a Galois representation $\rho_{E,n} \colon G_\Q \to \Aut(E[n]) \simeq \GL(2,\Z/n\Z)$. If $p$ is a prime, then $G_\Q$ acts on the Tate $p$=adic module $T_p(E)= \plim E[p^n]$, and on the $\hat{\Z}$-module $T(E)= \plim E[n]$, and induces $p$-adic representations $\rho_{E,p^\infty} \colon G_\Q \GL(2,\Z_p)$, and an adelic Galois representation
+	\[
+	\rho_E \colon G_\Q \to \Aut(T(E)) \simeq \GL(2, \hat{\Z}). 
+	\]
+There has been much recent work and interest in understanding the image of the various Galois representations mentioned above (see for example [21, 19, 26, 27, 24]). 
+
+
+Famously, Serre [21] showed that if $E/\Q$ has no complex multiplication, then the image $G_E$ of $\rho_E$ is open (therefore, of finite index) in $\GL(2, \hat{\Z})$. Further, it is well-known (pointed out by Serre in [21], Proposition 22) that the index $d_E= [\GL(2, \hat{\Z}) \colon G_E] \geq 2$. Indeed, if $\Delta_E$ is the minimal discriminant of $E/\Q$, then $\Q(\sqrt{\Delta_E}) \subseteq \Q(E[2])$ and there is also some $m > 2$ (the integer $m= 4 |\Delta E|$ works) such that $\Q(\sqrt{\Delta_E}) \subseteq \Q(\zeta_m) \subseteq \Q(E[m])$, so that $\Q(E[2]) \cap \Q(\zeta_m)$ is a non-trivial quadratic extension of $\Q$, and therefore $\Gal(\Q(E[2], \zeta_m)) \subsetneq \Gal(\Q(E[2])/\Q) \times \Gal(\Q(\zeta_m)/\Q)$. This \textit{entanglement} of division fields causes the index $d_E$ to be at least 2. When the index $d_E$ is exactly 2, then we say that $E$ is a Serre curve, and these have been studied in [17, 18, 6], for instance.
+
+
+It is therefore natural to study other types of entanglements of division fields that would cause $d_E$ to be strictly larger than 2. For instance, Brau and Jones [2] have classified all elliptic curves $E/\Q$ such that $\Q(E[2]) \subseteq \Q(E[3])$. In this paper, we consider the following question:
+
+
+Question~1.1: Fix an elliptic curve $E/\Q$, and distinct integers $n, m \geq 2$:
+	\begin{enumerate}[(1)]
+	\item Are there distinct integers $n, m \geq 2$ such that $\Q(E[n])= \Q(E[m])$?
+	\item In light of the entanglement described above, are there distinct prime numbers $p$ and $q$, and $k \geq 1$, such that $\Q(E[p]) \cap \Q(\zeta_{q^k})$ is non-trivial?
+	\end{enumerate}
+If so, can we classify all the elliptic curves $E$ for which (1) or (2) occurs? Note that (1) can be interpreted vertically (in towers, i.e., $n$ divides $m$) or horizontally ($\gcd(n,m)= 1$). We will address both possibilities.
+
+
+There has been prior work on abelian entanglements related to Question~1.1, part (2). In [12], Gonzalez-Jimenez and the second author classified all elliptic curves such that the full $n$-th division field $\Q(E[n])$ is an abelian extension of $\Q$. More generally, Chou [3] has classified the torsion subgroups $E(\Q^{\text{ab}})_\tors$ that can occur for elliptic curves $E$ over $\Q$, where $\Q^{\text{ab}}$ is the maximal abelian extension of $\Q$ within a fixed algebraic closure. Here we shall extend these works by studying the
+possibilities for $\Q(E[p]) \cap \Q^{\text{ab}}$. 
+.
+
+
+It is worth noting that, by results of [10, 17], almost all elliptic curves are Serre curves (that is, $d_E= 2$). In particular, for almost all elliptic curves $E/\Q$ we have that $\Gal(\Q(E[n])/\Q) \simeq \GL(2, \Z/n\Z)$, for all odd $n \geq 2$, and so comparing their degrees one can see that there are no $m \neq n \geq 2$ such that $\Q(E[n])= \Q(E[m])$. Similarly, it follows that for a Serre curve $\Q(E[p]) \cap \Q(\zeta_{q^k})$ is always trivial for all odd primes $p \neq q$, and all $k \geq 1$. Thus, examples of coincidences of division fields should be somewhat rare. Nonetheless, with a simple search one can find some examples of such behavior.
+
+
+% EXAMPLES
+
+
+\begin{thm} % 1.4
+Let $E$ be an elliptic curve defined over $\Q$, let $p$ be a prime, and let $n \in \N$.
+	\begin{enumerate}[(1)]
+	\item Suppose that $\Q(E[p^{n+1}])= \Q(E[p^n])$. Then, $p= 2$, $n= 1$, and there is a rational number $t \in \Q$ such that $E$ is isomorphic over $\Q$ to an elliptic curve of the form
+		\[
+		E_t \colon y^2= x^3 + A(t)x + B(t),
+		\]
+	where
+		\[
+		\begin{aligned}
+		A(t)&= -27 t^8 + 648 t^7 - 4212 t^6 - 2376 t^5 + 60102 t^4 + 79704 t^3 - 105732 t^2 - 235224 t - 107811 \\
+		B(t)&= 54 t^{12} - 1944 t^{11} + 24300 t^{10} - 97848 t^9 - 251262 t^8 + 1722384 t^7 + 4821768 t^6 \\
+		&\quad - 8697456 t^5 - 64323558 t^4 - 140447736 t^3 - 157012020 t^2 - 90561240 t - 21346578.
+		\end{aligned}
+		\]
+	\item If $\Q(E[p^n]) \cap \Q(\zeta_{p^{n+1}})= \Q(\zeta_{p^{n+1}})$, then $p= 2$.
+	\end{enumerate}
+\end{thm}
+
+
+Interestingly, $\Q(E[2^n]) \cap \Q(\zeta_{2^{n+1}})= \Q(\zeta_{2^{n+1}})$ can indeed
+occur for all $n > 1$, as we will show at the end of Section~3.3 (see Theorem~3.9).
+
+
+\begin{thm} % 1.5
+Let $E$ be the elliptic curve with Cremona label \texttt{32a3}, which is given by $y^2= x^3 - 11x - 14$. Then, $\Q(\zeta_{2^{n+1}}) \subseteq \Q(E[2^n])$ for all $n > 1$. 
+\end{thm}
+
+
+\begin{thm} % 1.6
+Let $E/\Q$ be an elliptic curve and let $p < q \in \Z$ be distinct primes, and let $n,m \in \N$.
+	\begin{enumerate}[(1)]
+	\item If $\Q(E[p^n])= \Q(E[q^m])$, then $p^n= 2$ and $q^m= 3$. Further, there is some $t \in \Q$ such that $E$ is $\Q$-isomorphic to
+		\[
+		\begin{aligned}
+		E' \colon y^2= &x^3 - 3t^9 (t^3 - 2)(t^3+2)^3 (t^3+4) x \\
+		&- 2t^{12} (t^3+2)^4(t^4 - 2t^3 + 4t - 2)(t^8 + 2t^7 + 4t^6 + 8t^5 + 10t^4 + 8t^3 + 16t^2 + 8t + 4)
+		\end{aligned}
+		\]
+	or its twist by $-3$. 
+	\item Let $K_p(E)= \Q(E[p]) \cap \Q^{\text{abs}}$. Then, $\Gal(K_p(E)/\Q) \simeq (\Z/p\Z)^\times \times C$, where $C$ is a cyclic group of order dividing $p - 1$. Further, if $E/\Q$ does not have a rational $p$-isogeny, then $C$ is trivial or quadratic and $K_p(E)= F(\zeta_p)$ with $F/\Q$ a trivial or quadratic extension.
+	\item In particular, if $\Q(\zeta_{q^n}) \subseteq \Q(E[p])$, then either $\Q(\zeta_{q^n})= \Q$, $\Q(i)$, or $\Q(\zeta_3)$, or $E/\Q$ has a rational $p$-isogeny, $p= 2,3,5,7,11,13,17,19,37,43,67$, or 163, and $\phi(p^n)$ divides $p - 1$. 
+	\end{enumerate}
+\end{thm}
+
+
+Finally, our third theorem deals with the particular case of abelian division fields.
+
+
+\begin{thm} % 1.7
+Let $E/\Q$ be an elliptic curve and let $n > m \geq 2$ be integers, such that $\Q(E[n])/\Q$ is an abelian extension.
+	\begin{enumerate}[(1)]
+	\item If $\Q(E[n])= \Q(E[m])$, then $m= 2$, $n= 4$, and for some $t \in \Q$, $E/\Q$ is $\Q$-isomorphic to $y^2= x^3 + (-432t^8 + 1512t^4 - 27)x + (3456t^{12} + 28512t^8 - 7128t^4 - 54)$. In this case, $\Q(E[2])= \Q(E[4])= \Q(i)$.
+	\item Let $p$ be a prime, such that $\Q(E[p])/\Q$ is abelian, and let $q \neq p$ be another prime. Then, $\Q(E[p]) \cap \Q(\zeta_{q^k})$ can be trivial, quadratic, cyclic cubic (for $p= 2$), or cyclic quartic (for $p= 5$). 
+	\end{enumerate}
+\end{thm}
+
+
+% In this section we cite a number of key results that we will use in the following sections. Let E/Q be an elliptic curve. For a prime number p, we define the p-adic Tate module of E/Q by Tp(E) = lim←− E[pn], where the inverse limit is taken with respect to the multiplication-by-p maps [p]: E[pn+1] → E[pn]. The absolute Galois group of Q acts on Tp(E), and induces a Galois representation ρE,p∞ : Gal(Q/Q) → Aut(Tp(E)). If we choose a Zp-basis of Tp(E), then we may consider ρE,p∞ : Gal(Q/Q) → Aut(Tp(E)) ≃ GL(2,Zp), and we are interested in describing the image of ρE,p∞ in GL(2,Zp). Much is known about the image of ρE,p, most notably Serre’s so-called open image theorem.
+
+
+\begin{thm} % 2.1
+Let $E/\Q$ be an elliptic curve without complex multiplication and, for each prime $p$, let $G_p \subseteq \GL(2,\Z_p)$ be the image of $\rho_{E,p^\infty}$. Then, $G_p$ is an open subgroup of $\GL(2,\Z_p)$ for every $p$ (in particular, the index is finite), and $G_p= \GL(2,\Z_p)$ for all but finitely many primes. 
+\end{thm}
+
+
+In a recent article [27], Zywina has determined (up to a finite number of $j$-invariants) a finite list of all possible indices that may occur for the image of the representation $\rho_E \colon \Gal(\ov{\Q}/\Q) \to \GL(2,\hat{\Z})$ that results as inverse image of $\rho_{E,n} \colon \Gal(\ov{\Q}/\Q) \to \Aut(E[n]) \simeq \GL(2,\Z/n\Z)$. Rouse and Zureick-Brown have classified all the possible 2-adic images of $\rho_{E,2^\infty} \colon \Gal(\ov{\Q}/\Q) \to \GL(2,\Z_2)$, and Sutherland and Zywina have conjectured the possibilities for the mod $p$ image for all primes $p$.
+
+
+\begin{thm} % 2.2
+Let E be an elliptic curve over $\Q$ without complex multiplication. Then, there are exactly 1208 possibilities for the 2-adic image $\rho_{E,2^\infty}(\Gal(\ov{\Q},\Q))$, up to conjugacy in $\GL(2,\Z_2)$. Moreover, the index of $\rho_{E,2^\infty}(\Gal(\ov{\Q}/\Q))$ in $\GL(2,\Z_2)$ divides 64 or 96, and every image is defined at most modulo 32.
+\end{thm}
+
+
+\begin{conj}[Sutherland, Zywina [26]]
+Let $E/\Q$ be an elliptic curve. Let $G \subseteq \GL(2,\Z/p\Z)$ be the image of $\rho_{E,p}$. Then, there are precisely 63 isomorphism types of images. 
+\end{conj}
+
+
+\begin{prop} % 2.4
+Let $E/\Q$ be an elliptic curve, let $n$ be a positive integer. Then, $\det(\rho_{E,n})= \chi_n$ is the $n$-th cyclotomic character. In particular, if we let $\zeta_n$ be any primitive $n$-th root of unity, then $\Q(\zeta_n) \subseteq \Q(E[n])$, and for any $\sigma \in \Gal(\ov{\Q}/\Q)$ we have $\sigma(\zeta_n)= (\zeta_n)^{\det(\rho_{E,n}(\sigma))}$. 
+\end{prop}
+
+
+\begin{cor} % 2.5
+Let $E/\Q$ be an elliptic curve, let $p > 2$ be a prime, let $m,n \geq 1$, and suppose that $\Q(\zeta_{p^n}) \subseteq \Q(E[m])$. Let $\sigma \in \Gal(\ov{\Q}/\Q)$ be such that its reduction to $\Q(\zeta_{p^n})$ generates the cyclic group $\Gal(\Q(\zeta_{p^n})/\Q)$. Then, the image of $\sigma$ through $\rho_{E,m}$ is an element of order divisible by $\phi(p^n)= p^{n-1}(p - 1)$.
+\end{cor}
+
+
+% Proof: See paper. Short easy.
+
+
+\begin{prop}[[21]]
+Let $E/|Q$ be an elliptic curve and let $p$ be a prime. Let $G$ be the image of $\rho_{E,p} \colon \Gal(\ov{\Q}/\Q) \to \Aut(E[p]) \simeq \GL(2,\Z/p\Z)$. Then, there exists a $\Z/p\Z$-basis for $E[p]$ such that one of the following is true:
+	\begin{enumerate}[(1)]
+	\item $G= \GL(2,\Z/p\Z)$
+	\item $G$ is contained in a Borel subgroup of $\GL(2,\Z/p\Z)$
+	\item $G$ is contained in the normalizer of a split Cartan subgroup of $\GL(2,\Z/p\Z)$
+	\item $G$ is contained in the normalizer of a non-split Cartan subgroup of $\GL(2,\Z/p\Z)$
+	\item $G$ is contained in one a finite list of ``exceptional'' subgroups
+	\end{enumerate}
+\end{prop}
+
+
+\begin{thm} % 2.8
+Let $E/\Q$ be an elliptic curve, let $p$ be a prime, and let $n \geq 1$. If $\rho_{E,p^n}$ is surjective, then $\rho_{E,p^{n+1}}$ is surjective, unless $p^n= 2,3$, or 4. Moreover, the $j$-invariants of elliptic curves where $\rho_{E,p^n}$ is surjective but $\rho_{E,p^{n+1}}$ is not, are given explicitly by 1-parameter families. 
+\end{thm}
+
+
+\begin{prop} % 3.1
+Let $E/\Q$ be an elliptic curve and $p \geq 3$ be a prime. Then, for every $n \in \N$, the field $\Q(E[p^n])$ does not contain the $p^{n+1}$-th roots of unity. 
+\end{prop}
+
+
+Before ending this section we give a summary the information in Corollaries 5.3, 5.7, 5.17, and 5.20 in a single place.
+
+
+\begin{prop}
+Let $E/\Q$ be an elliptic curve, $p > 2$ a prime, and $K_E(p)= \Q(E[p]) \cap \Q^{\text{ab}}$. Then,
+	\[
+	\Gal(K_E(p)/\Q) \simeq (\Z/p\Z)^\times \times C
+	\]
+where $C$ is a cyclic group of order dividing $p - 1$. Moreover, $\#C > 2$ only when $E$ has a $p$-isogeny (i.e., if the image of $\rho_{E,p}$ is contained in a Borel subgroup). 
+\end{prop}
+
+
+
+
+% RAMIFICATION IN THE DIVISION FIELDS OF ELLIPTIC CURVES WITH POTENTIAL SUPERSINGULAR REDUCTION - ALVARO LOZANO-ROBLEDO
+\subsection{RAMIFICATION IN THE DIVISION FIELDS OF ELLIPTIC CURVES WITH POTENTIAL SUPERSINGULAR REDUCTION - ALVARO LOZANO-ROBLEDO}
+
+In 1996, Merel proved that there is a uniform bound for the size of $E(F)_\tors$, which is independent of the chosen curve $E/F$ and, in fact, the bound only depends on the degree of $F/\Q$. The bounds were improved by Oesterl\'e, and later by Parent.
+
+
+\begin{thm} % 1.1
+Let $p$ be a prime, let $d > 1$ be a fixed integer, let $F$ be a number field $F$ of degree $\leq d$ and let $E/F$ be an elliptic curve. Then:
+	\begin{itemize}
+	\item (Oesterl\'e, 1996) If $E(F)$ contains a point of exact order $p$, then $p \leq (1 + 3^{d/2})^2$. 
+	\item (Parent, 1999) If $E(F)$ contains a point of exact order $p^n$, then $p^n \leq 129 (5^d - 1)(3d)^6$. 
+	\end{itemize}
+\end{thm}
+
+
+In this article, we study the ramification index in the field of definition of $p^n$-th torsion points. Let $L$ be a number field, let $p$ be a prime, let $n \geq 1$, and let $\zeta = \zeta_{p^n}$ be a primitive $p^n$-th root of unity. Let $\wp$ be a prime ideal of the ring of integers $\cO_L$ of $L$ lying above $p$. The ramification index of the primes above $\wp$ in the extension $L(\zeta)/L$ is a divisor of $\phi(p^n)$, where $\phi(\cdot)$ is the Euler phi function, and, in fact, it is easy to see that the index is divisible by $\phi(p^n) / \gcd(\phi(p^n), e(\wp \vbar p))$. In this article we study the ramification above $p$ in the extension $L(R)/L$, where $R$ is a torsion point of exact order $p^n$ in an elliptic curve $E$ defined over $L$. In particular, we concentrate on the case when $E/L$ has potential good supersingular reduction at $\wp$. We show the following:
+
+
+\begin{thm} % 1.2
+Let $n \geq 1$ be fixed. Let $p$ be a prime, let $L$ be a number field, and let $\wp$ be a prime ideal of $\cO_L$ lying above $p$. Let $E/L$ be an elliptic curve with potential supersingular reduction at $\wp$, let $R \in E[p^n]$ be a point of exact order $p^n$. Then, there is a computable constant $c= c(E/L, R, \wp)$ with $1 \leq c \leq 24 e(\wp \vbar p)$ (with $c \leq 12 e(\wp \vbar p)$ if $p > 2$, and $c \leq 6 e(\wp \vbar p)$ if $p > 3$), such that the ramification index $e(\fB \vbar \wp)$ of any prime $\fB$ above $\wp$ in the extension $L(R)/L$ is divisible by
+	\[
+	\phi(p^n) / \gcd( \phi(p^n), c(E/L, R, \wp)).
+	\]
+Moreover:
+	\begin{enumerate}[(1)]
+	\item For each $\eta \geq 1$, there is a constant $f(\eta)$ such that if $L$ is any number field with $e(\wp \vbar p) \leq \eta$, and $E/L$ and $R$ are as above, then $e(\fB \vbar \wp)$ is divisible by $\phi(p^n) / \gcd(\phi(p^n), f(\eta))$. 
+	\item If $e(\wp \vbar p)= 1$ and $p > 3$, then $e(\fB \vbar \wp)$ is divisible by either $(p^2 - 1) p^{2(n-1)}/6$, or the quantity $(p - 1)p^{2(n-1)} / \gcd(p - 1,4)$. 
+	\end{enumerate}
+\end{thm}
+
+
+Moreover, under the assumptions of Theorem~1.2 we have
+	\[
+	[L(R) \colon L] \geq e(\fB \vbar \wp) \geq \dfrac{\phi(p^n)}{\gcd(\phi(p^n), c(E/L, R, \wp))} \geq \dfrac{\phi(p^n)}{24 e(\wp \vbar p)},
+	\]
+and therefore
+	\[
+	\phi(p^n) \leq 24e(\wp \vbar p) e(\fB \vbar \wp)= 24e(\fB \vbar p) \leq 24 \cdot [L(R) \colon L].
+	\]
+Hence, as a consequence of our main Theorem~1.2, we show a similar bound to Theorem~1.1 in the supersingular reduction case, which is linear in $d$ (instead of exponential as in Theorem~1.1) and, in fact, it only depends on the ramification index of a prime of $F$ above $p$.
+
+
+\begin{thm} % 1.3
+Let $p$ be a prime, let $d \geq 1$ be a fixed integer, let $F$ be a number field of degree $\leq d$, and let $E/F$ be an elliptic curve, such that $E(F)$ contains a point of exact order $p^n$. Suppose that $F$ has a prime $\fB$ over $p$ such that $E/F$ has potential good supersingular reduction at $\fB$. Then, 
+	\[
+	\phi(p^n) \leq
+	\begin{cases}
+	24e(\fB \vbar p) \leq 24d & \text{if } p= 2, \\
+	12e(\fB \vbar p) \leq 12d & \text{if } p= 3, \\
+	6e(\fB \vbar p) \leq 6d & \text{if } p > 3,
+	\end{cases}
+	\]
+and $e(\fB \vbar p)$ is the ramification index of $\fB$ in $F/\Q$. 
+\end{thm}
+
+
+Thus, Theorem~1.2 when applied uniformly recovers bounds previously found by Flexor and Oesterl\'e, who show $|E(F)_\tors| \leq 48d$ under similar hypotheses (see [2], Theorem 2). Our results, however, emphasize that there is a bound which is linear with respect to a ramification index of $F/\Q$, and can be regarded as evidence towards the following conjecture of the author, which will be discussed more in depth in an upcoming article.
+
+
+\begin{conj} % 1.4, [6]
+Let $p$ be a prime, let $d > 1$ be a fixed integer, let $F$ be a number field of degree $\leq d$, and let $E/F$ be an elliptic curve, such that $E(F)$ contains a point of exact order $p^n$. There is a constant $C_3$ that does not depend on $p, d, F$ or $E$, such that
+	\[
+	\phi(p^n) \leq C_3 \cdot e_{\max}(p,F/\Q) \leq C_3 \cdot d,
+	\]
+where $e_{\max}(p,F/\Q)$ is the largest ramification index $e(\fB \vbar p)$ for a prime $\fB$ of $\cO_F$ over the rational prime $p$. 
+\end{conj}
+
+% In this section we apply our previous results about the formal group of an elliptic curve with potential supersingular reduction to calculate the slopes in the Newton polygon of the multiplicationby-p map. In turn, the slopes will allow us to calculate the valuation of p^n-th torsion points in the formal group, and the ramification index in the extensions generated by these points.
+
+% Number of interesting divisibility results, in terms of ramification and valuations. 
+
+
+
+
+
+
+% ELLIPTIC CURVES WITH ABELIAN DIVISION FIELDS - ENRIQUE GONZALEZ-JIMENEZ AND ALVARO LOZANO-ROBLEDO
+\subsection{ELLIPTIC CURVES WITH ABELIAN DIVISION FIELDS - ENRIQUE GONZALEZ-JIMENEZ AND ALVARO LOZANO-ROBLEDO}
+
+In particular, we classify all curves $E/\Q$ such that $\Q(E[n])$ is as small as possible, that is, when $\Q(E[n]) = \Q(\zeta_n)$, and we prove that this is only possible for $n = 2, 3, 4$, or 5. 
+
+The existence of the Weil pairing (see [37, III, Corollary 8.1.1]) implies that $\Q(E[n])$ contains all the $n$-th roots of unity of $\ov{\Q}$, i.e., we have an inclusion $\Q(\zeta_n) \subseteq \Q(E[n])$, where $\zeta_n$ is a primitive $n$-th root of unity. The goal of this article is to study the case when $\Q(E[n])$ is as small as possible, that is, when $\Q(E[n]) = \Q(\zeta_n)$ and, more generally, when $\Q(E[n])$ is contained in a cyclotomic extension of $\Q$ or, equivalently (by the Kronecker-Weber theorem), when $\Q(E[n])/\Q$ is an abelian extension. For instance:
+	\begin{itemize}
+	\item ($n= 2$) $E_{15a2}: y^2 + xy + y= x^3 + x^2 - 135x - 660$, satisfies $\Q(E[2])= \Q= \Q(\zeta_2)$, 
+	\item ($n= 3$) $E_{19a1}: y^2 + y= x^3 + x^2 - 9x - 15$, satisfies $\Q(E[3])= \Q(\sqrt{-3})= \Q(\zeta_3)$,
+	\item ($n= 4$) $E_{15a1}: y^2 + xy + y= x^3 + x^2 - 10x - 10$, satisfies $\Q(E[4])= \Q(i)= \Q(\zeta_4)$,
+	\item ($n= 5$) $E_{11a1}: y^2 + y= x^3 - x^2 - 10x - 20$, satisfies $\Q(E[5])= \Q(\zeta_5)$, 
+	\item ($n= 6$) $E_{14a1}: y^2 + xy + y= x^3 + 4x - 6$, satisfies $\Q(E[6])= \Q(\zeta_6, \sqrt{-7})$,
+	\item ($n= 8$) $E_{15a1}: y^2 + xy + y= x^3 + x^2 - 10x - 10$, satisfies $\Q(E[8])= \Q(\zeta_8, \sqrt{3}, \sqrt{7})$. 
+	\end{itemize}
+
+
+Previously, Paladino [30] has classified all the curves $E/\Q$ with $\Q(E[3])= \Q(\zeta_3)$. In a more general setting, when $E$ is defined over a number field $K$, the work of Halberstadt, Merel [27], Merel and Stein [28], and Rebolledo [32] shows that if $p$ is prime, and $K(E[p])= Q(\zeta_p)$, then $p= 2, 3, 5$ or $p > 1000$. The main result of this article is a complete classification (and parametrization) of all elliptic curves $E/\Q$, up to isomorphism over $\Q$, such that $\Q(E[n])$ is abelian over $\Q$, and those curves such that $\Q(E[n])= \Q(\zeta_n)$. Furthermore, we classify all the abelian Galois groups $\Gal(\Q(E[n])/\Q)$ for each value of $n \geq 2$ that may occur.
+
+
+\begin{thm} % 1.1
+Let $E/\Q$ be an elliptic curve. If there is an integer $n \geq 2$ such that $\Q(E[n])= \Q(\zeta_n)$, then $n= 2, 3, 4$ or 5. More generally, if $\Q(E[n])/\Q$ is abelian, then $n= 2, 3, 4, 5, 6$ or 8. Moreover, $\Gal(\Q(E[n])/\Q)$ is isomorphic to one of the following groups:
+        \begin{table}[!ht]
+        \centering
+        \begin{tabular}{|c||c|c|c|c|c|c|} \hline
+        $n$ & 2 & 3 & 4 & 5 & 6 & 8 \\ \hline
+        \multirow{4}{*}{$\Gal(\Q(E[n])/\Q)$} & $\{0\}$ & $\Z/2\Z$ & $\Z/2\Z$ & $\Z/4\Z$ & $(\Z/2\Z)^2$ & $(\Z/2\Z)^4$ \\
+         & $\Z/2\Z$ & $(\Z/2\Z)^2$ & $(\Z/2\Z)^2$ & $\Z/2\Z \times \Z/4\Z$ & $(\Z/2\Z)^3$ & $(\Z/2\Z)^5$ \\
+         & $\Z/3\Z$ &  & $(\Z/2\Z)^3$ & $(\Z/4\Z)^3$ &  & $(\Z/2\Z)^6$ \\
+         &  &  & $(\Z/2\Z)^4$ &  &  &  \\ \hline
+        \end{tabular}
+        \end{table}
+Furthermore, each possible Galois group occurs for infinitely many distinct $j$-invariants. 
+\end{thm}
+
+
+\begin{cor} % 1.2
+For any $n \geq 9$, and any elliptic curve $E/\Q$, the image of $\rho_{E,n}$ is non-abelian. 
+\end{cor}
+
+
+\begin{thm} % 1.3
+Let $E/\Q$ be an elliptic curve with complex multiplication by an imaginary quadratic field $K$, with discriminant $d_K$. If there is an integer $n \geq 2$ such that $\Q(E[n])= \Q(\zeta_n)$, then $n= 2$, or 3. More generally, if $\Q(E[n])/\Q$ is abelian, then $n= 2, 3$ or 4. Moreover, $\Gal(\Q(E[n])/\Q)$ is isomorphic to one of the following groups:
+        \begin{table}[!ht]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|} \hline
+        $n$ & \multicolumn{2}{c|}{2} & 3 & 4 \\ \hline
+        $d_K$ & $-4$ & $-3, -7, -8$ & $-3$ & $-4$ \\ \hline
+        \multirow{2}{*}{$\Gal(\Q(E[n])/\Q)$} & $\{0\}$ & $\Z/2\Z$ & $\Z/2\Z$ & $(\Z/2\Z)^2$ \\
+         & $\Z/2\Z$ &  & $(\Z/2\Z)^2$ & $(\Z/2\Z)^3$ \\ \hline
+        \end{tabular}
+        \end{table}
+\end{thm}
+
+
+The following result is a criterion to decide whether a given point is twice another point over the same field (see [19, Theorem 4.2]).
+
+
+\begin{prop} % 2.4
+Let $E/K$ be an elliptic curve defined over a number field $K$, given by
+	\[
+	E \colon y^2= (x - \alpha)(x - \beta)(x - \gamma)
+	\]
+with pairwise distinct $\alpha, \beta, \gamma \in K$. For $P= (x_0, y_0) \in E(K)$, there exists $Q \in E(K)$ such that $2Q= P$ if and only if $x_0 - \alpha, x_0 - \beta$, and $x_0 - \gamma$ are all squares in $K$. 
+\end{prop}
+
+
+As a corollary of the previous criterion, we deduce a description of the 4-torsion of an elliptic curve.
+
+
+\begin{cor}
+Let $E/F$ be an elliptic curve defined over a number field $F$, given by
+	\[
+	E \colon y^2=  (x - \alpha)(x - \beta)(x - \gamma)
+	\]
+with $\alpha, \beta, \gamma \in \ov{F}$. Then,
+	\[
+	F(E[4])= F \left( \sqrt{\pm (\alpha - \beta)}, \sqrt{\pm (\alpha - \gamma)}, \sqrt{\pm (\beta - \gamma)} \right)= F \left( \sqrt{-1}, \sqrt{\alpha - \beta}, \sqrt{\alpha - \gamma}, \sqrt{\beta - \gamma} \right). 
+	\]
+\end{cor}
+
+\pf This follows directly from Proposition~2.4, and the fact that
+	\[
+	2E[4]= E[2]= \{ \cO, (\alpha,0), (\beta,0), (\gamma,0) \}.
+	\]
+\qed 
+
+
+\begin{thm} % 2.6
+There are at most eight $\Q$-isomorphism classes of elliptic curves in each $\Q$-isogeny class. More concretely, let $E/\Q$ be an elliptic curve, define $C(E)$ as the number of distinct $\Q$-rational cyclic subgroups of $E$ (including the identity subgroup), and let $C_p(E)$ be the same as $C(E)$ but only counting cyclic subgroups of order a power of $p$, for each prime $p$. Then, $C(E)= \prod_p C_p(E) \leq 8$. Moreover, each factor $C_p(E)$ is bounded as follows:
+	\begin{table}[!ht]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|c}
+	$p$ & 2 & 3 & 5 & 7 & 11 & 13 & 17 & 19 & 37 & 43 & 67 & 163 \\ \hline
+	$C_p \leq$ & 8 & 4 & 3 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2
+	\end{tabular}
+	\end{table}
+\end{thm}
+
+
+
+The next result we quote describes the possible isomorphism types of $\Gal(\Q(E[p])/\Q)$. In particular, fix a $\Z/p\Z$-basis of $E[p]$, and let $\rho_{E,p} \colon \Gal(\ov{\Q}/\Q) \to \GL(E[p]) \cong \GL(2,\Z/p\Z)$ be the representation associated to the natural action of Galois on $E[p]$, with respect to the chosen basis of $E[p]$. Then, $\Gal(\Q(E[p])/\Q) \cong \rho_{E,p}(\Gal(\ov{\Q}/\Q)) \subseteq \GL(E[p]) \cong \GL(2,\Z/p\Z)$. 
+
+
+\begin{thm} % 2.7
+Serre, [35]. Let $E/\Q$ be an elliptic curve. Let $G$ be the image of $\rho_{E,p}$, and suppose $G \neq \GL(E[p])$. Then, there is a $\Z/p\Z$-basis of $E[p]$ such that one of the following possibilities holds:
+	\begin{enumerate}[(1)]
+	\item $G$ is contained in the normalizer of a split Cartan subgroup of $\GL(E[p])$, or
+	\item $G$ is contained in the normalizer of a non-split Cartan subgroup of $\GL(E[p])$, or
+	\item The projective image of $G$ in $\PGL(E[p])$ is isomorphic to $A_4, S_4$ or $A_5$, where $S_n$ is the symmetric group and $A_n$ is the alternating group, or
+	\item $G$ is contained in a Borel subgroup of $\GL(E[p])$. 
+	\end{enumerate}
+\end{thm}
+
+
+Rouse and Zureick-Brown have classified all the possible 2-adic images of $\rho_{E,2} \colon \Gal(\ov{\Q}/\Q) \to \GL(2,\Z_2)$ (see previous results of Dokchitser and Dokchitser [8] on the surjectivity of $\rho_{E,2} \mod 2^n$), and Sutherland and Zywina have conjectured the possibilities for the mod $p$ image for all primes $p$.
+
+
+\begin{conj} % 2.9
+(Sutherland, Zywina, [39]). Let $E/\Q$ be an elliptic curve. Let $G$ be the image of
+$\rho_{E,p}$. Then, there are precisely 63 isomorphism types of images.
+\end{conj}
+
+
+The $\Q$-rational points on the modular curves $X_0(N)$ have been described completely in the literature, for all $N \geq 1$. One of the most important milestones in their classification was [26], where Mazur dealt with the case when $N$ is prime. The complete classification of $\Q$-rational points on $X_0(N)$, for any $N$, was completed due to work of Fricke, Kenku, Klein, Kubert, Ligozat, Mazur and Ogg, among others (see [9, eq. (80)]; [10]; [11], [12, pp. 370-458]; [14, p. 1889]; [24]; [2]; [26]; [16]; or the summary tables in [22]).
+
+
+\begin{thm} % 2.10
+Let $N \geq 2$ be such that $X_0(N)$ has a non-cuspidal $\Q$-rational point. Then
+	\begin{enumerate}[(i)]
+	\item $N \leq 10$, or $N=$ 12, 13, 16, 18, or 25. In this case, $X_0(N)$ is a curve of genus 0 and its $\Q$-rational points form an infinite 1-parameter family, or
+	\item $N=$ 11, 14, 15, 17, 19, 21, or 27. In this case $X_0(N)$ is a curve of genus 1, i.e. $X_0(N)$ is an elliptic curve over $\Q$, but in all cases the Mordell-Weil group $X_0(N)(\Q)$ is finite, or
+	\item $N=$ 37, 43, 67, or 163. In this case, $X_0(N)$ is a curve of genus $\geq 2$ and (by Faltings' theorem) there are only finitely many $\Q$-rational points. 
+	\end{enumerate}
+In particular, a rational elliptic curve may only have a rational cyclic $n$-isogeny for $n \leq 19$ or $n \in \{21,25,27,37,43,67,163\}$. Furthermore, if $E$ does not have CM, then $n \leq 18$ or $n \in \{21,25,37\}$.
+\end{thm}
+
+
+In this section (\S6) we describe the parametrizations of elliptic curves $E$ over $\Q$ with cyclotomic or abelian division fields $\Q(E[n])$.
+
+
+In this section (\S7) we include four tables that summarize our findings and provide concrete examples of elliptic curves (or families of elliptic curves) with each possible isomorphism type of abelian division field, and torsion structure over $\Q$.
+
+
+
+% UNIFORM BOUNDEDNESS IN TERMS OF RAMIFICATION - ALVARO LOZANO-ROBLEDO 
+\subsection{UNIFORM BOUNDEDNESS IN TERMS OF RAMIFICATION - ALVARO LOZANO-ROBLEDO }
+
+
+\begin{dfn} % 1.1
+For each $n \geq 1$, we define $S^n(d)$ as the set of primes $p$ for which there exists a number field $F$ of degree $\leq d$ and an elliptic curve $E/F$ such that $E(F)$ contains a point of exact order $p^n$. We also define $T(d)$ as the supremum of $|E(F)_\tors|$, over all $F$ and $E$ as above. Finally, we define $S^n_{\text{non-CM}}(d)$ (resp. $S^n_{\text{CM}}(d)$) as before, except that we may only consider elliptic curves $E/F$ without CM (resp. with CM). 
+\end{dfn}
+
+
+We remark that $S^{n+1}(d) \subseteq S^n(d)$ for all $n \geq 1$, and if $p \in S^n(d)$, then $p^n \leq T(d)$. Mazur [31] has shown that $S^1(d)= \{ 2,3,5,7 \}$ and $T(1)= 16$. Results of Kenku, Kamienny, and Momose imply that $S^1(2)= \{ 2,3,5,7,11,13 \}$ and $T(2)= 24$. Parent determined $S^1(3)= S^1(2)$. In addition, Derickx, Kamienny, Stein, and Stoll ([6]) have shown that $S^1(4)= S^1(3) \cup \{17\}$, $S^1(5)= S^1(4) \cup \{19\}$, $S^1(6)= S^1(5) \cup \{37\}$, and $S^1(7) \subseteq \{ p \leq 23 \} \cup \{ 37,43,59,61,67,71,73,113,127 \}$. Let us cite Merel, Oesterl\'e, and Parent’s work more precisely (Oesterl\'e's bound is unpublished, but appears in [6]).
+
+
+\begin{thm} % 1.2
+Merel [33], Parent [37]. Let $d > 1$ be a fixed integer.
+	\begin{enumerate}[(1)]
+	\item (Merel, 1996) $T(d)$ is finite. Moreover, if $p \in S^1(d)$, then $p \leq d^{3d^2}$.
+	\item (Oesterl\'e, 1996) If $p \in S^1(d)$, then $p \leq (1 + 3^{d/2})^2$.
+	\item (Parent, 1999) If $p \in S^n(d)$, then $p^n \leq 129(5^d - 1)(3d)^6$. 
+	\end{enumerate}
+\end{thm}
+
+
+It is a ``folklore'' conjecture that $T(d)$ should be sub-exponentially bounded (see for instance [12], [15]). We reproduce an explicit version of the conjecture, as in Conjecture~1 of [3].
+
+
+\begin{conj} % 1.3
+There is a constant $C_1$ such that $T(d) \leq C_1 \cdot d \log \log d$, for all $d \geq 1$.
+\end{conj}
+
+
+Flexor and Oesterl\'e ([12]) have shown that if $E/F$ has at least one place of additive reduction, then $|E(F)_\tors| \leq 48d$, and if it has at least two places of additive reduction, then $|E(F)_\tors| \leq 12$. Hindry and Silverman ([15, Theoreme 1]) show that if $E/F$ has everywhere good reduction then $|E(F)_\tors| \leq 1977408 \cdot d \log d$. Turning our attention once again to $S^n(d)$, we propose the following conjecture. 
+
+
+\begin{conj} % 1.4
+There is a constant $C_2$ such that if $p \in S^n(d)$, then $\phi(p^n) \leq C_2 \cdot d$, for all $d \geq 1$. 
+\end{conj}
+
+
+If we restrict our attention to CM curves, then Conjecture~1.4 follows from work of Silverberg ([42]), and Prasad and Yogananda ([38]; see also [3]), and the constant is $\leq 6$, i.e., if $p \in S^n_{\text{CM}}(d)$, then $\phi(p^n) \leq 6d$.  See Theorem~6.9 below for a precise statement. In addition, in [28], the author has shown that Conjecture 1.4 holds (with $C_2= 24$) when $E/F$ has potential supersingular reduction at a prime above $p$.
+
+
+\begin{thm} % 1.5 (not typed below), 1.3 (original)
+Let $p$ be a prime, let $d \geq 1$ be a fixed integer, let $F$ be a number field of degree $\leq d$, and let $E/F$ be an elliptic curve, such that $E(F)$ contains a point of exact order $p^n$. Suppose that $F$ has a prime $\fB$ over $p$ such that $E/F$ has potential good supersingular reduction at $\fB$. Then, 
+	\[
+	\phi(p^n) \leq
+	\begin{cases}
+	24e(\fB \vbar p) \leq 24d & \text{if } p= 2, \\
+	12e(\fB \vbar p) \leq 12d & \text{if } p= 3, \\
+	6e(\fB \vbar p) \leq 6d & \text{if } p > 3,
+	\end{cases}
+	\]
+and $e(\fB \vbar p)$ is the ramification index of $\fB$ in $F/\Q$. 
+\end{thm}
+
+
+\begin{dfn}
+Let $L$ be a fixed number field, let $d$ be an integer with $d \geq [L \colon \Q]$, and let $S^n_L(d)$ be the set of pairs $(p, F)$, where $p$ is a prime for which there exists a finite extension $F/L$ of number fields $[F \colon \Q] \leq d$, and an elliptic curve $E/L$ (either without CM, or with CM by a maximal order), such that $E(F)_\tors$ contains a point of exact order $p^n$. If $\Sigma \subseteq L$ is specified, then $S^n_L(d, \Sigma)$ is as before, except that we only consider elliptic cures $E$ with $j(E) \notin \Sigma$. Finally, we define $S^n_{L, \text{max-CM}}(d)$ when we restrict to curves $E/L$ with CM by a maximal order. 
+\end{dfn}
+
+
+In [27], we showed that if $p \in S^1_\Q(d)$
+
+with $p \geq 11$ and $p \neq 13$, then $\phi(p) \leq 3d$, and if $p \neq 37$, then $\phi(p) \leq 2d$. 
+
+
+Moreover, we gave a conjectural formula for $S^1_\Q(d)$, and showed that the formula holds for all $1 \leq d \leq 42$. Our theorems here provide bounds in terms of certain ramification indices that we define next. In the rest of the paper, if $\F$ is a number field or a local field, then $\O_\F$ denotes its ring of integers.
+
+
+\begin{dfn}
+Let $p$ be a prime, and let $F/L$ be an extension of number fields. We define $e_{\min}(p, F/L)$ (resp. $e_{\max}(p, F/L)$) as the smallest (resp. largest) ramification index $e(\fB \vbar \wp)$ for a prime $\fB$ of $\cO_F$ over a prime $\wp$ of $\cO_L$ lying above the rational prime $p$. 
+\end{dfn}
+
+
+Now we can state our main theorems.
+
+
+\begin{thm} % 1.8
+Let $F$ be a number field with degree $[F \colon \Q]= d \geq 1$, and let $p$ be a prime such that $(p, F) \in S^n_{\text{max-CM}}(d)$. Then,
+	\[
+	\phi(p^n) \leq 12 \cdot e_{\max}(p, F/\Q) \leq 12d. 
+	\]
+\end{thm}
+
+
+\begin{thm} % 1.9
+Let $L$ be a number field, and let $p > 2$ be a prime with $(p, F) \in S^n_L(d)$. Then, there is a constant $C_L$ such that 
+	\[
+	\phi(p^n) \leq C_L \cdot e_{\max}(p, F/\Q) \leq C_L \cdot d.
+	\]
+Moreover, there is a computable finite set $\Sigma_L$ such that if $(p, F) \in S^n_L(d, \Sigma_L)$, then
+	\[
+	\phi(p^n) \leq 588 \cdot e_{\max}(p, F/\Q) \leq 588 \cdot d.
+	\]
+\end{thm}
+
+
+The finite set $\Sigma_L$ is computable (or decidable) in the sense that given $j_0 \in L$, there is an algorithm to check whether $j_0$ belongs to $\Sigma_L$. We emphasize here that the notation $S^n_L(d)$, as in Definition~1.6, excludes elliptic curves with CM by non-maximal orders for technical reasons (that we hope to address in future work). However, there are only finitely many elliptic curves with CM by nonmaximal orders defined over $L$, so such $j$-invariants could be included in $\Sigma_L$, and the second bound in Theorem~1.9 would apply to all elliptic curves $E$ defined over $L$ with $j(E)$ not in the finite set $\Sigma_L$.
+
+
+When $L= \Q$, the set $\Sigma_L$ can be made explicit (it is formed by the six $j$-invariants without CM of Table~1 of Section~3), and our methods yield an improved bound.
+
+
+\begin{thm} % 1.10
+If $p > 2$ and $(p, F) \in S^n_\Q(d)$, then $\phi(p^n) \leq 222 \cdot e_{\max}(p, F/\Q) \leq 222 \cdot d$. 
+\end{thm}
+
+
+In light of Theorems~1.5, 1.8, 1.9, and 1.10, we revisit Conjecture~1.4 and propose the following stronger version.
+
+
+\begin{conj} % 1.11
+There is a constant $C_3$ such that if $(p, F) \in S^n(d)$ for a prime $p$ and an extension $F/\Q$ of degree $\leq d$, then
+	\[
+	\phi(p^n) \leq C_3 \cdot e_{\max}(p, F/\Q) \leq C_3 \cdot d. 
+	\]
+\end{conj}
+
+
+Theorem~1.5 shows Conjecture~1.11 when $E/F$ has a prime of potential supersingular reduction above $p$, with $C_3= 24$. When $E/F$ has at least one prime $\fB$ of additive reduction, then Conjecture~1.11 follows from the aforementioned work of Flexor and Oesterl\'e ([12, Theorem 2 and Remarque 2]), for they in fact show that $|E(F)_\tors| \leq 48 e(\fB \vbar p)$, where $e(\fB \vbar p)$ denotes the ramification index of
+$\fB$ over $(p)$ in $F/\Q$. 
+
+
+Our theorems follow from explicit lower bounds (divisibility properties, in fact) on the ramification of primes above $p$, in the extensions generated by points of $p$-power order, and recent work of Larson and Vaintrob on isogenies ([23]). In Section~2 we state our refined bound (Theorem~2.1), we specialize the bounds to elliptic curves over $\Q$ in Theorem~2.2 (which proves Theorem~1.10). The proof of Theorem~1.8 will be delayed to Section~6.3 (see Theorem~6.10), and we put everything together to prove Theorem~1.9 in Section~8. 
+
+
+
+
+
+
+
+
+
+
+
+% A CLASSIFICATION OF ISOGENY-TORSION GRAPHS OF Q-ISOGENY CLASSES OF ELLIPTIC CURVES - GAREN CHILOYAN AND ALVARO LOZANO-ROBLEDO
+\subsection{A CLASSIFICATION OF ISOGENY-TORSION GRAPHS OF Q-ISOGENY CLASSES OF ELLIPTIC CURVES - GAREN CHILOYAN AND ALVARO LOZANO-ROBLEDO}
+
+\begin{thm} % 1.2
+There are 26 isomorphism types of isogeny graphs that are associated to elliptic curves defined over $\Q$. More precisely, there are 16 types of (linear) $L_k$ graphs, 3 types of (nonlinear two-primary torsion) $T_k$ graphs, 6 types of (rectangular) $R_k$ graphs, and 1 type of (special) $S$ graph. The possible configurations and labels of isogeny graphs are listed in the first two columns of Tables 1 through 4 (see Section 2). Moreover, there are 11 isomorphism types of isogeny graphs that are associated to elliptic curves over $\Q$ with complex multiplication, namely the types $L_2(p)$ for $p= 2,3,11,19,43,67$, or 163, and types $L_4$, $T_4$, $R_4(6)$, and $R_4(14)$ (and examples are given in Table~5). Finally, the type $L_4$ occurs exclusively for elliptic curves with CM.
+\end{thm}
+
+
+\begin{thm} % 1.3
+There are 52 isomorphism types of isogeny-torsion graphs that are associated to
+elliptic curves defined over $\Q$. In particular, there are 23 types of $L_k$ graphs, 13 types of $T_k$ graphs, 12 types of $R_k$ graphs, and 4 types of $S$ graphs. The possible configurations of isogeny-torsion graphs are listed in the third column of Tables 1 through 4. Moreover, there are 16 isomorphism types of isogeny-torsion graphs that are associated to elliptic curves over $\Q$ with complex multiplication (and
+examples are given in Table~5).
+\end{thm}
+
+
+\begin{dfn} % 4.2
+Let $E/\Q$ be an elliptic curve. We define $C(E)$ as the number of distinct finite
+$\Q$-rational cyclic subgroups of $E$ (including the trivial subgroup), and we define $C_p(E)$ similarly to $C(E)$ but only counting $\Q$-rational cyclic subgroups of order a power of $p$ (like in the definition of $C(E)$, this includes the trivial subgroup), for each prime $p$.
+\end{dfn}
+
+
+\begin{thm}[Kenku [7]] % 4.3
+There are at most eight $\Q$-isomorphism classes of elliptic curves in each $\Q$-isogeny class. More concretely, let $E/\Q$ be an elliptic curve, then $C(E)= \prod_p C_p (E) \leq 8$. Moreover, each factor $C_p(E)$ is bounded below as follows:
+	\begin{table}[!ht]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|c|c}
+	$p$ & 2 & 3 & 5 & 7 & 11 & 13 & 17 & 19 & 37 & 43 & 67 & 163 & else \\ \hline
+	$C_p \leq$ & 8 & 4 & 3 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 1
+	\end{tabular}
+	\end{table}
+Moreover,
+	\begin{enumerate}[(1)]
+	\item If $C_p(E)= 2$ for a prime $p$ greater than 7, then $C_q(E)= 1$ for all other primes $q$.
+	\item Suppose $C_7(E)= 2$, then $C(E) \leq 4$. Moreover, we have $C_3(E)= 2$, or $C_2(E)= 2$, or $C(E)= 2$.
+	\item $C_5(E) \leq 3$ and if $C_5(E)= 3$, then $C(E)= 3$.
+	\item If $C_5(E)= 2$, then $C(E) \leq 4$. Moreover, either $C_3(E)= 2$, or $C_2(E)= 2$, or $C(E)= 2$.
+	\item $C_3(E) \leq 4$ and if $C_3(E)= 4$, then $C(E)= 4$. 
+	\item If $C_3(E)= 3$, then $C(E) \leq 6$. Moreover, $C_2(E)= 2$ or $C(E)= 3$.
+	\item If $C_3(E)= 2$, then $C_2(E) \leq 4$. 
+	\end{enumerate}
+\end{thm}
+
+
+
+% ON THE MINIMAL DEGREE OF DEFINITION OF p-PRIMARY TORSION - SUBGROUPS OF ELLIPTIC CURVES - ENRIQUE GONZALEZ–JIMENEZ AND ALVARO LOZANO-ROBLEDO
+\subsection{ON THE MINIMAL DEGREE OF DEFINITION OF p-PRIMARY TORSION - SUBGROUPS OF ELLIPTIC CURVES - ENRIQUE GONZALEZ–JIMENEZ AND ALVARO LOZANO-ROBLEDO}
+
+Let $E$ be an elliptic curve defined over $\Q$, let $p$ be a prime number, and let $N \geq 1$. Let $\ov{\Q}$ be a fixed algebraic closure of $\Q$, and let $E[p^N]$ be the subgroup of algebraic points on $E(\ov{\Q})$ that are torsion points of order dividing $p^N$. In other words, $E[p^N]$ is the kernel of the multiplication-by-$p^N$ map $[p^N]: E \to E$. Let $T \subseteq E[p^N]$ be a $p$-subgroup. The central object of this article is the field of definition of $T$, namely $\Q(T):= \Q(\{x(P), y(P) \colon P= (x(P), y(P)) \in T \})$. 
+
+
+In this article, we fix a number field $K$ and we study the minimal degree $[K(T) \colon K]$ of a subgroup $T \subseteq E(\ov{K})_\tors$ with $T \cong \Z/p^s\Z \oplus \Z/p^N\Z$ for an elliptic curve $E/K$ defined over $K$. However, we are able to show that there are certain uniform bounds for the minimal degree of definition of $T$.
+
+
+\begin{thm} % 1.1
+Let $p$ be a prime, let $K$ be a number field, and let $E/K$ be an elliptic curve defined over $K$ without complex multiplication. Let $0 \leq s \leq N$ be integers, and let $T_{s,N} \subseteq E(\ov{K})_\tors$ with $T_{s,N} \cong \Z/p^s\Z \oplus \Z/p^N\Z$. Then:
+	\begin{enumerate}[(1)]
+	\item There are positive integers $n= n(K,p)$, $g_{s,M}(K,p)$, and $m_{s,M}(K,p)$, for $0 \leq s \leq n$ and $M= \min\{n,N\}$, that depend on $K$ and $p$ but not on the choice of $E/K$ or $T_{s,N}$ such that the degree $[K(T_{s,N}) \colon K]$ is divisible by $g_{s,M}(K,p) \cdot \max\{1,p^{2N - 2n}\}$, and $[K(T_{s,N}) \colon K] \geq m_{s,M}(K,p) \cdot \max\{1,p^{2N - 2n} \}$ if $s < n$, and the degree is divisible by $g_{n,n}(K,p) \cdot p^{2N + 2s - 4n}$, and $[K(T_{s,N}) \colon K] \geq m_{n,n}(K,p) \cdot p^{2N + 2s - 4n}$ if $n \leq s \leq N$. 
+	\item For a fixed $E/K$, and for all but finitely many primes $p$, we have
+		\[
+		[K(T_{s,N}) \colon K]= 
+		\begin{cases}
+		(p^2 - 1) p^{2N - 2}, & \text{if } s= 0, \\
+		(p - 1)(p^2 - 1) p^{2N + 2s - 3}, & \text{if } s \geq 1
+		\end{cases}
+		\]
+	\end{enumerate}
+\end{thm}
+
+
+The integer $n(K,p)$ that appears in Theorem~1.1 is the smallest integer such that the image of the $p$-adic Galois representation $\rho_{E,p^\infty}$ is completely defined modulo $p^{n(K,p)}$ for all elliptic curves $E/K$ without complex multiplication. 
+
+
+\begin{thm} % 1.2
+Let $E/\Q$ be an elliptic curve defined over $\Q$ without CM, and let $P \in E[2^N]$ be a point of exact order $2^N$, with $N \geq 4$. Then, the degree $[\Q(P) \colon \Q]$ is divisible by $2^{2N - 7}$. Moreover, this bound is best possible, in the sense that there is a one-parameter family $E_t$ of elliptic curves over $\Q$ such that, for each $t \in \Q$, there is a point $P_{t,N} \in E_t(\ov{\Q})$ of exact order $2^N$, such that
+	\[
+	[\Q(P_{t,N}) \colon \Q]= 2^{2N - 7}
+	\]
+\end{thm}
+
+
+The family mentioned in the statement of Theorem~1.2 is $\cX_{235l}$, which parametrizes all elliptic curves over $\Q$ with 2-adic image $\cX_{235l}$ in the notation of [16] (see Section 4). One concrete member of the family is the curve with Cremona label [7] \texttt{210e1}, given in Weierstrass form by $E \colon y^2 + xy = x^3 + 210x + 900$.
+
+
+\begin{cor} % 1.3
+Let $E/\Q$ be an elliptic curve without CM, and let $F/\Q$ be an extension of degree $d \geq 1$. Then $E(F)$ can only contain points of order $2^N$ with $N \leq (\log_2(d) + 7)/2$. More precisely, if $\nu_2$ is the usual 2-adic valuation, then $E(F)$ can only contain points of order $2^N$ with $N \leq \lfloor \frac{\nu_2(d) + 7}{2} \rfloor$. 
+\end{cor}
+
+
+Exploiting recent work of Rouse and Zureick-Brown [16] that classifies all possible 2-adic images for elliptic curves over $\Q$, one can calculate explicitly the constants $g_{s,N}(\Q,2)$ of Theorem~1.1 and calculate the minimal degree of definition of various subgroups of $E[2^N]$, for an elliptic curve $E$ defined
+over $\Q$. As before, Mazur’s theorem implies that the 2-primary component of any torsion subgroup $E(\Q)_\tors$ is isomorphic to a subgroup of $\Z/2\Z \oplus \Z/8\Z$, while the theorems of Kenku, Kamienny, and Momose imply that the 2-primary components defined over a quadratic field are isomorphic to subgroups of $\Z/16\Z, \Z/\2Z \oplus \Z/8\Z$, or $\Z/4\Z \oplus \Z/4\Z$. Our second main theorem, gives the best
+possible (divisibility) bound for the degree of definition of any torsion subgroup $T \cong \Z/2^s\Z \oplus \Z/2^N\Z$, for any $0 \leq s \leq N$, for an elliptic curve over $\Q$ without CM.
+
+
+\begin{thm} % 1.4
+Let $E/\Q$ be an elliptic curve without CM. Let $1 \leq s \leq N$ be fixed integers, and let $T \subseteq E[2^N]$ be a subgroup isomorphic to $\Z/2^s\Z \oplus \Z/2^N\Z$. Then, $[\Q(T) \colon \Q]$ is divisible by 2 if $s= N= 2$, and otherwise by $2^{2N + 2s - 8}$ if $N \geq 3$, unless $s \geq 4$ and $j(E)$ is one of the two values
+	\[
+	- \dfrac{3 \cdot 18249920^3}{17^{16}} \text{ or } - \dfrac{7 \cdot 1723187806080^3}{79^{16}}
+	\]
+in which case $[\Q(T) \colon \Q]$ is divisible by $3 \cdot 2^{2N + 2s - 9}$. Moreover, this bound is best possible, in the sense that there are one-parameter families $E_{s,N}(t)$ of elliptic curves over $\Q$ such that, for each $s,N \geq 0$ and each $t \in \Q$, and subgroups $T_{s,N} \in E_{s,N}(t)(\ov{\Q})$ isomorphic to $\Z/2^s\Z \oplus \Z/2^N\Z$ such that $[\Q(T_{s,N}) \colon \Q]$ is equal to the bound given above. 
+\end{thm}
+
+
+We remark here that the 2-torsion subgroups that are not covered by Theorems 1.2 and 1.4, namely those that correspond to pairs $(s, N) = (0, 1), (0, 2), (0, 3), (1, 1)$, and (1, 2), are known to appear infinitely many times as defined over $\Q$, by Mazur’s theorem (Theorem 2.1). Also, it is worth pointing out that the two $j$-invariants that appear in the statement of Theorem 1.4 are two of the $j$-invariants that appear in Theorem 1.1 and Table 1 of [16].
+
+
+For $p > 2$, the classification of all possible p-adic images of Galois representations associated to elliptic curves $E/\Q$ is not known. In fact, the classification of all possible mod-$p$ images is not known, since we do not know whether there are elliptic curves without CM such that the mod-$p$ image is contained in a normalizer of a non-split Cartan subgroup of $\GL(2, \Z/p\Z)$ when $p \geq 13$ (see the introduction of [12] for a discussion of this topic). However, Sutherland and Zywina ([20], [21]) have
+a list of 63 mod-p images that do occur for non-CM curves $E/\Q$, and that would be the complete list if the answer to Serre’s uniformity question is positive. Using this list of images, we can show the following theorem about $p$-adic representations that are defined modulo $p$, i.e., for those $p$-adic images that are the full inverse image of their mod-$p$ image.
+
+
+\begin{thm} % 1.6
+Let $E/\Q$ be an elliptic curve without CM, and let $p$ be a prime such that
+	\begin{enumerate}
+	\item[(A)] the image $G_1$ of $\rho_{E,p} \colon \Gal(\ov{\Q}/\Q) \to \GL(2,\Z/p\Z)$ is not contained in the normalizer of a non-split Cartan subgroup.	
+	\end{enumerate}
+In addition, let us assume that either $(B)$ or $(C)$ occurs, where
+	\begin{enumerate}
+	\item[(B)] $p$ is not in the set $S= \{ 2,3,5,7,11,13,17,37\}$, or
+	\item[(C)] if $p \in S$, we suppose that the $p$-adic image $G$ of $\rho_{E,p^\infty}$ is defined modulo $p$, i.e., the image $G$ of $\rho_{E,p^\infty}$ is the full inverse image of $G_1= \rho_{E,p}(\Gal(\ov{\Q}/\Q))$ under mod-$p$ reduction.
+	\end{enumerate}
+Let $T= T_{s,N} \cong \Z/p^s\Z \oplus \Z/p^N\Z \subseteq E[p^N]$ be a subgroup. Then,
+	\begin{enumerate}[(1)]
+	\item For a fixed $G_1= \rho_{E,p}(\Gal(\ov{\Q}/\Q))$, the degree $[\Q(T) \colon \Q]$ is divisible by $g_{0,1}(G_1) \cdot p^{2N - 2}$, and $[\Q(T) \colon \Q] \geq m_{0,1}(G_1) \cdot p^{2N - 2}$ if $s= 0$, and $[\Q(T) \colon \Q]$ is divisible by $g_{1,1}(G_1) \cdot p^{2N + 2s - 4}$, and $[\Q(T) \colon \Q] \geq m_{1,1}(G_1) \cdot p^{2N + 2s - 4}$ if $s \geq 1$, where the constants $g_{k,1}(G_1)$ and $m_{k,1}(G_1)$ are given in Tables~5 and 6 for $k= 0,1$. 
+	\item In general, $[\Q(T) \colon \Q]$ is divisible by $g_{0,1}(\Q,p) \cdot p^{2N - 2}$, and $[\Q(T) \colon \Q] \geq m_{0,1}(\Q,p) \cdot p^{2N - 2}$ if $s= 0$, and divisible by $g_{1,1}(\Q,p) \cdot p^{2N + 2s - 4}$, and $[\Q(T) \colon \Q] \geq m_{1,1}(\Q,p) \cdot p^{2N + 2s - 4}$ if $s \geq 1$, where the constants $g_{k,1}(\Q,p)$ and $m_{k,1}(\Q,p)$ are given in Table~2 for $k= 0,1$. 
+		\begin{table}[!ht] % tab 2
+		\centering
+		\begin{tabular}{c|cc|cc} \hline
+		$p$ & $g_{0,1}(\Q,p)$ & $m_{0,1}(\Q,p)$ & $g_{1,1}(\Q,p)$ & $m_{1,1}(\Q,p)$ \\ \hline
+		2 & 1 & 1 & 1 & 1 \\ 
+		3 & 1 & 1 & 2 & 2 \\
+		5 & 1 & 1 & 4 & 4 \\
+		7 & 1 & 1 & 6 & 18 \\
+		11 & 5 & 5 & 10 & 110 \\
+		13 & 1 & 3 & 12 & 288 \\
+		17 & 8 & 8 & 1088 & 1088 \\
+		37 & 12 & 12 & 15984 & 15984 \\
+		else & $p^2 - 1$ & $p^2 - 1$ & $(p-1)p(p^2 - 1)$ & $(p - 1)p(p^2 - 1)$ \\ \hline
+		\end{tabular}
+		\end{table}
+	\end{enumerate}
+\end{thm}
+
+
+\begin{rem} % 1.7
+All our results in this article are for elliptic curves without complex multiplication.
+In the CM case, there are known divisibility bounds for the field of definition of a point of order $N$ (and for $p$-primary torsion structures when the field of definition does not contain the quadratic field of complex multiplication) given by Silverberg [19], and Prasad and Yogananda [15]. More generally, Bourdon, Clark, and Pollack [6], have recently shown divisibility bounds for $p$-primary torsion structures, similar to those of our Theorem 1.6.
+\end{rem}
+
+
+
+
+
+In [17], Serre showed that the image of $\rho_{E,p^\infty}$ is as large as possible for all but finitely many prime numbers, as long as $E/K$ does not have complex multiplication.
+
+
+\begin{thm}[Serre [17]]
+Let $K$ be a number field, and let $E/K$ be an elliptic curve without complex multiplication. Then, $\rho_{E,p^\infty}(\Gal(\ov{K}/K))$ is an open subgroup of $\GL(2,\Z_p)$, and $\rho_{E,p^\infty}$ is surjective for all but finitely many primes. 
+\end{thm}
+
+
+Serre's open image theorem implies that there is a number $n= n(E/K,p)$ such that $1 + p^n M_2(\Z_p) \subseteq \rho_{E,p^\infty}(\Gal(\ov{K}/K))$. The following result shows that $n(E/K,p)$ can be made independent of the curve.
+
+
+\begin{thm}[Arai [1]] % 2.5
+Let $K$ be a number field, and let $p$ be a prime. Then, there exists an integer
+$n= n(K, p) \geq 1$ depending on $K$ and $p$ such that for any elliptic curve $E$ over $K$ with no complex multiplication, we have $1 + p^n M_2(\Z_p) \subseteq \rho_{E,p^\infty}(\Gal(\ov{K}/K))$. In other words, $\rho_{E,p^\infty}(\Gal(\ov{K}/K))$ is the full inverse image of $\rho_{E,p^n}(\Gal(\ov{K}/K))$ under reduction modulo $p^n$. 
+\end{thm}
+
+
+As a corollary of Arai's theorem, the image of $\rho_{E,p^\infty}$ is determined modulo $p^{n(K,p)}$, and so, the number of possible $p$-adic images (up to conjugation) is bounded above by the number of subgroups of $\GL(2, \Z/p^n\Z)$. Thus, we obtain that there are only finitely many possible p-adic images of $\rho_{E,p^\infty}$ over $K$ up to conjugation.
+
+
+\begin{cor} % 2.6
+Let $K$ be a number field, and let $p$ be a prime. Then, there is only a finite number
+$a(K,p) \geq 1$ of possibilities (up to conjugation) for the image of $\rho_{E,p^\infty} \colon \Gal(\ov{K}/K) \to \GL(2,\Z_p)$, for any elliptic curve $E/K$ without complex multiplication. In other words, there are subgroups $G^i$ of $\GL(2,\Z_p)$, for $1 \leq i \leq a(K,p)$, such that for any elliptic curve $E/K$ there is a number $j$ such that $\rho_{E,p^\infty}(\Gal(\ov{K}/K))$ is a conjugate of $G^j$ in $\GL(2,\Z_p)$.
+\end{cor}
+
+
+Rouse and Zureick-Brown have classified all the possible 2-adic images of $\rho_{E,2} \colon \Gal(\ov{\Q}/\Q) \to \GL(2,\Z_2)$, and have shown that $n(\Q,2)= 5$ and $a(\Q,2)= 1208$, with notation as in Arai’s theorem and its corollary.
+
+
+\begin{thm}[Rouse, Zureick-Brown] % 2.7
+Let $E$ be an elliptic curve over $\Q$ without complex multiplication. Then, there are exactly 1208 possibilities for the 2-adic image $\rho_{E,2^\infty}(\Gal(\ov{\Q}/\Q))$, up to conjugacy in $\GL(2,\Z_2)$. Moreover:
+	\begin{enumerate}[(1)]
+	\item The index of $\rho_{E,2^\infty}(\Gal(\ov{\Q}/\Q))$ in $\GL(2,\Z_2)$ divides 64 or 96.
+	\item The image of $\rho_{E,2^\infty}(\Gal(\ov{\Q}/\Q))$ is the full inverse image of $\rho_{E,2^5}(\Gal(\ov{\Q}/\Q))$ under reduction modulo $2^5$. 
+	\end{enumerate}
+\end{thm}
+
+
+The 1208 distinct possibilities for 2-adic images that are found in [16] are described
+in a few text files that can be found on the website listed in the references of this article. Each image has a label Xk or Xkt where k is a number and t is a letter (e.g., X2 or X58i). In particular, the files curvelist1.txt and curvelist2.txt are lists of examples of elliptic curves with each type of image, and the files gl2data.gz and gl2finedata.gz contain the descriptions of each image. The curves with each type of image come in 1-parameter families which are given in the file finemodels.tar.gz. See the article and website [16] for more info on how to interpret the files and notations. In addition, the website [16] contains links to individual websites with data about each 2-adic image. For instance, http://users.wfu.edu/rouseja/2adic/X441.html is the site for the image X441.
+
+
+% For p > 2, we know that the image of ρE,p : Gal(Q/Q) → GL(E[p]) is contained in one of the maximal subgroups of GL(E[p]) ∼= GL(2, Z/pZ). The best results known are summarized in the following result.
+
+% Theorem 2.9 (Serre, [17], §2; [18], Lemme 18; Mazur, [13]; Bilu, Parent, Rebolledo [3], [4]). Let E/Q be an elliptic curve without CM. Let G be the image of ρE,p, and suppose G 6= GL(E[p]). Then one of the following possibilities holds: (1) G is contained in a Borel subgroup of GL(E[p]), and p = 2, 3, 5, 7, 11, 13, 17, or 37; or (2) The projective image of G in PGL(E[p]) is isomorphic to A4, S4 or A5, where Sn is the symmetric group and An the alternating group, and p ≤ 13; or (3) G is contained in the normalizer of a split Cartan subgroup of GL(E[p]) and p ≤ 13, with p 6= 11; or (4) G is contained in the normalizer of a non-split Cartan subgroup of GL(E[p]).
+
+
+Sutherland has computed the mod-$p$ image of all the non-CM elliptic curves in Cremona’s tables and the Stein-Watkins database, some 140 million curves with conductors ranging up to 1012, and Zywina has described all known (and conjecturally all) proper subgroups of $\GL(2,\Z/p\Z)$ that occur as the image of $\rho_{E,p}$.
+
+
+\begin{conj}[Sutherland, [20]; Zywina, [21]]
+Let $E/\Q$ be an elliptic curve without CM, and let $p$ be a prime. Then, there is a set $S_p$ formed by $s_p= |S_p|$ isomorphism types of subgroups of $\GL(2,\F_p)$, where
+	\begin{table}[!ht]
+	\centering
+	\begin{tabular}{c|ccccccccc}
+	$p$ & 2 & 3 & 5 & 7 & 11 & 13 & 17 & 37 & else \\ \hline 
+	$s_p$ & 3 & 7 & 15 & 16 & 7 & 11 & 2 & 2 & 0 
+	\end{tabular}
+	\end{table}
+such that if $G$ is the image of $\rho_{E,p}$, then $G$ is conjugate to one of the subgroups in $S$, or $G \cong \GL(2,\F_p)$. 
+\end{conj}
+
+
+
+% Galois theory, discriminants and torsion subgroup of elliptic curves Irene García-Selfaa, Enrique González-Jiménezb, José M. Torneroc,
+\subsection{Galois theory, discriminants and torsion subgroup of elliptic curves Irene García-Selfaa, Enrique González-Jiménezb, José M. Torneroc,}
+
+Let $E$ be an elliptic curve defined over $\Q$. Let $p$ be a prime number and let $E[p]$ be the group of points of order $p$ on $E(\ov{\Q})$, where $\ov{\Q}$ denotes an algebraic closure of $\Q$. The action of the absolute Galois group $G_\Q= \Gal(\ov{\Q}/\Q)$ on $E[p]$ defines a mod $p$ Galois representation
+	\[
+	\rho_{E,p}: G_\Q \to \Aut(E[p]) \cong \GL_2(\F_p)
+	\]
+Let $\Q(E[p])$ be the number field generated by the coordinates of the points of $E[p]$. Therefore, the Galois extension $\Q(E[p])/\Q$ has Galois group
+	\[
+	\Gal(\Q(E[p])/\Q) \cong \rho_{E,p}(G_\Q)
+	\]
+For $p= 2$ it is known that $\rho_{E,2}(G_\Q)$ can be determined in terms of the discriminant $\Delta(E)$ and $E(\Q)[2]$, the points of order 2 defined over the rationals (cf. [20,19,21]):
+	\[
+	\rho_{E,2}(G_\Q) \cong
+	\begin{cases}
+	S_3 & \text{if } \sqrt{\Delta(E)} \notin \Q \text{ and } \#E(\Q)[2]= 1 \\
+	C_3 & \text{if } \sqrt{\Delta(E)} \in \Q \text{ and } \#E(\Q)[2]= 1 \\
+	C_2 & \text{if } \sqrt{\Delta(E)} \notin \Q \text{ and } \#E(\Q)[2] > 1 \\
+	\{\text{id}\} & \text{if } \sqrt{\Delta(E)} \in \Q \text{ and } \#E(\Q)[2] > 1
+	\end{cases}
+	\]
+where we denote by $C_n$ and $S_n$ the cyclic group of order $n$ and the symmetric group acting on $n$ elements, respectively.
+
+
+Note that $\GL_2(\F_2) \cong S_3$, the non-split Cartan subgroup of $\GL_2(\F_2)$ is isomorphic to $C_3$ and the conjugated Borel subgroup of $\GL_2(\F_2)$ is isomorphic to $C_2$.
+
+
+
+$E^{(i)}(a,b,c,d) \colon Y^2 = P^{(i)}(a,b,c,d)(X)$
+
+
+\begin{prop} % 1
+ Let $E$ be an elliptic curve defined over $\Q$ with a rational point of order 3 such that $\sqrt{\Delta(E)} \in \Q$. Then there exist $a,b,c,d \in \Z$ such that $E$ is $\Q$-isomorphic to either $E^{(1)}(a,b,c,d)$ or $E^{(2)}(a,b,c,d)$.
+\end{prop}
+
+
+\begin{prop} % 2
+Let $E$ be an elliptic curve with $C_5 \subset E(\Q)_\tors$. Then $\sqrt{\Delta(E)} \notin \Q$. 
+\end{prop}
+
+
+\begin{prop} % 3
+Let $E$ be an elliptic curve with $E(\Q)_\tors \cong C_7$. Then $\sqrt{\Delta(E)} \notin \Q$. 
+\end{prop}
+
+
+\begin{prop} % 4
+Let $E$ be an elliptic curve with $E(\Q)_\tors \cong C_9$. Then $\sqrt{\Delta(E)} \notin \Q$. 
+\end{prop}
+
+
+\begin{prop} % 5
+Let $E$ be an elliptic curve defined over $\Q$ such that $\Delta(E) \in \Q$. Then there exist $a,b,c,d \in \Z$ such that $E$ is $\Q$-isomorphic to $E_{\text{alt}}(a,b,c,d)$. Moreover, $E(\Q)_\tors$ is either trivial, non-cyclic or $C_3$. 
+\end{prop}
+
+
+Results summarized as (writing $E$ in short Weierstrass form so that $\Delta(E)= -2^4(4A^3 + 27B^2)$). 
+
+
+\begin{thm} % 1: Should be cursive S
+Let $E$ be an elliptic curve defined over $\Q$. Then
+	\begin{enumerate}[(1)]
+	\item If $E(\Q)_\tors$ is non-cyclic then $\sqrt{\Delta(E)} \in \Q$. 
+	\item If $E(\Q)_\tors \cong C_n$ for $n= 2,4,5,\ldots,10,12$ then $\sqrt{\Delta(E)} \notin \Q$.
+	\item $E(\Q)_\tors \cong C_3$ and $\sqrt{\Delta(E)} \in \Q$ if and only if there exist $a,b,c,d \in \Z$ such that $E$ is $\Q$-isomorphic to either $E^{(1)}(a,b,c,d)$ or $E^{(2)}(a,b,c,d)$ and the corresponding polynomial $P^{(i)}(a,b,c,d)$ is irreducible. 
+	\item $E(\Q)_\tors$ is trivial and $\sqrt{\Delta(E)} \in \Q$ if and only if there exist $a,b,c,d \in \Z$ such that $E$ is $\Q$-isomorphic to $E_{\text{alt}}(a,b,c,d)$ and $(a,b,c,d) \notin \mathcal{S}_2, \mathcal{S}_3$ where
+		\[
+		\begin{aligned}
+		\mathcal{S}_2&= \left\{ (a,b,c,d) \in \Z^4 \;|\; P_{\text{alt}}(a,b,c,d)(X) \text{ has root in } \Q \right\} \\
+		\mathcal{S}_3&= \left\{ (a,b,c,d) \in \Z^4 \;|\; \exists(\alpha,\beta) \in \Q^2, \text{ such that } \Psi_3(a,b,c,d)(\alpha)= 0 \text{ and } P_{\text{alt}}(a,b,c,d)(\alpha)= \beta^2 \right\}
+		\end{aligned}
+		\]
+	and $\Psi_3(a,b,c,d)(X)$ denotes, as customary, the 3-division polynomial attached to $E_{\text{alt}}(a,b,c,d)$. 
+	\end{enumerate}
+\end{thm}
+
+
+\begin{thm} % 2
+Let $E$ be an elliptic curve defined over $\Q$. Then
+	\begin{enumerate}[(1)]
+	\item $E(\Q)_\tors$ is non-cyclic if and only if $\rho_{E,2}(G_\Q)= \{\text{id}\}$.
+	\item $E(\Q)_\tors \cong C_{2n}$ if and only if $\rho_{E,2}(G_\Q) \cong C_2$.
+	\item If $E(\Q)_\tors \cong C_n$ for $n= 5,7,9$, then $\rho_{E,2}(G_\Q)= \GL_2(\F_2)$.
+	\item If $E(\Q)_\tors \cong C_3$ then $\rho_{E,2}(G_\Q) \cong C_3$ if and only if there exist $a,b,c,d \in \Z$ such that $E$ is $\Q$-isomorphic to either $E^{(1)}(a,b,c,d)$ or $E^{(2)}(a,b,c,d)$. Otherwise, $\rho_{E,2}(G_\Q)= \GL_2(\F_2)$. 
+	\item If $E(\Q)_\tors$ is trivial then $\rho_{E,2}(G_\Q) \cong C_3$ if and only if there exist $a,b,c,d \in \Z$ such that $E$ is $\Q$-isomorphic to $E_{\text{alt}}(a,b,c,d)$. Otherwise, $\rho_{E,2}(G_\Q)= \GL_2(\F_2)$.
+	\end{enumerate}
+\end{thm}
+
+
+	\begin{table}[!ht]
+	\centering
+	\begin{tabular}{c|c|c} \hline \\[-0.4cm]
+	$E(\Q)_\tors$ & $\sqrt{\Delta(E)} \in \Q$? & $\rho_{E,2}(G_\Q)$ \\[0.1cm] \hline
+	$\{\cO\}$ & Yes/No & $C_3/S_3$ \\
+	$C_2$ & No & $C_2$ \\
+	$C_3$ & Yes/No & $C_3/S_3$ \\
+	$C_4$ & No & $C_2$ \\
+	$C_5$ & No & $S_3$ \\
+	$C_6$ & No & $C_2$ \\
+	$C_7$ & No & $S_3$ \\
+	$C_8$ & No & $C_2$ \\
+	$C_9$ & No & $S_3$ \\
+	$C_{10}$ & No & $C_2$ \\
+	$C_{12}$ & No & $C_2$ \\
+	$C_2 \times C_2$ & Yes & $\{\text{id}\}$ \\
+	$C_2 \times C_4$ & Yes & $\{\text{id}\}$ \\
+	$C_2 \times C_6$ & Yes & $\{\text{id}\}$ \\
+	$C_2 \times C_8$ & Yes & $\{\text{id}\}$
+	\end{tabular}
+	\end{table}
+
+
+
